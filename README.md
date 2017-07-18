@@ -1,2 +1,35 @@
-# powershell-lib
+# PowerShell-Lib
 A library of helpful PowerShell functions.
+
+## Modules
+- **App**
+  - Get-InstalledApps
+- **Docker**
+  - Install-Docker
+  - Set-DockerMachineEnv
+  - Start-Docker
+  - Start-DockerRegistry
+  - Stop-DockerStack
+  - Test-DockerInSwarm
+  - Test-DockerIsInstalled
+  - Test-DockerIsRunning
+  - Test-DockerRegistryIsRunning
+  - Test-DockerStackIsRunning
+  - Test-DockerToolboxInstalled
+  - Write-DockerComposeFile
+- **PowerShell**
+  - Invoke-ExpressionSave
+  - Invoke-WebRequestWithProgress
+  - Merge-Objects
+  - Mount-EnvFile
+  - Read-PromptYesNo
+  - Read-Settings
+  - Test-EnvVarExists
+  - Wait-Test
+  - Write-Progressbar
+- **Text**
+  - Clear-Linebreaks
+- **VirtualBox**
+  - New-VBoxMachine
+  - Start-VBoxMachine
+  - Test-VBoxMachineExists
