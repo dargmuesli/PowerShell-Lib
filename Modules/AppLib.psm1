@@ -25,11 +25,23 @@ Function Get-InstalledApps {
 
     Get-ItemProperty $RegPath | . {
         Process {
-            If ($PSItem.DisplayName -And $PSItem.UninstallString) {
+            If (Test-PropertyExists -Object $PSItem -PropertyName "DisplayName") {
                 $PSItem
             }
         }
-    } | Select-Object DisplayName, Publisher, InstallDate, DisplayVersion, UninstallString | -Sort-Object DisplayName
+    } | Select-Object DisplayName, Publisher, InstallDate, DisplayVersion, UninstallString | Sort-Object DisplayName
+}
+
+Function Test-AppInstalled {
+    Param (
+        [Parameter(Mandatory = $True)] [String] $AppName
+    )
+    
+    If (Get-InstalledApps | Where-Object { $PSItem.DisplayName -Like $AppName }) {
+        Return $True
+    } Else {
+        Return $False
+    }
 }
 
 Export-ModuleMember -Function *

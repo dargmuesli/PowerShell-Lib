@@ -226,6 +226,15 @@ Function Test-EnvVarExists {
     }
 }
 
+Function Test-PropertyExists {
+    Param (
+        [Parameter(Mandatory = $True)] $Object,
+        [Parameter(Mandatory = $True)] [String] $PropertyName
+    )
+
+    Return $Object.PSObject.Properties.Name -Contains $PropertyName
+}
+
 <#
     .SYNOPSIS
     Displays an indeterminate progressbar while a test is successful.
