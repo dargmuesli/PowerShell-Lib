@@ -8,22 +8,22 @@
 
 @{
     # Version number of this module.
-    ModuleVersion = '1.0'
+    ModuleVersion     = '1.0'
 
     # ID used to uniquely identify this module
-    GUID = '2b4cbdc5-c4aa-447a-b799-6002142347d7'
+    GUID              = '2b4cbdc5-c4aa-447a-b799-6002142347d7'
 
     # Author of this module
-    Author = 'Jonas Thelemann'
+    Author            = 'Jonas Thelemann'
 
     # Copyright statement for this module
-    Copyright = '(c) 2017 Jonas Thelemann. All rights reserved.'
+    Copyright         = '(c) 2017 Jonas Thelemann. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'A library of helpful PowerShell functions.'
+    Description       = 'A library of helpful PowerShell functions.'
 
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-    NestedModules = @(
+    NestedModules     = @(
         'Modules\AppLib.psm1',
         'Modules\DockerLib.psm1',
         'Modules\PowerShellLib.psm1',

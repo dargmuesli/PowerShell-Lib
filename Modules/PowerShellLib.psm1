@@ -226,6 +226,18 @@ Function Test-EnvVarExists {
     }
 }
 
+Function Test-ModuleInstalled {
+    Param (
+        [Parameter(Mandatory = $True)] [String] $ModuleName
+    )
+
+    If (Get-Module -ListAvailable -Name $ModuleName) {
+        Return $True
+    } Else {
+        Return $False
+    }
+}
+
 Function Test-PropertyExists {
     Param (
         [Parameter(Mandatory = $True)] $Object,

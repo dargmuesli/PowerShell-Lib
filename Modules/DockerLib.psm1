@@ -335,25 +335,8 @@ Function Write-DockerComposeFile {
         [Parameter(Mandatory = $True)] [PSCustomObject] $ComposeFile,
         [Parameter(Mandatory = $False)] [String] $Path
     )
-
-    $ComposeFileContent = $Null
     
-    ConvertTo-YAML -InputObject $ComposeFile.Content | ForEach-Object {
-        $Lines = $PSItem -Split "`r`n"
-        $Index = 0
-
-        ForEach ($Line In $Lines) {
-            If (-Not ($Index -Eq 0)) {
-                $ComposeFileContent += "`r`n"
-            }
-
-            $ComposeFileContent += $Line.TrimEnd()
-
-            $Index++
-        }
-    }
-
-    "$ComposeFileContent`r`n---" > "$Path\$($ComposeFile.Name)"
+    ConvertTo-Yaml -Data $ComposeFile.Content -OutFile "$Path\$($ComposeFile.Name)"
 }
 
 Export-ModuleMember -Function *
