@@ -35,7 +35,4 @@
 
     # Functions to export from this module
     FunctionsToExport = '*'
-
-    # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
-    DefaultCommandPrefix = 'Dargmuesli'
 }
