@@ -14,9 +14,9 @@ Set-StrictMode -Version Latest
     Install-Docker
 
     .NOTES
-    Download method "WebRequest" can display its progress, but is very slow.
-    Download method "WebClient" cannot display its progress.
     Download method "BITS" can display its progress, but can also be delayed by other downloads.
+    Download method "WebClient" cannot display its progress.
+    Download method "WebRequest" can display its progress, but is very slow.
 #>
 Function Install-Docker {
     Param (
@@ -29,8 +29,9 @@ Function Install-Docker {
 
     If (-Not (Test-Path $Path)) {
         Switch ($DownloadMethod) {
-            "WebRequest" {
-                Invoke-WebRequestWithProgress -Uri $Url -OutFile $Path -Overwrite
+            "BITS" {
+                Import-Module BitsTransfer
+                Start-BitsTransfer -Source $Url -Destination $Path
                 break;
             }
             "WebClient" {
@@ -38,9 +39,8 @@ Function Install-Docker {
                 $WebClient.DownloadFile($Url, $Path)
                 break;
             }
-            "BITS" {
-                Import-Module BitsTransfer
-                Start-BitsTransfer -Source $Url -Destination $Path
+            "WebRequest" {
+                Invoke-WebRequestWithProgress -Uri $Url -OutFile $Path -Overwrite
                 break;
             }
         }
@@ -355,3 +355,5 @@ Function Write-DockerComposeFile {
 
     "$ComposeFileContent`r`n---" > "$Path\$($ComposeFile.Name)"
 }
+
+Export-ModuleMember -Function *

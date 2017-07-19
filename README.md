@@ -23,10 +23,11 @@ A library of helpful PowerShell functions.
   - Merge-Objects
   - Mount-EnvFile
   - Read-PromptYesNo
-  - Read-Settings
   - Test-EnvVarExists
   - Wait-Test
   - Write-Progressbar
+- **Project**
+  - Read-Settings
 - **Text**
   - Clear-Linebreaks
 - **VirtualBox**

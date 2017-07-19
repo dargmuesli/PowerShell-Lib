@@ -47,3 +47,5 @@ Function Test-VBoxMachineExists {
         Return $False
     }
 }
+
+Export-ModuleMember -Function *

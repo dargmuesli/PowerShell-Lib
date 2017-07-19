@@ -24,3 +24,5 @@ Function Clear-Linebreaks {
 
     $String -Replace "`r", "" -Replace "`n", ""
 }
+
+Export-ModuleMember -Function *

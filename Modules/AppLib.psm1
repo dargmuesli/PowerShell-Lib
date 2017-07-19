@@ -31,3 +31,5 @@ Function Get-InstalledApps {
         }
     } | Select-Object DisplayName, Publisher, InstallDate, DisplayVersion, UninstallString | -Sort-Object DisplayName
 }
+
+Export-ModuleMember -Function *
