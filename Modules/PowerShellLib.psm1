@@ -2,6 +2,55 @@ Set-StrictMode -Version Latest
 
 <#
     .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER InputObject
+    Parameter description
+
+    .EXAMPLE
+    An example
+
+    .NOTES
+    https://stackoverflow.com/a/34383464/4682621
+#>
+Function Convert-PSObjectToHashtable {
+    Param (
+        [Parameter(ValueFromPipeline)]
+        $InputObject
+    )
+
+    Process {
+        If ($Null -Eq $InputObject) {
+            return $Null
+        }
+
+        if ($InputObject -Is [System.Collections.IEnumerable] -And $InputObject -IsNot [String]) {
+            $Collection = @(
+                ForEach ($Object in $InputObject) {
+                    Convert-PSObjectToHashtable -InputObject $Object
+                }
+            )
+
+            Write-Output -NoEnumerate $Collection
+        } ElseIf ($InputObject -Is [PSObject]) {
+            $HashTable = @{}
+
+            Foreach ($Property In $InputObject.PSObject.Properties) {
+                $HashTable[$Property.Name] = Convert-PSObjectToHashtable -InputObject $Property.Value
+            }
+
+            $HashTable
+        } Else {
+            $InputObject
+        }
+    }
+}
+
+<#
+    .SYNOPSIS
     Invokes an expression without causing crashes.
 
     .DESCRIPTION

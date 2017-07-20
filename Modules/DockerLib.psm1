@@ -333,10 +333,17 @@ Function Test-DockerToolboxInstalled {
 Function Write-DockerComposeFile {
     Param (
         [Parameter(Mandatory = $True)] [PSCustomObject] $ComposeFile,
-        [Parameter(Mandatory = $False)] [String] $Path
+        [Parameter(Mandatory = $False)] [String] $Path,
+        [Parameter(Mandatory = $False)] [Switch] $Force
     )
+
+    $Content = Convert-PSObjectToHashtable -InputObject $ComposeFile.Content
     
-    ConvertTo-Yaml -Data $ComposeFile.Content -OutFile "$Path\$($ComposeFile.Name)"
+    If ($Force) {
+        ConvertTo-Yaml -Data $Content -OutFile "$Path\$($ComposeFile.Name)" -Force
+    } Else {
+        ConvertTo-Yaml -Data $Content -OutFile "$Path\$($ComposeFile.Name)"
+    }
 }
 
 Export-ModuleMember -Function *
