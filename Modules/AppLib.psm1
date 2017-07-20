@@ -13,7 +13,7 @@ Set-StrictMode -Version Latest
     .NOTES
     https://stackoverflow.com/a/31714410
 #>
-Function Get-InstalledApps {
+Function Get-AppsInstalled {
     If ([IntPtr]::Size -Eq 4) {
         $RegPath = 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*'
     } Else {
@@ -37,7 +37,7 @@ Function Test-AppInstalled {
         [Parameter(Mandatory = $True)] [String] $AppName
     )
     
-    If (Get-InstalledApps | Where-Object { $PSItem.DisplayName -Like $AppName }) {
+    If (Get-AppsInstalled | Where-Object { $PSItem.DisplayName -Like $AppName }) {
         Return $True
     } Else {
         Return $False

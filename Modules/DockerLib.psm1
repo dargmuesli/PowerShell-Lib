@@ -2,6 +2,28 @@ Set-StrictMode -Version Latest
 
 <#
     .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER VBoxName
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
+Function Clear-DockerMachineEnv {
+    Param (
+        [Parameter(Mandatory = $True)] [String] $VBoxName
+    )
+
+    Write-Debug -Message "Clearing environment variables for machine $VBoxName ..."
+    docker-machine env --shell=powershell --unset $VBoxName | Invoke-Expression
+}
+
+<#
+    .SYNOPSIS
     Installs Docker.
 
     .DESCRIPTION
@@ -48,6 +70,29 @@ Function Install-Docker {
 
     Start-Process msiexec.exe -Wait -ArgumentList "/I $Path"
     Remove-Item -Path $Path
+}
+
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER VBoxName
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
+Function New-DockerMachine {
+    Param (
+        [Parameter(Mandatory = $True)] [String] $VBoxName
+    )
+
+    Write-Debug "Creating Machine $VBoxName in VirtualBox..."
+    docker-machine rm -f $VBoxName | Out-Null
+    docker-machine create -d virtualbox --virtualbox-memory 2048 $VBoxName
 }
 
 Function Set-DockerMachineEnv {
@@ -100,6 +145,28 @@ Function Start-Docker {
             }
         }
     }
+}
+
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER VBoxName
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
+Function Start-DockerMachine {
+    Param (
+        [Parameter(Mandatory = $True)] [String] $VBoxName
+    )
+
+    Write-Debug "Starting machine $VBoxName..."
+    docker-machine start $VBoxName
 }
 
 <#
@@ -243,6 +310,35 @@ Function Test-DockerIsRunning {
         } Else {
             Return $True
         }
+    }
+}
+
+<#
+    .SYNOPSIS
+    Checks if a Virtual Box machine exists.
+    
+    .DESCRIPTION
+    Tries to show information about a virtual machine and return true if successful.
+    
+    .PARAMETER VBoxName
+    The name of the virtual machine that is to be checked.
+    
+    .EXAMPLE
+    
+    #>
+Function Test-DockerMachineExists {
+    Param (
+        [Parameter(Mandatory = $True)] [String] $VBoxName
+    )
+
+    $VBoxManage = (Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Oracle\VirtualBox").InstallDir + "VBoxManage.exe"
+
+    & $VBoxManage showvminfo $VBoxName | Out-Null
+
+    If ($?) {
+        Return $True
+    } Else {
+        Return $False
     }
 }
 

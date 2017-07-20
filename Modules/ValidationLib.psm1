@@ -1,5 +1,24 @@
 Set-StrictMode -Version Latest
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Variable
+    Parameter description
+
+    .PARAMETER Min
+    Parameter description
+
+    .PARAMETER Max
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-CountValid {
     Param (
         [Parameter(Mandatory = $True)] [Array] $Variable,
@@ -14,6 +33,25 @@ Function Test-CountValid {
     }
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Variable
+    Parameter description
+
+    .PARAMETER Min
+    Parameter description
+
+    .PARAMETER Max
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-LengthValid {
     Param (
         [Parameter(Mandatory = $True)] $Variable,
@@ -32,6 +70,22 @@ Function Test-LengthValid {
     Return $True
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Variable
+    Parameter description
+
+    .PARAMETER Pattern
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-PatternValid {
     Param (
         [Parameter(Mandatory = $True)] $Variable,
@@ -47,6 +101,25 @@ Function Test-PatternValid {
     Return $True
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Variable
+    Parameter description
+
+    .PARAMETER Min
+    Parameter description
+
+    .PARAMETER Max
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-RangeValid {
     Param (
         [Parameter(Mandatory = $True)] $Variable,
@@ -63,6 +136,22 @@ Function Test-RangeValid {
     Return $True
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Variable
+    Parameter description
+
+    .PARAMETER Script
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-ScriptValid {
     Param (
         [Parameter(Mandatory = $True)] $Variable,
@@ -80,6 +169,22 @@ Function Test-ScriptValid {
     Return $True
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Variable
+    Parameter description
+
+    .PARAMETER Set
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-SetValid {
     Param (
         [Parameter(Mandatory = $True)] $Variable,
@@ -95,6 +200,19 @@ Function Test-SetValid {
     Return $True
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Variable
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-NotNullValid {
     Param (
         [Parameter(Mandatory = $True)] [AllowNull()] $Variable
@@ -113,6 +231,19 @@ Function Test-NotNullValid {
     Return $True
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Variable
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-NotNullOrEmptyValid {
     Param (
         [Parameter(Mandatory = $True)] [AllowNull()] [AllowEmptyString()] [Array] $Variable

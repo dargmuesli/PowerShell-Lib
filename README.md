@@ -3,34 +3,47 @@ A library of helpful PowerShell functions.
 
 ## Modules
 - **App**
-  - Get-InstalledApps
+  - Get-AppsInstalled
+  - Test-AppInstalled
 - **Docker**
+  - Clear-DockerMachineEnv
   - Install-Docker
+  - New-DockerMachine
   - Set-DockerMachineEnv
   - Start-Docker
+  - Start-DockerMachine
   - Start-DockerRegistry
   - Stop-DockerStack
   - Test-DockerInSwarm
   - Test-DockerIsInstalled
   - Test-DockerIsRunning
+  - Test-DockerMachineExists
   - Test-DockerRegistryIsRunning
   - Test-DockerStackIsRunning
   - Test-DockerToolboxInstalled
   - Write-DockerComposeFile
 - **PowerShell**
+  - Convert-PSObjectToHashtable
   - Invoke-ExpressionSave
   - Invoke-WebRequestWithProgress
   - Merge-Objects
   - Mount-EnvFile
   - Read-PromptYesNo
   - Test-EnvVarExists
+  - Test-ModuleInstalled
+  - Test-PropertyExists
   - Wait-Test
   - Write-Progressbar
 - **Project**
   - Read-Settings
 - **Text**
   - Clear-Linebreaks
-- **VirtualBox**
-  - New-VBoxMachine
-  - Start-VBoxMachine
-  - Test-VBoxMachineExists
+- **Validation**
+  - Test-CountValid
+  - Test-LengthValid
+  - Test-PatternValid
+  - Test-RangeValid
+  - Test-ScriptValid
+  - Test-SetValid
+  - Test-NotNullValid
+  - Test-NotNullOrEmptyValid

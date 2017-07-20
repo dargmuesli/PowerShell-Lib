@@ -8,7 +8,7 @@
 
 @{
     # Version number of this module.
-    ModuleVersion     = '0.1.0'
+    ModuleVersion     = '0.1.1'
 
     # ID used to uniquely identify this module
     GUID              = '2b4cbdc5-c4aa-447a-b799-6002142347d7'
@@ -29,8 +29,7 @@
         'Modules\PowerShellLib.psm1',
         'Modules\ProjectLib.psm1',
         'Modules\TextLib.psm1',
-        'Modules\ValidationLib.psm1',
-        'Modules\VirtualBoxLib.psm1'
+        'Modules\ValidationLib.psm1'
     )
 
     # Functions to export from this module

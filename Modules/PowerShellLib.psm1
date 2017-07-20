@@ -263,6 +263,19 @@ Function Read-PromptYesNo {
     }
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER EnvVarName
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-EnvVarExists {
     Param (
         [Parameter(Mandatory = $True)] [String] $EnvVarName
@@ -275,6 +288,19 @@ Function Test-EnvVarExists {
     }
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER ModuleName
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-ModuleInstalled {
     Param (
         [Parameter(Mandatory = $True)] [String] $ModuleName
@@ -287,6 +313,22 @@ Function Test-ModuleInstalled {
     }
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Object
+    Parameter description
+
+    .PARAMETER PropertyName
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-PropertyExists {
     Param (
         [Parameter(Mandatory = $True)] $Object,
@@ -347,6 +389,22 @@ Function Wait-Test {
     }
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER PercentComplete
+    Parameter description
+
+    .PARAMETER Activity
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Write-Progressbar {
     Param (
         [Parameter(Mandatory = $True)] [Int] $PercentComplete,
