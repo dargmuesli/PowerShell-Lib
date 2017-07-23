@@ -107,7 +107,7 @@ Function Install-App {
     .PARAMETER AppName
     Parameter description
 
-    .PARAMETER Like
+    .PARAMETER RegexCompare
     Parameter description
 
     .EXAMPLE
@@ -126,7 +126,7 @@ Function Test-AppInstalled {
     $AppsFound = Get-AppsInstalled |
         Where-Object {
         If ($RegexCompare) {
-            $PSItem.DisplayName -Like $AppName
+            $PSItem.DisplayName -CMatch $AppName
         } Else {
             $PSItem.DisplayName -Eq $AppName
         }

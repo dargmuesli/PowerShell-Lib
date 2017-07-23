@@ -489,7 +489,7 @@ Function Test-DockerForWinInstalled {
 Function Test-DockerInSwarm {
     $DockerSwarmInit = Invoke-ExpressionSave -Command "docker swarm init" -Graceful -WithError
 
-    If ($DockerSwarmInit -Like "Swarm initialized*") {
+    If ($DockerSwarmInit -Cmatch "^Swarm initialized*") {
         docker swarm leave -f | Out-Null
 
         Return $False
@@ -535,7 +535,7 @@ Function Test-DockerInstalled {
 Function Test-DockerRunning {
     $DockerProcessesAll = Invoke-ExpressionSave "docker ps -a" -Graceful -WithError
 
-    If ((-Not $DockerProcessesAll) -Or ($DockerProcessesAll -Like "docker : error*")) {
+    If ((-Not $DockerProcessesAll) -Or ($DockerProcessesAll -Cmatch "^docker : error*")) {
         Return $False
     } Else {
         Return $True

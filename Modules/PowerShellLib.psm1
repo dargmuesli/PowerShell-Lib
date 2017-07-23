@@ -307,7 +307,7 @@ Function Read-Prompt {
 
         [Parameter(Mandatory = $True, Position = 2)]
         [ValidateNotNullOrEmpty()]
-        [ChoiceDescription[]] $Choices,
+        [Management.Automation.Host.ChoiceDescription[]] $Choices,
 
         [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]

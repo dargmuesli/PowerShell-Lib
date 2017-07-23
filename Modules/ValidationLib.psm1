@@ -232,7 +232,7 @@ Function Test-PatternValid {
     )
 
     ForEach ($Item In $Variable) {
-        If ($Item -NotLike $Pattern) {
+        If ($Item -CNotMatch $Pattern) {
             Return $False
         }
     }
