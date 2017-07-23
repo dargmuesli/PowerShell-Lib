@@ -102,7 +102,11 @@ Function Install-Docker {
     Param (
         [Parameter(Mandatory = $False)]
         [ValidateSet('ForWin', 'Toolbox')]
-        [String] $Edition = "ForWin"
+        [String] $Edition = "ForWin",
+
+        [Parameter(Mandatory = $False)]
+        [ValidateSet('BITS', 'WebClient', 'WebRequest')]
+        [String] $DownloadMethod = "BITS"
     )
 
     Switch ($Edition) {
@@ -110,7 +114,7 @@ Function Install-Docker {
             $RemoteFilename = "InstallDocker.msi"
             $Path = "$Env:Temp\$RemoteFilename"
 
-            Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path
+            Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path -DownloadMethod $DownloadMethod
             Install-App -InstallerPath $Path -InstallerType "msi"
             Break
         }
@@ -118,7 +122,7 @@ Function Install-Docker {
             $RemoteFilename = "DockerToolbox.exe"
             $Path = "$Env:Temp\$RemoteFilename"
 
-            Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path
+            Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path -DownloadMethod $DownloadMethod
             Install-App -InstallerPath $Path
             Break
         }
@@ -199,12 +203,16 @@ Function Start-Docker {
     Param (
         [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
-        [String] $MachineName
+        [String] $MachineName = "Docker",
+
+        [Parameter(Mandatory = $False)]
+        [ValidateSet('BITS', 'WebClient', 'WebRequest')]
+        [String] $DownloadMethod = "BITS"
     )
 
     While (-Not (Test-DockerInstalled)) {
         If (Read-PromptYesNo -Caption "Docker is not installed." -Message "Do you want to install it automatically?" -DefaultChoice 0) {
-            Install-Docker
+            Install-Docker -DownloadMethod $DownloadMethod
         } Else {
             Read-Host "Please install Docker manually. Press enter to continue..."
         }
