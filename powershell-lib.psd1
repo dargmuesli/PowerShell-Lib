@@ -28,6 +28,7 @@
         'Modules\DockerLib.psm1',
         'Modules\PowerShellLib.psm1',
         'Modules\ProjectLib.psm1',
+        'Modules\SystemLib.psm1',
         'Modules\TextLib.psm1',
         'Modules\ValidationLib.psm1'
     )

@@ -18,18 +18,19 @@ Set-StrictMode -Version Latest
 #>
 Function Convert-PSObjectToHashtable {
     Param (
-        [Parameter(ValueFromPipeline)]
-        $InputObject
+        [Parameter(Mandatory = $True, Position = 0, ValueFromPipeline = $True)]
+        [ValidateNotNullOrEmpty()]
+        [PSObject] $InputObject
     )
 
     Process {
         If ($Null -Eq $InputObject) {
-            return $Null
+            Return $Null
         }
 
         if ($InputObject -Is [System.Collections.IEnumerable] -And $InputObject -IsNot [String]) {
             $Collection = @(
-                ForEach ($Object in $InputObject) {
+                ForEach ($Object In $InputObject) {
                     Convert-PSObjectToHashtable -InputObject $Object
                 }
             )
@@ -45,6 +46,57 @@ Function Convert-PSObjectToHashtable {
             $HashTable
         } Else {
             $InputObject
+        }
+    }
+}
+
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER DownloadMethod
+    Parameter description
+
+    .EXAMPLE
+    An example
+
+    .NOTES
+    Download method "BITS" can display its progress, but can also be delayed by other downloads.
+    Download method "WebClient" cannot display its progress.
+    Download method "WebRequest" can display its progress, but is very slow.
+#>
+Function Get-FileFromWeb {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateScript({Test-IRIValid -IRI $PSItem})]
+        [String] $URL,
+
+        [Parameter(Mandatory = $True, Position = 1)]
+        [ValidateScript({Test-PathValid -Path $PSItem})]
+        [String] $LocalPath,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateSet('BITS', 'WebClient', 'WebRequest')]
+        [String] $DownloadMethod = "BITS"
+    )
+
+    Switch ($DownloadMethod) {
+        "BITS" {
+            Import-Module BitsTransfer
+            Start-BitsTransfer -Source $Url -Destination $LocalPath
+            Break
+        }
+        "WebClient" {
+            $WebClient = New-Object Net.WebClient
+            $WebClient.DownloadFile($Url, $LocalPath)
+            Break
+        }
+        "WebRequest" {
+            Invoke-WebRequestWithProgress -Uri $Url -OutFile $LocalPath -Overwrite
+            Break
         }
     }
 }
@@ -72,9 +124,15 @@ Function Convert-PSObjectToHashtable {
 #>
 Function Invoke-ExpressionSave {
     Param (
-        [Parameter(Mandatory = $True)] [String] $Command,
-        [Parameter(Mandatory = $False)] [Switch] $WithError,
-        [Parameter(Mandatory = $False)] [Switch] $Graceful
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Command,
+
+        [Parameter(Mandatory = $False)]
+        [Switch] $WithError,
+
+        [Parameter(Mandatory = $False)]
+        [Switch] $Graceful
     )
 
     $TmpFile = New-TemporaryFile
@@ -93,6 +151,7 @@ Function Invoke-ExpressionSave {
     }
 
     $Stdout
+
     Remove-Item $TmpFile
 
     If ($Stderr -And (-Not $Graceful)) {
@@ -120,13 +179,23 @@ Function Invoke-ExpressionSave {
 #>
 Function Invoke-WebRequestWithProgress {
     Param (
-        [Parameter(Mandatory = $True)] [Uri] $Uri,
-        [Parameter(Mandatory = $True)] [String] $OutFile,
-        [Parameter(Mandatory = $False)] [Switch] $Overwrite,
-        [Parameter(Mandatory = $False)] [Int] $Timeout = 15000
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateScript({Test-IRIValid -IRI $PSItem})]
+        [Uri] $Uri,
+
+        [Parameter(Mandatory = $True, Position = 1)]
+        [ValidateScript({Test-PathValid -Path $PSItem})]
+        [String] $OutFile,
+
+        [Parameter(Mandatory = $False)]
+        [Switch] $Overwrite,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateNotNullOrEmpty()]
+        [Int] $Timeout = 15000
     )
 
-    If (Test-Path $OutFile) {
+    If (Test-Path -Path $OutFile) {
         If ($Overwrite) {
             Remove-Item -Path $OutFile
         } Else {
@@ -146,8 +215,7 @@ Function Invoke-WebRequestWithProgress {
 
     While ($Count -Gt 0) {
         $test = [Convert]::ToInt32([Math]::Floor((($DownloadedBytes / 1024) / $TotalLength) * 100))
-        Write-Progressbar -PercentComplete $test `
-            -Activity "Downloading $([Math]::Floor($DownloadedBytes / 1024))K of ${TotalLength}K"
+        Write-Progressbar -PercentComplete $test -Activity "Downloading $([Math]::Floor($DownloadedBytes / 1024))K of ${TotalLength}K"
         $TargetStream.Write($Buffer, 0, $Count)
         $Count = $ResponseStream.Read($Buffer, 0, $Buffer.Length)
         $DownloadedBytes = $DownloadedBytes + $Count
@@ -179,8 +247,11 @@ Function Invoke-WebRequestWithProgress {
 #>
 Function Merge-Objects { 
     Param (
-        [Parameter(Mandatory = $True)] $Object1,
-        [Parameter(Mandatory = $True)] $Object2
+        [Parameter(Mandatory = $True, Position = 0)]
+        [Object] $Object1,
+
+        [Parameter(Mandatory = $True, Position = 1)]
+        [Object] $Object2
     )
     
     $ReturnObject = [PSCustomObject] @{}
@@ -193,7 +264,7 @@ Function Merge-Objects {
         $ReturnObject | Add-Member -NotePropertyName $Property.Name -NotePropertyValue $Property.Value -Force
     }
     
-    return $ReturnObject
+    Return $ReturnObject
 }
 
 <#
@@ -211,13 +282,39 @@ Function Merge-Objects {
 #>
 Function Mount-EnvFile {
     Param (
-        [Parameter(Mandatory = $True)] [String] $EnvFilePath
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateScript({Test-PathValid -Path $PSItem})]
+        [String] $EnvFilePath
     )
 
-    Get-Content $EnvFilePath | Select-String -Pattern "^[A-Z_]+=.+$" | ForEach-Object {
+    Get-Content $EnvFilePath |
+        Select-String -Pattern "^[A-Z_]+=.+$" |
+        ForEach-Object {
         $PSItem = $PSItem -Split "="
         Set-Item -Force -Path "env:$($PSItem[0])" -Value $PSItem[1]
     }
+}
+
+Function Read-Prompt {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Caption,
+
+        [Parameter(Mandatory = $True, Position = 1)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Message,
+
+        [Parameter(Mandatory = $True, Position = 2)]
+        [ValidateNotNullOrEmpty()]
+        [ChoiceDescription[]] $Choices,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateNotNullOrEmpty()]
+        [Int] $DefaultChoice = 1
+    )
+
+    Return $Host.UI.PromptForChoice($Caption, $Message, $Choices, $DefaultChoice)
 }
 
 <#
@@ -245,17 +342,26 @@ Function Mount-EnvFile {
 #>
 Function Read-PromptYesNo {
     Param (
-        [Parameter(Mandatory = $True)] [String] $Message,
-        [Parameter(Mandatory = $False)] [String] $Question = 'Proceed?',
-        [Parameter(Mandatory = $False)] [String] $Default = 1
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Caption,
+
+        [Parameter(Mandatory = $True, Position = 1)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Message,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateNotNullOrEmpty()]
+        [Int] $Default = 1
     )
 
     $Choices = [Management.Automation.Host.ChoiceDescription[]] (
         (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList '&Yes'),
         (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList '&No')
     )
-    $Decision = $Host.UI.PromptForChoice($Message, $Question, $Choices, $Default)
-    
+
+    $Decision = Read-Prompt -Caption $Caption -Message $Message -Choices $Choices -Default
+
     If ($Decision -Eq 0) {
         Return $True
     } Else {
@@ -276,9 +382,11 @@ Function Read-PromptYesNo {
     .EXAMPLE
     An example
 #>
-Function Test-EnvVarExists {
+Function Test-EnvVarExist {
     Param (
-        [Parameter(Mandatory = $True)] [String] $EnvVarName
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $EnvVarName
     )
 
     If (Get-ChildItem -Path "env:$EnvVarName" -ErrorAction SilentlyContinue) {
@@ -303,7 +411,9 @@ Function Test-EnvVarExists {
 #>
 Function Test-ModuleInstalled {
     Param (
-        [Parameter(Mandatory = $True)] [String] $ModuleName
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $ModuleName
     )
 
     If (Get-Module -ListAvailable -Name $ModuleName) {
@@ -329,10 +439,15 @@ Function Test-ModuleInstalled {
     .EXAMPLE
     An example
 #>
-Function Test-PropertyExists {
+Function Test-PropertyExist {
     Param (
-        [Parameter(Mandatory = $True)] $Object,
-        [Parameter(Mandatory = $True)] [String] $PropertyName
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [Object] $Object,
+
+        [Parameter(Mandatory = $True, Position = 1)]
+        [ValidateNotNullOrEmpty()]
+        [String] $PropertyName
     )
 
     Return $Object.PSObject.Properties.Name -Contains $PropertyName
@@ -358,27 +473,37 @@ Function Test-PropertyExists {
     A description of the running task.
 
     .EXAMPLE
-    Wait-Test -Test {-Not (Test-DockerIsRunning)} -$WithProgressbar -Activity "Waiting for Docker to initialize"
+    Wait-Test -Test {-Not (Test-DockerRunning)} -$WithProgressbar -Activity "Waiting for Docker to initialize"
 #>
 Function Wait-Test {
     Param (
-        [Parameter(Mandatory = $True)] [String] $Test,
-        [Parameter(Mandatory = $False)] [Int] $Milliseconds = 1000,
-        [Parameter(Mandatory = $False)] [Switch] $WithProgressbar,
-        [Parameter(Mandatory = $False)] [String] $Activity = "Processing"
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Test,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Activity = "Processing",
+
+        [Parameter(Mandatory = $False)]
+        [ValidateNotNullOrEmpty()]
+        [Int] $Milliseconds = 1000,
+
+        [Parameter(Mandatory = $False)]
+        [Switch] $WithProgressbar
     )
 
-    $I = 0
+    $Index = 0
 
     While (Invoke-Expression -Command $Test) {
-        $I++
+        $Index++
 
-        If ($I -Eq 100) {
-            $I = 0
+        If ($Index -Eq 100) {
+            $Index = 0
         }
 
         If ($WithProgressbar) {
-            Write-Progressbar -Activity "$Activity ..." -PercentComplete $I
+            Write-Progressbar -Activity "$Activity ..." -PercentComplete $Index
         }
 
         Start-Sleep -Milliseconds $Milliseconds
@@ -407,8 +532,13 @@ Function Wait-Test {
 #>
 Function Write-Progressbar {
     Param (
-        [Parameter(Mandatory = $True)] [Int] $PercentComplete,
-        [Parameter(Mandatory = $False)] [String] $Activity = "Processing"
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [Int] $PercentComplete,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Activity = "Processing"
     )
 
     Write-Progress -Activity "$Activity" -PercentComplete $PercentComplete

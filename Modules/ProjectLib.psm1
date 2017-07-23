@@ -15,7 +15,9 @@ Set-StrictMode -Version Latest
 #>
 Function Read-Settings {
     Param (
-        [Parameter(Mandatory = $True)] [String[]] $SourcesPaths
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String[]] $SourcesPaths
     )
 
     $Settings = [PSCustomObject] @{}

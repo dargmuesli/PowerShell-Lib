@@ -4,44 +4,61 @@ A library of helpful PowerShell functions.
 ## Modules
 - **App**
   - Get-AppsInstalled
+  - Install-App
   - Test-AppInstalled
 - **Docker**
   - Clear-DockerMachineEnv
+  - Get-DockerEditionToUse
+  - Get-DockerMachineStatus
   - Install-Docker
   - New-DockerMachine
   - Set-DockerMachineEnv
   - Start-Docker
   - Start-DockerMachine
   - Start-DockerRegistry
+  - Stop-DockerMachine
   - Stop-DockerStack
+  - Test-DockerCommand
+  - Test-DockerForWinInstalled
   - Test-DockerInSwarm
-  - Test-DockerIsInstalled
-  - Test-DockerIsRunning
-  - Test-DockerMachineExists
-  - Test-DockerRegistryIsRunning
-  - Test-DockerStackIsRunning
+  - Test-DockerInstalled
+  - Test-DockerRunning
+  - Test-DockerMachineEnvExist
+  - Test-DockerMachineExist
+  - Test-DockerMachineCommand
+  - Test-DockerRegistryRunning
+  - Test-DockerStackRunning
   - Test-DockerToolboxInstalled
   - Write-DockerComposeFile
 - **PowerShell**
   - Convert-PSObjectToHashtable
+  - Get-FileFromWeb
   - Invoke-ExpressionSave
   - Invoke-WebRequestWithProgress
   - Merge-Objects
   - Mount-EnvFile
+  - Read-Prompt
   - Read-PromptYesNo
-  - Test-EnvVarExists
+  - Test-EnvVarExist
   - Test-ModuleInstalled
-  - Test-PropertyExists
+  - Test-PropertyExist
   - Wait-Test
   - Write-Progressbar
 - **Project**
   - Read-Settings
+- **System**
+  - Get-SystemBit
 - **Text**
   - Clear-Linebreaks
 - **Validation**
   - Test-CountValid
+  - Test-HostnameValid
+  - Test-IPAdressValid
+  - Test-IRIValid
   - Test-LengthValid
+  - Test-PathValid
   - Test-PatternValid
+  - Test-PortValid
   - Test-RangeValid
   - Test-ScriptValid
   - Test-SetValid

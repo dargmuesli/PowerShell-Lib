@@ -7,7 +7,7 @@ Set-StrictMode -Version Latest
     .DESCRIPTION
     Long description
 
-    .PARAMETER VBoxName
+    .PARAMETER MachineName
     Parameter description
 
     .EXAMPLE
@@ -15,11 +15,74 @@ Set-StrictMode -Version Latest
 #>
 Function Clear-DockerMachineEnv {
     Param (
-        [Parameter(Mandatory = $True)] [String] $VBoxName
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $MachineName
     )
 
-    Write-Debug -Message "Clearing environment variables for machine $VBoxName ..."
-    docker-machine env --shell=powershell --unset $VBoxName | Invoke-Expression
+    If (-Not (Test-DockerMachineCommand)) {
+        Throw "Command `"docker-machine`" not found."
+    }
+
+    Write-Debug -Message "Clearing environment variables for machine `"$MachineName`"..."
+    Invoke-Expression -Command "docker-machine env --shell=powershell --unset $MachineName"
+}
+
+
+Function Get-DockerEditionToUse {
+    $DockerForWinInstalled = Test-DockerForWinInstalled
+    $DockerToolboxInstalled = Test-DockerToolboxInstalled
+
+    If ($DockerForWinInstalled -And $DockerToolboxInstalled) {
+        $Choices = [Management.Automation.Host.ChoiceDescription[]] (
+            (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker for Windows'),
+            (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker Toolbox')
+        )
+
+        $Decision = Read-Prompt -Caption "Docker for Windows and Docker Toolbox are installed." -Message "Which one do you want to use?" -Choices $Choices -DefaultChoice 0
+
+        Switch ($Decision) {
+            0 {
+                Return "ForWin"
+                Break
+            }
+            1 {
+                Return "Toolbox"
+                Break
+            }
+        }
+    } ElseIf ($DockerForWinInstalled) {
+        Return "ForWin"
+    } ElseIf ($DockerToolboxInstalled) {
+        Return "Toolbox"
+    }
+}
+
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER MachineName
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
+Function Get-DockerMachineStatus {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $MachineName
+    )
+
+    If (-Not (Test-DockerMachineCommand)) {
+        Throw "Command `"docker-machine`" not found."
+    }
+
+    docker-machine status $MachineName
 }
 
 <#
@@ -34,42 +97,32 @@ Function Clear-DockerMachineEnv {
 
     .EXAMPLE
     Install-Docker
-
-    .NOTES
-    Download method "BITS" can display its progress, but can also be delayed by other downloads.
-    Download method "WebClient" cannot display its progress.
-    Download method "WebRequest" can display its progress, but is very slow.
 #>
 Function Install-Docker {
     Param (
-        [Parameter(Mandatory = $False)] [String] $DownloadMethod = "BITS"
+        [Parameter(Mandatory = $False)]
+        [ValidateSet('ForWin', 'Toolbox')]
+        [String] $Edition = "ForWin"
     )
 
-    $Url = "https://download.docker.com/win/stable/InstallDocker.msi"
-    # $Url = "https://download.docker.com/win/stable/DockerToolbox.exe"
-    $Path = "$Env:Temp\InstallDocker.msi"
+    Switch ($Edition) {
+        "ForWin" {
+            $RemoteFilename = "InstallDocker.msi"
+            $Path = "$Env:Temp\$RemoteFilename"
 
-    If (-Not (Test-Path $Path)) {
-        Switch ($DownloadMethod) {
-            "BITS" {
-                Import-Module BitsTransfer
-                Start-BitsTransfer -Source $Url -Destination $Path
-                break;
-            }
-            "WebClient" {
-                $WebClient = New-Object Net.WebClient
-                $WebClient.DownloadFile($Url, $Path)
-                break;
-            }
-            "WebRequest" {
-                Invoke-WebRequestWithProgress -Uri $Url -OutFile $Path -Overwrite
-                break;
-            }
+            Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path
+            Install-App -InstallerPath $Path -InstallerType "msi"
+            Break
+        }
+        "Toolbox" {
+            $RemoteFilename = "DockerToolbox.exe"
+            $Path = "$Env:Temp\$RemoteFilename"
+
+            Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path
+            Install-App -InstallerPath $Path
+            Break
         }
     }
-
-    Start-Process msiexec.exe -Wait -ArgumentList "/I $Path"
-    Remove-Item -Path $Path
 }
 
 <#
@@ -79,7 +132,7 @@ Function Install-Docker {
     .DESCRIPTION
     Long description
 
-    .PARAMETER VBoxName
+    .PARAMETER MachineName
     Parameter description
 
     .EXAMPLE
@@ -87,21 +140,46 @@ Function Install-Docker {
 #>
 Function New-DockerMachine {
     Param (
-        [Parameter(Mandatory = $True)] [String] $VBoxName
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $MachineName
     )
 
-    Write-Debug "Creating Machine $VBoxName in VirtualBox..."
-    docker-machine rm -f $VBoxName | Out-Null
-    docker-machine create -d virtualbox --virtualbox-memory 2048 $VBoxName
+    If (-Not (Test-DockerMachineCommand)) {
+        Throw "Command `"docker-machine`" not found."
+    }
+
+    Write-Debug "Creating machine `"$MachineName`" in VirtualBox..."
+    docker-machine rm -f $MachineName | Out-Null
+    docker-machine create -d virtualbox --virtualbox-memory 2048 $MachineName
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER MachineName
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
 Function Set-DockerMachineEnv {
     Param (
-        [Parameter(Mandatory = $True)] [String] $VBoxName
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $MachineName
     )
 
-    Write-Debug -Message "Setting environment variables for machine $VBoxName ..."
-    docker-machine env --shell=powershell $VBoxName | Invoke-Expression
+    If (-Not (Test-DockerMachineCommand)) {
+        Throw "Command `"docker-machine`" not found."
+    }
+
+    Write-Debug -Message "Setting environment variables for machine `"$MachineName`"..."
+    Invoke-Expression -Command "docker-machine env --shell=powershell $MachineName" 
 }
 
 <#
@@ -113,38 +191,104 @@ Function Set-DockerMachineEnv {
 
     .EXAMPLE
     Start-Docker
+
+    .NOTES
+    https://gist.github.com/au-phiware/25213e72c80040f398ba
 #>
 Function Start-Docker {
     Param (
-        [Parameter(Mandatory = $False)] [String] $DownloadMethod = "BITS"
+        [Parameter(Mandatory = $False)]
+        [ValidateNotNullOrEmpty()]
+        [String] $MachineName
     )
 
-    While (-Not (Test-DockerIsRunning)) {
-        While (-Not (Test-DockerIsInstalled)) {
-            While (-Not (Test-DockerIsInstalled)) {
-                If (Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -Default 0) {
-                    Install-Docker -DownloadMethod $DownloadMethod
-                } Else {
-                    Read-Host "Please install Docker manually. Press enter to continue ..."
-                }
-            }
-
-            $PathDocker = (Get-Command docker).Path
-            $PathDockerMachine = (Get-Command docker-machine).Path
-
-            If ($PathDocker -And (Read-PromptYesNo -Message "Docker is not running." -Question "Do you want to start it automatically?" -Default 0)) {
-                If ($PathDocker) {
-                    & "$((Get-Item (Get-Command docker).Path).Directory.Parent.Parent.FullName)\Docker for Windows.exe"
-                }
-
-                Wait-Test -Test {-Not (Test-DockerIsRunning)} -WithProgressbar -Activity "Waiting for Docker to initialize"
-
-                Break
-            } Else {
-                Read-Host "Please start Docker manually. Press enter to continue ..."
-            }
+    While (-Not (Test-DockerInstalled)) {
+        If (Read-PromptYesNo -Caption "Docker is not installed." -Message "Do you want to install it automatically?" -DefaultChoice 0) {
+            Install-Docker
+        } Else {
+            Read-Host "Please install Docker manually. Press enter to continue..."
         }
     }
+    
+    Switch (Get-DockerEditionToUse) {
+        "ForWin" {
+            $DockerPath = (Get-Command docker).Path
+
+            If ($DockerPath -And (Read-PromptYesNo -Caption "Docker is not running." -Message "Do you want to start it automatically?" -Default 0)) {
+                If ($DockerPath) {
+                    & "$((Get-Item $DockerPath).Directory.Parent.Parent.FullName)\Docker for Windows.exe"
+                }
+
+                Wait-Test -Test {-Not (Test-DockerRunning)} -Activity "Waiting for Docker to initialize" -WithProgressbar
+                Break
+            } Else {
+                Read-Host "Please start Docker manually. Press enter to continue..."
+            }
+
+            Break
+        }
+        "Toolbox" {
+            If (-Not (Test-DockerMachineCommand)) {
+                Throw "Command `"docker-machine`" not found."
+            }
+
+            If (-Not (Test-DockerMachineExist -MachineName $MachineName)) {
+                New-DockerMachine -MachineName $MachineName
+            }
+
+            Start-DockerMachine -MachineName $MachineName
+
+            $MountOptions = "defaults,iocharset=utf8"
+            $DockerPasswd = & docker-machine ssh $MachineName "grep '^docker:' /etc/passwd"
+
+            If ($DockerPasswd.StartsWith('docker:')) {
+                $MountOptions = "$MountOptions,$($DockerPasswd -replace '^docker:[^:]*:(\d+):(\d+):.*$', 'uid=$1,gid=$2')"
+            }
+
+            $VirtualBoxMounts = & docker-machine ssh $MachineName mount |
+                ForEach-Object {
+                If ($PSItem -Match 'on (.*) type vboxsf ') {
+                    $Matches[1]
+                }
+            }
+
+            & docker-machine ssh $MachineName "sudo VBoxControl sharedfolder list -automount" |
+                ForEach-Object {
+                If ($PSItem -Match '^[0-9]+ - (?<ShareName>((?<DriveLetter>[A-Za-z]):)?(?<FolderName>.*))$') {
+                    $MountPoint = "$($Matches['DriveLetter'])$($Matches['FolderName'])"
+                    
+                    If (-Not ($MountPoint -Match '^/')) {
+                        $MountPoint = "/$MountPoint"
+                    }
+                    
+                    If (-Not ($VirtualBoxMounts -CContains $MountPoint)) {
+                        Write-Output "Mounting $($Matches['ShareName']) to $MountPoint..."
+                        
+                        & docker-machine ssh $MachineName "sudo mkdir -p $MountPoint && sudo mount -t vboxsf -o $MountOptions $($Matches['ShareName']) $MountPoint"
+                    }
+                }
+            }
+
+            Remove-Variable MountOptions, DockerPasswd, VirtualBoxMounts, MountPoint
+            Set-DockerMachineEnv -MachineName $MachineName
+
+            Wait-Test -Test {-Not (Test-DockerRunning)} -Activity "Waiting for Docker to initialize" -WithProgressbar
+            Break
+        }
+    }
+
+    Write-Output @"
+                            ##         .
+                    ## ## ##        ==
+                ## ## ## ## ##    ===
+            /"""""""""""""""""\___/ ===
+        ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+            \______ o           __/
+                \    \         __/
+                \____\_______/
+
+                Docker started.
+"@
 }
 
 <#
@@ -154,7 +298,7 @@ Function Start-Docker {
     .DESCRIPTION
     Long description
 
-    .PARAMETER VBoxName
+    .PARAMETER MachineName
     Parameter description
 
     .EXAMPLE
@@ -162,11 +306,17 @@ Function Start-Docker {
 #>
 Function Start-DockerMachine {
     Param (
-        [Parameter(Mandatory = $True)] [String] $VBoxName
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $MachineName
     )
 
-    Write-Debug "Starting machine $VBoxName..."
-    docker-machine start $VBoxName
+    If (-Not (Test-DockerMachineCommand)) {
+        Throw "Command `"docker-machine`" not found."
+    }
+
+    Write-Debug "Starting machine $MachineName..."
+    docker-machine start $MachineName
 }
 
 <#
@@ -190,13 +340,23 @@ Function Start-DockerMachine {
 #>
 Function Start-DockerRegistry {
     Param (
-        [Parameter(Mandatory = $True)] [String] $Name,
-        [Parameter(Mandatory = $True)] [String] $Hostname,
-        [Parameter(Mandatory = $True)] [String] $Port
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $RegistryName,
+
+        [Parameter(Mandatory = $True, Position = 1)]
+        [ValidateScript({Test-HostnameValid -Hostname $PSItem})]
+        [String] $Hostname,
+
+        [Parameter(Mandatory = $True, Position = 2)]
+        [ValidateScript({Test-PortValid -Port $PSItem})]
+        [String] $Port
     )
 
-    While (-Not (Test-DockerRegistryIsRunning -Hostname $Hostname -Port $Port)) {
-        $DockerInspectConfigHostname = docker inspect -f "{{.Config.Hostname}}" $Name | Out-String | ForEach-Object {
+    While (-Not (Test-DockerRegistryRunning -Hostname $Hostname -Port $Port)) {
+        $DockerInspectConfigHostname = docker inspect -f "{{.Config.Hostname}}" $RegistryName |
+            Out-String |
+            ForEach-Object {
             If ($PSItem) {
                 Clear-Linebreaks -String $PSItem
             }
@@ -205,15 +365,43 @@ Function Start-DockerRegistry {
         If ($DockerInspectConfigHostname -And ($DockerInspectConfigHostname -Match "^[a-z0-9] {12}$")) {
             docker start $DockerInspectConfigHostname
         } Else {
-            If (Read-PromptYesNo -Message "Docker registry does not exist." -Question "Do you want to initialize it automatically?" -Default 0) {
-                docker run -d -p "${Port}:5000" --name $Name "registry:2"
+            If (Read-PromptYesNo -Caption "Docker registry does not exist." -Message "Do you want to initialize it automatically?" -Default 0) {
+                docker run -d -p "${Port}:5000" --name $RegistryName "registry:2"
 
-                Wait-Test -Test {-Not (Test-DockerRegistryIsRunning  -Hostname $Hostname -Port $Port)} -WithProgressbar -Activity "Waiting for Docker registry to initialize"
+                Wait-Test -Test {-Not (Test-DockerRegistryRunning  -Hostname $Hostname -Port $Port)} -WithProgressbar -Activity "Waiting for Docker registry to initialize"
             } Else {
-                Read-Host "Please initialize the Docker registry manually. Press enter to continue ..."
+                Read-Host "Please initialize the Docker registry manually. Press enter to continue..."
             }
         }
     }
+}
+
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER MachineName
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
+Function Stop-DockerMachine {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $MachineName
+    )
+
+    If (-Not (Test-DockerMachineCommand)) {
+        Throw "Command `"docker-machine`" not found."
+    }
+
+    Write-Debug "Stopping machine $MachineName..."
+    docker-machine stop $MachineName
 }
 
 <#
@@ -231,11 +419,50 @@ Function Start-DockerRegistry {
 #>
 Function Stop-DockerStack {
     Param (
-        [Parameter(Mandatory = $True)] [String] $StackName
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $StackName
     )
 
     docker stack rm ${StackName}
-    Wait-Test -Test {Test-DockerStackIsRunning -StackNamespace $StackName} -WithProgressbar -Activity "Waiting for Docker stack to quit"
+
+    Wait-Test -Test {Test-DockerStackRunning -StackNamespace $StackName} -WithProgressbar -Activity "Waiting for Docker stack to quit"
+}
+
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .EXAMPLE
+    An example
+#>
+Function Test-DockerCommand {
+    If (Get-Command -Name "docker" -ErrorAction "SilentlyContinue") {
+        Return $True
+    } Else {
+        Return $False
+    }
+}
+
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .EXAMPLE
+    An example
+#>
+Function Test-DockerForWinInstalled {
+    If (Test-AppInstalled -AppName "Docker") {
+        Return $True
+    } Else {
+        Return $False
+    }
 }
 
 <#
@@ -247,7 +474,7 @@ Function Stop-DockerStack {
 
     .EXAMPLE
     If (-Not (Test-DockerInSwarm)) {
-        Write-Output "Initializing swarm ..."
+        Write-Output "Initializing swarm..."
         docker swarm init
     }
 #>
@@ -255,7 +482,7 @@ Function Test-DockerInSwarm {
     $DockerSwarmInit = Invoke-ExpressionSave -Command "docker swarm init" -Graceful -WithError
 
     If ($DockerSwarmInit -Like "Swarm initialized*") {
-        docker swarm leave -f > $Null
+        docker swarm leave -f | Out-Null
 
         Return $False
     } Else {
@@ -271,16 +498,16 @@ Function Test-DockerInSwarm {
     Tries to access the command "docker" and returns true on success.
 
     .EXAMPLE
-    While (-Not (Test-DockerIsInstalled)) {
-        If (Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -Default 0) {
+    While (-Not (Test-DockerInstalled)) {
+        If (Read-PromptYesNo -Caption "Docker is not installed." -Message "Do you want to install it automatically?" -DefaultChoice 0) {
             Install-Docker
         } Else {
-            Read-Host "Please install Docker manually. Press enter to continue ..."
+            Read-Host "Please install Docker manually. Press enter to continue..."
         }
     }
 #>
-Function Test-DockerIsInstalled {
-    If (Get-Command -Name "docker" -ErrorAction SilentlyContinue) {
+Function Test-DockerInstalled {
+    If (Test-DockerForWinInstalled -Or Test-DockerToolboxInstalled) {
         Return $True
     } Else {
         Return $False
@@ -295,21 +522,33 @@ Function Test-DockerIsInstalled {
     Tries to find the Docker process and verifies the availability of the "docker ps" command.
 
     .EXAMPLE
-    Wait-Test -Test {-Not (Test-DockerIsRunning)} -$WithProgressbar -Activity "Waiting for Docker to initialize"
+    Wait-Test -Test {-Not (Test-DockerRunning)} -$WithProgressbar -Activity "Waiting for Docker to initialize"
 #>
-Function Test-DockerIsRunning {
-    $DockerActive = Get-Process "Docker for Windows" -ErrorAction SilentlyContinue | Out-String
+Function Test-DockerRunning {
+    $DockerProcessesAll = Invoke-ExpressionSave "docker ps -a" -Graceful -WithError
 
-    If (-Not $DockerActive) {
-        Return $false
+    If ((-Not $DockerProcessesAll) -Or ($DockerProcessesAll -Like "docker : error*")) {
+        Return $False
     } Else {
-        $DockerProcessesAll = Invoke-ExpressionSave "docker ps -a" -Graceful -WithError
+        Return $True
+    }
+}
 
-        If (($DockerProcessesAll -Like "docker : error*") -Or (-Not $DockerProcessesAll)) {
-            Return $False
-        } Else {
-            Return $True
-        }
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .EXAMPLE
+    An example
+#>
+Function Test-DockerMachineEnvExist {
+    If (Get-Childitem -Path @("env:DOCKER_HOST", "env:DOCKER_CERT_PATH", "env:DOCKER_TLS_VERIFY", "env:DOCKER_MACHINE_NAME") -ErrorAction SilentlyContinue) {
+        Return $True
+    } Else {
+        Return $False
     }
 }
 
@@ -320,22 +559,42 @@ Function Test-DockerIsRunning {
     .DESCRIPTION
     Tries to show information about a virtual machine and return true if successful.
     
-    .PARAMETER VBoxName
+    .PARAMETER MachineName
     The name of the virtual machine that is to be checked.
     
     .EXAMPLE
     
     #>
-Function Test-DockerMachineExists {
+Function Test-DockerMachineExist {
     Param (
-        [Parameter(Mandatory = $True)] [String] $VBoxName
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $MachineName
     )
 
     $VBoxManage = (Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Oracle\VirtualBox").InstallDir + "VBoxManage.exe"
 
-    & $VBoxManage showvminfo $VBoxName | Out-Null
+    & $VBoxManage showvminfo $MachineName | Out-Null
 
     If ($?) {
+        Return $True
+    } Else {
+        Return $False
+    }
+}
+
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .EXAMPLE
+    An example
+#>
+Function Test-DockerMachineCommand {
+    If (Get-Command -Name "docker-machine" -ErrorAction "SilentlyContinue") {
         Return $True
     } Else {
         Return $False
@@ -356,14 +615,19 @@ Function Test-DockerMachineExists {
     The port the registry is supposed to run on.
 
     .EXAMPLE
-    While (-Not (Test-DockerRegistryIsRunning -Hostname $Hostname -Port $Port)) {
+    While (-Not (Test-DockerRegistryRunning -Hostname $Hostname -Port $Port)) {
         # Start/Install registry
     }
 #>
-Function Test-DockerRegistryIsRunning {
+Function Test-DockerRegistryRunning {
     Param (
-        [Parameter(Mandatory = $True)] [String] $Hostname,
-        [Parameter(Mandatory = $True)] [String] $Port
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateScript({Test-HostnameValid -Port $PSItem})]
+        [String] $Hostname,
+
+        [Parameter(Mandatory = $True, Position = 1)]
+        [ValidateScript({Test-PortValid -Port $PSItem})]
+        [String] $Port
     )
 
     $WebRequest = Invoke-ExpressionSave -Command "Invoke-WebRequest -Method GET -Uri `"http://${Hostname}:${Port}/v2/_catalog`" -UseBasicParsing" -Graceful
@@ -386,11 +650,13 @@ Function Test-DockerRegistryIsRunning {
     The stack's name that is to be checked.
 
     .EXAMPLE
-    Wait-Test -Test {Test-DockerStackIsRunning -StackNamespace $StackName} -WithProgressbar -Activity "Waiting for Docker stack to quit"
+    Wait-Test -Test {Test-DockerStackRunning -StackNamespace $StackName} -WithProgressbar -Activity "Waiting for Docker stack to quit"
 #>
-Function Test-DockerStackIsRunning {
+Function Test-DockerStackRunning {
     Param (
-        [Parameter(Mandatory = $True)] [String] $StackNamespace
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $StackNamespace
     )
 
     $ServiceList = docker ps --filter "label=com.docker.stack.namespace=$StackNamespace" -q | Out-String
@@ -402,8 +668,18 @@ Function Test-DockerStackIsRunning {
     }
 }
 
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .EXAMPLE
+    An example
+#>
 Function Test-DockerToolboxInstalled {
-    If (Test-Path -Path "") {
+    If (Test-AppInstalled -AppName "Docker Toolbox version \d+\.\d+\.\d+(-ce)*" -RegexCompare) {
         Return $True
     } Else {
         Return $False
@@ -428,17 +704,25 @@ Function Test-DockerToolboxInstalled {
 #>
 Function Write-DockerComposeFile {
     Param (
-        [Parameter(Mandatory = $True)] [PSCustomObject] $ComposeFile,
-        [Parameter(Mandatory = $False)] [String] $Path,
-        [Parameter(Mandatory = $False)] [Switch] $Force
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [PSCustomObject] $ComposeFile,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateScript({Test-PathValid -Path $PSItem})]
+        [String] $Path,
+
+        [Parameter(Mandatory = $False)]
+        [Switch] $Force
     )
 
     $Content = Convert-PSObjectToHashtable -InputObject $ComposeFile.Content
+    $Command = ConvertTo-Yaml -Data $Content -OutFile "$Path\$($ComposeFile.Name)"
     
     If ($Force) {
-        ConvertTo-Yaml -Data $Content -OutFile "$Path\$($ComposeFile.Name)" -Force
+        Invoke-Expression -Command "$Command -Force"
     } Else {
-        ConvertTo-Yaml -Data $Content -OutFile "$Path\$($ComposeFile.Name)"
+        Invoke-Expression -Command $Command
     }
 }
 

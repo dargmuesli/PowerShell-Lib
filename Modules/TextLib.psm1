@@ -19,7 +19,9 @@ Set-StrictMode -Version Latest
 #>
 Function Clear-Linebreaks {
     Param (
-        [Parameter(Mandatory = $True)] [String] $String
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $String
     )
 
     $String -Replace "`r", "" -Replace "`n", ""
