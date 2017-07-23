@@ -515,7 +515,7 @@ Function Test-DockerInSwarm {
     }
 #>
 Function Test-DockerInstalled {
-    If (Test-DockerForWinInstalled -Or Test-DockerToolboxInstalled) {
+    If ((Test-DockerForWinInstalled) -Or (Test-DockerToolboxInstalled)) {
         Return $True
     } Else {
         Return $False
