@@ -330,11 +330,11 @@ Function Read-Prompt {
     .PARAMETER Question
     A possible solution to the problem.
 
-    .PARAMETER Default
+    .PARAMETER DefaultChoice
     The preselected answer.
 
     .EXAMPLE
-    If (Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -Default 0) {
+    If (Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -DefaultChoice 0) {
         Install-Docker
     } Else {
         Read-Host "Please install Docker manually. Press enter to continue ..."
@@ -352,7 +352,7 @@ Function Read-PromptYesNo {
 
         [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
-        [Int] $Default = 1
+        [Int] $DefaultChoice = 1
     )
 
     $Choices = [Management.Automation.Host.ChoiceDescription[]] (
@@ -360,7 +360,7 @@ Function Read-PromptYesNo {
         (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList '&No')
     )
 
-    $Decision = Read-Prompt -Caption $Caption -Message $Message -Choices $Choices -Default
+    $Decision = Read-Prompt -Caption $Caption -Message $Message -Choices $Choices -DefaultChoice
 
     If ($Decision -Eq 0) {
         Return $True

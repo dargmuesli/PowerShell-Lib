@@ -214,7 +214,7 @@ Function Start-Docker {
         "ForWin" {
             $DockerPath = (Get-Command docker).Path
 
-            If ($DockerPath -And (Read-PromptYesNo -Caption "Docker is not running." -Message "Do you want to start it automatically?" -Default 0)) {
+            If ($DockerPath -And (Read-PromptYesNo -Caption "Docker is not running." -Message "Do you want to start it automatically?" -DefaultChoice 0)) {
                 If ($DockerPath) {
                     & "$((Get-Item $DockerPath).Directory.Parent.Parent.FullName)\Docker for Windows.exe"
                 }
@@ -365,7 +365,7 @@ Function Start-DockerRegistry {
         If ($DockerInspectConfigHostname -And ($DockerInspectConfigHostname -Match "^[a-z0-9] {12}$")) {
             docker start $DockerInspectConfigHostname
         } Else {
-            If (Read-PromptYesNo -Caption "Docker registry does not exist." -Message "Do you want to initialize it automatically?" -Default 0) {
+            If (Read-PromptYesNo -Caption "Docker registry does not exist." -Message "Do you want to initialize it automatically?" -DefaultChoice 0) {
                 docker run -d -p "${Port}:5000" --name $RegistryName "registry:2"
 
                 Wait-Test -Test {-Not (Test-DockerRegistryRunning  -Hostname $Hostname -Port $Port)} -WithProgressbar -Activity "Waiting for Docker registry to initialize"
