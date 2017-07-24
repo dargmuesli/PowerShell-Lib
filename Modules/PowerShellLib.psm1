@@ -120,7 +120,7 @@ Function Get-FileFromWeb {
     Prevents that an error is thrown.
 
     .EXAMPLE
-    $DockerSwarmInit = Invoke-ExpressionSave -Command "docker swarm init" -WithError -Graceful
+    $DockerSwarmInit = Invoke-ExpressionSave -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
 #>
 Function Invoke-ExpressionSave {
     Param (
@@ -136,7 +136,7 @@ Function Invoke-ExpressionSave {
     )
 
     $TmpFile = New-TemporaryFile
-    $Stdout = ""
+    $Stdout = $Null
 
     Try {
         Invoke-Expression -Command "$Command 2>$TmpFile" -OutVariable Stdout | Tee-Object -Variable Stdout
@@ -360,7 +360,7 @@ Function Read-PromptYesNo {
         (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList '&No')
     )
 
-    $Decision = Read-Prompt -Caption $Caption -Message $Message -Choices $Choices -DefaultChoice
+    $Decision = Read-Prompt -Caption $Caption -Message $Message -Choices $Choices -DefaultChoice $DefaultChoice
 
     If ($Decision -Eq 0) {
         Return $True
@@ -473,7 +473,7 @@ Function Test-PropertyExist {
     A description of the running task.
 
     .EXAMPLE
-    Wait-Test -Test {-Not (Test-DockerRunning)} -$WithProgressbar -Activity "Waiting for Docker to initialize"
+    Wait-Test -Test "-Not (Test-DockerRunning)" -$WithProgressbar -Activity "Waiting for Docker to initialize"
 #>
 Function Wait-Test {
     Param (
