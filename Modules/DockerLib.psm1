@@ -636,9 +636,9 @@ Function Test-DockerRegistryRunning {
         [String] $Port
     )
 
-    $DockerHost = Get-ChildItem -Path @("env:DOCKER_HOST")
+    $DockerHost = Get-ChildItem -Path @("env:DOCKER_HOST") -ErrorAction SilentlyContinue
 
-    If ($DockerHost.Value -Match "^tcp:\/\/(.*):(.*)$") {
+    If ($DockerHost -And ($DockerHost.Value -Match "^tcp:\/\/(.*):(.*)$")) {
         $Hostname = $Matches[1]
     }
 

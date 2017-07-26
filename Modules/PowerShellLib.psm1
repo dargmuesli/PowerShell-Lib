@@ -28,14 +28,17 @@ Function Convert-PSObjectToHashtable {
             Return $Null
         }
 
-        if ($InputObject -Is [System.Collections.IEnumerable] -And $InputObject -IsNot [String]) {
-            $Collection = @(
-                ForEach ($Object In $InputObject) {
-                    Convert-PSObjectToHashtable -InputObject $Object
-                }
-            )
+        If ($InputObject -Is [System.Collections.IEnumerable] -And $InputObject -IsNot [String]) {
+            $InputObject
+            # Write-Host $InputObject.GetType()
 
-            Write-Output -NoEnumerate $Collection
+            # $Collection = @(
+            #     ForEach ($Object In $InputObject) {
+            #         Convert-PSObjectToHashtable -InputObject $Object
+            #     }
+            # )
+
+            # Write-Output -NoEnumerate $Collection
         } ElseIf ($InputObject -Is [PSObject]) {
             $HashTable = @{}
 

@@ -184,6 +184,73 @@ Function Test-LengthValid {
     .DESCRIPTION
     Long description
 
+    .PARAMETER Variable
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
+Function Test-NotNullValid {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [AllowNull()]
+        $Variable
+    )
+
+    If ([String]::IsNullOrEmpty($Variable)) {
+        Return $False
+    } Else {
+        ForEach ($Item In $Variable) {
+            If ([String]::IsNullOrEmpty($Item)) {
+                Return $False
+            }
+        }
+    }
+
+    Return $True
+}
+
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
+    .PARAMETER Variable
+    Parameter description
+
+    .EXAMPLE
+    An example
+#>
+Function Test-NotNullOrEmptyValid {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [AllowNull()]
+        [AllowEmptyString()]
+        [Array] $Variable
+    )
+
+    If ([String]::IsNullOrEmpty($Variable)) {
+        Return $False
+    } Else {
+        ForEach ($Item In $Variable) {
+            If ([String]::IsNullOrEmpty($Item)) {
+                Return $False
+            }
+        }
+    }
+
+    Return $True
+}
+
+<#
+    .SYNOPSIS
+    Short description
+
+    .DESCRIPTION
+    Long description
+
     .PARAMETER Path
     Parameter description
 
@@ -379,7 +446,7 @@ Function Test-SetValid {
 
     ForEach ($Item In $Variable) {
         If (-Not $Set.Contains($Item)) {
-            Return $false
+            Return $False
         }
     }
 
@@ -396,57 +463,26 @@ Function Test-SetValid {
     .PARAMETER Variable
     Parameter description
 
-    .EXAMPLE
-    An example
-#>
-Function Test-NotNullValid {
-    Param (
-        [Parameter(Mandatory = $True, Position = 0)]
-        [AllowNull()]
-        $Variable
-    )
-
-    If ([String]::IsNullOrEmpty($Variable)) {
-        Return $False
-    } Else {
-        ForEach ($Item In $Variable) {
-            If ([String]::IsNullOrEmpty($Item)) {
-                Return $False
-            }
-        }
-    }
-
-    Return $True
-}
-
-<#
-    .SYNOPSIS
-    Short description
-
-    .DESCRIPTION
-    Long description
-
-    .PARAMETER Variable
+    .PARAMETER Set
     Parameter description
 
     .EXAMPLE
     An example
 #>
-Function Test-NotNullOrEmptyValid {
+Function Test-TypeValid {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
-        [AllowNull()]
-        [AllowEmptyString()]
-        [Array] $Variable
+        [ValidateNotNullOrEmpty()]
+        $Variable,
+        
+        [Parameter(Mandatory = $True, Position = 1)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Type
     )
 
-    If ([String]::IsNullOrEmpty($Variable)) {
-        Return $False
-    } Else {
-        ForEach ($Item In $Variable) {
-            If ([String]::IsNullOrEmpty($Item)) {
-                Return $False
-            }
+    ForEach ($Item In $Variable) {
+        If ($Variable -IsNot $Type) {
+            Return $False
         }
     }
 

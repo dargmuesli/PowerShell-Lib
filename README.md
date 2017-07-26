@@ -56,11 +56,12 @@ A library of helpful PowerShell functions.
   - Test-IPAdressValid
   - Test-IRIValid
   - Test-LengthValid
+  - Test-NotNullValid
+  - Test-NotNullOrEmptyValid
   - Test-PathValid
   - Test-PatternValid
   - Test-PortValid
   - Test-RangeValid
   - Test-ScriptValid
   - Test-SetValid
-  - Test-NotNullValid
-  - Test-NotNullOrEmptyValid
+  - Test-TypeValid
