@@ -2,16 +2,13 @@ Set-StrictMode -Version Latest
 
 <#
     .SYNOPSIS
-    Short description
+    Removes all Docker Machine environment variables.
 
     .DESCRIPTION
-    Long description
-
-    .PARAMETER MachineName
-    Parameter description
+    The "Clear-DockerMachineEnv" cmdlet checks if the "docker-machine" command is available and if that's the case it unsets the Docker Machine environment variables.
 
     .EXAMPLE
-    An example
+    Clear-DockerMachineEnv
 #>
 Function Clear-DockerMachineEnv {
     If (-Not (Test-DockerMachineCommand)) {
@@ -22,7 +19,21 @@ Function Clear-DockerMachineEnv {
     docker-machine env --shell=powershell --unset | Invoke-Expression
 }
 
+<#
+    .SYNOPSIS
+    Returns the Docker edition name that is to be used.
 
+    .DESCRIPTION
+    The "Get-DockerEditionToUse" cmdlet test if Docker for Windows and Docker Toolbox are installed.
+    If only one is installed, that one is returned.
+    If both are installed, the user is asked which one is the user's preferred choice.
+
+    .EXAMPLE
+    Get-DockerEditionToUse
+
+    .OUTPUTS
+    Either "ForWin" or "Toolbox".
+#>
 Function Get-DockerEditionToUse {
     $DockerForWinInstalled = Test-DockerForWinInstalled
     $DockerToolboxInstalled = Test-DockerToolboxInstalled
@@ -54,16 +65,16 @@ Function Get-DockerEditionToUse {
 
 <#
     .SYNOPSIS
-    Short description
+    Gets the status of a Docker Machine.
 
     .DESCRIPTION
-    Long description
+    The "Get-DockerMachineStatus" cmdlet checks if the "docker-machine" command is available and if that's the case it gets the Docker Machine's status.
 
     .PARAMETER MachineName
-    Parameter description
+    The machine's name to get the status from.
 
     .EXAMPLE
-    An example
+    Get-DockerMachineStatus -MachineName "Docker"
 #>
 Function Get-DockerMachineStatus {
     Param (
@@ -84,10 +95,13 @@ Function Get-DockerMachineStatus {
     Installs Docker.
 
     .DESCRIPTION
-    Downloads and starts the docker installer.
+    The "Install-Docker" cmdlet downloads and executes the Docker installer.
+
+    .PARAMETER Edition
+    The edition of Docker that is to be used.
 
     .PARAMETER DownloadMethod
-    Indicates which type of download function is to be used.
+    The type of download function that is to be used.
 
     .EXAMPLE
     Install-Docker
@@ -125,16 +139,17 @@ Function Install-Docker {
 
 <#
     .SYNOPSIS
-    Short description
+    Creates a new Docker Machine.
 
     .DESCRIPTION
-    Long description
+    The "New-DockerMachine" cmdlet checks if the "docker-machine" command is available.
+    If that's the case it removes any existing Docker Machine with the desired name and creates a new VirtualBox with the same name.
 
     .PARAMETER MachineName
-    Parameter description
+    The machine name to create a new VirtualBox for.
 
     .EXAMPLE
-    An example
+    New-DockerMachine -MachineName "Docker"
 #>
 Function New-DockerMachine {
     Param (
@@ -154,16 +169,16 @@ Function New-DockerMachine {
 
 <#
     .SYNOPSIS
-    Short description
+    Creates all Docker Machine environment variables.
 
     .DESCRIPTION
-    Long description
+    The "Set-DockerMachineEnv" cmdlet checks if the "docker-machine" command is available and if that's the case it sets the Docker Machine environment variables.
 
     .PARAMETER MachineName
-    Parameter description
+    The machine name to set Docker environment variables for.
 
     .EXAMPLE
-    An example
+    Set-DockerMachineEnv -MachineName "Docker"
 #>
 Function Set-DockerMachineEnv {
     Param (
@@ -185,13 +200,14 @@ Function Set-DockerMachineEnv {
     Starts Docker for Windows.
 
     .DESCRIPTION
-    Checks if Docker is installed, how it is installed and if it is running. If not it offers to install and start Docker automatically.
+    The "Start-Docker" cmdlet checks if Docker is installed, how it is installed and if it is running.
+    If not it offers to install and start Docker automatically.
 
     .EXAMPLE
-    Start-Docker
+    Start-Docker -MachineName "Docker"
 
-    .NOTES
-    https://gist.github.com/au-phiware/25213e72c80040f398ba
+    .LINK
+    Source: https://gist.github.com/au-phiware/25213e72c80040f398ba
 #>
 Function Start-Docker {
     Param (
@@ -299,16 +315,16 @@ Function Start-Docker {
 
 <#
     .SYNOPSIS
-    Short description
+    Starts a Docker Machine.
 
     .DESCRIPTION
-    Long description
+    The "Start-DockerMachine" cmdlet checks if the "docker-machine" command is available and if that's the case it starts the desired Docker Machine.
 
     .PARAMETER MachineName
-    Parameter description
+    The machine name to start the VirtualBox for.
 
     .EXAMPLE
-    An example
+    Start-DockerMachine -DockerMachine "Docker"
 #>
 Function Start-DockerMachine {
     Param (
@@ -333,7 +349,7 @@ Function Start-DockerMachine {
     Tries to start the Docker registry image and offers to install it in case it is not.
 
     .PARAMETER Name
-    The container's name
+    The container's name that is to be used.
 
     .PARAMETER Hostname
     The hostname on which the registry should be available.
@@ -342,7 +358,7 @@ Function Start-DockerMachine {
     The port on which the registry should be available.
 
     .EXAMPLE
-    Start-DockerRegistry -Name $RegistryAddressName -Host $RegistryAddressHostname -Port $RegistryAddressPort
+    Start-DockerRegistry -Name "registry" -Host "localhost" -Port "8080"
 #>
 Function Start-DockerRegistry {
     Param (
@@ -384,16 +400,16 @@ Function Start-DockerRegistry {
 
 <#
     .SYNOPSIS
-    Short description
+    Starts a Docker Machine.
 
     .DESCRIPTION
-    Long description
+    The "Stop-DockerMachine" cmdlet checks if the "docker-machine" command is available and if that's the case it stops the desired Docker Machine.
 
     .PARAMETER MachineName
-    Parameter description
+    The machine name that is to be used.
 
     .EXAMPLE
-    An example
+    Stop-DockerMachine -MachineName "Docker"
 #>
 Function Stop-DockerMachine {
     Param (
@@ -415,13 +431,13 @@ Function Stop-DockerMachine {
     Stops a Docker stack.
 
     .DESCRIPTION
-    Stops a Docker stack, waiting for all included containers to stop.
+    The "Stop-DockerStack" cmdlet stops a Docker stack and waits for all included containers to stop.
 
     .PARAMETER StackName
     The name of the stack to is to be stopped.
 
     .EXAMPLE
-    Stop-DockerStack -StackName $NameDns
+    Stop-DockerStack -StackName "appstack"
 #>
 Function Stop-DockerStack {
     Param (
@@ -437,13 +453,13 @@ Function Stop-DockerStack {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks the availability of the "docker" command.
 
     .DESCRIPTION
-    Long description
+    The "Test-DockerCommand" cmdlet tries to get the "docker" command and returns true on success.
 
     .EXAMPLE
-    An example
+    Test-DockerCommand
 #>
 Function Test-DockerCommand {
     If (Get-Command -Name "docker" -ErrorAction "SilentlyContinue") {
@@ -455,13 +471,13 @@ Function Test-DockerCommand {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if Docker for Windows is installed.
 
     .DESCRIPTION
-    Long description
+    The "Test-DockerForWinInstalled" cmdlet tests if an app with the name "Docker" is installed and returns true if that's the case.
 
     .EXAMPLE
-    An example
+    Test-DockerForWinInstalled
 #>
 Function Test-DockerForWinInstalled {
     If (Test-AppInstalled -AppName "Docker") {
@@ -476,13 +492,10 @@ Function Test-DockerForWinInstalled {
     Checks if Docker is in swarm-mode.
 
     .DESCRIPTION
-    Tries to create a swarm and returns false if successful, leaving the just created swarm.
+    The "Test-DockerInSwarm" cmdlet tries to create a swarm and returns false if successful, leaving the just created swarm.
 
     .EXAMPLE
-    If (-Not (Test-DockerInSwarm)) {
-        Write-Output "Initializing swarm..."
-        docker swarm init --advertise-addr "eth0:2377"
-    }
+    Test-DockerInSwarm
 #>
 Function Test-DockerInSwarm {
     $DockerSwarmInit = Invoke-ExpressionSave -Command "docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithError
@@ -501,16 +514,10 @@ Function Test-DockerInSwarm {
     Checks if Docker is installed.
 
     .DESCRIPTION
-    Tries to access the command "docker" and returns true on success.
+    The "Test-DockerInstalled" cmdlet tries to access the command "docker" and "docker-machine" and returns true if at least one is successful.
 
     .EXAMPLE
-    While (-Not (Test-DockerInstalled)) {
-        If (Read-PromptYesNo -Caption "Docker is not installed." -Message "Do you want to install it automatically?" -DefaultChoice 0) {
-            Install-Docker
-        } Else {
-            Read-Host "Please install Docker manually. Press enter to continue..."
-        }
-    }
+    Test-DockerInstalled
 #>
 Function Test-DockerInstalled {
     If ((Test-DockerForWinInstalled) -Or (Test-DockerToolboxInstalled)) {
@@ -525,10 +532,10 @@ Function Test-DockerInstalled {
     Checks if Docker is running.
 
     .DESCRIPTION
-    Tries to find the Docker process and verifies the availability of the "docker ps" command.
+    The "Test-DockerRunning" cmdlet tries to verify the availability of the "docker ps" command and returns true on success.
 
     .EXAMPLE
-    Wait-Test -Test "-Not (Test-DockerRunning)" -$WithProgressbar -Activity "Waiting for Docker to initialize"
+    Test-DockerRunning
 #>
 Function Test-DockerRunning {
     $DockerProcessesAll = Invoke-ExpressionSave "docker ps -a" -Graceful -WithError
@@ -542,13 +549,13 @@ Function Test-DockerRunning {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if Docker Machine environment variables exist.
 
     .DESCRIPTION
-    Long description
+    The "Test-DockerMachineEnvExist" cmdlet checks if "DOCKER_HOST", "DOCKER_CERT_PATH", "DOCKER_TLS_VERIFY" and "DOCKER_MACHINE_NAME" environment variables exist and retun true on success.
 
     .EXAMPLE
-    An example
+    Test-DockerMachineEnvExist
 #>
 Function Test-DockerMachineEnvExist {
     If (Get-ChildItem -Path @("env:DOCKER_HOST", "env:DOCKER_CERT_PATH", "env:DOCKER_TLS_VERIFY", "env:DOCKER_MACHINE_NAME") -ErrorAction SilentlyContinue) {
@@ -560,17 +567,17 @@ Function Test-DockerMachineEnvExist {
 
 <#
     .SYNOPSIS
-    Checks if a Virtual Box machine exists.
+    Checks if a Docker Machine exists.
     
     .DESCRIPTION
-    Tries to show information about a virtual machine and return true if successful.
+    The "Test-DockerMachineExist" cmdlet tries to show information about the Docker Machine and returns true on success.
     
     .PARAMETER MachineName
     The name of the virtual machine that is to be checked.
     
     .EXAMPLE
-    
-    #>
+    Test-DockerMachineExist -MachineName "Docker"
+#>
 Function Test-DockerMachineExist {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
@@ -591,13 +598,13 @@ Function Test-DockerMachineExist {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks the availability of the "docker-machine" command.
 
     .DESCRIPTION
-    Long description
+    The "Test-DockerMachineCommand" cmdlet tries to get the "docker-machine" command and returns true on success.
 
     .EXAMPLE
-    An example
+    Test-DockerMachineCommand
 #>
 Function Test-DockerMachineCommand {
     If (Get-Command -Name "docker-machine" -ErrorAction "SilentlyContinue") {
@@ -612,7 +619,7 @@ Function Test-DockerMachineCommand {
     Checks if Docker runs a registry container.
 
     .DESCRIPTION
-    Tries to invoke a web request to the registry's catalog and returns true on success.
+    The "Test-DockerRegistryRunning" cmdlet tries to invoke a web request to the registry's catalog and returns true on success.
 
     .PARAMETER Hostname
     The hostname the registry is supposed to run on.
@@ -621,9 +628,7 @@ Function Test-DockerMachineCommand {
     The port the registry is supposed to run on.
 
     .EXAMPLE
-    While (-Not (Test-DockerRegistryRunning -Hostname $Hostname -Port $Port)) {
-        # Start/Install registry
-    }
+    Test-DockerRegistryRunning -Hostname "localhost" -Port "8080"
 #>
 Function Test-DockerRegistryRunning {
     Param (
@@ -653,16 +658,16 @@ Function Test-DockerRegistryRunning {
 
 <#
     .SYNOPSIS
-    Checks if a Docker stack runs.
+    Checks if a Docker stack is running.
 
     .DESCRIPTION
-    Looks for running container with a matching "stack.namespace".
+    The "Test-DockerStackRunning" cmdlet looks for a running container with a matching "stack.namespace" property.
 
     .PARAMETER StackNamespace
     The stack's name that is to be checked.
 
     .EXAMPLE
-    Wait-Test -Test "Test-DockerStackRunning -StackNamespace $StackName" -WithProgressbar -Activity "Waiting for Docker stack to quit"
+    Test-DockerStackRunning -StackNamespace "AppStack"
 #>
 Function Test-DockerStackRunning {
     Param (
@@ -682,13 +687,13 @@ Function Test-DockerStackRunning {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if Docker Toolbox is installed.
 
     .DESCRIPTION
-    Long description
+    The "Test-DockerToolboxInstalled" cmdlet checks if an app is installed that matches the Docker Toolbox app name pattern and returns true on success.
 
     .EXAMPLE
-    An example
+    Test-DockerToolboxInstalled
 #>
 Function Test-DockerToolboxInstalled {
     If (Test-AppInstalled -AppName "Docker Toolbox version \d+\.\d+\.\d+(-ce)*" -RegexCompare) {
@@ -703,7 +708,7 @@ Function Test-DockerToolboxInstalled {
     Create a Docker compose file.
 
     .DESCRIPTION
-    Converts the data in a PSCustomObject to the YAML format and writes to file, removing unneccessary linebreaks.
+    The "Write-DockerComposeFile" cmdlet converts the data in a PSCustomObject to the YAML format and writes that to a file, removing unneccessary linebreaks.
 
     .PARAMETER ComposeFile
     An object containing the compose file's properties.
@@ -711,8 +716,11 @@ Function Test-DockerToolboxInstalled {
     .PARAMETER Path
     Path of the output file.
 
+    .PARAMETER Force
+    Whether to force-write the "OutFile" of "ConvertTo-Yaml".
+
     .EXAMPLE
-    Write-DockerComposeFile -ComposeFile $ComposeFile -Path $ProjectPath
+    Write-DockerComposeFile -ComposeFile "docker-compose.yml" -Path ".\"
 #>
 Function Write-DockerComposeFile {
     Param (
