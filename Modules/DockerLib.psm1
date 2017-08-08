@@ -200,8 +200,8 @@ Function Set-DockerMachineEnv {
     Starts Docker for Windows.
 
     .DESCRIPTION
-    The "Start-Docker" cmdlet checks if Docker is installed, how it is installed and if it is running.
-    If not it offers to install and start Docker automatically.
+    The "Start-Docker" cmdlet checks whether Docker is installed, how it is installed and whether it is running.
+    If not, it offers to install and start Docker automatically.
 
     .PARAMETER MachineName
     The machine name of the Docker Machine that is to be started.
@@ -233,7 +233,7 @@ Function Start-Docker {
             Read-Host "Please install Docker manually. Press enter to continue..."
         }
     }
-    
+
     If (-Not (Test-DockerRunning)) {
         Switch (Get-DockerEditionToUse) {
             "ForWin" {
@@ -257,7 +257,7 @@ Function Start-Docker {
                     Throw "Command `"docker-machine`" not found."
                 }
 
-                If (-Not (Test-DockerMachineExist -MachineName $MachineName)) {
+                If (-Not (Test-DockerMachineExists -MachineName $MachineName)) {
                     New-DockerMachine -MachineName $MachineName
                 }
 
@@ -283,14 +283,14 @@ Function Start-Docker {
                     ForEach-Object {
                     If ($PSItem -Match '^[0-9]+ - (?<ShareName>((?<DriveLetter>[A-Za-z]):)?(?<FolderName>.*))$') {
                         $MountPoint = "$($Matches['DriveLetter'])$($Matches['FolderName'])"
-                        
+
                         If (-Not ($MountPoint -Match '^/')) {
                             $MountPoint = "/$MountPoint"
                         }
-                        
+
                         If (-Not ($VirtualBoxMounts -CContains $MountPoint)) {
                             Write-Output "Mounting $($Matches['ShareName']) to $MountPoint..."
-                            
+
                             & docker-machine ssh $MachineName "sudo mkdir -p $MountPoint && sudo mount -t vboxsf -o $MountOptions $($Matches['ShareName']) $MountPoint"
                         }
                     }
@@ -504,7 +504,7 @@ Function Test-DockerForWinInstalled {
     Test-DockerInSwarm
 #>
 Function Test-DockerInSwarm {
-    $DockerSwarmInit = Invoke-ExpressionSave -Command "docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithError
+    $DockerSwarmInit = Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithError
 
     If ($DockerSwarmInit -CMatch "^Swarm initialized*") {
         docker swarm leave -f | Out-Null
@@ -535,7 +535,7 @@ Function Test-DockerInstalled {
 
 <#
     .SYNOPSIS
-    Checks if Docker is running.
+    Checks whether Docker is running.
 
     .DESCRIPTION
     The "Test-DockerRunning" cmdlet tries to verify the availability of the "docker ps" command and returns true on success.
@@ -544,7 +544,7 @@ Function Test-DockerInstalled {
     Test-DockerRunning
 #>
 Function Test-DockerRunning {
-    $DockerProcessesAll = Invoke-ExpressionSave "docker ps -a" -Graceful -WithError
+    $DockerProcessesAll = Invoke-ExpressionSafe "docker ps -a" -Graceful -WithError
 
     If ((-Not $DockerProcessesAll) -Or ($DockerProcessesAll -CMatch "^docker : error*")) {
         Return $False
@@ -563,7 +563,7 @@ Function Test-DockerRunning {
     .EXAMPLE
     Test-DockerMachineEnvExist
 #>
-Function Test-DockerMachineEnvExist {
+Function Test-DockerMachineEnvExists {
     If (Get-ChildItem -Path @("env:DOCKER_HOST", "env:DOCKER_CERT_PATH", "env:DOCKER_TLS_VERIFY", "env:DOCKER_MACHINE_NAME") -ErrorAction SilentlyContinue) {
         Return $True
     } Else {
@@ -573,18 +573,18 @@ Function Test-DockerMachineEnvExist {
 
 <#
     .SYNOPSIS
-    Checks if a Docker Machine exists.
-    
+    Checks whether a Docker Machine exists.
+
     .DESCRIPTION
     The "Test-DockerMachineExist" cmdlet tries to show information about the Docker Machine and returns true on success.
-    
+
     .PARAMETER MachineName
     The name of the virtual machine that is to be checked.
-    
+
     .EXAMPLE
-    Test-DockerMachineExist -MachineName "Docker"
+    Test-DockerMachineExists -MachineName "Docker"
 #>
-Function Test-DockerMachineExist {
+Function Test-DockerMachineExists {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -622,7 +622,7 @@ Function Test-DockerMachineCommand {
 
 <#
     .SYNOPSIS
-    Checks if Docker runs a registry container.
+    Checks whether Docker runs a registry container.
 
     .DESCRIPTION
     The "Test-DockerRegistryRunning" cmdlet tries to invoke a web request to the registry's catalog and returns true on success.
@@ -653,7 +653,7 @@ Function Test-DockerRegistryRunning {
         $Hostname = $Matches[1]
     }
 
-    $WebRequest = Invoke-ExpressionSave -Command "Invoke-WebRequest -Method GET -Uri `"http://${Hostname}:${Port}/v2/_catalog`" -UseBasicParsing" -Graceful
+    $WebRequest = Invoke-ExpressionSafe -Command "Invoke-WebRequest -Method GET -Uri `"http://${Hostname}:${Port}/v2/_catalog`" -UseBasicParsing" -Graceful
 
     If ($WebRequest) {
         Return $True
@@ -664,7 +664,7 @@ Function Test-DockerRegistryRunning {
 
 <#
     .SYNOPSIS
-    Checks if a Docker stack is running.
+    Checks whether a Docker stack runs.
 
     .DESCRIPTION
     The "Test-DockerStackRunning" cmdlet looks for a running container with a matching "stack.namespace" property.
@@ -744,7 +744,7 @@ Function Write-DockerComposeFile {
 
     $Content = Convert-PSObjectToHashtable -InputObject $ComposeFile.Content
     $Command = "ConvertTo-Yaml -Data $Content -OutFile `"$Path\$($ComposeFile.Name)`""
-    
+
     If ($Force) {
         Invoke-Expression -Command "$Command -Force"
     } Else {

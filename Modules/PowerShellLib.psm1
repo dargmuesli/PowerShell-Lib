@@ -120,7 +120,7 @@ Function Get-FileFromWeb {
     If the Graceful parameter is given and an error occurs, no exception is be thrown.
 
     .PARAMETER Command
-    The expression to invoke savely.
+    The expression to invoke safely.
 
     .PARAMETER WithError
     Wether to return the error message in stdout.
@@ -129,9 +129,9 @@ Function Get-FileFromWeb {
     Prevents that an error is thrown.
 
     .EXAMPLE
-    Invoke-ExpressionSave -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
+    Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
 #>
-Function Invoke-ExpressionSave {
+Function Invoke-ExpressionSafe {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -259,7 +259,7 @@ Function Invoke-WebRequestWithProgress {
     .EXAMPLE
     Merge-Objects -Object1 @{test='123'} -Object2 @{123='test'}
 #>
-Function Merge-Objects { 
+Function Merge-Objects {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [Object] $Object1,
@@ -267,7 +267,7 @@ Function Merge-Objects {
         [Parameter(Mandatory = $True, Position = 1)]
         [Object] $Object2
     )
-    
+
     $ReturnObject = [PSCustomObject] @{}
 
     Foreach ($Property In $Object1.PSObject.Properties) {
@@ -277,7 +277,7 @@ Function Merge-Objects {
     Foreach ($Property In $Object2.PSObject.Properties) {
         $ReturnObject | Add-Member -NotePropertyName $Property.Name -NotePropertyValue $Property.Value -Force
     }
-    
+
     Return $ReturnObject
 }
 
@@ -418,7 +418,7 @@ Function Read-PromptYesNo {
     .EXAMPLE
     Test-EnvVarExist -EnvVarName "OS"
 #>
-Function Test-EnvVarExist {
+Function Test-EnvVarExists {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -475,7 +475,7 @@ Function Test-ModuleInstalled {
     .EXAMPLE
     Test-PropertyExist -Object {test='123'} -PropertyName "test"
 #>
-Function Test-PropertyExist {
+Function Test-PropertyExists {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -491,10 +491,10 @@ Function Test-PropertyExist {
 
 <#
     .SYNOPSIS
-    Displays an indeterminate progressbar while a test is successful.
+    Displays an indeterminate progress bar while a test is successful.
 
     .DESCRIPTION
-    The "Wait-Test" cmdlet increases the progressbar's value in steps from 0 to 100 infinitly to provide visual feedback about a running task to the user.
+    The "Wait-Test" cmdlet increases the progress bar's value in steps from 0 to 100 infinitely to provide visual feedback about a running task to the user.
 
     .PARAMETER Test
     The task check which needs to pass.
@@ -506,10 +506,10 @@ Function Test-PropertyExist {
     The time to wait between test checks.
 
     .PARAMETER WithProgressbar
-    Wether to display a progressbar.
+    Wether to display a progress bar.
 
     .EXAMPLE
-    Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressbar
+    Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar
 #>
 Function Wait-Test {
     Param (
@@ -526,7 +526,7 @@ Function Wait-Test {
         [Int] $Milliseconds = 1000,
 
         [Parameter(Mandatory = $False)]
-        [Switch] $WithProgressbar
+        [Switch] $WithProgressBar
     )
 
     $Index = 0
@@ -538,14 +538,14 @@ Function Wait-Test {
             $Index = 0
         }
 
-        If ($WithProgressbar) {
-            Write-Progressbar -Activity "$Activity ..." -PercentComplete $Index
+        If ($WithProgressBar) {
+            Write-ProgressBar -Activity "$Activity ..." -PercentComplete $Index
         }
 
         Start-Sleep -Milliseconds $Milliseconds
     }
 
-    If ($WithProgressbar) {
+    If ($WithProgressBar) {
         Write-Progress -Completed $True
     }
 }
@@ -566,7 +566,7 @@ Function Wait-Test {
     .EXAMPLE
     Write-Progressbar -Activity "Checking ..." -PercentComplete $Index
 #>
-Function Write-Progressbar {
+Function Write-ProgressBar {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
