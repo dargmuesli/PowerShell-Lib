@@ -211,7 +211,7 @@ Function Start-Docker {
             Read-Host "Please install Docker manually. Press enter to continue..."
         }
     }
-    
+
     If (-Not (Test-DockerRunning)) {
         Switch (Get-DockerEditionToUse) {
             "ForWin" {
@@ -235,7 +235,7 @@ Function Start-Docker {
                     Throw "Command `"docker-machine`" not found."
                 }
 
-                If (-Not (Test-DockerMachineExist -MachineName $MachineName)) {
+                If (-Not (Test-DockerMachineExists -MachineName $MachineName)) {
                     New-DockerMachine -MachineName $MachineName
                 }
 
@@ -261,14 +261,14 @@ Function Start-Docker {
                     ForEach-Object {
                     If ($PSItem -Match '^[0-9]+ - (?<ShareName>((?<DriveLetter>[A-Za-z]):)?(?<FolderName>.*))$') {
                         $MountPoint = "$($Matches['DriveLetter'])$($Matches['FolderName'])"
-                        
+
                         If (-Not ($MountPoint -Match '^/')) {
                             $MountPoint = "/$MountPoint"
                         }
-                        
+
                         If (-Not ($VirtualBoxMounts -CContains $MountPoint)) {
                             Write-Output "Mounting $($Matches['ShareName']) to $MountPoint..."
-                            
+
                             & docker-machine ssh $MachineName "sudo mkdir -p $MountPoint && sudo mount -t vboxsf -o $MountOptions $($Matches['ShareName']) $MountPoint"
                         }
                     }
@@ -550,7 +550,7 @@ Function Test-DockerRunning {
     .EXAMPLE
     An example
 #>
-Function Test-DockerMachineEnvExist {
+Function Test-DockerMachineEnvExists {
     If (Get-ChildItem -Path @("env:DOCKER_HOST", "env:DOCKER_CERT_PATH", "env:DOCKER_TLS_VERIFY", "env:DOCKER_MACHINE_NAME") -ErrorAction SilentlyContinue) {
         Return $True
     } Else {
@@ -561,17 +561,17 @@ Function Test-DockerMachineEnvExist {
 <#
     .SYNOPSIS
     Checks if a Virtual Box machine exists.
-    
+
     .DESCRIPTION
     Tries to show information about a virtual machine and return true if successful.
-    
+
     .PARAMETER MachineName
     The name of the virtual machine that is to be checked.
-    
+
     .EXAMPLE
-    
+
     #>
-Function Test-DockerMachineExist {
+Function Test-DockerMachineExists {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -730,7 +730,7 @@ Function Write-DockerComposeFile {
 
     $Content = Convert-PSObjectToHashtable -InputObject $ComposeFile.Content
     $Command = "ConvertTo-Yaml -Data $Content -OutFile `"$Path\$($ComposeFile.Name)`""
-    
+
     If ($Force) {
         Invoke-Expression -Command "$Command -Force"
     } Else {

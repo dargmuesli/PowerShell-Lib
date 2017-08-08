@@ -23,8 +23,8 @@ A library of helpful PowerShell functions.
   - Test-DockerInSwarm
   - Test-DockerInstalled
   - Test-DockerRunning
-  - Test-DockerMachineEnvExist
-  - Test-DockerMachineExist
+  - Test-DockerMachineEnvExists
+  - Test-DockerMachineExists
   - Test-DockerMachineCommand
   - Test-DockerRegistryRunning
   - Test-DockerStackRunning
@@ -39,9 +39,9 @@ A library of helpful PowerShell functions.
   - Mount-EnvFile
   - Read-Prompt
   - Read-PromptYesNo
-  - Test-EnvVarExist
+  - Test-EnvVarExists
   - Test-ModuleInstalled
-  - Test-PropertyExist
+  - Test-PropertyExists
   - Wait-Test
   - Write-Progressbar
 - **Project**

@@ -248,7 +248,7 @@ Function Invoke-WebRequestWithProgress {
     .EXAMPLE
     $Settings = Merge-Objects -Object1 $Settings -Object2 (Get-Content -Path $SourcesPath | ConvertFrom-Json)
 #>
-Function Merge-Objects { 
+Function Merge-Objects {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [Object] $Object1,
@@ -256,7 +256,7 @@ Function Merge-Objects {
         [Parameter(Mandatory = $True, Position = 1)]
         [Object] $Object2
     )
-    
+
     $ReturnObject = [PSCustomObject] @{}
 
     Foreach ($Property In $Object1.PSObject.Properties) {
@@ -266,7 +266,7 @@ Function Merge-Objects {
     Foreach ($Property In $Object2.PSObject.Properties) {
         $ReturnObject | Add-Member -NotePropertyName $Property.Name -NotePropertyValue $Property.Value -Force
     }
-    
+
     Return $ReturnObject
 }
 
@@ -385,7 +385,7 @@ Function Read-PromptYesNo {
     .EXAMPLE
     An example
 #>
-Function Test-EnvVarExist {
+Function Test-EnvVarExists {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -442,7 +442,7 @@ Function Test-ModuleInstalled {
     .EXAMPLE
     An example
 #>
-Function Test-PropertyExist {
+Function Test-PropertyExists {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
