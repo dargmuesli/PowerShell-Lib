@@ -203,6 +203,12 @@ Function Set-DockerMachineEnv {
     The "Start-Docker" cmdlet checks if Docker is installed, how it is installed and if it is running.
     If not it offers to install and start Docker automatically.
 
+    .PARAMETER MachineName
+    The machine name of the Docker Machine that is to be started.
+    
+    .PARAMETER DownloadMethod
+    The type of download function that is to be used.
+
     .EXAMPLE
     Start-Docker -MachineName "Docker"
 
@@ -348,8 +354,8 @@ Function Start-DockerMachine {
     .DESCRIPTION
     Tries to start the Docker registry image and offers to install it in case it is not.
 
-    .PARAMETER Name
-    The container's name that is to be used.
+    .PARAMETER RegistryName
+    The registry container's name that is to be used.
 
     .PARAMETER Hostname
     The hostname on which the registry should be available.
