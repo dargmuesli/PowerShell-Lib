@@ -7,22 +7,22 @@ $ValidRegexPort = "^0*(?:6553[0-5]|655[0-2][0-9]|65[0-4][0-9]{2}|6[0-4][0-9]{3}|
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if the count of a variable's values is in a specified range.
 
     .DESCRIPTION
-    Long description
+    The "Test-CountValid" cmdlet checks if the count of a variable's values is in a specified range and returns true on success.
 
     .PARAMETER Variable
-    Parameter description
+    The variable that is to be checked.
 
     .PARAMETER Min
-    Parameter description
+    The minimum count to allow.
 
     .PARAMETER Max
-    Parameter description
+    The maximum count to allow.
 
     .EXAMPLE
-    An example
+    Test-CountValid -Variable @(@(1, 2), @(3, 4)) -Min 0 -Max 2
 #>
 Function Test-CountValid {
     Param (
@@ -47,16 +47,16 @@ Function Test-CountValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if a hostname is valid.
 
     .DESCRIPTION
-    Long description
+    The "Test-HostnameValid" cmdlet tries to match a hostname with a regex pattern for valid hostnames and returns true on success.
 
     .PARAMETER Hostname
-    Parameter description
+    The hostname that is to be checked.
 
     .EXAMPLE
-    An example
+    Test-HostnameValid -Hostname "test-hostname"
 #>
 Function Test-HostnameValid {
     Param (
@@ -76,16 +76,16 @@ Function Test-HostnameValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if an IP address is valid.
 
     .DESCRIPTION
-    Long description
+    The "Test-IPAddressValid" cmdlet tries to match an IP address with a regex pattern for valid IP addresses and returns true on success.
 
-    .PARAMETER Hostname
-    Parameter description
+    .PARAMETER IPAddress
+    The IP address that is to be checked.
 
     .EXAMPLE
-    An example
+    Test-IPAdressValid -IPAddress "127.0.0.1"
 #>
 Function Test-IPAdressValid {
     Param (
@@ -105,16 +105,16 @@ Function Test-IPAdressValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if an IRI is valid.
 
     .DESCRIPTION
-    Long description
+    The "Test-IRIValid" cmdlet tries to match an IRI with a regex pattern for valid IRIs and returns true on success.
 
     .PARAMETER IRI
-    Parameter description
+    The IRI that is to be checked.
 
     .EXAMPLE
-    An example
+    Test-IRIValid -IRI "google.com"
 #>
 Function Test-IRIValid {
     Param (
@@ -134,22 +134,22 @@ Function Test-IRIValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if the length of a variable's values is in a specified range.
 
     .DESCRIPTION
-    Long description
+    The "Test-LengthValid" cmdlet checks if the length of a variable's values is in a specified range and returns true on success.
 
     .PARAMETER Variable
-    Parameter description
+    The variable that is to be checked.
 
     .PARAMETER Min
-    Parameter description
+    The minimum value to allow.
 
     .PARAMETER Max
-    Parameter description
+    The maximum value to allow.
 
     .EXAMPLE
-    An example
+    Test-LengthValid -Variable @("123", "456") -Min 0 -Max 3
 #>
 Function Test-LengthValid {
     Param (
@@ -179,16 +179,16 @@ Function Test-LengthValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Check if a variable is not null.
 
     .DESCRIPTION
-    Long description
+    The "Test-NotNullValid" cmdlet checks if a variable's values are not null and returns true on success.
 
     .PARAMETER Variable
-    Parameter description
+    The variable that is to be checked.
 
     .EXAMPLE
-    An example
+    Test-NotNullValid -Variable @(123)
 #>
 Function Test-NotNullValid {
     Param (
@@ -212,16 +212,16 @@ Function Test-NotNullValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Check if a variable is not null and not empty.
 
     .DESCRIPTION
-    Long description
+    The "Test-NotNullOrEmptyValid" cmdlet checks if a variable's values are not null or empty and returns true on success.
 
     .PARAMETER Variable
-    Parameter description
+    The variable that is to be checked.
 
     .EXAMPLE
-    An example
+    Test-NotNullOrEmptyValid -Variable @(123)
 #>
 Function Test-NotNullOrEmptyValid {
     Param (
@@ -246,16 +246,16 @@ Function Test-NotNullOrEmptyValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if a path is valid.
 
     .DESCRIPTION
-    Long description
+    The "Test-PathValid" cmdlet checks if a path is valid and returns true on success.
 
     .PARAMETER Path
-    Parameter description
+    The path that is to be checked.
 
     .EXAMPLE
-    An example
+    Test-PathValid -Path ".\"
 #>
 Function Test-PathValid {
     Param (
@@ -273,19 +273,19 @@ Function Test-PathValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if a pattern is valid.
 
     .DESCRIPTION
-    Long description
+    The "Test-PatternValid" cmdlet checks if a pattern is valid and returns true on success.
 
     .PARAMETER Variable
-    Parameter description
+    The variable that is to be checked with a pattern.
 
     .PARAMETER Pattern
-    Parameter description
+    The regex pattern that the variable is checked against.
 
     .EXAMPLE
-    An example
+    Test-PatternValid -Variable "123 ABC" -Pattern "^[0-9]*\s[A-Z]*$"
 #>
 Function Test-PatternValid {
     Param (
@@ -309,16 +309,16 @@ Function Test-PatternValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if a port is valid.
 
     .DESCRIPTION
-    Long description
+    The "Test-PortValid" cmdlet tries to match a port with a regex pattern for valid ports and returns true on success.
 
     .PARAMETER Port
-    Parameter description
+    The port that is to be checked.
 
     .EXAMPLE
-    An example
+    Test-PortValid -Port "8080"
 #>
 Function Test-PortValid {
     Param (
@@ -338,22 +338,22 @@ Function Test-PortValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if a variable's values are in a specified range.
 
     .DESCRIPTION
-    Long description
+    The "Test-CountValid" cmdlet checks if a variable's values are in a specified range and returns true on success.
 
     .PARAMETER Variable
-    Parameter description
+    The variable that is to be checked.
 
     .PARAMETER Min
-    Parameter description
+    The minimum value to allow.
 
     .PARAMETER Max
-    Parameter description
+    The maximum value to allow.
 
     .EXAMPLE
-    An example
+    Test-RangeValid -Variable @(1, 2, 3) -Min 0 -Max 3
 #>
 Function Test-RangeValid {
     Param (
@@ -381,19 +381,19 @@ Function Test-RangeValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if a script validifies a variable's values.
 
     .DESCRIPTION
-    Long description
+    The "Test-ScriptValid" cmdlet checks if a script validifies a variable's values and returns true on success.
 
     .PARAMETER Variable
-    Parameter description
+    The variable that is to be checked.
 
     .PARAMETER Script
-    Parameter description
+    The script that checks the variable.
 
     .EXAMPLE
-    An example
+    Test-ScriptValid -Variable @(5) -Script "If ($PSItem = 5) { Return $True } Else { Return $False }"
 #>
 Function Test-ScriptValid {
     Param (
@@ -419,19 +419,19 @@ Function Test-ScriptValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if a variable's values exist within a set.
 
     .DESCRIPTION
-    Long description
+    The "Test-SetValid" cmdlet checks if a variable's values exist within a set and return true on success.
 
     .PARAMETER Variable
-    Parameter description
+    The variable that is to be checked.
 
     .PARAMETER Set
-    Parameter description
+    The set that contains the variables that are allowed to appear within the variable.
 
     .EXAMPLE
-    An example
+    Test-SetValid -Variable @("test", "123") -Set @("test", "123", "foo", "bar")
 #>
 Function Test-SetValid {
     Param (
@@ -455,19 +455,19 @@ Function Test-SetValid {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if a variable's values are of a given type.
 
     .DESCRIPTION
-    Long description
+    The "Test-TypeValid" cmdlet checks if a variable's values are of a given type and returns true on succcess.
 
     .PARAMETER Variable
-    Parameter description
+    The variable that is to be checked.
 
-    .PARAMETER Set
-    Parameter description
+    .PARAMETER Type
+    The type of which the variable's values have to be of.
 
     .EXAMPLE
-    An example
+    Test-TypeValid -Variable @(123) -Type Int
 #>
 Function Test-TypeValid {
     Param (

@@ -2,19 +2,19 @@ Set-StrictMode -Version Latest
 
 <#
     .SYNOPSIS
-    Short description
+    Converts a PSCustomObject to a hashtable.
 
     .DESCRIPTION
-    Long description
+    DEPRECATED function.
 
     .PARAMETER InputObject
-    Parameter description
+    The PSCustomObject that is to be converted.
 
     .EXAMPLE
-    An example
+    Convert-PSObjectToHashtable -InputObject $InputObject
 
-    .NOTES
-    https://stackoverflow.com/a/34383464/4682621
+    .LINK
+    Source: https://stackoverflow.com/a/34383464/4682621
 #>
 Function Convert-PSObjectToHashtable {
     Param (
@@ -55,16 +55,22 @@ Function Convert-PSObjectToHashtable {
 
 <#
     .SYNOPSIS
-    Short description
+    Downloads a file from a URL.
 
     .DESCRIPTION
-    Long description
+    The "Get-FileFromWeb" cmdlet uses different methods to download a file from a URL and saves it to a desired location.
+
+    .PARAMETER URL
+    The URL where the requested resource is located.
+
+    .PARAMETER LocalPath
+    The path to where the requested file is to be saved to.
 
     .PARAMETER DownloadMethod
-    Parameter description
+    The download function that is to be used.
 
     .EXAMPLE
-    An example
+    Get-FileFromWeb -URL "https://download.docker.com/win/stable/InstallDocker.msi" -LocalPath ".\"
 
     .NOTES
     Download method "BITS" can display its progress, but can also be delayed by other downloads.
@@ -109,7 +115,7 @@ Function Get-FileFromWeb {
     Invokes an expression without causing crashes.
 
     .DESCRIPTION
-    Invokes the given command redirecting errors into a temporary file and other output into a variable.
+    The "Invoke-ExpressionSave" cmdlet Invokes the given command redirecting errors into a temporary file and other output into a variable.
     If the WithError parameter is given, the temporary file's output is appended to stdout.
     If the Graceful parameter is given and an error occurs, no exception is be thrown.
 
@@ -123,7 +129,7 @@ Function Get-FileFromWeb {
     Prevents that an error is thrown.
 
     .EXAMPLE
-    $DockerSwarmInit = Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
+    Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
 #>
 Function Invoke-ExpressionSafe {
     Param (
@@ -167,18 +173,23 @@ Function Invoke-ExpressionSafe {
     Download a file and displays a progressbar.
 
     .DESCRIPTION
-    Verifies that an existing file is managed as requested.
-    Then creates a HttpWebRequest whose response stream is directed to a file.
+    The "Invoke-WebRequestWithProgress" cmdlet creates a HttpWebRequest whose response stream is directed to a file.
     Every 10KB a progressbar showing the current download progress is displayed/updated.
 
     .PARAMETER Uri
-    The Uri of the file that is to be downloaded
+    The URI of the file that is to be downloaded.
 
-    .PARAMETER Outfile
-    The path to where the file is to be safed.
+    .PARAMETER OutFile
+    The path to where the file is to be saved to.
+
+    .PARAMETER Overwrite
+    Whether to overwrite an already existing downloaded file.
+
+    .PARAMETER Timeout
+    How long to wait for a connection success.
 
     .EXAMPLE
-    Invoke-WebRequestWithProgress -Uri "https://download.docker.com/win/stable/InstallDocker.msi" -OutFile $Path -Overwrite
+    Invoke-WebRequestWithProgress -Uri "https://download.docker.com/win/stable/InstallDocker.msi" -OutFile ".\"
 #>
 Function Invoke-WebRequestWithProgress {
     Param (
@@ -237,7 +248,7 @@ Function Invoke-WebRequestWithProgress {
     Merges two objects into one.
 
     .DESCRIPTION
-    Adds all properties of the first and then the second object to a third one and returns the latter.
+    The "Merge-Objects" cmdlet adds all properties of the first object and the second object to a third one and returns the latter.
 
     .PARAMETER Object1
     The first source object.
@@ -246,7 +257,7 @@ Function Invoke-WebRequestWithProgress {
     The second source object.
 
     .EXAMPLE
-    $Settings = Merge-Objects -Object1 $Settings -Object2 (Get-Content -Path $SourcesPath | ConvertFrom-Json)
+    Merge-Objects -Object1 @{test='123'} -Object2 @{123='test'}
 #>
 Function Merge-Objects {
     Param (
@@ -275,13 +286,13 @@ Function Merge-Objects {
     Sets environment variable from an .env file.
 
     .DESCRIPTION
-    Reads and parses each valid line from an .env file and sets the corresponding Windows environment variable.
+    The "Mount-EnvFile" cmdlet reads and parses each valid line from an .env file and sets the corresponding Windows environment variable.
 
     .PARAMETER EnvFilePath
-    Path to the .env file that is to be mounted
+    Path to the .env file that is to be mounted.
 
     .EXAMPLE
-    Mount-EnvFile -EnvFilePath "$ProjectPath\.env"
+    Mount-EnvFile -EnvFilePath ".\.env"
 #>
 Function Mount-EnvFile {
     Param (
@@ -298,6 +309,32 @@ Function Mount-EnvFile {
     }
 }
 
+<#
+    .SYNOPSIS
+    Asks the user for his/her answer to a question.
+
+    .DESCRIPTION
+    The "Read-Prompt" cmdlet prompts the user for a choice regarding a question with the given parameters.
+
+    .PARAMETER Caption
+    The caption that is to be displayed.
+
+    .PARAMETER Message
+    The message that is to be displayed.
+
+    .PARAMETER Choices
+    A list of "Management.Automation.Host.ChoiceDescription"s the user can choose from.
+
+    .PARAMETER DefaultChoice
+    The choice that is selected by default.
+
+    .EXAMPLE
+    $Choices = [Management.Automation.Host.ChoiceDescription[]] (
+        (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker for Windows'),
+        (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker Toolbox')
+    )
+    Read-Prompt -Caption "Docker for Windows and Docker Toolbox are installed." -Message "Which one do you want to use?" -Choices $Choices -DefaultChoice 0
+#>
 Function Read-Prompt {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
@@ -325,23 +362,19 @@ Function Read-Prompt {
     Displays a yes/no prompt.
 
     .DESCRIPTION
-    Displays a yes/no prompt and waits for the user's choice.
+    The "Read-PromptYesNo" cmdlet displays a yes/no prompt and waits for the user's choice.
+
+    .PARAMETER Caption
+    The caption that is to be displayed.
 
     .PARAMETER Message
-    A description of the state that requires a user's choice.
-
-    .PARAMETER Question
-    A possible solution to the problem.
+    The message that is to be displayed.
 
     .PARAMETER DefaultChoice
-    The preselected answer.
+    The choice that is selected by default.
 
     .EXAMPLE
-    If (Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -DefaultChoice 0) {
-        Install-Docker
-    } Else {
-        Read-Host "Please install Docker manually. Press enter to continue ..."
-    }
+    Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -DefaultChoice 0
 #>
 Function Read-PromptYesNo {
     Param (
@@ -374,16 +407,16 @@ Function Read-PromptYesNo {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if an environment variable exists.
 
     .DESCRIPTION
-    Long description
+    The "Test-EnvVarExist" cmdlet checks the existence of an environment variable and returns true on success.
 
     .PARAMETER EnvVarName
-    Parameter description
+    The environment variable's name that is to be checked.
 
     .EXAMPLE
-    An example
+    Test-EnvVarExist -EnvVarName "OS"
 #>
 Function Test-EnvVarExists {
     Param (
@@ -401,16 +434,16 @@ Function Test-EnvVarExists {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if a PowerShell module is installed.
 
     .DESCRIPTION
-    Long description
+    The "Test-ModuleInstalled" cmdlet tries to get the desired module and return true on success.
 
     .PARAMETER ModuleName
-    Parameter description
+    The module's name that is to be checked.
 
     .EXAMPLE
-    An example
+    Test-ModuleInstalled -ModuleName "powershell-lib"
 #>
 Function Test-ModuleInstalled {
     Param (
@@ -428,19 +461,19 @@ Function Test-ModuleInstalled {
 
 <#
     .SYNOPSIS
-    Short description
+    Checks if an object's property exists.
 
     .DESCRIPTION
-    Long description
+    The "Test-PropertyExist" cmdlet checks if an object contains a property name and returns true on success.
 
     .PARAMETER Object
-    Parameter description
+    The object that is to be checked for properties.
 
     .PARAMETER PropertyName
-    Parameter description
+    The object's property name that is to be checked.
 
     .EXAMPLE
-    An example
+    Test-PropertyExist -Object {test='123'} -PropertyName "test"
 #>
 Function Test-PropertyExists {
     Param (
@@ -461,10 +494,13 @@ Function Test-PropertyExists {
     Displays an indeterminate progress bar while a test is successful.
 
     .DESCRIPTION
-    Increases the progress bar's value in steps from 0 to 100 infinitly to provide visual feedback about a running task to the user.
+    The "Wait-Test" cmdlet increases the progress bar's value in steps from 0 to 100 infinitely to provide visual feedback about a running task to the user.
 
     .PARAMETER Test
     The task check which needs to pass.
+
+    .PARAMETER Activity
+    A description of the running task.
 
     .PARAMETER Milliseconds
     The time to wait between test checks.
@@ -472,11 +508,8 @@ Function Test-PropertyExists {
     .PARAMETER WithProgressbar
     Wether to display a progress bar.
 
-    .PARAMETER Activity
-    A description of the running task.
-
     .EXAMPLE
-    Wait-Test -Test "-Not (Test-DockerRunning)" -$WithProgressBar -Activity "Waiting for Docker to initialize"
+    Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar
 #>
 Function Wait-Test {
     Param (
@@ -519,19 +552,19 @@ Function Wait-Test {
 
 <#
     .SYNOPSIS
-    Short description
+    Displays a progressbar.
 
     .DESCRIPTION
-    Long description
+    The "Write-Progressbar" cmdlet displays a progressbar with a given progress percentage and a description of the currently running activity.
 
     .PARAMETER PercentComplete
-    Parameter description
+    The progress of the progressbar.
 
     .PARAMETER Activity
-    Parameter description
+    A description of the activity that is running.
 
     .EXAMPLE
-    An example
+    Write-Progressbar -Activity "Checking ..." -PercentComplete $Index
 #>
 Function Write-ProgressBar {
     Param (

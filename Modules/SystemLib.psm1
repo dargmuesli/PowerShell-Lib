@@ -2,13 +2,13 @@ Set-StrictMode -Version Latest
 
 <#
     .SYNOPSIS
-    Short description
+    Gets the processor bit architecture.
 
     .DESCRIPTION
-    Long description
+    The "Get-SystemBit" cmdlet gets the size of "IntPtr" and return either 32 or 64 accordingly.
 
     .EXAMPLE
-    An example
+    Get-SystemBit
 #>
 Function Get-SystemBit {
     $IntPtrSize = [IntPtr]::Size

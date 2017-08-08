@@ -5,13 +5,13 @@ Set-StrictMode -Version Latest
     Reads settings fields in the JSON format and returns a PSCustomObject.
 
     .DESCRIPTION
-    Merges each source file's settings on top of the others.
+    The "Read-Settings" cmdlet merges each source file's settings into a new object on top of the others.
 
     .PARAMETER SourcePath
-    An array of settings files.
+    An array of settings file paths.
 
     .EXAMPLE
-    $Settings = Read-Settings -SourcePath @("${ProjectPath}\package.json", "${ProjectPath}\docker-management.json")
+    Read-Settings -SourcePath @(".\package.json", ".\docker-management.json")
 #>
 Function Read-Settings {
     Param (

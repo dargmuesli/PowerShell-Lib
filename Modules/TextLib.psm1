@@ -5,17 +5,13 @@ Set-StrictMode -Version Latest
     Removes newlines from a string.
 
     .DESCRIPTION
-    All line feed and carriage return characters are removed.
+    The "Clear-Linebreaks" cmdlet removes all line feeds and carriage returns.
 
     .PARAMETER String
     The input string containing the unneeded newlines.
 
     .EXAMPLE
-    $DockerInspectConfigHostname = docker inspect -f "{{.Config.Hostname}}" $Name | Out-String | ForEach-Object {
-        If ($PSItem) {
-            Clear-Linebreaks -String $PSItem
-        }
-    }
+    Clear-Linebreaks -String "test`r`n123"
 #>
 Function Clear-Linebreaks {
     Param (

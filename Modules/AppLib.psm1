@@ -18,7 +18,7 @@ Set-StrictMode -Version Latest
     .EXAMPLE
     Get-AppsInstalled -SelectObjectProperty @("DisplayName", "DisplayVersion") -SortObjectProperty @("DisplayName", "DisplayVersion")
 
-    .NOTES
+    .LINK
     Source: https://stackoverflow.com/a/31714410
 #>
 Function Get-AppsInstalled {
@@ -64,7 +64,7 @@ Function Get-AppsInstalled {
     Installs an app on the current computer.
 
     .DESCRIPTION
-    The "Install-App" cmdlet starts an type-dependent installer and waits for it's completion.
+    The "Install-App" cmdlet starts an type-dependent installer and waits for its completion.
 
     .PARAMETER InstallerPath
     The path to where the installer is located.
@@ -101,17 +101,17 @@ Function Install-App {
     Checks whether an app in installed on the current computer.
 
     .DESCRIPTION
-    The Test-AppInstalled cmdlet gets a list of all installed apps and checks whether the value of parameter "AppName" occurs within the list.
+    The "Test-AppInstalled" cmdlet gets a list of all installed apps and checks whether the value of parameter "AppName" occurs within the list.
     If that is the case, "True" is returned.
 
     .PARAMETER AppName
-    Parameter description
+    The app name to check.
 
     .PARAMETER RegexCompare
-    Parameter description
+    Whether to match the app name literally or by using patterns.
 
     .EXAMPLE
-    An example
+    Test-AppInstalled -AppName "Docker Toolbox version \d+\.\d+\.\d+(-ce)*" -RegexCompare
 #>
 Function Test-AppInstalled {
     Param (
