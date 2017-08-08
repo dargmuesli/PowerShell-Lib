@@ -33,7 +33,7 @@ A library of helpful PowerShell functions.
 - **PowerShell**
   - Convert-PSObjectToHashtable
   - Get-FileFromWeb
-  - Invoke-ExpressionSave
+  - Invoke-ExpressionSafe
   - Invoke-WebRequestWithProgress
   - Merge-Objects
   - Mount-EnvFile

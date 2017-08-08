@@ -114,7 +114,7 @@ Function Get-FileFromWeb {
     If the Graceful parameter is given and an error occurs, no exception is be thrown.
 
     .PARAMETER Command
-    The expression to invoke savely.
+    The expression to invoke safely.
 
     .PARAMETER WithError
     Wether to return the error message in stdout.
@@ -123,9 +123,9 @@ Function Get-FileFromWeb {
     Prevents that an error is thrown.
 
     .EXAMPLE
-    $DockerSwarmInit = Invoke-ExpressionSave -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
+    $DockerSwarmInit = Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
 #>
-Function Invoke-ExpressionSave {
+Function Invoke-ExpressionSafe {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -175,7 +175,7 @@ Function Invoke-ExpressionSave {
     The Uri of the file that is to be downloaded
 
     .PARAMETER Outfile
-    The path to where the file is to be saved.
+    The path to where the file is to be safed.
 
     .EXAMPLE
     Invoke-WebRequestWithProgress -Uri "https://download.docker.com/win/stable/InstallDocker.msi" -OutFile $Path -Overwrite

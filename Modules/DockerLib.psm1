@@ -485,7 +485,7 @@ Function Test-DockerForWinInstalled {
     }
 #>
 Function Test-DockerInSwarm {
-    $DockerSwarmInit = Invoke-ExpressionSave -Command "docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithError
+    $DockerSwarmInit = Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithError
 
     If ($DockerSwarmInit -CMatch "^Swarm initialized*") {
         docker swarm leave -f | Out-Null
@@ -531,7 +531,7 @@ Function Test-DockerInstalled {
     Wait-Test -Test "-Not (Test-DockerRunning)" -$WithProgressbar -Activity "Waiting for Docker to initialize"
 #>
 Function Test-DockerRunning {
-    $DockerProcessesAll = Invoke-ExpressionSave "docker ps -a" -Graceful -WithError
+    $DockerProcessesAll = Invoke-ExpressionSafe "docker ps -a" -Graceful -WithError
 
     If ((-Not $DockerProcessesAll) -Or ($DockerProcessesAll -CMatch "^docker : error*")) {
         Return $False
@@ -642,7 +642,7 @@ Function Test-DockerRegistryRunning {
         $Hostname = $Matches[1]
     }
 
-    $WebRequest = Invoke-ExpressionSave -Command "Invoke-WebRequest -Method GET -Uri `"http://${Hostname}:${Port}/v2/_catalog`" -UseBasicParsing" -Graceful
+    $WebRequest = Invoke-ExpressionSafe -Command "Invoke-WebRequest -Method GET -Uri `"http://${Hostname}:${Port}/v2/_catalog`" -UseBasicParsing" -Graceful
 
     If ($WebRequest) {
         Return $True
