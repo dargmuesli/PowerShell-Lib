@@ -576,12 +576,9 @@ Function Test-DockerMachineEnvExists {
     The name of the virtual machine that is to be checked.
 
     .EXAMPLE
-
-    #>
-Function Test-DockerMachineExists {
-    Test-DockerMachineExist -MachineName "Docker"
+    Test-DockerMachineExists -MachineName "Docker"
 #>
-Function Test-DockerMachineExist {
+Function Test-DockerMachineExists {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
