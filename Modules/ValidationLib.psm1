@@ -156,11 +156,11 @@ Function Test-LengthValid {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Variable,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [Int] $Min,
-        
+
         [Parameter(Mandatory = $True, Position = 2)]
         [ValidateNotNullOrEmpty()]
         [Int] $Max
@@ -360,7 +360,7 @@ Function Test-RangeValid {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Variable,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [Int] $Min,
@@ -400,7 +400,7 @@ Function Test-ScriptValid {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Variable,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [ScriptBlock] $Script
@@ -438,7 +438,7 @@ Function Test-SetValid {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Variable,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [Array] $Set
@@ -474,7 +474,7 @@ Function Test-TypeValid {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Variable,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [String] $Type

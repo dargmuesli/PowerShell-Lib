@@ -458,10 +458,10 @@ Function Test-PropertyExists {
 
 <#
     .SYNOPSIS
-    Displays an indeterminate progressbar while a test is successful.
+    Displays an indeterminate progress bar while a test is successful.
 
     .DESCRIPTION
-    Increases the progressbar's value in steps from 0 to 100 infinitly to provide visual feedback about a running task to the user.
+    Increases the progress bar's value in steps from 0 to 100 infinitly to provide visual feedback about a running task to the user.
 
     .PARAMETER Test
     The task check which needs to pass.
@@ -470,13 +470,13 @@ Function Test-PropertyExists {
     The time to wait between test checks.
 
     .PARAMETER WithProgressbar
-    Wether to display a progressbar.
+    Wether to display a progress bar.
 
     .PARAMETER Activity
     A description of the running task.
 
     .EXAMPLE
-    Wait-Test -Test "-Not (Test-DockerRunning)" -$WithProgressbar -Activity "Waiting for Docker to initialize"
+    Wait-Test -Test "-Not (Test-DockerRunning)" -$WithProgressBar -Activity "Waiting for Docker to initialize"
 #>
 Function Wait-Test {
     Param (
@@ -493,7 +493,7 @@ Function Wait-Test {
         [Int] $Milliseconds = 1000,
 
         [Parameter(Mandatory = $False)]
-        [Switch] $WithProgressbar
+        [Switch] $WithProgressBar
     )
 
     $Index = 0
@@ -505,14 +505,14 @@ Function Wait-Test {
             $Index = 0
         }
 
-        If ($WithProgressbar) {
-            Write-Progressbar -Activity "$Activity ..." -PercentComplete $Index
+        If ($WithProgressBar) {
+            Write-ProgressBar -Activity "$Activity ..." -PercentComplete $Index
         }
 
         Start-Sleep -Milliseconds $Milliseconds
     }
 
-    If ($WithProgressbar) {
+    If ($WithProgressBar) {
         Write-Progress -Completed $True
     }
 }
@@ -533,7 +533,7 @@ Function Wait-Test {
     .EXAMPLE
     An example
 #>
-Function Write-Progressbar {
+Function Write-ProgressBar {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]

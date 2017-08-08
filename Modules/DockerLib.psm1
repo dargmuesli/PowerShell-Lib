@@ -185,7 +185,7 @@ Function Set-DockerMachineEnv {
     Starts Docker for Windows.
 
     .DESCRIPTION
-    Checks if Docker is installed, how it is installed and if it is running. If not it offers to install and start Docker automatically.
+    Checks whether Docker is installed, how it is installed and whether it is running. If not, it offers to install and start Docker automatically.
 
     .EXAMPLE
     Start-Docker
@@ -522,7 +522,7 @@ Function Test-DockerInstalled {
 
 <#
     .SYNOPSIS
-    Checks if Docker is running.
+    Checks whether Docker is running.
 
     .DESCRIPTION
     Tries to find the Docker process and verifies the availability of the "docker ps" command.
@@ -609,7 +609,7 @@ Function Test-DockerMachineCommand {
 
 <#
     .SYNOPSIS
-    Checks if Docker runs a registry container.
+    Checks whether Docker runs a registry container.
 
     .DESCRIPTION
     Tries to invoke a web request to the registry's catalog and returns true on success.
@@ -653,7 +653,7 @@ Function Test-DockerRegistryRunning {
 
 <#
     .SYNOPSIS
-    Checks if a Docker stack runs.
+    Checks whether a Docker stack runs.
 
     .DESCRIPTION
     Looks for running container with a matching "stack.namespace".

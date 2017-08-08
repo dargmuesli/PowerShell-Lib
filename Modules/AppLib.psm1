@@ -98,10 +98,10 @@ Function Install-App {
 
 <#
     .SYNOPSIS
-    Checks if an app in installed on the current computer.
+    Checks whether an app in installed on the current computer.
 
     .DESCRIPTION
-    The Test-AppInstalled cmdlet gets a list of all installed apps and checks if the value of parameter "AppName" occurs within the list.
+    The Test-AppInstalled cmdlet gets a list of all installed apps and checks whether the value of parameter "AppName" occurs within the list.
     If that is the case, "True" is returned.
 
     .PARAMETER AppName

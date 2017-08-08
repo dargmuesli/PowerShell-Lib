@@ -2,10 +2,10 @@ Set-StrictMode -Version Latest
 
 <#
     .SYNOPSIS
-    Removes newlines from string.
+    Removes newlines from a string.
 
     .DESCRIPTION
-    Every line feed and carriage return characters are replaced with nothing.
+    All line feed and carriage return characters are removed.
 
     .PARAMETER String
     The input string containing the unneeded newlines.
