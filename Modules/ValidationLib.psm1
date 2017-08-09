@@ -7,7 +7,7 @@ $ValidRegexPort = "^0*(?:6553[0-5]|655[0-2][0-9]|65[0-4][0-9]{2}|6[0-4][0-9]{3}|
 
 <#
     .SYNOPSIS
-    Checks if the count of a variable's values is in a specified range.
+    Checks whether the count of a variable's values is in a specified range.
 
     .DESCRIPTION
     The "Test-CountValid" cmdlet checks if the count of a variable's values is in a specified range and returns true on success.
@@ -47,7 +47,7 @@ Function Test-CountValid {
 
 <#
     .SYNOPSIS
-    Checks if a hostname is valid.
+    Checks whether a hostname is valid.
 
     .DESCRIPTION
     The "Test-HostnameValid" cmdlet tries to match a hostname with a regex pattern for valid hostnames and returns true on success.
@@ -76,7 +76,7 @@ Function Test-HostnameValid {
 
 <#
     .SYNOPSIS
-    Checks if an IP address is valid.
+    Checks whether an IP address is valid.
 
     .DESCRIPTION
     The "Test-IPAddressValid" cmdlet tries to match an IP address with a regex pattern for valid IP addresses and returns true on success.
@@ -105,7 +105,7 @@ Function Test-IPAdressValid {
 
 <#
     .SYNOPSIS
-    Checks if an IRI is valid.
+    Checks whether an IRI is valid.
 
     .DESCRIPTION
     The "Test-IRIValid" cmdlet tries to match an IRI with a regex pattern for valid IRIs and returns true on success.
@@ -134,7 +134,7 @@ Function Test-IRIValid {
 
 <#
     .SYNOPSIS
-    Checks if the length of a variable's values is in a specified range.
+    Checks whether the length of a variable's values is in a specified range.
 
     .DESCRIPTION
     The "Test-LengthValid" cmdlet checks if the length of a variable's values is in a specified range and returns true on success.
@@ -156,11 +156,11 @@ Function Test-LengthValid {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Variable,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [Int] $Min,
-        
+
         [Parameter(Mandatory = $True, Position = 2)]
         [ValidateNotNullOrEmpty()]
         [Int] $Max
@@ -246,7 +246,7 @@ Function Test-NotNullOrEmptyValid {
 
 <#
     .SYNOPSIS
-    Checks if a path is valid.
+    Checks whether a path is valid.
 
     .DESCRIPTION
     The "Test-PathValid" cmdlet checks if a path is valid and returns true on success.
@@ -273,7 +273,7 @@ Function Test-PathValid {
 
 <#
     .SYNOPSIS
-    Checks if a pattern is valid.
+    Checks whether a pattern is valid.
 
     .DESCRIPTION
     The "Test-PatternValid" cmdlet checks if a pattern is valid and returns true on success.
@@ -309,7 +309,7 @@ Function Test-PatternValid {
 
 <#
     .SYNOPSIS
-    Checks if a port is valid.
+    Checks whether a port is valid.
 
     .DESCRIPTION
     The "Test-PortValid" cmdlet tries to match a port with a regex pattern for valid ports and returns true on success.
@@ -338,7 +338,7 @@ Function Test-PortValid {
 
 <#
     .SYNOPSIS
-    Checks if a variable's values are in a specified range.
+    Checks whether a variable's values are in a specified range.
 
     .DESCRIPTION
     The "Test-CountValid" cmdlet checks if a variable's values are in a specified range and returns true on success.
@@ -360,7 +360,7 @@ Function Test-RangeValid {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Variable,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [Int] $Min,
@@ -381,7 +381,7 @@ Function Test-RangeValid {
 
 <#
     .SYNOPSIS
-    Checks if a script validifies a variable's values.
+    Checks whether a script validifies a variable's values.
 
     .DESCRIPTION
     The "Test-ScriptValid" cmdlet checks if a script validifies a variable's values and returns true on success.
@@ -400,7 +400,7 @@ Function Test-ScriptValid {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Variable,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [ScriptBlock] $Script
@@ -419,7 +419,7 @@ Function Test-ScriptValid {
 
 <#
     .SYNOPSIS
-    Checks if a variable's values exist within a set.
+    Checks whether a variable's values exist within a set.
 
     .DESCRIPTION
     The "Test-SetValid" cmdlet checks if a variable's values exist within a set and return true on success.
@@ -438,7 +438,7 @@ Function Test-SetValid {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Variable,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [Array] $Set
@@ -455,7 +455,7 @@ Function Test-SetValid {
 
 <#
     .SYNOPSIS
-    Checks if a variable's values are of a given type.
+    Checks whether a variable's values are of a given type.
 
     .DESCRIPTION
     The "Test-TypeValid" cmdlet checks if a variable's values are of a given type and returns true on succcess.
@@ -474,7 +474,7 @@ Function Test-TypeValid {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Variable,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [String] $Type

@@ -2,7 +2,7 @@ Set-StrictMode -Version Latest
 
 <#
     .SYNOPSIS
-    Removes newlines from string.
+    Removes newlines from a string.
 
     .DESCRIPTION
     The "Clear-Linebreaks" cmdlet replaces every line feed and carriage return characters with nothing.

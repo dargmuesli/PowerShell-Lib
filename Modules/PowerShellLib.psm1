@@ -115,23 +115,23 @@ Function Get-FileFromWeb {
     Invokes an expression without causing crashes.
 
     .DESCRIPTION
-    The "Invoke-ExpressionSave" cmdlet Invokes the given command redirecting errors into a temporary file and other output into a variable.
+    The "Invoke-ExpressionSafe" cmdlet Invokes the given command redirecting errors into a temporary file and other output into a variable.
     If the WithError parameter is given, the temporary file's output is appended to stdout.
     If the Graceful parameter is given and an error occurs, no exception is be thrown.
 
     .PARAMETER Command
-    The expression to invoke savely.
+    The expression to invoke safely.
 
     .PARAMETER WithError
-    Wether to return the error message in stdout.
+    Whether to return the error message in stdout.
 
     .PARAMETER Graceful
     Prevents that an error is thrown.
 
     .EXAMPLE
-    Invoke-ExpressionSave -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
+    Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
 #>
-Function Invoke-ExpressionSave {
+Function Invoke-ExpressionSafe {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -170,11 +170,11 @@ Function Invoke-ExpressionSave {
 
 <#
     .SYNOPSIS
-    Download a file and displays a progressbar.
+    Download a file and displays a progress bar.
 
     .DESCRIPTION
     The "Invoke-WebRequestWithProgress" cmdlet creates a HttpWebRequest whose response stream is directed to a file.
-    Every 10KB a progressbar showing the current download progress is displayed/updated.
+    Every 10KB a progress bar showing the current download progress is displayed/updated.
 
     .PARAMETER Uri
     The URI of the file that is to be downloaded.
@@ -229,7 +229,7 @@ Function Invoke-WebRequestWithProgress {
 
     While ($Count -Gt 0) {
         $test = [Convert]::ToInt32([Math]::Floor((($DownloadedBytes / 1024) / $TotalLength) * 100))
-        Write-Progressbar -PercentComplete $test -Activity "Downloading $([Math]::Floor($DownloadedBytes / 1024))K of ${TotalLength}K"
+        Write-ProgressBar -PercentComplete $test -Activity "Downloading $([Math]::Floor($DownloadedBytes / 1024))K of ${TotalLength}K"
         $TargetStream.Write($Buffer, 0, $Count)
         $Count = $ResponseStream.Read($Buffer, 0, $Buffer.Length)
         $DownloadedBytes = $DownloadedBytes + $Count
@@ -259,7 +259,7 @@ Function Invoke-WebRequestWithProgress {
     .EXAMPLE
     Merge-Objects -Object1 @{test='123'} -Object2 @{123='test'}
 #>
-Function Merge-Objects { 
+Function Merge-Objects {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [Object] $Object1,
@@ -267,7 +267,7 @@ Function Merge-Objects {
         [Parameter(Mandatory = $True, Position = 1)]
         [Object] $Object2
     )
-    
+
     $ReturnObject = [PSCustomObject] @{}
 
     Foreach ($Property In $Object1.PSObject.Properties) {
@@ -277,7 +277,7 @@ Function Merge-Objects {
     Foreach ($Property In $Object2.PSObject.Properties) {
         $ReturnObject | Add-Member -NotePropertyName $Property.Name -NotePropertyValue $Property.Value -Force
     }
-    
+
     Return $ReturnObject
 }
 
@@ -407,18 +407,18 @@ Function Read-PromptYesNo {
 
 <#
     .SYNOPSIS
-    Checks if an environment variable exists.
+    Checks whether an environment variable exists.
 
     .DESCRIPTION
-    The "Test-EnvVarExist" cmdlet checks the existence of an environment variable and returns true on success.
+    The "Test-EnvVarExists" cmdlet checks the existence of an environment variable and returns true on success.
 
     .PARAMETER EnvVarName
     The environment variable's name that is to be checked.
 
     .EXAMPLE
-    Test-EnvVarExist -EnvVarName "OS"
+    Test-EnvVarExists -EnvVarName "OS"
 #>
-Function Test-EnvVarExist {
+Function Test-EnvVarExists {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -434,7 +434,7 @@ Function Test-EnvVarExist {
 
 <#
     .SYNOPSIS
-    Checks if a PowerShell module is installed.
+    Checks whether a PowerShell module is installed.
 
     .DESCRIPTION
     The "Test-ModuleInstalled" cmdlet tries to get the desired module and return true on success.
@@ -461,10 +461,10 @@ Function Test-ModuleInstalled {
 
 <#
     .SYNOPSIS
-    Checks if an object's property exists.
+    Checks whether an object's property exists.
 
     .DESCRIPTION
-    The "Test-PropertyExist" cmdlet checks if an object contains a property name and returns true on success.
+    The "Test-PropertyExists" cmdlet checks if an object contains a property name and returns true on success.
 
     .PARAMETER Object
     The object that is to be checked for properties.
@@ -473,9 +473,9 @@ Function Test-ModuleInstalled {
     The object's property name that is to be checked.
 
     .EXAMPLE
-    Test-PropertyExist -Object {test='123'} -PropertyName "test"
+    Test-PropertyExists -Object {test='123'} -PropertyName "test"
 #>
-Function Test-PropertyExist {
+Function Test-PropertyExists {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
@@ -491,10 +491,10 @@ Function Test-PropertyExist {
 
 <#
     .SYNOPSIS
-    Displays an indeterminate progressbar while a test is successful.
+    Displays an indeterminate progress bar while a test is successful.
 
     .DESCRIPTION
-    The "Wait-Test" cmdlet increases the progressbar's value in steps from 0 to 100 infinitly to provide visual feedback about a running task to the user.
+    The "Wait-Test" cmdlet increases the progress bar's value in steps from 0 to 100 infinitely to provide visual feedback about a running task to the user.
 
     .PARAMETER Test
     The task check which needs to pass.
@@ -505,11 +505,11 @@ Function Test-PropertyExist {
     .PARAMETER Milliseconds
     The time to wait between test checks.
 
-    .PARAMETER WithProgressbar
-    Wether to display a progressbar.
+    .PARAMETER WithProgressBar
+    Whether to display a progress bar.
 
     .EXAMPLE
-    Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressbar
+    Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar
 #>
 Function Wait-Test {
     Param (
@@ -526,7 +526,7 @@ Function Wait-Test {
         [Int] $Milliseconds = 1000,
 
         [Parameter(Mandatory = $False)]
-        [Switch] $WithProgressbar
+        [Switch] $WithProgressBar
     )
 
     $Index = 0
@@ -538,35 +538,35 @@ Function Wait-Test {
             $Index = 0
         }
 
-        If ($WithProgressbar) {
-            Write-Progressbar -Activity "$Activity ..." -PercentComplete $Index
+        If ($WithProgressBar) {
+            Write-ProgressBar -Activity "$Activity ..." -PercentComplete $Index
         }
 
         Start-Sleep -Milliseconds $Milliseconds
     }
 
-    If ($WithProgressbar) {
+    If ($WithProgressBar) {
         Write-Progress -Completed $True
     }
 }
 
 <#
     .SYNOPSIS
-    Displays a progressbar.
+    Displays a progress bar.
 
     .DESCRIPTION
-    The "Write-Progressbar" cmdlet displays a progressbar with a given progress percentage and a description of the currently running activity.
+    The "Write-ProgressBar" cmdlet displays a progress bar with a given progress percentage and a description of the currently running activity.
 
     .PARAMETER PercentComplete
-    The progress of the progressbar.
+    The progress of the progress bar.
 
     .PARAMETER Activity
     A description of the activity that is running.
 
     .EXAMPLE
-    Write-Progressbar -Activity "Checking ..." -PercentComplete $Index
+    Write-ProgressBar -Activity "Checking ..." -PercentComplete $Index
 #>
-Function Write-Progressbar {
+Function Write-ProgressBar {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]

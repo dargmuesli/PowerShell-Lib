@@ -50,7 +50,7 @@ Function Get-AppsInstalled {
     Get-ItemProperty -Path $RegPath |
         ForEach-Object {
         Process {
-            If (Test-PropertyExist -Object $PSItem -PropertyName "DisplayName") {
+            If (Test-PropertyExists -Object $PSItem -PropertyName "DisplayName") {
                 $PSItem
             }
         }
@@ -64,7 +64,7 @@ Function Get-AppsInstalled {
     Installs an app on the current computer.
 
     .DESCRIPTION
-    The "Install-App" cmdlet starts an type-dependent installer and waits for it's completion.
+    The "Install-App" cmdlet starts an type-dependent installer and waits for its completion.
 
     .PARAMETER InstallerPath
     The path to where the installer is located.
@@ -98,7 +98,7 @@ Function Install-App {
 
 <#
     .SYNOPSIS
-    Checks if an app in installed on the current computer.
+    Checks whether an app in installed on the current computer.
 
     .DESCRIPTION
     The "Test-AppInstalled" cmdlet gets a list of all installed apps and checks if the value of parameter "AppName" occurs within the list.
@@ -131,7 +131,7 @@ Function Test-AppInstalled {
             $PSItem.DisplayName -Eq $AppName
         }
     }
-    
+
     If ($AppsFound) {
         Return $True
     } Else {
