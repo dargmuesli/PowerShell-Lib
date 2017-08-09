@@ -6,7 +6,7 @@
       <command:verb>Test</command:verb>
       <command:noun>CountValid</command:noun>
       <maml:description>
-        <maml:para>Checks if the count of a variable's values is in a specified range.</maml:para>
+        <maml:para>Checks whether the count of a variable's values is in a specified range.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -109,8 +109,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-CountValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-CountValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -120,7 +120,7 @@
       <command:verb>Test</command:verb>
       <command:noun>HostnameValid</command:noun>
       <maml:description>
-        <maml:para>Checks if a hostname is valid.</maml:para>
+        <maml:para>Checks whether a hostname is valid.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -175,8 +175,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-HostnameValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-HostnameValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -186,7 +186,7 @@
       <command:verb>Test</command:verb>
       <command:noun>IPAdressValid</command:noun>
       <maml:description>
-        <maml:para>Checks if an IP address is valid.</maml:para>
+        <maml:para>Checks whether an IP address is valid.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -241,8 +241,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAdressValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAdressValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -252,7 +252,7 @@
       <command:verb>Test</command:verb>
       <command:noun>IRIValid</command:noun>
       <maml:description>
-        <maml:para>Checks if an IRI is valid.</maml:para>
+        <maml:para>Checks whether an IRI is valid.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -307,8 +307,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IRIValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IRIValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -318,7 +318,7 @@
       <command:verb>Test</command:verb>
       <command:noun>LengthValid</command:noun>
       <maml:description>
-        <maml:para>Checks if the length of a variable's values is in a specified range.</maml:para>
+        <maml:para>Checks whether the length of a variable's values is in a specified range.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -421,8 +421,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-LengthValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-LengthValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -487,8 +487,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-NotNullOrEmptyValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-NotNullOrEmptyValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -553,8 +553,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-NotNullValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-NotNullValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -564,7 +564,7 @@
       <command:verb>Test</command:verb>
       <command:noun>PathValid</command:noun>
       <maml:description>
-        <maml:para>Checks if a path is valid.</maml:para>
+        <maml:para>Checks whether a path is valid.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -619,8 +619,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PathValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PathValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -630,7 +630,7 @@
       <command:verb>Test</command:verb>
       <command:noun>PatternValid</command:noun>
       <maml:description>
-        <maml:para>Checks if a pattern is valid.</maml:para>
+        <maml:para>Checks whether a pattern is valid.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -709,8 +709,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PatternValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PatternValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -720,7 +720,7 @@
       <command:verb>Test</command:verb>
       <command:noun>PortValid</command:noun>
       <maml:description>
-        <maml:para>Checks if a port is valid.</maml:para>
+        <maml:para>Checks whether a port is valid.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -775,8 +775,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PortValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PortValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -786,7 +786,7 @@
       <command:verb>Test</command:verb>
       <command:noun>RangeValid</command:noun>
       <maml:description>
-        <maml:para>Checks if a variable's values are in a specified range.</maml:para>
+        <maml:para>Checks whether a variable's values are in a specified range.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -889,8 +889,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-RangeValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-RangeValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -900,7 +900,7 @@
       <command:verb>Test</command:verb>
       <command:noun>ScriptValid</command:noun>
       <maml:description>
-        <maml:para>Checks if a script validifies a variable's values.</maml:para>
+        <maml:para>Checks whether a script validifies a variable's values.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -979,8 +979,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ScriptValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ScriptValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -990,7 +990,7 @@
       <command:verb>Test</command:verb>
       <command:noun>SetValid</command:noun>
       <maml:description>
-        <maml:para>Checks if a variable's values exist within a set.</maml:para>
+        <maml:para>Checks whether a variable's values exist within a set.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -1069,8 +1069,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-SetValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-SetValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1080,7 +1080,7 @@
       <command:verb>Test</command:verb>
       <command:noun>TypeValid</command:noun>
       <maml:description>
-        <maml:para>Checks if a variable's values are of a given type.</maml:para>
+        <maml:para>Checks whether a variable's values are of a given type.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -1159,8 +1159,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-TypeValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-TypeValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

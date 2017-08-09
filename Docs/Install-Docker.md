@@ -1,6 +1,6 @@
 ---
 external help file: DockerLib-help.xml
-online version: Source: https://stackoverflow.com/a/31714410
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-Docker.md
 schema: 2.0.0
 ---
 
@@ -12,7 +12,7 @@ Installs Docker.
 ## SYNTAX
 
 ```
-Install-Docker [[-Edition] <String>] [[-DownloadMethod] <String>] [<CommonParameters>]
+Install-Docker [[-Edition] <String>] [[-DownloadMethod] <String>]
 ```
 
 ## DESCRIPTION
@@ -57,9 +57,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
@@ -67,4 +64,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-Docker.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-Docker.md)
 

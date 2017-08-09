@@ -1,24 +1,23 @@
 ---
 external help file: PowerShellLib-help.xml
-online version: Source: https://stackoverflow.com/a/31714410
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-WebRequestWithProgress.md
 schema: 2.0.0
 ---
 
 # Invoke-WebRequestWithProgress
 
 ## SYNOPSIS
-Download a file and displays a progressbar.
+Download a file and displays a progress bar.
 
 ## SYNTAX
 
 ```
 Invoke-WebRequestWithProgress [-Uri] <Uri> [-OutFile] <String> [-Overwrite] [-Timeout <Int32>]
- [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 The "Invoke-WebRequestWithProgress" cmdlet creates a HttpWebRequest whose response stream is directed to a file.
-Every 10KB a progressbar showing the current download progress is displayed/updated.
+Every 10KB a progress bar showing the current download progress is displayed/updated.
 
 ## EXAMPLES
 
@@ -89,9 +88,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
@@ -99,4 +95,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-WebRequestWithProgress.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-WebRequestWithProgress.md)
 

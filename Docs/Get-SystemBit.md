@@ -1,6 +1,6 @@
 ---
 external help file: SystemLib-help.xml
-online version: Source: https://stackoverflow.com/a/31714410
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-SystemBit.md
 schema: 2.0.0
 ---
 
@@ -12,7 +12,7 @@ Gets the processor bit architecture.
 ## SYNTAX
 
 ```
-Get-SystemBit [<CommonParameters>]
+Get-SystemBit
 ```
 
 ## DESCRIPTION
@@ -27,9 +27,6 @@ Get-SystemBit
 
 ## PARAMETERS
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
@@ -37,4 +34,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-SystemBit.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-SystemBit.md)
 

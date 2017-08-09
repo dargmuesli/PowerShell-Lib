@@ -34,7 +34,12 @@
         </dev:remarks>
       </command:example>
     </command:examples>
-    <command:relatedLinks />
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-DockerMachineEnv.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-DockerMachineEnv.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
@@ -81,8 +86,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerEditionToUse.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerEditionToUse.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -147,8 +152,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerMachineStatus.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerMachineStatus.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -237,8 +242,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-Docker.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-Docker.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -303,8 +308,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-DockerMachine.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-DockerMachine.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -369,8 +374,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Set-DockerMachineEnv.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Set-DockerMachineEnv.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -384,7 +389,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Start-Docker" cmdlet checks if Docker is installed, how it is installed and if it is running. If not it offers to install and start Docker automatically.</maml:para>
+      <maml:para>The "Start-Docker" cmdlet checks if Docker is installed, how it is installed and if it is running. If not, it offers to install and start Docker automatically.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -445,7 +450,7 @@
     <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para></maml:para>
+        <maml:para>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -459,8 +464,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -525,8 +530,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerMachine.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerMachine.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -639,8 +644,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerRegistry.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerRegistry.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -705,8 +710,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Stop-DockerMachine.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Stop-DockerMachine.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -771,8 +776,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Stop-DockerStack.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Stop-DockerStack.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -812,8 +817,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerCommand.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerCommand.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -823,7 +828,7 @@
       <command:verb>Test</command:verb>
       <command:noun>DockerForWinInstalled</command:noun>
       <maml:description>
-        <maml:para>Checks if Docker for Windows is installed.</maml:para>
+        <maml:para>Checks whether Docker for Windows is installed.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -853,8 +858,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerForWinInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerForWinInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -864,7 +869,7 @@
       <command:verb>Test</command:verb>
       <command:noun>DockerInstalled</command:noun>
       <maml:description>
-        <maml:para>Checks if Docker is installed.</maml:para>
+        <maml:para>Checks whether Docker is installed.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -894,8 +899,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -905,7 +910,7 @@
       <command:verb>Test</command:verb>
       <command:noun>DockerInSwarm</command:noun>
       <maml:description>
-        <maml:para>Checks if Docker is in swarm-mode.</maml:para>
+        <maml:para>Checks whether Docker is in swarm-mode.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -935,8 +940,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInSwarm.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInSwarm.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -976,26 +981,26 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineCommand.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineCommand.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Test-DockerMachineEnvExist</command:name>
+      <command:name>Test-DockerMachineEnvExists</command:name>
       <command:verb>Test</command:verb>
-      <command:noun>DockerMachineEnvExist</command:noun>
+      <command:noun>DockerMachineEnvExists</command:noun>
       <maml:description>
-        <maml:para>Checks if Docker Machine environment variables exist.</maml:para>
+        <maml:para>Checks whether Docker Machine environment variables exist.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Test-DockerMachineEnvExist" cmdlet checks if "DOCKER_HOST", "DOCKER_CERT_PATH", "DOCKER_TLS_VERIFY" and "DOCKER_MACHINE_NAME" environment variables exist and retun true on success.</maml:para>
+      <maml:para>The "Test-DockerMachineEnvExists" cmdlet checks if "DOCKER_HOST", "DOCKER_CERT_PATH", "DOCKER_TLS_VERIFY" and "DOCKER_MACHINE_NAME" environment variables exist and retun true on success.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Test-DockerMachineEnvExist</maml:name>
+        <maml:name>Test-DockerMachineEnvExists</maml:name>
       </command:syntaxItem>
     </command:syntax>
     <command:parameters />
@@ -1009,7 +1014,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
-        <dev:code>Test-DockerMachineEnvExist</dev:code>
+        <dev:code>Test-DockerMachineEnvExists</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -1017,26 +1022,26 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineEnvExists.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineEnvExists.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Test-DockerMachineExist</command:name>
+      <command:name>Test-DockerMachineExists</command:name>
       <command:verb>Test</command:verb>
-      <command:noun>DockerMachineExist</command:noun>
+      <command:noun>DockerMachineExists</command:noun>
       <maml:description>
-        <maml:para>Checks if a Docker Machine exists.</maml:para>
+        <maml:para>Checks whether a Docker Machine exists.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Test-DockerMachineExist" cmdlet tries to show information about the Docker Machine and returns true on success.</maml:para>
+      <maml:para>The "Test-DockerMachineExists" cmdlet tries to show information about the Docker Machine and returns true on success.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Test-DockerMachineExist</maml:name>
+        <maml:name>Test-DockerMachineExists</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>MachineName</maml:name>
           <maml:Description>
@@ -1075,7 +1080,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
-        <dev:code>Test-DockerMachineExist -MachineName "Docker"</dev:code>
+        <dev:code>Test-DockerMachineExists -MachineName "Docker"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -1083,8 +1088,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineExists.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineExists.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1094,7 +1099,7 @@
       <command:verb>Test</command:verb>
       <command:noun>DockerRegistryRunning</command:noun>
       <maml:description>
-        <maml:para>Checks if Docker runs a registry container.</maml:para>
+        <maml:para>Checks whether Docker runs a registry container.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -1173,8 +1178,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRegistryRunning.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRegistryRunning.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1184,7 +1189,7 @@
       <command:verb>Test</command:verb>
       <command:noun>DockerRunning</command:noun>
       <maml:description>
-        <maml:para>Checks if Docker is running.</maml:para>
+        <maml:para>Checks whether Docker is running.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -1214,8 +1219,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRunning.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRunning.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1225,7 +1230,7 @@
       <command:verb>Test</command:verb>
       <command:noun>DockerStackRunning</command:noun>
       <maml:description>
-        <maml:para>Checks if a Docker stack is running.</maml:para>
+        <maml:para>Checks whether a Docker stack is running.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -1280,8 +1285,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerStackRunning.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerStackRunning.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1291,7 +1296,7 @@
       <command:verb>Test</command:verb>
       <command:noun>DockerToolboxInstalled</command:noun>
       <maml:description>
-        <maml:para>Checks if Docker Toolbox is installed.</maml:para>
+        <maml:para>Checks whether Docker Toolbox is installed.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -1321,8 +1326,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerToolboxInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerToolboxInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1434,8 +1439,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-DockerComposeFile.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-DockerComposeFile.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

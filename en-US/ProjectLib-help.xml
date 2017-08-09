@@ -61,8 +61,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Settings.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Settings.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

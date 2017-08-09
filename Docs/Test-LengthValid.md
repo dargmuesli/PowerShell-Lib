@@ -1,18 +1,18 @@
 ---
 external help file: ValidationLib-help.xml
-online version: Source: https://gist.github.com/au-phiware/25213e72c80040f398ba
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-LengthValid.md
 schema: 2.0.0
 ---
 
 # Test-LengthValid
 
 ## SYNOPSIS
-Checks if the length of a variable's values is in a specified range.
+Checks whether the length of a variable's values is in a specified range.
 
 ## SYNTAX
 
 ```
-Test-LengthValid [-Variable] <Object> [-Min] <Int32> [-Max] <Int32> [<CommonParameters>]
+Test-LengthValid [-Variable] <Object> [-Min] <Int32> [-Max] <Int32>
 ```
 
 ## DESCRIPTION
@@ -72,9 +72,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
@@ -82,4 +79,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-LengthValid.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-LengthValid.md)
 

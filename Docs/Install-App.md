@@ -1,6 +1,6 @@
 ---
 external help file: AppLib-help.xml
-online version: Source: https://stackoverflow.com/a/31714410
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-App.md
 schema: 2.0.0
 ---
 
@@ -12,11 +12,11 @@ Installs an app on the current computer.
 ## SYNTAX
 
 ```
-Install-App [-InstallerPath] <String> [<CommonParameters>]
+Install-App [-InstallerPath] <String>
 ```
 
 ## DESCRIPTION
-The "Install-App" cmdlet starts an type-dependent installer and waits for it's completion.
+The "Install-App" cmdlet starts an type-dependent installer and waits for its completion.
 
 ## EXAMPLES
 
@@ -43,9 +43,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
@@ -53,4 +50,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-App.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-App.md)
 

@@ -71,7 +71,7 @@
     <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para></maml:para>
+        <maml:para>Source: https://stackoverflow.com/a/31714410</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -85,8 +85,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Source: https://stackoverflow.com/a/31714410</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-AppsInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-AppsInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -100,7 +100,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Install-App" cmdlet starts an type-dependent installer and waits for it's completion.</maml:para>
+      <maml:para>The "Install-App" cmdlet starts an type-dependent installer and waits for its completion.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -151,8 +151,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-App.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-App.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -162,7 +162,7 @@
       <command:verb>Test</command:verb>
       <command:noun>AppInstalled</command:noun>
       <maml:description>
-        <maml:para>Checks if an app in installed on the current computer.</maml:para>
+        <maml:para>Checks whether an app in installed on the current computer.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -240,8 +240,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-AppInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-AppInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

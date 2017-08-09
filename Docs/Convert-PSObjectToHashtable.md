@@ -1,6 +1,6 @@
 ---
 external help file: PowerShellLib-help.xml
-online version: Source: https://stackoverflow.com/a/34383464/4682621
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSObjectToHashtable.md
 schema: 2.0.0
 ---
 
@@ -12,7 +12,7 @@ Converts a PSCustomObject to a hashtable.
 ## SYNTAX
 
 ```
-Convert-PSObjectToHashtable [-InputObject] <PSObject> [<CommonParameters>]
+Convert-PSObjectToHashtable [-InputObject] <PSObject>
 ```
 
 ## DESCRIPTION
@@ -42,16 +42,14 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
 
 ## NOTES
+Source: https://stackoverflow.com/a/34383464/4682621
 
 ## RELATED LINKS
 
-[Source: https://stackoverflow.com/a/34383464/4682621](Source: https://stackoverflow.com/a/34383464/4682621)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSObjectToHashtable.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSObjectToHashtable.md)
 

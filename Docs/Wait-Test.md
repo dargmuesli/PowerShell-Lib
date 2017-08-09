@@ -1,28 +1,28 @@
 ---
 external help file: PowerShellLib-help.xml
-online version: Source: https://gist.github.com/au-phiware/25213e72c80040f398ba
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Wait-Test.md
 schema: 2.0.0
 ---
 
 # Wait-Test
 
 ## SYNOPSIS
-Displays an indeterminate progressbar while a test is successful.
+Displays an indeterminate progress bar while a test is successful.
 
 ## SYNTAX
 
 ```
-Wait-Test [-Test] <String> [-Activity <String>] [-Milliseconds <Int32>] [-WithProgressbar] [<CommonParameters>]
+Wait-Test [-Test] <String> [-Activity <String>] [-Milliseconds <Int32>] [-WithProgressBar]
 ```
 
 ## DESCRIPTION
-The "Wait-Test" cmdlet increases the progressbar's value in steps from 0 to 100 infinitly to provide visual feedback about a running task to the user.
+The "Wait-Test" cmdlet increases the progress bar's value in steps from 0 to 100 infinitely to provide visual feedback about a running task to the user.
 
 ## EXAMPLES
 
 ### -------------------------- BEISPIEL 1 --------------------------
 ```
-Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressbar
+Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar
 ```
 
 ## PARAMETERS
@@ -72,8 +72,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WithProgressbar
-Wether to display a progressbar.
+### -WithProgressBar
+Whether to display a progress bar.
 
 ```yaml
 Type: SwitchParameter
@@ -87,9 +87,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
@@ -97,4 +94,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Wait-Test.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Wait-Test.md)
 

@@ -1,18 +1,18 @@
 ---
 external help file: DockerLib-help.xml
-online version: Source: https://gist.github.com/au-phiware/25213e72c80040f398ba
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerToolboxInstalled.md
 schema: 2.0.0
 ---
 
 # Test-DockerToolboxInstalled
 
 ## SYNOPSIS
-Checks if Docker Toolbox is installed.
+Checks whether Docker Toolbox is installed.
 
 ## SYNTAX
 
 ```
-Test-DockerToolboxInstalled [<CommonParameters>]
+Test-DockerToolboxInstalled
 ```
 
 ## DESCRIPTION
@@ -27,9 +27,6 @@ Test-DockerToolboxInstalled
 
 ## PARAMETERS
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
@@ -37,4 +34,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerToolboxInstalled.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerToolboxInstalled.md)
 

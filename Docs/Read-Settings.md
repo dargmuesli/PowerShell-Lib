@@ -1,6 +1,6 @@
 ---
 external help file: ProjectLib-help.xml
-online version: Source: https://stackoverflow.com/a/31714410
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Settings.md
 schema: 2.0.0
 ---
 
@@ -12,7 +12,7 @@ Reads settings fields in the JSON format and returns a PSCustomObject.
 ## SYNTAX
 
 ```
-Read-Settings [-SourcePath] <String[]> [<CommonParameters>]
+Read-Settings [-SourcePath] <String[]>
 ```
 
 ## DESCRIPTION
@@ -42,9 +42,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
@@ -52,4 +49,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Settings.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Settings.md)
 

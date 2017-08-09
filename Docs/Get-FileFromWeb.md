@@ -1,6 +1,6 @@
 ---
 external help file: PowerShellLib-help.xml
-online version: Source: https://stackoverflow.com/a/31714410
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-FileFromWeb.md
 schema: 2.0.0
 ---
 
@@ -12,7 +12,7 @@ Downloads a file from a URL.
 ## SYNTAX
 
 ```
-Get-FileFromWeb [-URL] <String> [-LocalPath] <String> [-DownloadMethod <String>] [<CommonParameters>]
+Get-FileFromWeb [-URL] <String> [-LocalPath] <String> [-DownloadMethod <String>]
 ```
 
 ## DESCRIPTION
@@ -72,9 +72,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
@@ -85,4 +82,6 @@ Download method "WebClient" cannot display its progress.
 Download method "WebRequest" can display its progress, but is very slow.
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-FileFromWeb.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-FileFromWeb.md)
 

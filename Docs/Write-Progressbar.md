@@ -1,34 +1,34 @@
 ---
 external help file: PowerShellLib-help.xml
-online version: Source: https://gist.github.com/au-phiware/25213e72c80040f398ba
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-ProgressBar.md
 schema: 2.0.0
 ---
 
-# Write-Progressbar
+# Write-ProgressBar
 
 ## SYNOPSIS
-Displays a progressbar.
+Displays a progress bar.
 
 ## SYNTAX
 
 ```
-Write-Progressbar [-PercentComplete] <Int32> [-Activity <String>] [<CommonParameters>]
+Write-ProgressBar [-PercentComplete] <Int32> [-Activity <String>]
 ```
 
 ## DESCRIPTION
-The "Write-Progressbar" cmdlet displays a progressbar with a given progress percentage and a description of the currently running activity.
+The "Write-ProgressBar" cmdlet displays a progress bar with a given progress percentage and a description of the currently running activity.
 
 ## EXAMPLES
 
 ### -------------------------- BEISPIEL 1 --------------------------
 ```
-Write-Progressbar -Activity "Checking ..." -PercentComplete $Index
+Write-ProgressBar -Activity "Checking ..." -PercentComplete $Index
 ```
 
 ## PARAMETERS
 
 ### -PercentComplete
-The progress of the progressbar.
+The progress of the progress bar.
 
 ```yaml
 Type: Int32
@@ -57,9 +57,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
@@ -67,4 +64,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-ProgressBar.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-ProgressBar.md)
 

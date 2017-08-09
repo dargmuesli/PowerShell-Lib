@@ -1,6 +1,6 @@
 ---
 external help file: DockerLib-help.xml
-online version: Source: https://gist.github.com/au-phiware/25213e72c80040f398ba
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md
 schema: 2.0.0
 ---
 
@@ -12,12 +12,12 @@ Starts Docker for Windows.
 ## SYNTAX
 
 ```
-Start-Docker [[-MachineName] <String>] [[-DownloadMethod] <String>] [<CommonParameters>]
+Start-Docker [[-MachineName] <String>] [[-DownloadMethod] <String>]
 ```
 
 ## DESCRIPTION
 The "Start-Docker" cmdlet checks if Docker is installed, how it is installed and if it is running.
-If not it offers to install and start Docker automatically.
+If not, it offers to install and start Docker automatically.
 
 ## EXAMPLES
 
@@ -58,16 +58,14 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
 
 ## OUTPUTS
 
 ## NOTES
+Source: https://gist.github.com/au-phiware/25213e72c80040f398ba
 
 ## RELATED LINKS
 
-[Source: https://gist.github.com/au-phiware/25213e72c80040f398ba](Source: https://gist.github.com/au-phiware/25213e72c80040f398ba)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md)
 

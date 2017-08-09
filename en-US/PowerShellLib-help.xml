@@ -47,7 +47,7 @@
     <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para></maml:para>
+        <maml:para>Source: https://stackoverflow.com/a/34383464/4682621</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -61,8 +61,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Source: https://stackoverflow.com/a/34383464/4682621</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/34383464/4682621</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSObjectToHashtable.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSObjectToHashtable.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -175,30 +175,30 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-FileFromWeb.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-FileFromWeb.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Invoke-ExpressionSave</command:name>
+      <command:name>Invoke-ExpressionSafe</command:name>
       <command:verb>Invoke</command:verb>
-      <command:noun>ExpressionSave</command:noun>
+      <command:noun>ExpressionSafe</command:noun>
       <maml:description>
         <maml:para>Invokes an expression without causing crashes.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Invoke-ExpressionSave" cmdlet Invokes the given command redirecting errors into a temporary file and other output into a variable. If the WithError parameter is given, the temporary file's output is appended to stdout. If the Graceful parameter is given and an error occurs, no exception is be thrown.</maml:para>
+      <maml:para>The "Invoke-ExpressionSafe" cmdlet Invokes the given command redirecting errors into a temporary file and other output into a variable. If the WithError parameter is given, the temporary file's output is appended to stdout. If the Graceful parameter is given and an error occurs, no exception is be thrown.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Invoke-ExpressionSave</maml:name>
+        <maml:name>Invoke-ExpressionSafe</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>Command</maml:name>
           <maml:Description>
-            <maml:para>The expression to invoke savely.</maml:para>
+            <maml:para>The expression to invoke safely.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
@@ -210,7 +210,7 @@
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>WithError</maml:name>
           <maml:Description>
-            <maml:para>Wether to return the error message in stdout.</maml:para>
+            <maml:para>Whether to return the error message in stdout.</maml:para>
           </maml:Description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
@@ -235,7 +235,7 @@
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>Command</maml:name>
         <maml:Description>
-          <maml:para>The expression to invoke savely.</maml:para>
+          <maml:para>The expression to invoke safely.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
@@ -247,7 +247,7 @@
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>WithError</maml:name>
         <maml:Description>
-          <maml:para>Wether to return the error message in stdout.</maml:para>
+          <maml:para>Whether to return the error message in stdout.</maml:para>
         </maml:Description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
@@ -279,7 +279,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
-        <dev:code>Invoke-ExpressionSave -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful</dev:code>
+        <dev:code>Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -287,8 +287,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-ExpressionSafe.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-ExpressionSafe.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -298,11 +298,11 @@
       <command:verb>Invoke</command:verb>
       <command:noun>WebRequestWithProgress</command:noun>
       <maml:description>
-        <maml:para>Download a file and displays a progressbar.</maml:para>
+        <maml:para>Download a file and displays a progress bar.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Invoke-WebRequestWithProgress" cmdlet creates a HttpWebRequest whose response stream is directed to a file. Every 10KB a progressbar showing the current download progress is displayed/updated.</maml:para>
+      <maml:para>The "Invoke-WebRequestWithProgress" cmdlet creates a HttpWebRequest whose response stream is directed to a file. Every 10KB a progress bar showing the current download progress is displayed/updated.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -424,8 +424,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-WebRequestWithProgress.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-WebRequestWithProgress.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -514,8 +514,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Merge-Objects.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Merge-Objects.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -580,8 +580,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Mount-EnvFile.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Mount-EnvFile.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -718,8 +718,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Prompt.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Prompt.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -832,26 +832,26 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://stackoverflow.com/a/31714410</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-PromptYesNo.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-PromptYesNo.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Test-EnvVarExist</command:name>
+      <command:name>Test-EnvVarExists</command:name>
       <command:verb>Test</command:verb>
-      <command:noun>EnvVarExist</command:noun>
+      <command:noun>EnvVarExists</command:noun>
       <maml:description>
-        <maml:para>Checks if an environment variable exists.</maml:para>
+        <maml:para>Checks whether an environment variable exists.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Test-EnvVarExist" cmdlet checks the existence of an environment variable and returns true on success.</maml:para>
+      <maml:para>The "Test-EnvVarExists" cmdlet checks the existence of an environment variable and returns true on success.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Test-EnvVarExist</maml:name>
+        <maml:name>Test-EnvVarExists</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>EnvVarName</maml:name>
           <maml:Description>
@@ -890,7 +890,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
-        <dev:code>Test-EnvVarExist -EnvVarName "OS"</dev:code>
+        <dev:code>Test-EnvVarExists -EnvVarName "OS"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -898,8 +898,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-EnvVarExists.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-EnvVarExists.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -909,7 +909,7 @@
       <command:verb>Test</command:verb>
       <command:noun>ModuleInstalled</command:noun>
       <maml:description>
-        <maml:para>Checks if a PowerShell module is installed.</maml:para>
+        <maml:para>Checks whether a PowerShell module is installed.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
@@ -964,26 +964,26 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ModuleInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ModuleInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Test-PropertyExist</command:name>
+      <command:name>Test-PropertyExists</command:name>
       <command:verb>Test</command:verb>
-      <command:noun>PropertyExist</command:noun>
+      <command:noun>PropertyExists</command:noun>
       <maml:description>
-        <maml:para>Checks if an object's property exists.</maml:para>
+        <maml:para>Checks whether an object's property exists.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Test-PropertyExist" cmdlet checks if an object contains a property name and returns true on success.</maml:para>
+      <maml:para>The "Test-PropertyExists" cmdlet checks if an object contains a property name and returns true on success.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Test-PropertyExist</maml:name>
+        <maml:name>Test-PropertyExists</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>Object</maml:name>
           <maml:Description>
@@ -1046,7 +1046,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
-        <dev:code>Test-PropertyExist -Object {test='123'} -PropertyName "test"</dev:code>
+        <dev:code>Test-PropertyExists -Object {test='123'} -PropertyName "test"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -1054,8 +1054,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PropertyExists.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PropertyExists.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1065,11 +1065,11 @@
       <command:verb>Wait</command:verb>
       <command:noun>Test</command:noun>
       <maml:description>
-        <maml:para>Displays an indeterminate progressbar while a test is successful.</maml:para>
+        <maml:para>Displays an indeterminate progress bar while a test is successful.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Wait-Test" cmdlet increases the progressbar's value in steps from 0 to 100 infinitly to provide visual feedback about a running task to the user.</maml:para>
+      <maml:para>The "Wait-Test" cmdlet increases the progress bar's value in steps from 0 to 100 infinitely to provide visual feedback about a running task to the user.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -1111,9 +1111,9 @@
           <dev:defaultValue>1000</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
-          <maml:name>WithProgressbar</maml:name>
+          <maml:name>WithProgressBar</maml:name>
           <maml:Description>
-            <maml:para>Wether to display a progressbar.</maml:para>
+            <maml:para>Whether to display a progress bar.</maml:para>
           </maml:Description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
@@ -1161,9 +1161,9 @@
         <dev:defaultValue>1000</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
-        <maml:name>WithProgressbar</maml:name>
+        <maml:name>WithProgressBar</maml:name>
         <maml:Description>
-          <maml:para>Wether to display a progressbar.</maml:para>
+          <maml:para>Whether to display a progress bar.</maml:para>
         </maml:Description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
@@ -1183,7 +1183,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
-        <dev:code>Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressbar</dev:code>
+        <dev:code>Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -1191,30 +1191,30 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Wait-Test.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Wait-Test.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Write-Progressbar</command:name>
+      <command:name>Write-ProgressBar</command:name>
       <command:verb>Write</command:verb>
-      <command:noun>Progressbar</command:noun>
+      <command:noun>ProgressBar</command:noun>
       <maml:description>
-        <maml:para>Displays a progressbar.</maml:para>
+        <maml:para>Displays a progress bar.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Write-Progressbar" cmdlet displays a progressbar with a given progress percentage and a description of the currently running activity.</maml:para>
+      <maml:para>The "Write-ProgressBar" cmdlet displays a progress bar with a given progress percentage and a description of the currently running activity.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Write-Progressbar</maml:name>
+        <maml:name>Write-ProgressBar</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>PercentComplete</maml:name>
           <maml:Description>
-            <maml:para>The progress of the progressbar.</maml:para>
+            <maml:para>The progress of the progress bar.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
@@ -1241,7 +1241,7 @@
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>PercentComplete</maml:name>
         <maml:Description>
-          <maml:para>The progress of the progressbar.</maml:para>
+          <maml:para>The progress of the progress bar.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
@@ -1273,7 +1273,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
-        <dev:code>Write-Progressbar -Activity "Checking ..." -PercentComplete $Index</dev:code>
+        <dev:code>Write-ProgressBar -Activity "Checking ..." -PercentComplete $Index</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -1281,8 +1281,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>Source: https://gist.github.com/au-phiware/25213e72c80040f398ba</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-ProgressBar.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-ProgressBar.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
