@@ -9,6 +9,9 @@ Set-StrictMode -Version Latest
 
     .EXAMPLE
     Get-SystemBit
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-SystemBit.md
 #>
 Function Get-SystemBit {
     $IntPtrSize = [IntPtr]::Size

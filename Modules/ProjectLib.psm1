@@ -12,6 +12,9 @@ Set-StrictMode -Version Latest
 
     .EXAMPLE
     Read-Settings -SourcePath @(".\package.json", ".\docker-management.json")
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Settings.md
 #>
 Function Read-Settings {
     Param (

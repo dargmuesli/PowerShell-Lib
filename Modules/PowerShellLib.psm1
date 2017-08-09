@@ -15,6 +15,9 @@ Set-StrictMode -Version Latest
 
     .NOTES
     Source: https://stackoverflow.com/a/34383464/4682621
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSObjectToHashtable.md
 #>
 Function Convert-PSObjectToHashtable {
     Param (
@@ -76,6 +79,9 @@ Function Convert-PSObjectToHashtable {
     Download method "BITS" can display its progress, but can also be delayed by other downloads.
     Download method "WebClient" cannot display its progress.
     Download method "WebRequest" can display its progress, but is very slow.
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-FileFromWeb.md
 #>
 Function Get-FileFromWeb {
     Param (
@@ -130,6 +136,9 @@ Function Get-FileFromWeb {
 
     .EXAMPLE
     Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-ExpressionSafe.md
 #>
 Function Invoke-ExpressionSafe {
     Param (
@@ -190,6 +199,9 @@ Function Invoke-ExpressionSafe {
 
     .EXAMPLE
     Invoke-WebRequestWithProgress -Uri "https://download.docker.com/win/stable/InstallDocker.msi" -OutFile ".\"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-WebRequestWithProgress.md
 #>
 Function Invoke-WebRequestWithProgress {
     Param (
@@ -258,6 +270,9 @@ Function Invoke-WebRequestWithProgress {
 
     .EXAMPLE
     Merge-Objects -Object1 @{test='123'} -Object2 @{123='test'}
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Merge-Objects.md
 #>
 Function Merge-Objects {
     Param (
@@ -293,6 +308,9 @@ Function Merge-Objects {
 
     .EXAMPLE
     Mount-EnvFile -EnvFilePath ".\.env"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Mount-EnvFile.md
 #>
 Function Mount-EnvFile {
     Param (
@@ -334,6 +352,9 @@ Function Mount-EnvFile {
         (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker Toolbox')
     )
     Read-Prompt -Caption "Docker for Windows and Docker Toolbox are installed." -Message "Which one do you want to use?" -Choices $Choices -DefaultChoice 0
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Prompt.md
 #>
 Function Read-Prompt {
     Param (
@@ -375,6 +396,9 @@ Function Read-Prompt {
 
     .EXAMPLE
     Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -DefaultChoice 0
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-PromptYesNo.md
 #>
 Function Read-PromptYesNo {
     Param (
@@ -417,6 +441,9 @@ Function Read-PromptYesNo {
 
     .EXAMPLE
     Test-EnvVarExists -EnvVarName "OS"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-EnvVarExists.md
 #>
 Function Test-EnvVarExists {
     Param (
@@ -444,6 +471,9 @@ Function Test-EnvVarExists {
 
     .EXAMPLE
     Test-ModuleInstalled -ModuleName "powershell-lib"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ModuleInstalled.md
 #>
 Function Test-ModuleInstalled {
     Param (
@@ -474,6 +504,9 @@ Function Test-ModuleInstalled {
 
     .EXAMPLE
     Test-PropertyExists -Object {test='123'} -PropertyName "test"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PropertyExists.md
 #>
 Function Test-PropertyExists {
     Param (
@@ -510,6 +543,9 @@ Function Test-PropertyExists {
 
     .EXAMPLE
     Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Wait-Test.md
 #>
 Function Wait-Test {
     Param (
@@ -565,6 +601,9 @@ Function Wait-Test {
 
     .EXAMPLE
     Write-ProgressBar -Activity "Checking ..." -PercentComplete $Index
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-ProgressBar.md
 #>
 Function Write-ProgressBar {
     Param (

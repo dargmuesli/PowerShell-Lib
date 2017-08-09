@@ -12,6 +12,9 @@ Set-StrictMode -Version Latest
 
     .EXAMPLE
     Clear-Linebreaks -String "test`r`n123"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-Linebreaks.md
 #>
 Function Clear-Linebreaks {
     Param (

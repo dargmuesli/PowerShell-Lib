@@ -9,6 +9,9 @@ Set-StrictMode -Version Latest
 
     .EXAMPLE
     Clear-DockerMachineEnv
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-DockerMachineEnv.md
 #>
 Function Clear-DockerMachineEnv {
     If (-Not (Test-DockerMachineCommand)) {
@@ -33,6 +36,9 @@ Function Clear-DockerMachineEnv {
 
     .OUTPUTS
     Either "ForWin" or "Toolbox".
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerEditionToUse.md
 #>
 Function Get-DockerEditionToUse {
     $DockerForWinInstalled = Test-DockerForWinInstalled
@@ -75,6 +81,9 @@ Function Get-DockerEditionToUse {
 
     .EXAMPLE
     Get-DockerMachineStatus -MachineName "Docker"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerMachineStatus.md
 #>
 Function Get-DockerMachineStatus {
     Param (
@@ -105,6 +114,9 @@ Function Get-DockerMachineStatus {
 
     .EXAMPLE
     Install-Docker
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-Docker.md
 #>
 Function Install-Docker {
     Param (
@@ -150,6 +162,9 @@ Function Install-Docker {
 
     .EXAMPLE
     New-DockerMachine -MachineName "Docker"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-DockerMachine.md
 #>
 Function New-DockerMachine {
     Param (
@@ -179,6 +194,9 @@ Function New-DockerMachine {
 
     .EXAMPLE
     Set-DockerMachineEnv -MachineName "Docker"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Set-DockerMachineEnv.md
 #>
 Function Set-DockerMachineEnv {
     Param (
@@ -214,6 +232,9 @@ Function Set-DockerMachineEnv {
 
     .NOTES
     Source: https://gist.github.com/au-phiware/25213e72c80040f398ba
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md
 #>
 Function Start-Docker {
     Param (
@@ -331,6 +352,9 @@ Function Start-Docker {
 
     .EXAMPLE
     Start-DockerMachine -DockerMachine "Docker"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerMachine.md
 #>
 Function Start-DockerMachine {
     Param (
@@ -365,6 +389,9 @@ Function Start-DockerMachine {
 
     .EXAMPLE
     Start-DockerRegistry -Name "registry" -Host "localhost" -Port "8080"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerRegistry.md
 #>
 Function Start-DockerRegistry {
     Param (
@@ -416,6 +443,9 @@ Function Start-DockerRegistry {
 
     .EXAMPLE
     Stop-DockerMachine -MachineName "Docker"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Stop-DockerMachine.md
 #>
 Function Stop-DockerMachine {
     Param (
@@ -444,6 +474,9 @@ Function Stop-DockerMachine {
 
     .EXAMPLE
     Stop-DockerStack -StackName "appstack"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Stop-DockerStack.md
 #>
 Function Stop-DockerStack {
     Param (
@@ -466,6 +499,9 @@ Function Stop-DockerStack {
 
     .EXAMPLE
     Test-DockerCommand
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerCommand.md
 #>
 Function Test-DockerCommand {
     If (Get-Command -Name "docker" -ErrorAction "SilentlyContinue") {
@@ -484,6 +520,9 @@ Function Test-DockerCommand {
 
     .EXAMPLE
     Test-DockerForWinInstalled
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerForWinInstalled.md
 #>
 Function Test-DockerForWinInstalled {
     If (Test-AppInstalled -AppName "Docker") {
@@ -502,6 +541,9 @@ Function Test-DockerForWinInstalled {
 
     .EXAMPLE
     Test-DockerInSwarm
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInSwarm.md
 #>
 Function Test-DockerInSwarm {
     $DockerSwarmInit = Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithError
@@ -524,6 +566,9 @@ Function Test-DockerInSwarm {
 
     .EXAMPLE
     Test-DockerInstalled
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInstalled.md
 #>
 Function Test-DockerInstalled {
     If ((Test-DockerForWinInstalled) -Or (Test-DockerToolboxInstalled)) {
@@ -542,6 +587,9 @@ Function Test-DockerInstalled {
 
     .EXAMPLE
     Test-DockerRunning
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRunning.md
 #>
 Function Test-DockerRunning {
     $DockerProcessesAll = Invoke-ExpressionSafe "docker ps -a" -Graceful -WithError
@@ -562,6 +610,9 @@ Function Test-DockerRunning {
 
     .EXAMPLE
     Test-DockerMachineEnvExists
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineEnvExists.md
 #>
 Function Test-DockerMachineEnvExists {
     If (Get-ChildItem -Path @("env:DOCKER_HOST", "env:DOCKER_CERT_PATH", "env:DOCKER_TLS_VERIFY", "env:DOCKER_MACHINE_NAME") -ErrorAction SilentlyContinue) {
@@ -583,6 +634,9 @@ Function Test-DockerMachineEnvExists {
 
     .EXAMPLE
     Test-DockerMachineExists -MachineName "Docker"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineExists.md
 #>
 Function Test-DockerMachineExists {
     Param (
@@ -611,6 +665,9 @@ Function Test-DockerMachineExists {
 
     .EXAMPLE
     Test-DockerMachineCommand
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineCommand.md
 #>
 Function Test-DockerMachineCommand {
     If (Get-Command -Name "docker-machine" -ErrorAction "SilentlyContinue") {
@@ -635,6 +692,9 @@ Function Test-DockerMachineCommand {
 
     .EXAMPLE
     Test-DockerRegistryRunning -Hostname "localhost" -Port "8080"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRegistryRunning.md
 #>
 Function Test-DockerRegistryRunning {
     Param (
@@ -674,6 +734,9 @@ Function Test-DockerRegistryRunning {
 
     .EXAMPLE
     Test-DockerStackRunning -StackNamespace "AppStack"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerStackRunning.md
 #>
 Function Test-DockerStackRunning {
     Param (
@@ -700,6 +763,9 @@ Function Test-DockerStackRunning {
 
     .EXAMPLE
     Test-DockerToolboxInstalled
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerToolboxInstalled.md
 #>
 Function Test-DockerToolboxInstalled {
     If (Test-AppInstalled -AppName "Docker Toolbox version \d+\.\d+\.\d+(-ce)*" -RegexCompare) {
@@ -727,6 +793,9 @@ Function Test-DockerToolboxInstalled {
 
     .EXAMPLE
     Write-DockerComposeFile -ComposeFile "docker-compose.yml" -Path ".\"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-DockerComposeFile.md
 #>
 Function Write-DockerComposeFile {
     Param (
