@@ -18,7 +18,7 @@ Set-StrictMode -Version Latest
     .EXAMPLE
     Get-AppsInstalled -SelectObjectProperty @("DisplayName", "DisplayVersion") -SortObjectProperty @("DisplayName", "DisplayVersion")
 
-    .LINK
+    .NOTES
     Source: https://stackoverflow.com/a/31714410
 #>
 Function Get-AppsInstalled {

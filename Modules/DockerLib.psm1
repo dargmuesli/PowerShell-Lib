@@ -212,7 +212,7 @@ Function Set-DockerMachineEnv {
     .EXAMPLE
     Start-Docker -MachineName "Docker"
 
-    .LINK
+    .NOTES
     Source: https://gist.github.com/au-phiware/25213e72c80040f398ba
 #>
 Function Start-Docker {

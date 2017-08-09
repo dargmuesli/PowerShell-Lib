@@ -13,7 +13,7 @@ Set-StrictMode -Version Latest
     .EXAMPLE
     Convert-PSObjectToHashtable -InputObject $InputObject
 
-    .LINK
+    .NOTES
     Source: https://stackoverflow.com/a/34383464/4682621
 #>
 Function Convert-PSObjectToHashtable {
