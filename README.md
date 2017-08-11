@@ -53,7 +53,7 @@ A library of helpful PowerShell functions.
 - **Validation**
   - [Test-CountValid](Docs/Test-CountValid.md)
   - [Test-HostnameValid](Docs/Test-HostnameValid.md)
-  - [Test-IPAdressValid](Docs/Test-IPAdressValid.md)
+  - [Test-IPAddressValid](Docs/Test-IPAddressValid.md)
   - [Test-IRIValid](Docs/Test-IRIValid.md)
   - [Test-LengthValid](Docs/Test-LengthValid.md)
   - [Test-NotNullValid](Docs/Test-NotNullValid.md)

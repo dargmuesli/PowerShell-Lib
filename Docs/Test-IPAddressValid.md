@@ -1,10 +1,10 @@
 ---
 external help file: ValidationLib-help.xml
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAdressValid.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAddressValid.md
 schema: 2.0.0
 ---
 
-# Test-IPAdressValid
+# Test-IPAddressValid
 
 ## SYNOPSIS
 Checks whether an IP address is valid.
@@ -12,7 +12,7 @@ Checks whether an IP address is valid.
 ## SYNTAX
 
 ```
-Test-IPAdressValid [-IPAddress] <String[]>
+Test-IPAddressValid [-IPAddress] <String[]>
 ```
 
 ## DESCRIPTION
@@ -22,7 +22,7 @@ The "Test-IPAddressValid" cmdlet tries to match an IP address with a regex patte
 
 ### -------------------------- BEISPIEL 1 --------------------------
 ```
-Test-IPAdressValid -IPAddress "127.0.0.1"
+Test-IPAddressValid -IPAddress "127.0.0.1"
 ```
 
 ## PARAMETERS
@@ -50,5 +50,5 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAdressValid.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAdressValid.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAddressValid.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAddressValid.md)
 

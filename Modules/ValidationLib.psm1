@@ -91,12 +91,12 @@ Function Test-HostnameValid {
     The IP address that is to be checked.
 
     .EXAMPLE
-    Test-IPAdressValid -IPAddress "127.0.0.1"
+    Test-IPAddressValid -IPAddress "127.0.0.1"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAdressValid.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAddressValid.md
 #>
-Function Test-IPAdressValid {
+Function Test-IPAddressValid {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
