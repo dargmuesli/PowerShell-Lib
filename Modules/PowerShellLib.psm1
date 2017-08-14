@@ -470,7 +470,7 @@ Function Test-EnvVarExists {
     The module's name that is to be checked.
 
     .EXAMPLE
-    Test-ModuleInstalled -ModuleName "powershell-lib"
+    Test-ModuleInstalled -ModuleName "PowerShell-Lib"
 
     .LINK
     https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ModuleInstalled.md
