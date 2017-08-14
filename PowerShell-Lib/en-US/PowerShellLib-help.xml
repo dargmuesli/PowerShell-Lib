@@ -956,7 +956,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
-        <dev:code>Test-ModuleInstalled -ModuleName "powershell-lib"</dev:code>
+        <dev:code>Test-ModuleInstalled -ModuleName "PowerShell-Lib"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>

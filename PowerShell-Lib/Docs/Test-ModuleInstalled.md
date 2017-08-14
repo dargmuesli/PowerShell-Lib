@@ -1,6 +1,6 @@
 ---
 external help file: PowerShellLib-help.xml
-Module Name: powershell-lib
+Module Name: PowerShell-Lib
 online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ModuleInstalled.md
 schema: 2.0.0
 ---
@@ -23,7 +23,7 @@ The "Test-ModuleInstalled" cmdlet tries to get the desired module and return tru
 
 ### -------------------------- BEISPIEL 1 --------------------------
 ```
-Test-ModuleInstalled -ModuleName "powershell-lib"
+Test-ModuleInstalled -ModuleName "PowerShell-Lib"
 ```
 
 ## PARAMETERS

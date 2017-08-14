@@ -1,6 +1,6 @@
 ---
 external help file: DockerLib-help.xml
-Module Name: powershell-lib
+Module Name: PowerShell-Lib
 online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-DockerMachine.md
 schema: 2.0.0
 ---

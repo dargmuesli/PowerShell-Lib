@@ -1,6 +1,6 @@
 ---
 external help file: TextLib-help.xml
-Module Name: powershell-lib
+Module Name: PowerShell-Lib
 online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-Linebreaks.md
 schema: 2.0.0
 ---
