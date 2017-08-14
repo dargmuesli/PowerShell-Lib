@@ -1,5 +1,6 @@
 ---
 external help file: DockerLib-help.xml
+Module Name: powershell-lib
 online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineEnvExists.md
 schema: 2.0.0
 ---

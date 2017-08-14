@@ -1,5 +1,6 @@
 ---
 external help file: SystemLib-help.xml
+Module Name: powershell-lib
 online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-SystemBit.md
 schema: 2.0.0
 ---

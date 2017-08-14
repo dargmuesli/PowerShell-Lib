@@ -1,5 +1,6 @@
 ---
 external help file: PowerShellLib-help.xml
+Module Name: powershell-lib
 online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-ExpressionSafe.md
 schema: 2.0.0
 ---
