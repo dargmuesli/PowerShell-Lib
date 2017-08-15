@@ -15,12 +15,12 @@ ForEach ($BuildFolder In $BuildFolders) {
     }
 }
 
-Write-Host "Running New-MarkdownHelp..." -ForegroundColor "Cyan"
+Write-Host "Generating markdown help..." -ForegroundColor "Cyan"
 New-MarkdownHelp -Module "PowerShell-Lib" -OutputFolder ".\PowerShell-Lib\Docs" -Locale "en-US"
-Write-Host "Running New-ExternalHelp..." -ForegroundColor "Cyan"
+Write-Host "Generating external help..." -ForegroundColor "Cyan"
 New-ExternalHelp -Path ".\PowerShell-Lib\Docs" -OutputPath ".\PowerShell-Lib\en-US"
 
-Write-Host "Creating root README..." -ForegroundColor "Cyan"
+Write-Host "Generating README..." -ForegroundColor "Cyan"
 $ReadmeRoot = Get-Content -Path ".\README\root.md" -Raw
 $ReadmeModules = New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\*") -DocPath "PowerShell-Lib/Docs" -Sort
 $Readme = Join-MultiLineStrings -MultiLineStrings @($ReadmeRoot, $ReadmeModules) -Newline
