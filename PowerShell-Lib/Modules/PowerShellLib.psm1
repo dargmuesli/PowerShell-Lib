@@ -5,55 +5,47 @@ Set-StrictMode -Version Latest
     Converts a PSCustomObject to a hashtable.
 
     .DESCRIPTION
-    DEPRECATED function.
+    The "Convert-PSCustomObjectToHashtable" cmdlet iterates over a PSCustomObject's properties and adds name-value pairs to a hastable that it returns.
 
     .PARAMETER InputObject
     The PSCustomObject that is to be converted.
 
     .EXAMPLE
-    Convert-PSObjectToHashtable -InputObject $InputObject
-
-    .NOTES
-    Source: https://stackoverflow.com/a/34383464/4682621
+    Convert-PSCustomObjectToHashtable -InputObject $InputObject
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSObjectToHashtable.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSCustomObjectToHashtable.md
 #>
-Function Convert-PSObjectToHashtable {
+Function Convert-PSCustomObjectToHashtable {
     Param (
         [Parameter(Mandatory = $True, Position = 0, ValueFromPipeline = $True)]
         [ValidateNotNullOrEmpty()]
-        [PSObject] $InputObject
+        [PSCustomObject] $InputObject
     )
 
-    Process {
-        If ($Null -Eq $InputObject) {
-            Return $Null
-        }
+    $Hashtable = [Ordered] @{}
 
-        If ($InputObject -Is [System.Collections.IEnumerable] -And $InputObject -IsNot [String]) {
-            $InputObject
-            # Write-Host $InputObject.GetType()
+    $InputObject.PSObject.Properties |
+        ForEach-Object {
+        $InputProperty = $PSItem
 
-            # $Collection = @(
-            #     ForEach ($Object In $InputObject) {
-            #         Convert-PSObjectToHashtable -InputObject $Object
-            #     }
-            # )
-
-            # Write-Output -NoEnumerate $Collection
-        } ElseIf ($InputObject -Is [PSObject]) {
-            $HashTable = @{}
-
-            Foreach ($Property In $InputObject.PSObject.Properties) {
-                $HashTable[$Property.Name] = Convert-PSObjectToHashtable -InputObject $Property.Value
+        Switch ($PSItem.Value.GetType().Name) {
+            "PSCustomObject" {
+                $Hashtable[$InputProperty.Name] = Convert-PSCustomObjectToHashtable -InputObject $InputProperty.Value
+                Break
             }
-
-            $HashTable
-        } Else {
-            $InputObject
+            {@("String", "Int")} {
+                $Hashtable[$InputProperty.Name] = $InputProperty.Value
+                Break
+            }
+            "Object[]" {
+                $Hashtable[$InputProperty.Name] = [PSObject] $InputProperty.Value
+                Break
+            }
         }
     }
+
+    Return $Hashtable
 }
 
 <#

@@ -33,7 +33,7 @@ A library of helpful PowerShell functions.
   - [Test-DockerToolboxInstalled](PowerShell-Lib/Docs/Test-DockerToolboxInstalled.md)
   - [Write-DockerComposeFile](PowerShell-Lib/Docs/Write-DockerComposeFile.md)
 - **PowerShellLib**
-  - [Convert-PSObjectToHashtable](PowerShell-Lib/Docs/Convert-PSObjectToHashtable.md)
+  - [Convert-PSCustomObjectToHashtable](PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md)
   - [Get-FileFromWeb](PowerShell-Lib/Docs/Get-FileFromWeb.md)
   - [Invoke-ExpressionSafe](PowerShell-Lib/Docs/Invoke-ExpressionSafe.md)
   - [Invoke-WebRequestWithProgress](PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md)

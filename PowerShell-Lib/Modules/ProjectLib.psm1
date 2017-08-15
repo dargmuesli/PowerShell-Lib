@@ -96,9 +96,7 @@ Function Read-Settings {
     $Settings = [PSCustomObject] @{}
 
     Foreach ($SourcesPath In $SourcePath) {
-        If (Test-Path $SourcesPath) {
-            $Settings = Merge-Objects -Object1 $Settings -Object2 (Get-Content -Path $SourcesPath | ConvertFrom-Json)
-        }
+        $Settings = Merge-Objects -Object1 $Settings -Object2 (Get-Content -Path $SourcesPath | ConvertFrom-Json)
     }
 
     Return $Settings

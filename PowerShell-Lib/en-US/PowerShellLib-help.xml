@@ -2,19 +2,19 @@
 <helpItems schema="maml" xmlns="http://msh">
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Convert-PSObjectToHashtable</command:name>
+      <command:name>Convert-PSCustomObjectToHashtable</command:name>
       <command:verb>Convert</command:verb>
-      <command:noun>PSObjectToHashtable</command:noun>
+      <command:noun>PSCustomObjectToHashtable</command:noun>
       <maml:description>
         <maml:para>Converts a PSCustomObject to a hashtable.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>DEPRECATED function.</maml:para>
+      <maml:para>The "Convert-PSCustomObjectToHashtable" cmdlet iterates over a PSCustomObject's properties and adds name-value pairs to a hastable that it returns.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Convert-PSObjectToHashtable</maml:name>
+        <maml:name>Convert-PSCustomObjectToHashtable</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
           <maml:name>InputObject</maml:name>
           <maml:Description>
@@ -47,13 +47,13 @@
     <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>Source: https://stackoverflow.com/a/34383464/4682621</maml:para>
+        <maml:para></maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
         <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
-        <dev:code>Convert-PSObjectToHashtable -InputObject $InputObject</dev:code>
+        <dev:code>Convert-PSCustomObjectToHashtable -InputObject $InputObject</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -61,8 +61,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSObjectToHashtable.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSObjectToHashtable.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSCustomObjectToHashtable.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSCustomObjectToHashtable.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
