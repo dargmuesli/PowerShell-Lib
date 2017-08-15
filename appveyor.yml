@@ -1,0 +1,32 @@
+version: '{build}'
+
+init:
+  - ps: |
+      Write-Host "PowerShell Version: $(${PSVersionTable}.PSVersion)"
+
+install:
+  - ps: |
+      Install-Module -Name "Pester"
+
+build_script:
+  - ps: |
+      $ErrorActionPreference = "Stop"
+      .\Build.ps1
+
+test_script:
+  - ps: |
+      $PesterTestResultsFile = ".\TestsResults.xml"
+      $Pester = Invoke-Pester -OutputFormat NUnitXml -OutputFile $PesterTestResultsFile -PassThru
+      $WebClient = New-Object "System.Net.WebClient"
+      $PesterTestResultsFilePath = Resolve-Path -Path $PesterTestResultsFile
+      $WebClient.UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)", $PesterTestResultsFilePath)
+      If ($Pester.FailedCount -Gt 0) {
+          Throw "$(${Pester}.FailedCount) tests failed."
+      }
+
+on_finish:
+  - ps: |
+      Add-Type -AssemblyName System.IO.Compression.FileSystem
+      $ZipFile = Join-Path -Path $((Resolve-Path -Path "..").Path) -ChildPath "$($env:APPVEYOR_PROJECT_NAME)_$($env:APPVEYOR_BUILD_VERSION).zip"
+      [System.IO.Compression.ZipFile]::CreateFromDirectory("$PWD\PowerShell-Lib", $ZipFile, "Optimal", "true")
+      Push-AppveyorArtifact -Path $ZipFile
