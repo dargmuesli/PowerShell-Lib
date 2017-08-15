@@ -6,11 +6,11 @@
       <command:verb>New</command:verb>
       <command:noun>ModuleMarkdown</command:noun>
       <maml:description>
-        <maml:para>Short description</maml:para>
+        <maml:para>Creates a markdown list for all functions in specified files.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>Long description</maml:para>
+      <maml:para>The "New-ModuleMarkdown" cmdlet reads all specified files and searches for function declarations within them. Then it can sort the findings alphabetically and finally it returns a markdown list representation of all functions.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -18,7 +18,7 @@
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:Description>
-            <maml:para>Parameter description</maml:para>
+            <maml:para>The path to files that are to be examined.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
@@ -30,7 +30,7 @@
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>DocPath</maml:name>
           <maml:Description>
-            <maml:para>Parameter description</maml:para>
+            <maml:para>The path to where a functions markdown documentation can be found.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
           <dev:type>
@@ -42,7 +42,7 @@
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>Sort</maml:name>
           <maml:Description>
-            <maml:para>Parameter description</maml:para>
+            <maml:para>Whether to sort the findings alphabetically or not.</maml:para>
           </maml:Description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
@@ -56,7 +56,7 @@
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:Description>
-          <maml:para>Parameter description</maml:para>
+          <maml:para>The path to files that are to be examined.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
         <dev:type>
@@ -68,7 +68,7 @@
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
         <maml:name>DocPath</maml:name>
         <maml:Description>
-          <maml:para>Parameter description</maml:para>
+          <maml:para>The path to where a functions markdown documentation can be found.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
         <dev:type>
@@ -80,7 +80,7 @@
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
         <maml:name>Sort</maml:name>
         <maml:Description>
-          <maml:para>Parameter description</maml:para>
+          <maml:para>Whether to sort the findings alphabetically or not.</maml:para>
         </maml:Description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>

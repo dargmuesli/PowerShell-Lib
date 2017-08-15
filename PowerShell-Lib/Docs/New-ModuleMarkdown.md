@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-ModuleMarkdown
 
 ## SYNOPSIS
-Short description
+Creates a markdown list for all functions in specified files.
 
 ## SYNTAX
 
@@ -17,7 +17,8 @@ New-ModuleMarkdown [-SourcePath] <String[]> [-DocPath] <String> [-Sort]
 ```
 
 ## DESCRIPTION
-Long description
+The "New-ModuleMarkdown" cmdlet reads all specified files and searches for function declarations within them.
+Then it can sort the findings alphabetically and finally it returns a markdown list representation of all functions.
 
 ## EXAMPLES
 
@@ -29,7 +30,7 @@ New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\*") -DocPath "PowerSh
 ## PARAMETERS
 
 ### -SourcePath
-Parameter description
+The path to files that are to be examined.
 
 ```yaml
 Type: String[]
@@ -44,7 +45,7 @@ Accept wildcard characters: False
 ```
 
 ### -DocPath
-Parameter description
+The path to where a functions markdown documentation can be found.
 
 ```yaml
 Type: String
@@ -59,7 +60,7 @@ Accept wildcard characters: False
 ```
 
 ### -Sort
-Parameter description
+Whether to sort the findings alphabetically or not.
 
 ```yaml
 Type: SwitchParameter
