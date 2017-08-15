@@ -2,11 +2,11 @@
 A library of helpful PowerShell functions.
 
 ## Modules
-- **App**
+- **AppLib**
   - [Get-AppsInstalled](PowerShell-Lib/Docs/Get-AppsInstalled.md)
   - [Install-App](PowerShell-Lib/Docs/Install-App.md)
   - [Test-AppInstalled](PowerShell-Lib/Docs/Test-AppInstalled.md)
-- **Docker**
+- **DockerLib**
   - [Clear-DockerMachineEnv](PowerShell-Lib/Docs/Clear-DockerMachineEnv.md)
   - [Get-DockerEditionToUse](PowerShell-Lib/Docs/Get-DockerEditionToUse.md)
   - [Get-DockerMachineStatus](PowerShell-Lib/Docs/Get-DockerMachineStatus.md)
@@ -30,7 +30,7 @@ A library of helpful PowerShell functions.
   - [Test-DockerStackRunning](PowerShell-Lib/Docs/Test-DockerStackRunning.md)
   - [Test-DockerToolboxInstalled](PowerShell-Lib/Docs/Test-DockerToolboxInstalled.md)
   - [Write-DockerComposeFile](PowerShell-Lib/Docs/Write-DockerComposeFile.md)
-- **PowerShell**
+- **PowerShellLib**
   - [Convert-PSObjectToHashtable](PowerShell-Lib/Docs/Convert-PSObjectToHashtable.md)
   - [Get-FileFromWeb](PowerShell-Lib/Docs/Get-FileFromWeb.md)
   - [Invoke-ExpressionSafe](PowerShell-Lib/Docs/Invoke-ExpressionSafe.md)
@@ -44,13 +44,14 @@ A library of helpful PowerShell functions.
   - [Test-PropertyExists](PowerShell-Lib/Docs/Test-PropertyExists.md)
   - [Wait-Test](PowerShell-Lib/Docs/Wait-Test.md)
   - [Write-ProgressBar](PowerShell-Lib/Docs/Write-ProgressBar.md)
-- **Project**
+- **ProjectLib**
+  - [New-ModuleMarkdown](PowerShell-Lib/Docs/New-ModuleMarkdown.md)
   - [Read-Settings](PowerShell-Lib/Docs/Read-Settings.md)
-- **System**
+- **SystemLib**
   - [Get-SystemBit](PowerShell-Lib/Docs/Get-SystemBit.md)
-- **Text**
+- **TextLib**
   - [Clear-Linebreaks](PowerShell-Lib/Docs/Clear-Linebreaks.md)
-- **Validation**
+- **ValidationLib**
   - [Test-CountValid](PowerShell-Lib/Docs/Test-CountValid.md)
   - [Test-HostnameValid](PowerShell-Lib/Docs/Test-HostnameValid.md)
   - [Test-IPAddressValid](PowerShell-Lib/Docs/Test-IPAddressValid.md)
