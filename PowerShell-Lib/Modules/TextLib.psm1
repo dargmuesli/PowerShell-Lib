@@ -26,4 +26,51 @@ Function Clear-Linebreaks {
     $String -Replace "`r", "" -Replace "`n", ""
 }
 
+<#
+    .SYNOPSIS
+    Joins multi line strings.
+
+    .DESCRIPTION
+    The "Join-MultiLineStrings" cmdlet iterates over all multi line strings, adding an optional newline between each and appending each to the return string.
+
+    .PARAMETER MultiLineStrings
+    The multi line strings that are to be joined.
+
+    .PARAMETER Newline
+    Whether to insert a newline between each string.
+
+    .EXAMPLE
+    $FileA = Get-Content -Path ".\FileA.md" -Raw
+    $FileB = Get-Content -Path ".\FileB.md" -Raw
+
+    Join-MultiLineStrings -MultiLineStrings @($FileA, $FileB) -Newline
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Join-MultiLineStrings.md
+#>
+Function Join-MultiLineStrings {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String[]] $MultiLineStrings,
+
+        [Parameter(Mandatory = $False, Position = 1)]
+        [Switch] $Newline
+    )
+
+    $OutputString = $Null
+    $I = 0
+
+    ForEach ($MultiLineString In $MultiLineStrings) {
+        $I++
+        $OutputString += $MultiLineString
+
+        If (($Newline) -And ($I -Ne $MultiLineStrings.Count)) {
+            $OutputString += "`n"
+        }
+    }
+
+    $OutputString
+}
+
 Export-ModuleMember -Function *

@@ -53,6 +53,7 @@ A library of helpful PowerShell functions.
   - [Get-SystemBit](PowerShell-Lib/Docs/Get-SystemBit.md)
 - **TextLib**
   - [Clear-Linebreaks](PowerShell-Lib/Docs/Clear-Linebreaks.md)
+  - [Join-MultiLineStrings](PowerShell-Lib/Docs/Join-MultiLineStrings.md)
 - **ValidationLib**
   - [Test-CountValid](PowerShell-Lib/Docs/Test-CountValid.md)
   - [Test-HostnameValid](PowerShell-Lib/Docs/Test-HostnameValid.md)

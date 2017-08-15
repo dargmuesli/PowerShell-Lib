@@ -66,4 +66,94 @@
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Join-MultiLineStrings</command:name>
+      <command:verb>Join</command:verb>
+      <command:noun>MultiLineStrings</command:noun>
+      <maml:description>
+        <maml:para>Joins multi line strings.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The "Join-MultiLineStrings" cmdlet iterates over all multi line strings, adding an optional newline between each and appending each to the return string.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Join-MultiLineStrings</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>MultiLineStrings</maml:name>
+          <maml:Description>
+            <maml:para>The multi line strings that are to be joined.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>Newline</maml:name>
+          <maml:Description>
+            <maml:para>Whether to insert a newline between each string.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>MultiLineStrings</maml:name>
+        <maml:Description>
+          <maml:para>The multi line strings that are to be joined.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>Newline</maml:name>
+        <maml:Description>
+          <maml:para>Whether to insert a newline between each string.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <dev:code>$FileA = Get-Content -Path ".\FileA.md" -Raw</dev:code>
+        <dev:remarks>
+          <maml:para>$FileB = Get-Content -Path ".\FileB.md" -Raw</maml:para>
+          <maml:para>Join-MultiLineStrings -MultiLineStrings @($FileA, $FileB) -Newline</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Join-MultiLineStrings.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Join-MultiLineStrings.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
 </helpItems>
