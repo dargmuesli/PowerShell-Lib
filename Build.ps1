@@ -20,6 +20,6 @@ New-ExternalHelp -Path ".\PowerShell-Lib\Docs" -OutputPath ".\PowerShell-Lib\en-
 Write-Host "Creating root README..."
 $ReadmeRoot = Get-Content -Path ".\README\root.md"
 $ReadmeModules = New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\*") -DocPath "PowerShell-Lib/Docs" -Sort
-$ReadmeRoot + "" + $ReadmeModules > ".\README.md" 
+[System.IO.File]::WriteAllLines("${PSScriptRoot}\README.md", $ReadmeRoot + "" + $ReadmeModules)
 
 Write-Host "Done!"
