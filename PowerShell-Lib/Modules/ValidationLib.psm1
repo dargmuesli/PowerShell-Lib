@@ -194,42 +194,6 @@ Function Test-LengthValid {
 
 <#
     .SYNOPSIS
-    Check if a variable is not null.
-
-    .DESCRIPTION
-    The "Test-NotNullValid" cmdlet checks if a variable's values are not null and returns true on success.
-
-    .PARAMETER Variable
-    The variable that is to be checked.
-
-    .EXAMPLE
-    Test-NotNullValid -Variable @(123)
-
-    .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-NotNullValid.md
-#>
-Function Test-NotNullValid {
-    Param (
-        [Parameter(Mandatory = $True, Position = 0)]
-        [AllowNull()]
-        $Variable
-    )
-
-    If ([String]::IsNullOrEmpty($Variable)) {
-        Return $False
-    } Else {
-        ForEach ($Item In $Variable) {
-            If ([String]::IsNullOrEmpty($Item)) {
-                Return $False
-            }
-        }
-    }
-
-    Return $True
-}
-
-<#
-    .SYNOPSIS
     Check if a variable is not null and not empty.
 
     .DESCRIPTION
@@ -250,6 +214,42 @@ Function Test-NotNullOrEmptyValid {
         [AllowNull()]
         [AllowEmptyString()]
         [Array] $Variable
+    )
+
+    If ([String]::IsNullOrEmpty($Variable)) {
+        Return $False
+    } Else {
+        ForEach ($Item In $Variable) {
+            If ([String]::IsNullOrEmpty($Item)) {
+                Return $False
+            }
+        }
+    }
+
+    Return $True
+}
+
+<#
+    .SYNOPSIS
+    Check if a variable is not null.
+
+    .DESCRIPTION
+    The "Test-NotNullValid" cmdlet checks if a variable's values are not null and returns true on success.
+
+    .PARAMETER Variable
+    The variable that is to be checked.
+
+    .EXAMPLE
+    Test-NotNullValid -Variable @(123)
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-NotNullValid.md
+#>
+Function Test-NotNullValid {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [AllowNull()]
+        $Variable
     )
 
     If ([String]::IsNullOrEmpty($Variable)) {

@@ -534,6 +534,27 @@ Function Test-DockerForWinInstalled {
 
 <#
     .SYNOPSIS
+    Checks whether Docker is installed.
+
+    .DESCRIPTION
+    The "Test-DockerInstalled" cmdlet tries to access the command "docker" and "docker-machine" and returns true if at least one is successful.
+
+    .EXAMPLE
+    Test-DockerInstalled
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInstalled.md
+#>
+Function Test-DockerInstalled {
+    If ((Test-DockerForWinInstalled) -Or (Test-DockerToolboxInstalled)) {
+        Return $True
+    } Else {
+        Return $False
+    }
+}
+
+<#
+    .SYNOPSIS
     Checks whether Docker is in swarm-mode.
 
     .DESCRIPTION
@@ -559,45 +580,22 @@ Function Test-DockerInSwarm {
 
 <#
     .SYNOPSIS
-    Checks whether Docker is installed.
+    Checks the availability of the "docker-machine" command.
 
     .DESCRIPTION
-    The "Test-DockerInstalled" cmdlet tries to access the command "docker" and "docker-machine" and returns true if at least one is successful.
+    The "Test-DockerMachineCommand" cmdlet tries to get the "docker-machine" command and returns true on success.
 
     .EXAMPLE
-    Test-DockerInstalled
+    Test-DockerMachineCommand
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInstalled.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineCommand.md
 #>
-Function Test-DockerInstalled {
-    If ((Test-DockerForWinInstalled) -Or (Test-DockerToolboxInstalled)) {
+Function Test-DockerMachineCommand {
+    If (Get-Command -Name "docker-machine" -ErrorAction "SilentlyContinue") {
         Return $True
     } Else {
         Return $False
-    }
-}
-
-<#
-    .SYNOPSIS
-    Checks whether Docker is running.
-
-    .DESCRIPTION
-    The "Test-DockerRunning" cmdlet tries to verify the availability of the "docker ps" command and returns true on success.
-
-    .EXAMPLE
-    Test-DockerRunning
-
-    .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRunning.md
-#>
-Function Test-DockerRunning {
-    $DockerProcessesAll = Invoke-ExpressionSafe "docker ps -a" -Graceful -WithError
-
-    If ((-Not $DockerProcessesAll) -Or ($DockerProcessesAll -CMatch "^docker : error*")) {
-        Return $False
-    } Else {
-        Return $True
     }
 }
 
@@ -658,27 +656,6 @@ Function Test-DockerMachineExists {
 
 <#
     .SYNOPSIS
-    Checks the availability of the "docker-machine" command.
-
-    .DESCRIPTION
-    The "Test-DockerMachineCommand" cmdlet tries to get the "docker-machine" command and returns true on success.
-
-    .EXAMPLE
-    Test-DockerMachineCommand
-
-    .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineCommand.md
-#>
-Function Test-DockerMachineCommand {
-    If (Get-Command -Name "docker-machine" -ErrorAction "SilentlyContinue") {
-        Return $True
-    } Else {
-        Return $False
-    }
-}
-
-<#
-    .SYNOPSIS
     Checks whether Docker runs a registry container.
 
     .DESCRIPTION
@@ -719,6 +696,29 @@ Function Test-DockerRegistryRunning {
         Return $True
     } Else {
         Return $False
+    }
+}
+
+<#
+    .SYNOPSIS
+    Checks whether Docker is running.
+
+    .DESCRIPTION
+    The "Test-DockerRunning" cmdlet tries to verify the availability of the "docker ps" command and returns true on success.
+
+    .EXAMPLE
+    Test-DockerRunning
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRunning.md
+#>
+Function Test-DockerRunning {
+    $DockerProcessesAll = Invoke-ExpressionSafe "docker ps -a" -Graceful -WithError
+
+    If ((-Not $DockerProcessesAll) -Or ($DockerProcessesAll -CMatch "^docker : error*")) {
+        Return $False
+    } Else {
+        Return $True
     }
 }
 

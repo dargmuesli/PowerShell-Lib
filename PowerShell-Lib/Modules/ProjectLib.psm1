@@ -41,11 +41,7 @@ Function New-ModuleMarkdown {
 
         Foreach ($SourcePathItemItem In $SourcePathItem) {
             $ModuleName = [System.IO.Path]::GetFileNameWithoutExtension($SourcePathItemItem)
-            $FunctionNames = Get-Content -Path $SourcePathItemItem |
-                Select-String -Pattern "^Function\s(.*)\s\{$" |
-                ForEach-Object {
-                $PSItem.Matches.Groups[1].Value
-            }
+            $FunctionNames = (Get-Module $SourcePathItemItem -ListAvailable).ExportedCommands.Keys | Sort-Object
 
             If (-Not ($SourceData.Contains($ModuleName))) {
                 $SourceData.Add($ModuleName, $FunctionNames)
