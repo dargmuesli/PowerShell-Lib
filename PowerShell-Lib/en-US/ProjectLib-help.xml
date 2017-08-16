@@ -39,7 +39,7 @@
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Sort</maml:name>
           <maml:Description>
             <maml:para>Whether to sort the findings alphabetically or not.</maml:para>
@@ -77,7 +77,7 @@
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Sort</maml:name>
         <maml:Description>
           <maml:para>Whether to sort the findings alphabetically or not.</maml:para>
@@ -108,8 +108,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-DockerMachine.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-ModuleMarkdown.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-ModuleMarkdown.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

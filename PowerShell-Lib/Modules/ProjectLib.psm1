@@ -19,6 +19,9 @@ Set-StrictMode -Version Latest
 
     .EXAMPLE
     New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\*") -DocPath "PowerShell-Lib/Docs"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-ModuleMarkdown.md
 #>
 Function New-ModuleMarkdown {
     Param (
@@ -30,7 +33,7 @@ Function New-ModuleMarkdown {
         [ValidateNotNullOrEmpty()]
         [String] $DocPath,
         
-        [Parameter(Mandatory = $False, Position = 1)]
+        [Parameter(Mandatory = $False)]
         [Switch] $Sort
     )
 

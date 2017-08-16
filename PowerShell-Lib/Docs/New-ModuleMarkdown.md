@@ -1,7 +1,7 @@
 ---
 external help file: ProjectLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-DockerMachine.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-ModuleMarkdown.md
 schema: 2.0.0
 ---
 
@@ -68,7 +68,7 @@ Parameter Sets: (All)
 Aliases: 
 
 Required: False
-Position: 2
+Position: Named
 Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -81,4 +81,6 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-ModuleMarkdown.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-ModuleMarkdown.md)
 
