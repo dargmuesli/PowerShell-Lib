@@ -321,6 +321,52 @@ Function Mount-EnvFile {
 
 <#
     .SYNOPSIS
+    Reads all PowerShell function names from a string.
+
+    .DESCRIPTION
+    The "Read-FunctionNames" cmdlet parses the input string and returns all findings of function names inside it.
+
+    .PARAMETER InputString
+    The string that is to be searched through.
+
+    .EXAMPLE
+    $InputString = @"
+        Function X {
+            $a = 1
+        }
+        Function Y {
+            $b = 2
+        }
+    "@
+
+    Read-FunctionNames -InputString $InputString
+
+    .OUTPUTS
+    Sorted by the functions' order of occurrence.
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-FunctionNames.md
+#>
+Function Read-FunctionNames {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $InputString
+    )
+
+    Return [System.Management.Automation.Language.Parser]::ParseInput(
+        $InputString, [Ref] $Null, [Ref] $Null
+    ).EndBlock.Statements.FindAll(
+        [Func[Management.Automation.Language.Ast, bool]] {
+            $Args[0] -Is [Management.Automation.Language.FunctionDefinitionAst]
+        },
+        $False
+    ) |
+        Select-Object -Expand Name
+}
+
+<#
+    .SYNOPSIS
     Asks the user for his/her answer to a question.
 
     .DESCRIPTION
