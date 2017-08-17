@@ -53,7 +53,7 @@ Function Get-AppsInstalled {
     Get-ItemProperty -Path $RegPath |
         ForEach-Object {
         Process {
-            If (Test-PropertyExists -Object $PSItem -PropertyName "DisplayName") {
+            If ($PSItem -And (Test-PropertyExists -Object $PSItem -PropertyName "DisplayName")) {
                 $PSItem
             }
         }
