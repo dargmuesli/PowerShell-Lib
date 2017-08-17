@@ -1,19 +1,48 @@
 Param (
     [Parameter(Mandatory = $False)]
-    [ValidateSet('Default', 'Initialize-Modules', 'Clear-BuildFolders', 'New-Help', 'New-Readme')]
+    [ValidateSet('Default', 'CI', 'Initialize-Modules', 'Test-Pester', 'Clear-BuildFolders', 'New-Help', 'New-Readme')]
     [String] $Task = "Default"
 )
 
 Set-StrictMode -Version Latest
 
+Function Import-RootModule {
+    Param (
+        [Switch] $Only
+    )
+
+    Import-Module -Name "${PSScriptRoot}\PowerShell-Lib\PowerShell-Lib.psd1" -Force
+}
+
 Function Initialize-Modules {
+    Param (
+        [Switch] $Only
+    )
+
     If (-Not (Get-Module -ListAvailable -Name "platyPS")) {
-        Write-Host "Installing platyPS..." -ForegroundColor "Cyan"
-        Install-Module -Name "platyPS" -Scope "CurrentUser" -Force
+        Write-Host "Installing modules..." -ForegroundColor "Cyan"
+        Install-Module -Name @("platyPS", "Pester") -Scope "CurrentUser" -Force
+    }
+}
+
+Function Test-Pester {
+    Param (
+        [Switch] $Only
+    )
+
+    Write-Host "Running Tests..." -ForegroundColor "Cyan"
+    $Pester = Invoke-Pester -PassThru
+
+    If ($Pester.FailedCount -Gt 0) {
+        Throw "$(${Pester}.FailedCount) tests failed."
     }
 }
 
 Function Clear-BuildFolders {
+    Param (
+        [Switch] $Only
+    )
+
     Write-Host "Clearing build folders..." -ForegroundColor "Cyan"
     $BuildFolders = @("PowerShell-Lib\Docs", "PowerShell-Lib\en-US")
 
@@ -26,8 +55,14 @@ Function Clear-BuildFolders {
 }
 
 Function New-Help {
-    Initialize-Modules
-    Clear-BuildFolders
+    Param (
+        [Switch] $Only
+    )
+
+    If (-Not $Only) {
+        Initialize-Modules
+        Clear-BuildFolders
+    }
 
     Write-Host "Generating markdown help..." -ForegroundColor "Cyan"
     New-MarkdownHelp -Module "PowerShell-Lib" -OutputFolder ".\PowerShell-Lib\Docs" -Locale "en-US"
@@ -36,6 +71,10 @@ Function New-Help {
 }
 
 Function New-Readme {
+    Param (
+        [Switch] $Only
+    )
+
     Write-Host "Generating README..." -ForegroundColor "Cyan"
     $ReadmeRoot = Get-Content -Path ".\README\root.md" -Raw
     $ReadmeModules = New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\*") -DocPath "PowerShell-Lib/Docs" -Sort
@@ -43,14 +82,21 @@ Function New-Readme {
     [System.IO.File]::WriteAllLines("${PSScriptRoot}\README.md", $Readme)
 }
 
-Import-Module -Name "${PSScriptRoot}\PowerShell-Lib\PowerShell-Lib.psd1" -Force
-
 Switch ($Task) {
     "Default" {
-        Initialize-Modules
-        Clear-BuildFolders
-        New-Help
-        New-Readme
+        Test-Pester -Only
+        Import-RootModule -Only
+        Initialize-Modules -Only
+        Clear-BuildFolders -Only
+        New-Help -Only
+        New-Readme -Only
+        Break
+    }
+    "CI" {
+        Initialize-Modules -Only
+        Clear-BuildFolders -Only
+        New-Help -Only
+        New-Readme -Only
         Break
     }
     Default {

@@ -11,7 +11,7 @@ install:
 build_script:
   - ps: |
       $ErrorActionPreference = "Stop"
-      .\Build.ps1
+      .\Build.ps1 -Task "CI"
 
 test_script:
   - ps: |

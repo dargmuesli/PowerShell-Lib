@@ -39,6 +39,7 @@ A library of helpful PowerShell functions.
   - [Invoke-WebRequestWithProgress](PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md)
   - [Merge-Objects](PowerShell-Lib/Docs/Merge-Objects.md)
   - [Mount-EnvFile](PowerShell-Lib/Docs/Mount-EnvFile.md)
+  - [Read-FunctionNames](PowerShell-Lib/Docs/Read-FunctionNames.md)
   - [Read-Prompt](PowerShell-Lib/Docs/Read-Prompt.md)
   - [Read-PromptYesNo](PowerShell-Lib/Docs/Read-PromptYesNo.md)
   - [Test-EnvVarExists](PowerShell-Lib/Docs/Test-EnvVarExists.md)
