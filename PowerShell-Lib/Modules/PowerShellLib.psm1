@@ -557,7 +557,26 @@ Function Test-PropertyExists {
         [String] $PropertyName
     )
 
-    Return $Object.PSObject.Properties.Name -Contains $PropertyName
+    $PropertyNameParts = @()
+
+    $IndexFirstDot = $PropertyName.IndexOf(".")
+
+    If ($IndexFirstDot -Ne -1) {
+        $PropertyNameParts += $PropertyName.Substring(0, $IndexFirstDot)
+        $PropertyNameParts += $PropertyName.Substring($IndexFirstDot + 1, $PropertyName.Length - ($IndexFirstDot + 1))
+
+        If ($Object.PSObject.Properties.Name -Contains $PropertyNameParts[0]) {
+            Return Test-PropertyExists -Object ($Object | Select-Object -ExpandProperty $PropertyNameParts[0]) -PropertyName $PropertyNameParts[1]
+        } Else {
+            Return $False
+        }
+    } Else {
+        If ($Object.PSObject.Properties.Name -Contains $PropertyName) {
+            Return $True
+        } Else {
+            Return $False
+        }
+    }
 }
 
 <#
