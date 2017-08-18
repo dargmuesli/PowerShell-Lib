@@ -93,6 +93,7 @@ Switch ($Task) {
         Break
     }
     "CI" {
+        Import-RootModule -Only
         Initialize-Modules -Only
         Clear-BuildFolders -Only
         New-Help -Only
