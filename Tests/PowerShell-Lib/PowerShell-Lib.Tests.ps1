@@ -3,48 +3,38 @@ Set-StrictMode -Version Latest
 Import-Module -Name "${PSScriptRoot}\..\..\PowerShell-Lib\PowerShell-Lib.psd1" -Force
 
 Describe "PowerShell-Lib" {
-    Context 'Format' {
-        $NestedModules = (Get-Module PowerShell-Lib).NestedModules
-        $NestedModulesFunctionsLists = [Ordered] @{}
-        $NestedModulesFunctionsListsSorted = [Ordered] @{}
-        $NestedModulesFunctionsHelpLists = [Ordered] @{}
+    $NestedModules = (Get-Module PowerShell-Lib).NestedModules
 
-        ForEach ($NestedModule In $NestedModules) {
+    ForEach ($NestedModule In $NestedModules) {
+        Context $NestedModule {
+            $ModuleFileContent = $Null
+            $ModuleFunctionNames = $Null
+            $ModuleFunctionNamesSorted = $Null
+
             Import-Module -Name $NestedModule.Path -Force
+    
+            $ModuleFileContent = Get-Content -Path $NestedModule.Path -Raw
+            $ModuleFunctionNames = [Object[]] (Read-FunctionNames -InputString $ModuleFileContent)
+            $ModuleFunctionNamesSorted = [Object[]] ($ModuleFunctionNames | Sort-Object)
+            
+            It "contains functions in alphabetical order" {
+                $ModuleFunctionNames = $ModuleFunctionNames
+                $ModuleFunctionNamesSorted = $ModuleFunctionNamesSorted
 
-            $NestedModulesContent = Get-Content -Path $NestedModule.Path -Raw
-            $NestedModulesFunctionsLists[$NestedModule.Name] = Read-FunctionNames -InputString $NestedModulesContent
-            $NestedModulesFunctionsListsSorted[$NestedModule.Name] = Read-FunctionNames -InputString $NestedModulesContent | Sort-Object
-
-            $NestedModulesFunctionsHelpLists[$NestedModule.Name] = [Ordered] @{}
-            $NestedModulesFunctions = $NestedModulesFunctionsLists.Get_Item($NestedModule.Name)
-
-            ForEach ($NestedModulesFunction In $NestedModulesFunctions) {
-                $NestedModulesFunctionsHelpLists.Get_Item($NestedModule.Name)[$NestedModulesFunction] = Get-Help -Name $NestedModulesFunction -Full
+                For ($I = 0; $I -Lt $ModuleFunctionNames.Length; $I++) {
+                    $ModuleFunctionNamesSorted.Get_Item($I) | Should Be $ModuleFunctionNames.Get_Item($I)
+                }
             }
-        }
+    
+            ForEach ($ModuleFunctionName In $ModuleFunctionNamesSorted) {
+                $ModuleFunctionsHelp = Get-Help -Name $ModuleFunctionName -Full
 
-        It "contains functions in alphabetical order" {
-            Compare-Object -ReferenceObject (
-                $NestedModulesFunctionsLists | ConvertTo-Json
-            ) -DifferenceObject (
-                $NestedModulesFunctionsListsSorted | ConvertTo-Json
-            ) | Should BeNullOrEmpty
-        }
-
-        It "has a correct `".LINK`" for each function's comment based help" {
-            ForEach ($NestedModulesFunctionsHelpList In $NestedModulesFunctionsHelpLists.GetEnumerator()) {
-                ForEach ($NestedModulesFunctionsHelp In $NestedModulesFunctionsHelpList.Value.GetEnumerator()) {
-                    $TestPropertyExists = Test-PropertyExists -Object $NestedModulesFunctionsHelp.Value -PropertyName "relatedLinks.navigationLink.uri"
-                    
-                    If (-Not $TestPropertyExists) {
-                        Write-Warning $NestedModulesFunctionsHelp.Key
-                    }
-                    
-                    $TestPropertyExists | Should Be $True
-
-                    $NestedModulesFunctionsHelp.Value.relatedLinks.navigationLink.uri |
-                        Should Match "^https:\/\/github\.com\/Dargmuesli\/powershell-lib\/blob\/master\/Docs\/$($NestedModulesFunctionsHelp.Key)\.md$"
+                It "has a correct `".LINK`" for function $($ModuleFunctionsHelp.Name)" {
+                    Test-PropertyExists -Object $ModuleFunctionsHelp -PropertyName "relatedLinks.navigationLink.uri" |
+                        Should Be $True
+                
+                    $ModuleFunctionsHelp.relatedLinks.navigationLink.uri |
+                        Should Match "^https:\/\/github\.com\/Dargmuesli\/powershell-lib\/blob\/master\/Docs\/$($ModuleFunctionsHelp.Name)\.md$"
                 }
             }
         }
