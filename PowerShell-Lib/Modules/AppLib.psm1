@@ -134,10 +134,12 @@ Function Test-AppInstalled {
 
     $AppsFound = Get-AppsInstalled |
         Where-Object {
-        If ($RegexCompare) {
-            $PSItem.DisplayName -CMatch $AppName
-        } Else {
-            $PSItem.DisplayName -Eq $AppName
+        If (Test-PropertyExists -Object $PSItem -PropertyName "DisplayName") {
+            If ($RegexCompare) {
+                $PSItem.DisplayName -CMatch $AppName
+            } Else {
+                $PSItem.DisplayName -Eq $AppName
+            }
         }
     }
 
