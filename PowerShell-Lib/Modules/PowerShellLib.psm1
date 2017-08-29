@@ -571,7 +571,7 @@ Function Test-PropertyExists {
             Return $False
         }
     } Else {
-        If ($Object.PSObject.Properties.Name -Contains $PropertyName) {
+        If (($Object.PSObject.Properties.Name -Contains $PropertyName) -Or ($Object.Keys -Contains $PropertyName)) {
             Return $True
         } Else {
             Return $False
