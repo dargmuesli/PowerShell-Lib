@@ -4,7 +4,7 @@ Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\PowerShell-Lib.psd1
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\Modules\AppLib.psm1" -Force
 
 Describe "Get-AppsInstalled" {
-    Context 'There are apps installed' {
+    Context "There are apps installed" {
         Mock Get-ItemProperty {
             Return @(
                 [PSCustomObject] @{
@@ -15,7 +15,7 @@ Describe "Get-AppsInstalled" {
                 }
             )
         } -ModuleName "AppLib"
-    
+
         $GetAppsInstalled = Get-AppsInstalled
 
         It "should return a list of installed apps" {
@@ -24,7 +24,7 @@ Describe "Get-AppsInstalled" {
         }
     }
 
-    Context 'No apps are installed' {
+    Context "No apps are installed" {
         Mock Get-ItemProperty {
             Return $Null
         } -ModuleName "AppLib"
