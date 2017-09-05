@@ -18,8 +18,12 @@ Function Clear-DockerMachineEnv {
         Throw "Command `"docker-machine`" not found."
     }
 
-    Write-Debug -Message "Clearing environment variables..."
-    docker-machine env --shell=powershell --unset | Invoke-Expression
+    If (Test-DockerMachineEnvExists) {
+        Write-Debug -Message "Clearing environment variables..."
+        docker-machine env --shell=powershell --unset | Invoke-Expression
+    } Else {
+        Write-Debug -Message "Docker environment variables do not exist."
+    }
 }
 
 <#
@@ -96,7 +100,11 @@ Function Get-DockerMachineStatus {
         Throw "Command `"docker-machine`" not found."
     }
 
-    docker-machine status $MachineName
+    If (Test-DockerMachineExists -MachineName $MachineName) {
+        docker-machine status $MachineName
+    } Else {
+        Write-Debug "Docker machine does not exist."
+    }
 }
 
 <#
@@ -135,7 +143,7 @@ Function Install-Docker {
             $Path = "$Env:Temp\$RemoteFilename"
 
             Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path -DownloadMethod $DownloadMethod
-            Install-App -InstallerPath $Path -InstallerType "msi"
+            Install-App -InstallerPath $Path
             Break
         }
         "Toolbox" {
@@ -647,7 +655,7 @@ Function Test-DockerMachineExists {
 
     & $VBoxManage showvminfo $MachineName | Out-Null
 
-    If ($?) {
+    If ($LastExitCode -Eq 0) {
         Return $True
     } Else {
         Return $False
