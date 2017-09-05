@@ -17,7 +17,7 @@ Set-DockerMachineEnv [-MachineName] <String>
 ```
 
 ## DESCRIPTION
-The "Set-DockerMachineEnv" cmdlet checks if the "docker-machine" command is available and if that's the case it sets the Docker Machine environment variables.
+The "Set-DockerMachineEnv" cmdlet sets the Docker Machine environment variables.
 
 ## EXAMPLES
 

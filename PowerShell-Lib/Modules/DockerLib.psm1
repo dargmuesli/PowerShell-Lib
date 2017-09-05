@@ -5,7 +5,7 @@ Set-StrictMode -Version Latest
     Removes all Docker Machine environment variables.
 
     .DESCRIPTION
-    The "Clear-DockerMachineEnv" cmdlet checks if the "docker-machine" command is available and if that's the case it unsets the Docker Machine environment variables.
+    The "Clear-DockerMachineEnv" cmdlet unsets the Docker Machine environment variables.
 
     .EXAMPLE
     Clear-DockerMachineEnv
@@ -14,13 +14,9 @@ Set-StrictMode -Version Latest
     https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-DockerMachineEnv.md
 #>
 Function Clear-DockerMachineEnv {
-    If (-Not (Test-DockerMachineCommand)) {
-        Throw "Command `"docker-machine`" not found."
-    }
-
     If (Test-DockerMachineEnvExists) {
         Write-Debug -Message "Clearing environment variables..."
-        docker-machine env --shell=powershell --unset | Invoke-Expression
+        Invoke-DockerMachine env --shell=powershell --unset | Invoke-Expression
     } Else {
         Write-Debug -Message "Docker environment variables do not exist."
     }
@@ -78,7 +74,7 @@ Function Get-DockerEditionToUse {
     Gets the status of a Docker Machine.
 
     .DESCRIPTION
-    The "Get-DockerMachineStatus" cmdlet checks if the "docker-machine" command is available and if that's the case it gets the Docker Machine's status.
+    The "Get-DockerMachineStatus" cmdlet gets the Docker Machine's status.
 
     .PARAMETER MachineName
     The machine's name to get the status from.
@@ -96,15 +92,7 @@ Function Get-DockerMachineStatus {
         [String] $MachineName
     )
 
-    If (-Not (Test-DockerMachineCommand)) {
-        Throw "Command `"docker-machine`" not found."
-    }
-
-    If (Test-DockerMachineExists -MachineName $MachineName) {
-        docker-machine status $MachineName
-    } Else {
-        Write-Debug "Docker machine does not exist."
-    }
+    Invoke-DockerMachine status $MachineName
 }
 
 <#
@@ -159,11 +147,31 @@ Function Install-Docker {
 
 <#
     .SYNOPSIS
+    Invokes docker-machine commands.
+
+    .DESCRIPTION
+    The "Invoke-DockerMachine" cmdlet verifies the existence of the "docker-machine" command and executes it with the given parameters.
+
+    .EXAMPLE
+    Invoke-DockerMachine status MachineName
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-DockerMachine.md
+#>
+Function Invoke-DockerMachine {
+    If (-Not (Test-DockerMachineCommand)) {
+        Throw "Command `"docker-machine`" not found."
+    }
+
+    docker-machine $Args
+}
+
+<#
+    .SYNOPSIS
     Creates a new Docker Machine.
 
     .DESCRIPTION
-    The "New-DockerMachine" cmdlet checks if the "docker-machine" command is available.
-    If that's the case it removes any existing Docker Machine with the desired name and creates a new VirtualBox with the same name.
+    The "New-DockerMachine" cmdlet removes any existing Docker Machine with the desired name and creates a new VirtualBox with the same name.
 
     .PARAMETER MachineName
     The machine name to create a new VirtualBox for.
@@ -181,13 +189,9 @@ Function New-DockerMachine {
         [String] $MachineName
     )
 
-    If (-Not (Test-DockerMachineCommand)) {
-        Throw "Command `"docker-machine`" not found."
-    }
-
     Write-Debug "Creating machine `"$MachineName`" in VirtualBox..."
-    docker-machine rm -f $MachineName | Out-Null
-    docker-machine create -d virtualbox --virtualbox-memory 2048 $MachineName
+    Invoke-DockerMachine rm -f $MachineName
+    Invoke-DockerMachine create -d virtualbox --virtualbox-memory 2048 $MachineName
 }
 
 <#
@@ -195,7 +199,7 @@ Function New-DockerMachine {
     Creates all Docker Machine environment variables.
 
     .DESCRIPTION
-    The "Set-DockerMachineEnv" cmdlet checks if the "docker-machine" command is available and if that's the case it sets the Docker Machine environment variables.
+    The "Set-DockerMachineEnv" cmdlet sets the Docker Machine environment variables.
 
     .PARAMETER MachineName
     The machine name to set Docker environment variables for.
@@ -213,12 +217,8 @@ Function Set-DockerMachineEnv {
         [String] $MachineName
     )
 
-    If (-Not (Test-DockerMachineCommand)) {
-        Throw "Command `"docker-machine`" not found."
-    }
-
     Write-Debug -Message "Setting environment variables for machine `"$MachineName`"..."
-    docker-machine env --shell=powershell $MachineName | Invoke-Expression
+    Invoke-DockerMachine env --shell=powershell $MachineName
 }
 
 <#
@@ -353,7 +353,7 @@ Function Start-Docker {
     Starts a Docker Machine.
 
     .DESCRIPTION
-    The "Start-DockerMachine" cmdlet checks if the "docker-machine" command is available and if that's the case it starts the desired Docker Machine.
+    The "Start-DockerMachine" cmdlet starts the desired Docker Machine.
 
     .PARAMETER MachineName
     The machine name to start the VirtualBox for.
@@ -371,12 +371,8 @@ Function Start-DockerMachine {
         [String] $MachineName
     )
 
-    If (-Not (Test-DockerMachineCommand)) {
-        Throw "Command `"docker-machine`" not found."
-    }
-
     Write-Debug "Starting machine $MachineName..."
-    docker-machine start $MachineName
+    Invoke-DockerMachine start $MachineName
 }
 
 <#
@@ -444,7 +440,7 @@ Function Start-DockerRegistry {
     Starts a Docker Machine.
 
     .DESCRIPTION
-    The "Stop-DockerMachine" cmdlet checks if the "docker-machine" command is available and if that's the case it stops the desired Docker Machine.
+    The "Stop-DockerMachine" cmdlet stops the desired Docker Machine.
 
     .PARAMETER MachineName
     The machine name that is to be used.
@@ -462,12 +458,8 @@ Function Stop-DockerMachine {
         [String] $MachineName
     )
 
-    If (-Not (Test-DockerMachineCommand)) {
-        Throw "Command `"docker-machine`" not found."
-    }
-
     Write-Debug "Stopping machine $MachineName..."
-    docker-machine stop $MachineName
+    Invoke-DockerMachine stop $MachineName
 }
 
 <#

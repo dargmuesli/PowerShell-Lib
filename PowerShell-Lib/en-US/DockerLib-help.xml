@@ -10,7 +10,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Clear-DockerMachineEnv" cmdlet checks if the "docker-machine" command is available and if that's the case it unsets the Docker Machine environment variables.</maml:para>
+      <maml:para>The "Clear-DockerMachineEnv" cmdlet unsets the Docker Machine environment variables.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -101,7 +101,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Get-DockerMachineStatus" cmdlet checks if the "docker-machine" command is available and if that's the case it gets the Docker Machine's status.</maml:para>
+      <maml:para>The "Get-DockerMachineStatus" cmdlet gets the Docker Machine's status.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -249,6 +249,47 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Invoke-DockerMachine</command:name>
+      <command:verb>Invoke</command:verb>
+      <command:noun>DockerMachine</command:noun>
+      <maml:description>
+        <maml:para>Invokes docker-machine commands.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The "Invoke-DockerMachine" cmdlet verifies the existence of the "docker-machine" command and executes it with the given parameters.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Invoke-DockerMachine</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <dev:code>Invoke-DockerMachine status MachineName</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-DockerMachine.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-DockerMachine.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>New-DockerMachine</command:name>
       <command:verb>New</command:verb>
       <command:noun>DockerMachine</command:noun>
@@ -257,7 +298,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "New-DockerMachine" cmdlet checks if the "docker-machine" command is available. If that's the case it removes any existing Docker Machine with the desired name and creates a new VirtualBox with the same name.</maml:para>
+      <maml:para>The "New-DockerMachine" cmdlet removes any existing Docker Machine with the desired name and creates a new VirtualBox with the same name.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -323,7 +364,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Set-DockerMachineEnv" cmdlet checks if the "docker-machine" command is available and if that's the case it sets the Docker Machine environment variables.</maml:para>
+      <maml:para>The "Set-DockerMachineEnv" cmdlet sets the Docker Machine environment variables.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -479,7 +520,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Start-DockerMachine" cmdlet checks if the "docker-machine" command is available and if that's the case it starts the desired Docker Machine.</maml:para>
+      <maml:para>The "Start-DockerMachine" cmdlet starts the desired Docker Machine.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -659,7 +700,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Stop-DockerMachine" cmdlet checks if the "docker-machine" command is available and if that's the case it stops the desired Docker Machine.</maml:para>
+      <maml:para>The "Stop-DockerMachine" cmdlet stops the desired Docker Machine.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>

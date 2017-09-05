@@ -17,8 +17,7 @@ New-DockerMachine [-MachineName] <String>
 ```
 
 ## DESCRIPTION
-The "New-DockerMachine" cmdlet checks if the "docker-machine" command is available.
-If that's the case it removes any existing Docker Machine with the desired name and creates a new VirtualBox with the same name.
+The "New-DockerMachine" cmdlet removes any existing Docker Machine with the desired name and creates a new VirtualBox with the same name.
 
 ## EXAMPLES
 

@@ -28,11 +28,11 @@ Function New-ModuleMarkdown {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateScript({Test-PathValid -Path $PSItem})]
         [String[]] $SourcePath,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         [String] $DocPath,
-        
+
         [Parameter(Mandatory = $False)]
         [Switch] $Sort
     )
@@ -40,7 +40,7 @@ Function New-ModuleMarkdown {
     $SourceData = @{}
 
     Foreach ($SourcePathItem In $SourcePath) {
-        $SourcePathItem = Get-ChildItem -Path $SourcePathItem
+        $SourcePathItem = Get-ChildItem -Path "$SourcePathItem*"
 
         Foreach ($SourcePathItemItem In $SourcePathItem) {
             $ModuleName = [System.IO.Path]::GetFileNameWithoutExtension($SourcePathItemItem)

@@ -13,6 +13,7 @@ A library of helpful PowerShell functions.
   - [Get-DockerEditionToUse](PowerShell-Lib/Docs/Get-DockerEditionToUse.md)
   - [Get-DockerMachineStatus](PowerShell-Lib/Docs/Get-DockerMachineStatus.md)
   - [Install-Docker](PowerShell-Lib/Docs/Install-Docker.md)
+  - [Invoke-DockerMachine](PowerShell-Lib/Docs/Invoke-DockerMachine.md)
   - [New-DockerMachine](PowerShell-Lib/Docs/New-DockerMachine.md)
   - [Set-DockerMachineEnv](PowerShell-Lib/Docs/Set-DockerMachineEnv.md)
   - [Start-Docker](PowerShell-Lib/Docs/Start-Docker.md)

@@ -17,7 +17,7 @@ Get-DockerMachineStatus [-MachineName] <String>
 ```
 
 ## DESCRIPTION
-The "Get-DockerMachineStatus" cmdlet checks if the "docker-machine" command is available and if that's the case it gets the Docker Machine's status.
+The "Get-DockerMachineStatus" cmdlet gets the Docker Machine's status.
 
 ## EXAMPLES
 

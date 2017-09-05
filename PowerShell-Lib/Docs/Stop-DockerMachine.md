@@ -17,7 +17,7 @@ Stop-DockerMachine [-MachineName] <String>
 ```
 
 ## DESCRIPTION
-The "Stop-DockerMachine" cmdlet checks if the "docker-machine" command is available and if that's the case it stops the desired Docker Machine.
+The "Stop-DockerMachine" cmdlet stops the desired Docker Machine.
 
 ## EXAMPLES
 

@@ -17,7 +17,7 @@ Start-DockerMachine [-MachineName] <String>
 ```
 
 ## DESCRIPTION
-The "Start-DockerMachine" cmdlet checks if the "docker-machine" command is available and if that's the case it starts the desired Docker Machine.
+The "Start-DockerMachine" cmdlet starts the desired Docker Machine.
 
 ## EXAMPLES
 

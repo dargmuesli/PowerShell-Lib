@@ -17,7 +17,7 @@ Clear-DockerMachineEnv
 ```
 
 ## DESCRIPTION
-The "Clear-DockerMachineEnv" cmdlet checks if the "docker-machine" command is available and if that's the case it unsets the Docker Machine environment variables.
+The "Clear-DockerMachineEnv" cmdlet unsets the Docker Machine environment variables.
 
 ## EXAMPLES
 
