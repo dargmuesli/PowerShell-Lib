@@ -575,7 +575,7 @@ Function Test-DockerInSwarm {
     $DockerSwarmInit = Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithError
 
     If ($DockerSwarmInit -CMatch "^Swarm initialized*") {
-        docker swarm leave -f | Out-Null
+        docker swarm leave -f 2>&1 | Out-Null
 
         Return $False
     } Else {
