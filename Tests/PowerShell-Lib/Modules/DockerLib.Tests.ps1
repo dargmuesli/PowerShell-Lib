@@ -3,24 +3,6 @@ Set-StrictMode -Version Latest
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\PowerShell-Lib.psd1" -Force
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\Modules\DockerLib.psm1" -Force
 
-Describe "Clear-DockerMachineEnv" {
-    $MachineName = "Docker"
-    $EnvExists = Test-DockerMachineEnvExists
-
-    If (-Not $EnvExists) {
-        Set-DockerMachineEnv -MachineName $MachineName
-    }
-
-    It "should clear the docker machine environment variables" {
-        Clear-DockerMachineEnv -MachineName $MachineName | Should BeNullOrEmpty
-        Test-DockerMachineEnvExists | Should Be $False
-    }
-
-    If ($EnvExists) {
-        Set-DockerMachineEnv -MachineName $MachineName
-    }
-}
-
 Describe "Get-DockerEditionToUse" {
     Context "only Docker for Windows is installed" {
         Mock Test-DockerForWinInstalled {
@@ -77,25 +59,6 @@ Describe "Get-DockerEditionToUse" {
     }
 }
 
-Describe "Get-DockerMachineStatus" {
-    Mock Invoke-DockerMachine {
-        Return "Running"
-    } -ModuleName "DockerLib"
-
-    It "should return docker machine status" {
-        Get-DockerMachineStatus -MachineName "Docker" | Should Be "Running"
-    }
-}
-
-Describe "Install-Docker" {
-    Mock Get-FileFromWeb {} -ModuleName "DockerLib"
-    Mock Install-App {} -ModuleName "DockerLib"
-
-    It "should install Docker" {
-        Install-Docker | Should BeNullOrEmpty
-    }
-}
-
 Describe "Invoke-DockerMachine" {
     Context "Docker machine command does not exist" {
         Mock Test-DockerMachineCommand {
@@ -103,7 +66,252 @@ Describe "Invoke-DockerMachine" {
         } -ModuleName "DockerLib"
 
         It "should throw an error" {
-            {Invoke-DockerMachine} | Should Throw "Command `"docker-machine`" not found."
+            {Invoke-DockerMachine} | Should Throw
+        }
+    }
+}
+
+Describe "Test-DockerCommand" {
+    Context "Docker command is available" {
+        Mock "Get-Command" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerCommand | Should Be $True
+        }
+    }
+
+    Context "Docker command is unavailable" {
+        Mock "Get-Command" {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        It "should return false" {
+            Test-DockerCommand | Should Be $False
+        }
+    }
+}
+
+Describe "Test-DockerForWinInstalled" {
+    Context "Docker for Windows is installed" {
+        Mock "Test-AppInstalled" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerForWinInstalled | Should Be $True
+        }
+    }
+
+    Context "Docker for Windows is not installed" {
+        Mock "Test-AppInstalled" {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        It "should return false" {
+            Test-DockerForWinInstalled | Should Be $False
+        }
+    }
+}
+
+Describe "Test-DockerInstalled" {
+    Context "Neither Docker for Windows nor Docker Machine are installed" {
+        Mock "Test-DockerForWinInstalled" {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        Mock "Test-DockerToolboxInstalled" {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        It "should return false" {
+            Test-DockerInstalled | Should Be $False
+        }
+    }
+
+    Context "Only Docker for Windows is installed" {
+        Mock "Test-DockerForWinInstalled" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        Mock "Test-DockerToolboxInstalled" {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerInstalled | Should Be $True
+        }
+    }
+
+    Context "Only Docker Machine is installed" {
+        Mock "Test-DockerForWinInstalled" {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        Mock "Test-DockerToolboxInstalled" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerInstalled | Should Be $True
+        }
+    }
+
+    Context "Docker for Windows and Docker Machine are installed" {
+        Mock "Test-DockerForWinInstalled" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        Mock "Test-DockerToolboxInstalled" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerInstalled | Should Be $True
+        }
+    }
+}
+
+Describe "Test-DockerInSwarm" {
+    Context "Docker is in swarm" {
+        Mock "Invoke-ExpressionSafe" {
+            Return "Already in swarm"
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerInSwarm | Should Be $True
+        }
+    }
+
+    Context "Docker is not in swarm" {
+        Mock "Invoke-ExpressionSafe" {
+            Return "Swarm initialized"
+        } -ModuleName "DockerLib"
+
+        It "should return false" {
+            Test-DockerInSwarm | Should Be $False
+        }
+    }
+}
+
+Describe "Test-DockerMachineCommand" {
+    Context "Docker Machine command is available" {
+        Mock "Get-Command" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerMachineCommand | Should Be $True
+        }
+    }
+
+    Context "Docker Machine command is unavailable" {
+        Mock "Get-Command" {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        It "should return false" {
+            Test-DockerMachineCommand | Should Be $False
+        }
+    }
+}
+
+Describe "Test-DockerMachineEnvExists" {
+    Context "Docker environment variables do exist" {
+        Mock "Get-ChildItem" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerMachineEnvExists | Should Be $True
+        }
+    }
+
+    Context "Docker environment variables do not exist" {
+        Mock "Get-ChildItem" {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        It "should return false" {
+            Test-DockerMachineEnvExists | Should Be $False
+        }
+    }
+}
+
+Describe "Test-DockerRegistryRunning" {
+    $Hostname = "localhost"
+    $Port = 5000
+
+    Context "Docker registry is running" {
+        Mock "Invoke-ExpressionSafe" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerRegistryRunning -Hostname $Hostname -Port $Port | Should Be $True
+        }
+    }
+
+    Context "Docker registry is not running" {
+        Mock "Invoke-ExpressionSafe" {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        It "should return false" {
+            Test-DockerRegistryRunning -Hostname $Hostname -Port $Port | Should Be $False
+        }
+    }
+}
+
+Describe "Test-DockerRunning" {
+    Context "Docker is running" {
+        Mock "Invoke-ExpressionSafe" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerRunning | Should Be $True
+        }
+    }
+
+    Context "Docker is not running" {
+        Mock "Invoke-ExpressionSafe" {
+            Return $Null
+        } -ModuleName "DockerLib"
+
+        It "should return false for null" {
+            Test-DockerRunning | Should Be $False
+        }
+
+        Mock "Invoke-ExpressionSafe" {
+            Return "docker : error"
+        } -ModuleName "DockerLib"
+
+        It "should return false for error" {
+            Test-DockerRunning | Should Be $False
+        }
+    }
+}
+
+Describe "Test-DockerToolboxInstalled" {
+    Context "Docker Toolbox is installed" {
+        Mock "Test-AppInstalled" {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        It "should return true" {
+            Test-DockerToolboxInstalled | Should Be $True
+        }
+    }
+
+    Context "Docker Toolbox is not installed" {
+        Mock "Test-AppInstalled" {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        It "should return false" {
+            Test-DockerToolboxInstalled | Should Be $False
         }
     }
 }
