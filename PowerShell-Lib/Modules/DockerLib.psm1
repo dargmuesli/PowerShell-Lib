@@ -14,12 +14,8 @@ Set-StrictMode -Version Latest
     https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-DockerMachineEnv.md
 #>
 Function Clear-DockerMachineEnv {
-    If (Test-DockerMachineEnvExists) {
-        Write-Debug -Message "Clearing environment variables..."
-        Invoke-DockerMachine env --shell=powershell --unset | Invoke-Expression
-    } Else {
-        Write-Debug -Message "Docker environment variables do not exist."
-    }
+    Write-Debug -Message "Clearing environment variables..."
+    Invoke-DockerMachine env --shell=powershell --unset | Invoke-Expression
 }
 
 <#
@@ -122,25 +118,37 @@ Function Install-Docker {
 
         [Parameter(Mandatory = $False)]
         [ValidateSet('BITS', 'WebClient', 'WebRequest')]
-        [String] $DownloadMethod = "BITS"
+        [String] $DownloadMethod = "BITS",
+
+        [Switch] $Ask
     )
 
-    Switch ($Edition) {
-        "ForWin" {
-            $RemoteFilename = "InstallDocker.msi"
-            $Path = "$Env:Temp\$RemoteFilename"
+    $Answer = $Null
 
-            Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path -DownloadMethod $DownloadMethod
-            Install-App -InstallerPath $Path
-            Break
-        }
-        "Toolbox" {
-            $RemoteFilename = "DockerToolbox.exe"
-            $Path = "$Env:Temp\$RemoteFilename"
+    If ($Ask) {
+        $Answer = Read-PromptYesNo -Caption "Docker is not installed." -Message "Do you want to install it automatically?" -DefaultChoice 0
+    } Else {
+        Read-Host "Please install Docker manually. Press enter to continue..."
+    }
 
-            Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path -DownloadMethod $DownloadMethod
-            Install-App -InstallerPath $Path
-            Break
+    If ((-Not $Ask) -Or ($Ask -And $Answer)) {
+        Switch ($Edition) {
+            "ForWin" {
+                $RemoteFilename = "InstallDocker.msi"
+                $Path = "$Env:Temp\$RemoteFilename"
+
+                Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path -DownloadMethod $DownloadMethod
+                Install-App -InstallerPath $Path
+                Break
+            }
+            "Toolbox" {
+                $RemoteFilename = "DockerToolbox.exe"
+                $Path = "$Env:Temp\$RemoteFilename"
+
+                Get-FileFromWeb -URL "https://download.docker.com/win/stable/$RemoteFilename" -LocalPath $Path -DownloadMethod $DownloadMethod
+                Install-App -InstallerPath $Path
+                Break
+            }
         }
     }
 }
@@ -189,7 +197,7 @@ Function New-DockerMachine {
         [String] $MachineName
     )
 
-    Write-Debug "Creating machine `"$MachineName`" in VirtualBox..."
+    Write-Debug -Message "Creating machine `"$MachineName`" in VirtualBox..."
     Invoke-DockerMachine rm -f $MachineName
     Invoke-DockerMachine create -d virtualbox --virtualbox-memory 2048 $MachineName
 }
@@ -255,12 +263,8 @@ Function Start-Docker {
         [String] $DownloadMethod = "BITS"
     )
 
-    While (-Not (Test-DockerInstalled)) {
-        If (Read-PromptYesNo -Caption "Docker is not installed." -Message "Do you want to install it automatically?" -DefaultChoice 0) {
-            Install-Docker -DownloadMethod $DownloadMethod
-        } Else {
-            Read-Host "Please install Docker manually. Press enter to continue..."
-        }
+    If (-Not (Test-DockerInstalled)) {
+        Install-Docker -DownloadMethod $DownloadMethod -Ask
     }
 
     If (-Not (Test-DockerRunning)) {
@@ -371,7 +375,7 @@ Function Start-DockerMachine {
         [String] $MachineName
     )
 
-    Write-Debug "Starting machine $MachineName..."
+    Write-Debug -Message "Starting machine $MachineName..."
     Invoke-DockerMachine start $MachineName
 }
 
@@ -458,7 +462,7 @@ Function Stop-DockerMachine {
         [String] $MachineName
     )
 
-    Write-Debug "Stopping machine $MachineName..."
+    Write-Debug -Message "Stopping machine $MachineName..."
     Invoke-DockerMachine stop $MachineName
 }
 
@@ -485,7 +489,8 @@ Function Stop-DockerStack {
         [String] $StackName
     )
 
-    docker stack rm ${StackName}
+    Write-Debug -Message "Removing Docker stack $StackName..."
+    docker stack rm $StackName
 
     Wait-Test -Test "Test-DockerStackRunning -StackNamespace $StackName" -WithProgressBar -Activity "Waiting for Docker stack to quit"
 }

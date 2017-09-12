@@ -13,7 +13,7 @@ Installs Docker.
 ## SYNTAX
 
 ```
-Install-Docker [[-Edition] <String>] [[-DownloadMethod] <String>]
+Install-Docker [[-Edition] <String>] [[-DownloadMethod] <String>] [-Ask]
 ```
 
 ## DESCRIPTION
@@ -54,6 +54,21 @@ Aliases:
 Required: False
 Position: 2
 Default value: BITS
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Ask
+{{Fill Ask Description}}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
