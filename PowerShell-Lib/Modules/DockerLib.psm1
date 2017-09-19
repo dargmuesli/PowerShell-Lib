@@ -815,7 +815,7 @@ Function Write-DockerComposeFile {
         [Switch] $Force
     )
 
-    $Content = Convert-PSObjectToHashtable -InputObject $ComposeFile.Content
+    $Content = Convert-PSCustomObjectToHashtable -InputObject $ComposeFile.Content
     $Command = "ConvertTo-Yaml -Data $Content -OutFile `"$Path\$($ComposeFile.Name)`""
 
     If ($Force) {
