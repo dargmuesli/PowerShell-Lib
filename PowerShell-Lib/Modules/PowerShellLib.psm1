@@ -228,8 +228,8 @@ Function Invoke-WebRequestWithProgress {
     $DownloadedBytes = $Count
 
     While ($Count -Gt 0) {
-        $test = [Convert]::ToInt32([Math]::Floor((($DownloadedBytes / 1024) / $TotalLength) * 100))
-        Write-ProgressBar -PercentComplete $test -Activity "Downloading $([Math]::Floor($DownloadedBytes / 1024))K of ${TotalLength}K"
+        $PercentComplete = [Convert]::ToInt32([Math]::Floor((($DownloadedBytes / 1024) / $TotalLength) * 100))
+        Write-ProgressBar -PercentComplete $PercentComplete -Activity "Downloading $([Math]::Floor($DownloadedBytes / 1024))K of ${TotalLength}K"
         $TargetStream.Write($Buffer, 0, $Count)
         $Count = $ResponseStream.Read($Buffer, 0, $Buffer.Length)
         $DownloadedBytes = $DownloadedBytes + $Count
