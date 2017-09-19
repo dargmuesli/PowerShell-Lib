@@ -54,7 +54,6 @@ Function Join-MultiLineStrings {
         [ValidateNotNullOrEmpty()]
         [String[]] $MultiLineStrings,
 
-        [Parameter(Mandatory = $False)]
         [Switch] $Newline
     )
 

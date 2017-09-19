@@ -138,10 +138,7 @@ Function Invoke-ExpressionSafe {
         [ValidateNotNullOrEmpty()]
         [String] $Command,
 
-        [Parameter(Mandatory = $False)]
         [Switch] $WithError,
-
-        [Parameter(Mandatory = $False)]
         [Switch] $Graceful
     )
 
@@ -208,7 +205,6 @@ Function Invoke-WebRequestWithProgress {
         [Parameter(Mandatory = $False)]
         [Switch] $Overwrite,
 
-        [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
         [Int] $Timeout = 15000
     )
@@ -618,7 +614,6 @@ Function Wait-Test {
         [ValidateNotNullOrEmpty()]
         [Int] $Milliseconds = 1000,
 
-        [Parameter(Mandatory = $False)]
         [Switch] $WithProgressBar
     )
 

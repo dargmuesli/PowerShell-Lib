@@ -812,7 +812,6 @@ Function Write-DockerComposeFile {
         [ValidateScript({Test-PathValid -Path $PSItem})]
         [String] $Path,
 
-        [Parameter(Mandatory = $False)]
         [Switch] $Force
     )
 

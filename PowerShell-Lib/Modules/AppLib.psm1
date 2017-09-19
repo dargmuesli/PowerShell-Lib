@@ -128,7 +128,6 @@ Function Test-AppInstalled {
         [ValidateNotNullOrEmpty()]
         [String] $AppName,
 
-        [Parameter(Mandatory = $False)]
         [Switch] $RegexCompare
     )
 

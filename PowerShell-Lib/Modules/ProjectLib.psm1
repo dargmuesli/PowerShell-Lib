@@ -33,7 +33,6 @@ Function New-ModuleMarkdown {
         [ValidateNotNullOrEmpty()]
         [String] $DocPath,
 
-        [Parameter(Mandatory = $False)]
         [Switch] $Sort
     )
 
