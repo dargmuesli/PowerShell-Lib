@@ -818,11 +818,7 @@ Function Write-DockerComposeFile {
     $Content = Convert-PSCustomObjectToHashtable -InputObject $ComposeFile.Content
     $Command = "ConvertTo-Yaml -Data $Content -OutFile `"$Path\$($ComposeFile.Name)`""
 
-    If ($Force) {
-        Invoke-Expression -Command "$Command -Force"
-    } Else {
-        Invoke-Expression -Command $Command
-    }
+    Invoke-Expression -Command "$Command -Force:$Force"
 }
 
 Export-ModuleMember -Function *
