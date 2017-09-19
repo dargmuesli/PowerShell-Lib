@@ -30,16 +30,16 @@ Function Convert-PSCustomObjectToHashtable {
         $InputProperty = $PSItem
 
         Switch ($PSItem.Value.GetType().Name) {
-            "PSCustomObject" {
-                $Hashtable[$InputProperty.Name] = Convert-PSCustomObjectToHashtable -InputObject $InputProperty.Value
+            "Hashtable" {
+                $Hashtable[$InputProperty.Name] = Convert-PSCustomObjectToHashtable -InputObject ([PSCustomObject] $InputProperty.Value)
                 Break
             }
-            {@("String", "Int")} {
+            {@("Int32", "String") -Contains $PSItem} {
                 $Hashtable[$InputProperty.Name] = $InputProperty.Value
                 Break
             }
             "Object[]" {
-                $Hashtable[$InputProperty.Name] = [PSObject] $InputProperty.Value
+                $Hashtable[$InputProperty.Name] = [Object[]] $InputProperty.Value
                 Break
             }
         }
