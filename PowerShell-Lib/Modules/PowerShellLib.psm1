@@ -157,6 +157,9 @@ Function Initialize-TaskPath {
     .PARAMETER Command
     The expression to invoke safely.
 
+    .PARAMETER WithHost
+    Whether to return the host message in stdout.
+
     .PARAMETER WithError
     Whether to return the error message in stdout.
 
@@ -175,6 +178,7 @@ Function Invoke-ExpressionSafe {
         [ValidateNotNullOrEmpty()]
         [String] $Command,
 
+        [Switch] $WithHost,
         [Switch] $WithError,
         [Switch] $Graceful
     )
@@ -183,12 +187,18 @@ Function Invoke-ExpressionSafe {
     $Stdout = $Null
 
     Try {
-        Invoke-Expression -Command "$Command 2>$TmpFile" -OutVariable Stdout | Tee-Object -Variable Stdout
+        $Stdout = Invoke-Expression -Command "$Command 2>$TmpFile"
+        # | Tee-Object -Variable Stdout
+        # -OutVariable Stdout
     } Catch {
         $PSItem > $TmpFile
     }
 
     $Stderr = Get-Content $TmpFile
+
+    If (-Not $WithHost) {
+        $Stdout = $Null
+    }
 
     If ($WithError) {
         $Stdout = "${Stdout}${Stderr}"

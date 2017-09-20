@@ -13,7 +13,7 @@ Invokes an expression without causing crashes.
 ## SYNTAX
 
 ```
-Invoke-ExpressionSafe [-Command] <String> [-WithError] [-Graceful]
+Invoke-ExpressionSafe [-Command] <String> [-WithHost] [-WithError] [-Graceful]
 ```
 
 ## DESCRIPTION
@@ -41,6 +41,21 @@ Aliases:
 Required: True
 Position: 1
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WithHost
+Whether to return the host message in stdout.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
