@@ -545,7 +545,6 @@ Function Test-ModuleInstalled {
 Function Test-PropertyExists {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
-        [ValidateNotNullOrEmpty()]
         [Object] $Object,
 
         [Parameter(Mandatory = $True, Position = 1)]
