@@ -227,11 +227,11 @@ Function Invoke-ExpressionSafe {
     .PARAMETER OutFile
     The path to where the file is to be saved to.
 
-    .PARAMETER Overwrite
-    Whether to overwrite an already existing downloaded file.
-
     .PARAMETER Timeout
     How long to wait for a connection success.
+
+    .PARAMETER Overwrite
+    Whether to overwrite an already existing downloaded file.
 
     .EXAMPLE
     Invoke-WebRequestWithProgress -Uri "https://download.docker.com/win/stable/InstallDocker.msi" -OutFile ".\"
@@ -250,10 +250,10 @@ Function Invoke-WebRequestWithProgress {
         [String] $OutFile,
 
         [Parameter(Mandatory = $False)]
-        [Switch] $Overwrite,
-
         [ValidateNotNullOrEmpty()]
-        [Int] $Timeout = 15000
+        [Int] $Timeout = 15000,
+
+        [Switch] $Overwrite
     )
 
     Initialize-TaskPath -TaskPath Initialize-TaskPath -Overwrite:$Overwrite

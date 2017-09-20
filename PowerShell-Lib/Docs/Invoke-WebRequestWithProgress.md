@@ -13,7 +13,7 @@ Download a file and displays a progress bar.
 ## SYNTAX
 
 ```
-Invoke-WebRequestWithProgress [-Uri] <Uri> [-OutFile] <String> [-Overwrite] [-Timeout <Int32>]
+Invoke-WebRequestWithProgress [-Uri] <Uri> [-OutFile] <String> [-Timeout <Int32>] [-Overwrite]
 ```
 
 ## DESCRIPTION
@@ -59,21 +59,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Overwrite
-Whether to overwrite an already existing downloaded file.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: 
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Timeout
 How long to wait for a connection success.
 
@@ -85,6 +70,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: 15000
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Overwrite
+Whether to overwrite an already existing downloaded file.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
