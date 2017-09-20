@@ -18,7 +18,7 @@ Describe "Get-AppsInstalled" {
 
         $GetAppsInstalled = Get-AppsInstalled
 
-        It "should return a list of installed apps" {
+        It "returns a list of installed apps" {
             $GetAppsInstalled | Should Not BeNullOrEmpty
             $GetAppsInstalled | Should BeOfType [PSCustomObject]
         }
@@ -31,7 +31,7 @@ Describe "Get-AppsInstalled" {
 
         $GetAppsInstalled = Get-AppsInstalled
 
-        It "should return a list of installed apps" {
+        It "returns a list of installed apps" {
             $GetAppsInstalled | Should BeNullOrEmpty
         }
     }
@@ -47,7 +47,7 @@ Describe "Install-App" {
     Context "exe" {
         Mock Start-Process {} -ModuleName "AppLib"
 
-        It "should give no feedback" {
+        It "gives no feedback" {
             Install-App -InstallerPath $InstallerPathExe | Should BeNullOrEmpty
         }
     }
@@ -55,7 +55,7 @@ Describe "Install-App" {
     Context "msi" {
         Mock Start-Process {} -ModuleName "AppLib"
 
-        It "should give no feedback" {
+        It "gives no feedback" {
             Install-App -InstallerPath $InstallerPathMsi | Should BeNullOrEmpty
         }
     }
@@ -63,7 +63,7 @@ Describe "Install-App" {
     Context "default" {
         $InstallerPath = "~"
 
-        It "should throw an error" {
+        It "throws an error" {
             {Install-App -InstallerPath $InstallerPath} | Should Throw "File extension of `"$InstallerPath`" is neither `".exe`" nor `".msi`"."
         }
     }
@@ -82,7 +82,7 @@ Describe "Test-AppInstalled" {
             )
         } -ModuleName "AppLib"
 
-        It "should return true for an installed app" {
+        It "returns true for an installed app" {
             Test-AppInstalled -AppName $AppName | Should Be $True
             Test-AppInstalled -AppName $AppNameRegex -RegexCompare | Should Be $True
         }
@@ -95,7 +95,7 @@ Describe "Test-AppInstalled" {
             )
         } -ModuleName "AppLib"
 
-        It "should return false for a not installed app" {
+        It "returns false for a not installed app" {
             Test-AppInstalled -AppName $AppName | Should Be $False
             Test-AppInstalled -AppName $AppNameRegex -RegexCompare | Should Be $False
         }
