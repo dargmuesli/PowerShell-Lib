@@ -36,6 +36,7 @@ A library of helpful PowerShell functions.
 - **PowerShellLib**
   - [Convert-PSCustomObjectToHashtable](PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md)
   - [Get-FileFromWeb](PowerShell-Lib/Docs/Get-FileFromWeb.md)
+  - [Initialize-TaskPath](PowerShell-Lib/Docs/Initialize-TaskPath.md)
   - [Invoke-ExpressionSafe](PowerShell-Lib/Docs/Invoke-ExpressionSafe.md)
   - [Invoke-WebRequestWithProgress](PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md)
   - [Merge-Objects](PowerShell-Lib/Docs/Merge-Objects.md)

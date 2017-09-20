@@ -110,6 +110,43 @@ Function Get-FileFromWeb {
 
 <#
     .SYNOPSIS
+    Ensures that a path does not already exist.
+
+    .DESCRIPTION
+    The "Initialize-TaskPath" cmdlet checks whether a path exists and, depending on the "Overwrite" flag, deletes that path or throws an error.
+
+    .PARAMETER TaskPath
+    The path that is to be checked.
+
+    .PARAMETER Overwrite
+    Whether to remove the given path.
+
+    .EXAMPLE
+    Initialize-TaskPath -TaskPath "~\Project\Output.txt"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Initialize-TaskPath.md
+#>
+Function Initialize-TaskPath {
+    Param (
+        [Parameter(Mandatory = $True, Position = 1)]
+        [ValidateScript({Test-PathValid -Path $PSItem})]
+        [String] $TaskPath,
+
+        [Switch] $Overwrite
+    )
+
+    If (Test-Path -Path $TaskPath) {
+        If ($Overwrite) {
+            Remove-Item -Path $TaskPath
+        } Else {
+            Throw "The path already exists and the parameter `"Overwrite`" is not passed."
+        }
+    }
+}
+
+<#
+    .SYNOPSIS
     Invokes an expression without causing crashes.
 
     .DESCRIPTION
@@ -209,13 +246,7 @@ Function Invoke-WebRequestWithProgress {
         [Int] $Timeout = 15000
     )
 
-    If (Test-Path -Path $OutFile) {
-        If ($Overwrite) {
-            Remove-Item -Path $OutFile
-        } Else {
-            Throw "The file that is to be downloaded already exists at the indicated location and the parameter `"Overwrite`" is not passed."
-        }
-    }
+    Initialize-TaskPath -TaskPath Initialize-TaskPath -Overwrite:$Overwrite
 
     $Request = [Net.HttpWebRequest]::Create($Uri)
     $Request.Set_Timeout($Timeout)
