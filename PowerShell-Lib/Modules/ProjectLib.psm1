@@ -58,10 +58,10 @@ Function New-ModuleMarkdown {
     $MarkdownString = "## Modules"
 
     Foreach ($SourceDataItem In $SourceData.GetEnumerator()) {
-        $MarkdownString += "`n- **$($SourceDataItem.Name)**"
+        $MarkdownString += "`r`n- **$($SourceDataItem.Name)**"
 
         Foreach ($SourceDataItemValueItem In $SourceDataItem.Value) {
-            $MarkdownString += "`n  - [$SourceDataItemValueItem]($DocPath/$SourceDataItemValueItem.md)"
+            $MarkdownString += "`r`n  - [$SourceDataItemValueItem]($DocPath/$SourceDataItemValueItem.md)"
         }
     }
 
