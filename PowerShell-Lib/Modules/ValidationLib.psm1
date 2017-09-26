@@ -41,11 +41,13 @@ Function Test-CountValid {
         [Int] $Max
     )
 
-    If (($Variable.Count -Ge $Min) -And ($Variable.Count -Le $Max)) {
-        Return $True
-    } Else {
-        Return $False
+    ForEach ($Item In $Variable) {
+        If (-Not (($Item.Length -Ge $Min) -And ($Item.Length -Le $Max))) {
+            Return $False
+        }
     }
+
+    Return $True
 }
 
 <#
@@ -252,11 +254,11 @@ Function Test-NotNullValid {
         $Variable
     )
 
-    If ([String]::IsNullOrEmpty($Variable)) {
+    If ($Variable -Eq $Null) {
         Return $False
     } Else {
         ForEach ($Item In $Variable) {
-            If ([String]::IsNullOrEmpty($Item)) {
+            If ($Item -Eq $Null) {
                 Return $False
             }
         }
@@ -288,11 +290,13 @@ Function Test-PathValid {
         $Path
     )
 
-    If (Test-Path -Path $Path -IsValid) {
-        Return $True
-    } Else {
-        Return $False
+    ForEach ($Item In $Path) {
+        If (-Not (Test-Path -Path $Item -IsValid)) {
+            Return $False
+        }
     }
+
+    Return $True
 }
 
 <#
@@ -426,7 +430,7 @@ Function Test-RangeValid {
     The script that checks the variable.
 
     .EXAMPLE
-    Test-ScriptValid -Variable @(5) -Script "If ($PSItem = 5) { Return $True } Else { Return $False }"
+    Test-ScriptValid -Variable @(5) -Script "If ($PSItem -Eq 5) { Return $True } Else { Return $False }"
 
     .LINK
     https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ScriptValid.md
@@ -443,9 +447,7 @@ Function Test-ScriptValid {
     )
 
     ForEach ($Item In $Variable) {
-        $PSItem = $Item
-
-        If (-Not (& $Script)) {
+        If (-Not (& $Script $Item)) {
             Return $False
         }
     }
@@ -523,7 +525,7 @@ Function Test-TypeValid {
     )
 
     ForEach ($Item In $Variable) {
-        If ($Variable -IsNot $Type) {
+        If ($Item -IsNot $Type) {
             Return $False
         }
     }

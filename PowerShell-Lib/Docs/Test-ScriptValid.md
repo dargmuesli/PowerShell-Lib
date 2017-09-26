@@ -23,7 +23,7 @@ The "Test-ScriptValid" cmdlet checks if a script validifies a variable's values 
 
 ### -------------------------- BEISPIEL 1 --------------------------
 ```
-Test-ScriptValid -Variable @(5) -Script "If ($PSItem = 5) { Return $True } Else { Return $False }"
+Test-ScriptValid -Variable @(5) -Script "If ($PSItem -Eq 5) { Return $True } Else { Return $False }"
 ```
 
 ## PARAMETERS
