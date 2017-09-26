@@ -65,7 +65,7 @@ Function Join-MultiLineStrings {
         $OutputString += $MultiLineString
 
         If (($Newline) -And ($I -Ne $MultiLineStrings.Count)) {
-            $OutputString += "`n"
+            $OutputString += "`r`n"
         }
     }
 
