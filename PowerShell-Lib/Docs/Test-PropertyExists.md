@@ -13,7 +13,7 @@ Checks whether an object's property exists.
 ## SYNTAX
 
 ```
-Test-PropertyExists [-Object] <Object> [-PropertyName] <String>
+Test-PropertyExists [-Object] <Object> [-PropertyName] <String[]>
 ```
 
 ## DESCRIPTION
@@ -47,7 +47,7 @@ Accept wildcard characters: False
 The object's property name that is to be checked.
 
 ```yaml
-Type: String
+Type: String[]
 Parameter Sets: (All)
 Aliases: 
 

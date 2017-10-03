@@ -175,8 +175,11 @@ Describe "Test-PropertyExists" {
     Context "Property exists" {
         It "returns true for <Object>" -TestCases @(
             @{
-                Object       = [PSCustomObject] @{Property = 1};
-                PropertyName = "Property";
+                Object       = [PSCustomObject] @{
+                    PropertyA = 1;
+                    PropertyB = 2;
+                };
+                PropertyName = @("PropertyA", "PropertyB");
             }
             @{
                 Object       = [PSCustomObject] @{

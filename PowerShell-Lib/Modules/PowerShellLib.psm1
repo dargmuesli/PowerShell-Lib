@@ -590,29 +590,31 @@ Function Test-PropertyExists {
 
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
-        [String] $PropertyName
+        [String[]] $PropertyName
     )
 
-    $PropertyNameParts = @()
+    ForEach ($Item In $PropertyName) {
+        $ItemParts = @()
 
-    $IndexFirstDot = $PropertyName.IndexOf(".")
+        $IndexFirstDot = $Item.IndexOf(".")
 
-    If ($IndexFirstDot -Ne -1) {
-        $PropertyNameParts += $PropertyName.Substring(0, $IndexFirstDot)
-        $PropertyNameParts += $PropertyName.Substring($IndexFirstDot + 1, $PropertyName.Length - ($IndexFirstDot + 1))
+        If ($IndexFirstDot -Ne -1) {
+            $ItemParts += $Item.Substring(0, $IndexFirstDot)
+            $ItemParts += $Item.Substring($IndexFirstDot + 1, $Item.Length - ($IndexFirstDot + 1))
 
-        If ($Object.PSObject.Properties.Name -Contains $PropertyNameParts[0]) {
-            Return Test-PropertyExists -Object ($Object | Select-Object -ExpandProperty $PropertyNameParts[0]) -PropertyName $PropertyNameParts[1]
+            If ($Object.PSObject.Properties.Name -Contains $ItemParts[0]) {
+                Return Test-PropertyExists -Object ($Object | Select-Object -ExpandProperty $ItemParts[0]) -PropertyName $ItemParts[1]
+            } Else {
+                Return $False
+            }
         } Else {
-            Return $False
-        }
-    } Else {
-        If (($Object.PSObject.Properties.Name -Contains $PropertyName) -Or ($Object.Keys -Contains $PropertyName)) {
-            Return $True
-        } Else {
-            Return $False
+            If (-Not (($Object.PSObject.Properties.Name -Contains $Item) -Or ($Object.Keys -Contains $Item))) {
+                Return $False
+            }
         }
     }
+
+    Return $True
 }
 
 <#
