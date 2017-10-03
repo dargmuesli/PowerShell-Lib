@@ -30,7 +30,7 @@ Function Convert-PSCustomObjectToHashtable {
         $InputProperty = $PSItem
 
         Switch ($PSItem.Value.GetType().Name) {
-            "Hashtable" {
+            {@("Hashtable", "PSCustomObject") -Contains $PSItem} {
                 $Hashtable[$InputProperty.Name] = Convert-PSCustomObjectToHashtable -InputObject ([PSCustomObject] $InputProperty.Value)
                 Break
             }
