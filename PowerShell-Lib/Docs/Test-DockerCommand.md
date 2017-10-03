@@ -1,7 +1,7 @@
 ---
 external help file: DockerLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerCommand.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerCommand.md
 schema: 2.0.0
 ---
 
@@ -36,5 +36,5 @@ Test-DockerCommand
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerCommand.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerCommand.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerCommand.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerCommand.md)
 

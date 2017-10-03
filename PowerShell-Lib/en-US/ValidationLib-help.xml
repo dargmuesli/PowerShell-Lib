@@ -109,8 +109,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-CountValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-CountValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-CountValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-CountValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -175,8 +175,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-HostnameValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-HostnameValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-HostnameValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-HostnameValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -241,8 +241,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAddressValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IPAddressValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-IPAddressValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-IPAddressValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -307,8 +307,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IRIValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-IRIValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-IRIValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-IRIValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -421,8 +421,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-LengthValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-LengthValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-LengthValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-LengthValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -487,8 +487,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-NotNullOrEmptyValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-NotNullOrEmptyValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-NotNullOrEmptyValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-NotNullOrEmptyValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -553,8 +553,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-NotNullValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-NotNullValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-NotNullValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-NotNullValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -619,8 +619,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PathValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PathValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PathValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PathValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -709,8 +709,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PatternValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PatternValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PatternValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PatternValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -775,8 +775,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PortValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PortValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PortValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PortValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -889,8 +889,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-RangeValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-RangeValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-RangeValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-RangeValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -979,8 +979,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ScriptValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ScriptValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-ScriptValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-ScriptValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1069,8 +1069,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-SetValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-SetValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-SetValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-SetValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1159,8 +1159,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-TypeValid.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-TypeValid.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-TypeValid.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-TypeValid.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

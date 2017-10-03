@@ -1,7 +1,7 @@
 ---
 external help file: DockerLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-DockerMachineEnv.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Clear-DockerMachineEnv.md
 schema: 2.0.0
 ---
 
@@ -36,5 +36,5 @@ Clear-DockerMachineEnv
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-DockerMachineEnv.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-DockerMachineEnv.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Clear-DockerMachineEnv.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Clear-DockerMachineEnv.md)
 

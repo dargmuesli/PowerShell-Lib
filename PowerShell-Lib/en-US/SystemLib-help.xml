@@ -36,8 +36,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-SystemBit.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-SystemBit.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-SystemBit.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-SystemBit.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

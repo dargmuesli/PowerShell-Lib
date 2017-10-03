@@ -36,8 +36,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-DockerMachineEnv.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-DockerMachineEnv.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Clear-DockerMachineEnv.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Clear-DockerMachineEnv.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -86,8 +86,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerEditionToUse.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerEditionToUse.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-DockerEditionToUse.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-DockerEditionToUse.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -152,8 +152,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerMachineStatus.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerMachineStatus.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-DockerMachineStatus.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-DockerMachineStatus.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -265,8 +265,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-Docker.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-Docker.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-Docker.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-Docker.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -306,8 +306,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-DockerMachine.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-DockerMachine.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-DockerMachine.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-DockerMachine.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -372,8 +372,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-DockerMachine.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-DockerMachine.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/New-DockerMachine.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/New-DockerMachine.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -438,8 +438,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Set-DockerMachineEnv.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Set-DockerMachineEnv.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Set-DockerMachineEnv.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Set-DockerMachineEnv.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -528,8 +528,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-Docker.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-Docker.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -594,8 +594,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerMachine.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerMachine.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-DockerMachine.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-DockerMachine.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -708,8 +708,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerRegistry.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerRegistry.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-DockerRegistry.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-DockerRegistry.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -774,8 +774,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Stop-DockerMachine.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Stop-DockerMachine.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Stop-DockerMachine.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Stop-DockerMachine.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -840,8 +840,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Stop-DockerStack.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Stop-DockerStack.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Stop-DockerStack.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Stop-DockerStack.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -881,8 +881,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerCommand.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerCommand.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerCommand.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerCommand.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -922,8 +922,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerForWinInstalled.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerForWinInstalled.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerForWinInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerForWinInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -963,8 +963,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInstalled.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInstalled.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1004,8 +1004,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInSwarm.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerInSwarm.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerInSwarm.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerInSwarm.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1045,8 +1045,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineCommand.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineCommand.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerMachineCommand.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerMachineCommand.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1086,8 +1086,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineEnvExists.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineEnvExists.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerMachineEnvExists.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerMachineEnvExists.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1152,8 +1152,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineExists.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerMachineExists.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerMachineExists.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerMachineExists.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1242,8 +1242,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRegistryRunning.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRegistryRunning.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerRegistryRunning.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerRegistryRunning.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1283,8 +1283,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRunning.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerRunning.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerRunning.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerRunning.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1349,8 +1349,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerStackRunning.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerStackRunning.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerStackRunning.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerStackRunning.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1390,8 +1390,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerToolboxInstalled.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-DockerToolboxInstalled.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerToolboxInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerToolboxInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1503,8 +1503,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-DockerComposeFile.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-DockerComposeFile.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-DockerComposeFile.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-DockerComposeFile.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

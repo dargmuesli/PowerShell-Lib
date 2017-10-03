@@ -1,7 +1,7 @@
 ---
 external help file: PowerShellLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-FileFromWeb.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-FileFromWeb.md
 schema: 2.0.0
 ---
 
@@ -84,5 +84,5 @@ Download method "WebRequest" can display its progress, but is very slow.
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-FileFromWeb.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-FileFromWeb.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-FileFromWeb.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-FileFromWeb.md)
 

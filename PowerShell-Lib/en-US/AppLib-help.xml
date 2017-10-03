@@ -85,8 +85,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-AppsInstalled.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-AppsInstalled.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-AppsInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-AppsInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -151,8 +151,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-App.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-App.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-App.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-App.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -240,8 +240,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-AppInstalled.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-AppInstalled.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-AppInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-AppInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

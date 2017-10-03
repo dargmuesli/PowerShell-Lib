@@ -1,7 +1,7 @@
 ---
 external help file: DockerLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerEditionToUse.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-DockerEditionToUse.md
 schema: 2.0.0
 ---
 
@@ -40,5 +40,5 @@ Get-DockerEditionToUse
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerEditionToUse.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-DockerEditionToUse.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-DockerEditionToUse.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-DockerEditionToUse.md)
 

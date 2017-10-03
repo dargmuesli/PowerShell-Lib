@@ -21,7 +21,7 @@ Set-StrictMode -Version Latest
     New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\*") -DocPath "PowerShell-Lib/Docs"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/New-ModuleMarkdown.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/New-ModuleMarkdown.md
 #>
 Function New-ModuleMarkdown {
     Param (
@@ -82,7 +82,7 @@ Function New-ModuleMarkdown {
     Read-Settings -SourcePath @(".\package.json", ".\docker-management.json")
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Settings.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-Settings.md
 #>
 Function Read-Settings {
     Param (

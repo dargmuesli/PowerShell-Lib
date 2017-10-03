@@ -1,7 +1,7 @@
 ---
 external help file: DockerLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerMachine.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-DockerMachine.md
 schema: 2.0.0
 ---
 
@@ -51,5 +51,5 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerMachine.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-DockerMachine.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-DockerMachine.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-DockerMachine.md)
 

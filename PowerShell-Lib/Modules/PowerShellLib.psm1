@@ -14,7 +14,7 @@ Set-StrictMode -Version Latest
     Convert-PSCustomObjectToHashtable -InputObject $InputObject
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Convert-PSCustomObjectToHashtable.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md
 #>
 Function Convert-PSCustomObjectToHashtable {
     Param (
@@ -73,7 +73,7 @@ Function Convert-PSCustomObjectToHashtable {
     Download method "WebRequest" can display its progress, but is very slow.
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-FileFromWeb.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-FileFromWeb.md
 #>
 Function Get-FileFromWeb {
     Param (
@@ -125,7 +125,7 @@ Function Get-FileFromWeb {
     Initialize-TaskPath -TaskPath "~\Project\Output.txt"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Initialize-TaskPath.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Initialize-TaskPath.md
 #>
 Function Initialize-TaskPath {
     Param (
@@ -170,7 +170,7 @@ Function Initialize-TaskPath {
     Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-ExpressionSafe.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-ExpressionSafe.md
 #>
 Function Invoke-ExpressionSafe {
     Param (
@@ -237,7 +237,7 @@ Function Invoke-ExpressionSafe {
     Invoke-WebRequestWithProgress -Uri "https://download.docker.com/win/stable/InstallDocker.msi" -OutFile ".\"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-WebRequestWithProgress.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md
 #>
 Function Invoke-WebRequestWithProgress {
     Param (
@@ -301,7 +301,7 @@ Function Invoke-WebRequestWithProgress {
     Merge-Objects -Object1 @{test='123'} -Object2 @{123='test'}
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Merge-Objects.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Merge-Objects.md
 #>
 Function Merge-Objects {
     Param (
@@ -339,7 +339,7 @@ Function Merge-Objects {
     Mount-EnvFile -EnvFilePath ".\.env"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Mount-EnvFile.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Mount-EnvFile.md
 #>
 Function Mount-EnvFile {
     Param (
@@ -382,7 +382,7 @@ Function Mount-EnvFile {
     Sorted by the functions' order of occurrence.
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-FunctionNames.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-FunctionNames.md
 #>
 Function Read-FunctionNames {
     Param (
@@ -429,7 +429,7 @@ Function Read-FunctionNames {
     Read-Prompt -Caption "Docker for Windows and Docker Toolbox are installed." -Message "Which one do you want to use?" -Choices $Choices -DefaultChoice 0
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Prompt.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-Prompt.md
 #>
 Function Read-Prompt {
     Param (
@@ -473,7 +473,7 @@ Function Read-Prompt {
     Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -DefaultChoice 0
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-PromptYesNo.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-PromptYesNo.md
 #>
 Function Read-PromptYesNo {
     Param (
@@ -518,7 +518,7 @@ Function Read-PromptYesNo {
     Test-EnvVarExists -EnvVarName "OS"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-EnvVarExists.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-EnvVarExists.md
 #>
 Function Test-EnvVarExists {
     Param (
@@ -548,7 +548,7 @@ Function Test-EnvVarExists {
     Test-ModuleInstalled -ModuleName "PowerShell-Lib"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-ModuleInstalled.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-ModuleInstalled.md
 #>
 Function Test-ModuleInstalled {
     Param (
@@ -581,7 +581,7 @@ Function Test-ModuleInstalled {
     Test-PropertyExists -Object {test='123'} -PropertyName "test"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PropertyExists.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PropertyExists.md
 #>
 Function Test-PropertyExists {
     Param (
@@ -640,7 +640,7 @@ Function Test-PropertyExists {
     Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Wait-Test.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Wait-Test.md
 #>
 Function Wait-Test {
     Param (
@@ -697,7 +697,7 @@ Function Wait-Test {
     Write-ProgressBar -Activity "Checking ..." -PercentComplete $Index
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Write-ProgressBar.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ProgressBar.md
 #>
 Function Write-ProgressBar {
     Param (

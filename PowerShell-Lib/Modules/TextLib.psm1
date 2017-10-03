@@ -14,7 +14,7 @@ Set-StrictMode -Version Latest
     Clear-Linebreaks -String "test`r`n123"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Clear-Linebreaks.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Clear-Linebreaks.md
 #>
 Function Clear-Linebreaks {
     Param (
@@ -46,7 +46,7 @@ Function Clear-Linebreaks {
     Join-MultiLineStrings -MultiLineStrings @($FileA, $FileB) -Newline
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Join-MultiLineStrings.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Join-MultiLineStrings.md
 #>
 Function Join-MultiLineStrings {
     Param (

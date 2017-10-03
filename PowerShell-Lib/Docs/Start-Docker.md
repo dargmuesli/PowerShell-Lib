@@ -1,7 +1,7 @@
 ---
 external help file: DockerLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-Docker.md
 schema: 2.0.0
 ---
 
@@ -68,5 +68,5 @@ Source: https://gist.github.com/au-phiware/25213e72c80040f398ba
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Start-Docker.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-Docker.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Start-Docker.md)
 

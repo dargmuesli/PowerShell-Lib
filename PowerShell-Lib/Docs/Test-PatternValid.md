@@ -1,7 +1,7 @@
 ---
 external help file: ValidationLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PatternValid.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PatternValid.md
 schema: 2.0.0
 ---
 
@@ -66,5 +66,5 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PatternValid.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-PatternValid.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PatternValid.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PatternValid.md)
 

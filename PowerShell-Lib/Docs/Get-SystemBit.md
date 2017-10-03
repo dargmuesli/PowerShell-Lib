@@ -1,7 +1,7 @@
 ---
 external help file: SystemLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-SystemBit.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-SystemBit.md
 schema: 2.0.0
 ---
 
@@ -36,5 +36,5 @@ Get-SystemBit
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-SystemBit.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-SystemBit.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-SystemBit.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-SystemBit.md)
 

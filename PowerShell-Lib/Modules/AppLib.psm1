@@ -22,7 +22,7 @@ Set-StrictMode -Version Latest
     Source: https://stackoverflow.com/a/31714410
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Get-AppsInstalled.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-AppsInstalled.md
 #>
 Function Get-AppsInstalled {
     Param (
@@ -77,7 +77,7 @@ Function Get-AppsInstalled {
     Install-App -InstallerPath ".\installer.msi"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Install-App.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-App.md
 #>
 Function Install-App {
     Param (
@@ -120,7 +120,7 @@ Function Install-App {
     Test-AppInstalled -AppName "Docker Toolbox version \d+\.\d+\.\d+(-ce)*" -RegexCompare
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Test-AppInstalled.md
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-AppInstalled.md
 #>
 Function Test-AppInstalled {
     Param (

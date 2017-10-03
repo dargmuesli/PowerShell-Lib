@@ -1,7 +1,7 @@
 ---
 external help file: TextLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Join-MultiLineStrings.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Join-MultiLineStrings.md
 schema: 2.0.0
 ---
 
@@ -70,5 +70,5 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Join-MultiLineStrings.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Join-MultiLineStrings.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Join-MultiLineStrings.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Join-MultiLineStrings.md)
 

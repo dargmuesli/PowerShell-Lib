@@ -1,7 +1,7 @@
 ---
 external help file: DockerLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-DockerMachine.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-DockerMachine.md
 schema: 2.0.0
 ---
 
@@ -36,5 +36,5 @@ Invoke-DockerMachine status MachineName
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-DockerMachine.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Invoke-DockerMachine.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-DockerMachine.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-DockerMachine.md)
 

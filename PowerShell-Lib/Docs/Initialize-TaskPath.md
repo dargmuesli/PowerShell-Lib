@@ -1,7 +1,7 @@
 ---
 external help file: PowerShellLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Initialize-TaskPath.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Initialize-TaskPath.md
 schema: 2.0.0
 ---
 
@@ -66,5 +66,5 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Initialize-TaskPath.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Initialize-TaskPath.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Initialize-TaskPath.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Initialize-TaskPath.md)
 

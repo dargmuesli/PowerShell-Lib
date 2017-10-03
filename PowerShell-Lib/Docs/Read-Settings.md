@@ -1,7 +1,7 @@
 ---
 external help file: ProjectLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Settings.md
+online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-Settings.md
 schema: 2.0.0
 ---
 
@@ -51,5 +51,5 @@ Accept wildcard characters: False
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Settings.md](https://github.com/Dargmuesli/powershell-lib/blob/master/Docs/Read-Settings.md)
+[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-Settings.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-Settings.md)
 
