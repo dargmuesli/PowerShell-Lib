@@ -695,7 +695,7 @@ Function Test-DockerRegistryRunning {
         $Hostname = $Matches[1]
     }
 
-    $WebRequest = Invoke-ExpressionSafe -Command "Invoke-WebRequest -Method GET -Uri `"http://${Hostname}:${Port}/v2/_catalog`" -UseBasicParsing" -Graceful
+    $WebRequest = Invoke-ExpressionSafe -Command "Invoke-WebRequest -Method GET -Uri `"http://${Hostname}:${Port}/v2/_catalog`" -UseBasicParsing" -Graceful -WithHost
 
     If ($WebRequest) {
         Return $True
