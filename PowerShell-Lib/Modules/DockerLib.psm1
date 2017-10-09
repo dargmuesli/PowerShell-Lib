@@ -425,8 +425,8 @@ Function Start-DockerRegistry {
             }
         }
 
-        If ($DockerInspectConfigHostname -And ($DockerInspectConfigHostname -Match "^[a-z0-9] {12}$")) {
-            docker start $DockerInspectConfigHostname
+        If ($DockerInspectConfigHostname) {
+            docker start $RegistryName
         } Else {
             If (Read-PromptYesNo -Caption "Docker registry does not exist." -Message "Do you want to initialize it automatically?" -DefaultChoice 0) {
                 docker run -d -h $Hostname -p "${Port}:5000" --name $RegistryName "registry:2"
