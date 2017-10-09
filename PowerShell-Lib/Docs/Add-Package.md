@@ -13,7 +13,7 @@ Adds a .NET framework package to the session.
 ## SYNTAX
 
 ```
-Add-Package [-Name] <String> [-Destination <String>]
+Add-Package [-Name] <String[]> [-Destination <String>]
 ```
 
 ## DESCRIPTION
@@ -32,7 +32,7 @@ Add-Package -Name "YamlDotNet"
 The name of the package that is to be added.
 
 ```yaml
-Type: String
+Type: String[]
 Parameter Sets: (All)
 Aliases: 
 

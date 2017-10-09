@@ -263,6 +263,9 @@ Function Install-ModuleOnce {
     .PARAMETER Destination
     The install destination.
 
+    .PARAMETER Add
+    Whether to add the package to the session.
+
     .EXAMPLE
     Install-PackageOnce -Name "YamlDotNet"
 
@@ -274,10 +277,12 @@ Function Install-PackageOnce {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         [String[]] $Name,
-
+        
         [Parameter(Mandatory = $False)]
         [ValidateScript({Test-PathValid -Path $PSItem})]
-        [String] $Destination
+        [String] $Destination,
+                
+        [Switch] $Add
     )
 
     Write-Verbose "Installing packages..."
@@ -291,6 +296,10 @@ Function Install-PackageOnce {
             If (-Not (Get-Package -Name $Item -ErrorAction SilentlyContinue)) {
                 Install-Package -Name $Item -Force
             }
+        }
+        
+        If ($Add) {
+            Add-Package $Item
         }
     }
 }
