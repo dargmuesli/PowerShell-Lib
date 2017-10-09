@@ -72,3 +72,6 @@ A library of helpful PowerShell functions.
   - [Test-ScriptValid](PowerShell-Lib/Docs/Test-ScriptValid.md)
   - [Test-SetValid](PowerShell-Lib/Docs/Test-SetValid.md)
   - [Test-TypeValid](PowerShell-Lib/Docs/Test-TypeValid.md)
+- **YamlDotNetLib**
+  - [New-DoubleQuotedString](PowerShell-Lib/Docs/New-DoubleQuotedString.md)
+  - [New-Yaml](PowerShell-Lib/Docs/New-Yaml.md)

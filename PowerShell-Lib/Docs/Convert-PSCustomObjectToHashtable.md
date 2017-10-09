@@ -13,7 +13,7 @@ Converts a PSCustomObject to a hashtable.
 ## SYNTAX
 
 ```
-Convert-PSCustomObjectToHashtable [-InputObject] <PSObject>
+Convert-PSCustomObjectToHashtable [-InputObject] <PSObject> [-YamlDotNet_DoubleQuoted]
 ```
 
 ## DESCRIPTION
@@ -40,6 +40,21 @@ Required: True
 Position: 1
 Default value: None
 Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -YamlDotNet_DoubleQuoted
+Toggle strings to have the YamlDotNet ScaralStyle "DoubleQuoted".
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

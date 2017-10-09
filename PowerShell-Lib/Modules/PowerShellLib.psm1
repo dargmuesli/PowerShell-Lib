@@ -10,6 +10,9 @@ Set-StrictMode -Version Latest
     .PARAMETER InputObject
     The PSCustomObject that is to be converted.
 
+    .PARAMETER YamlDotNet_DoubleQuoted
+    Toggle strings to have the YamlDotNet ScaralStyle "DoubleQuoted".
+
     .EXAMPLE
     Convert-PSCustomObjectToHashtable -InputObject $InputObject
 
@@ -20,7 +23,9 @@ Function Convert-PSCustomObjectToHashtable {
     Param (
         [Parameter(Mandatory = $True, Position = 0, ValueFromPipeline = $True)]
         [ValidateNotNullOrEmpty()]
-        [PSCustomObject] $InputObject
+        [PSCustomObject] $InputObject,
+
+        [Switch] $YamlDotNet_DoubleQuoted
     )
 
     $Hashtable = [Ordered] @{}
@@ -34,7 +39,15 @@ Function Convert-PSCustomObjectToHashtable {
                 $Hashtable[$InputProperty.Name] = Convert-PSCustomObjectToHashtable -InputObject ([PSCustomObject] $InputProperty.Value)
                 Break
             }
-            {@("Int32", "String") -Contains $PSItem} {
+            "Int32" {
+                $Hashtable[$InputProperty.Name] = $InputProperty.Value
+                Break
+            }
+            "String" {
+                If ($YamlDotNet_DoubleQuoted) {
+                    $InputProperty.Value = New-DoubleQuotedString($InputProperty.Value)
+                }
+
                 $Hashtable[$InputProperty.Name] = $InputProperty.Value
                 Break
             }
