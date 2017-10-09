@@ -1,6 +1,6 @@
 Param (
     [Parameter(Mandatory = $False)]
-    [ValidateSet('Default', 'CI', 'Initialize-Modules', 'Test-Pester', 'Clear-BuildFolders', 'New-Help', 'New-Readme')]
+    [ValidateSet('Default', 'CI', 'Install-Dependencies', 'Test-Pester', 'Clear-BuildFolders', 'New-Help', 'New-Readme')]
     [String] $Task = "Default"
 )
 
@@ -14,15 +14,47 @@ Function Import-RootModule {
     Import-Module -Name "${PSScriptRoot}\PowerShell-Lib\PowerShell-Lib.psd1" -Force
 }
 
-Function Initialize-Modules {
+Function Install-Modules {
     Param (
         [Switch] $Only
     )
 
-    If (-Not (Get-Module -ListAvailable -Name "platyPS")) {
-        Write-Host "Installing modules..." -ForegroundColor "Cyan"
-        Install-Module -Name @("platyPS", "Pester") -Scope "CurrentUser" -Force
+    Write-Host "Installing modules..." -ForegroundColor "Cyan"
+
+    $Modules = @("platyPS", "Pester")
+
+    ForEach ($Module In $Modules) {
+        If (-Not (Get-Module -Name $Module -ListAvailable)) {
+            Install-Module -Name $Module -Scope "CurrentUser" -Force
+        }
     }
+}
+
+Function Install-Packages {
+    Param (
+        [Switch] $Only
+    )
+
+    Write-Host "Installing packages..." -ForegroundColor "Cyan"
+
+    $Packages = @("YamlDotNet")
+
+    ForEach ($Package In $Packages) {
+        If (-Not (Get-Package -Name $Package -Destination "Packages" -ErrorAction SilentlyContinue)) {
+            Install-Package -Name $Package -Destination "Packages" -Force
+        }
+    }
+}
+
+Function Install-Dependencies {
+    Param (
+        [Switch] $Only
+    )
+
+    Write-Host "Installing dependencies..." -ForegroundColor "Cyan"
+
+    Install-Modules
+    Install-Packages
 }
 
 Function Test-Pester {
@@ -60,7 +92,7 @@ Function New-Help {
     )
 
     If (-Not $Only) {
-        Initialize-Modules
+        Install-Dependencies
         Clear-BuildFolders
     }
 
@@ -84,17 +116,17 @@ Function New-Readme {
 
 Switch ($Task) {
     "Default" {
+        Install-Dependencies -Only
         Test-Pester -Only
         Import-RootModule -Only
-        Initialize-Modules -Only
         Clear-BuildFolders -Only
         New-Help -Only
         New-Readme -Only
         Break
     }
     "CI" {
+        Install-Dependencies -Only
         Import-RootModule -Only
-        Initialize-Modules -Only
         Clear-BuildFolders -Only
         New-Help -Only
         New-Readme -Only
