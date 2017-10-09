@@ -248,6 +248,9 @@ Function Install-ModuleOnce {
     .PARAMETER Name
     The name of the package that is to be installed.
 
+    .PARAMETER Destination
+    The install destination.
+
     .EXAMPLE
     Install-PackageOnce -Name "YamlDotNet"
 
@@ -258,14 +261,24 @@ Function Install-PackageOnce {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
-        [String[]] $Name
+        [String[]] $Name,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateScript({Test-PathValid -Path $PSItem})]
+        [String] $Destination
     )
 
     Write-Verbose "Installing packages..."
 
     ForEach ($Item In $Name) {
-        If (-Not (Get-Package -Name $Item -Destination "Packages" -ErrorAction SilentlyContinue)) {
-            Install-Package -Name $Item -Destination "Packages" -Force
+        If ($Destination) {
+            If (-Not (Get-Package -Name $Item -Destination $Destination -ErrorAction SilentlyContinue)) {
+                Install-Package -Name $Item -Destination $Destination -Force
+            }
+        } Else {
+            If (-Not (Get-Package -Name $Item -ErrorAction SilentlyContinue)) {
+                Install-Package -Name $Item -Force
+            }
         }
     }
 }
