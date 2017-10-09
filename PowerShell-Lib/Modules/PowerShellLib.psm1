@@ -73,7 +73,7 @@ Function Convert-PSCustomObjectToHashtable {
 
         Switch ($PSItem.Value.GetType().Name) {
             {@("Hashtable", "PSCustomObject") -Contains $PSItem} {
-                $Hashtable[$InputProperty.Name] = Convert-PSCustomObjectToHashtable -InputObject ([PSCustomObject] $InputProperty.Value)
+                $Hashtable[$InputProperty.Name] = Convert-PSCustomObjectToHashtable -InputObject ([PSCustomObject] $InputProperty.Value) -YamlDotNet_DoubleQuoted:$YamlDotNet_DoubleQuoted
                 Break
             }
             "Int32" {
