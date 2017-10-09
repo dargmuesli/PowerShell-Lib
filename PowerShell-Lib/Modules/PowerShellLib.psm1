@@ -89,7 +89,17 @@ Function Convert-PSCustomObjectToHashtable {
                 Break
             }
             "Object[]" {
-                $Hashtable[$InputProperty.Name] = [Object[]] $InputProperty.Value
+                $ObjectArray = $InputProperty.Value
+
+                If ($YamlDotNet_DoubleQuoted) {
+                    ForEach ($Item In $ObjectArray) {
+                        If ($Item.GetType().Name -Eq "String") {
+                            $ObjectArray[[Array]::IndexOf($ObjectArray, $Item)] = New-DoubleQuotedString($Item)
+                        }
+                    }
+                }
+
+                $Hashtable[$InputProperty.Name] = [Object[]] $ObjectArray
                 Break
             }
         }
