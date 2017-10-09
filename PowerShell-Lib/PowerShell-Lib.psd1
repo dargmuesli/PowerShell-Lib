@@ -30,7 +30,8 @@
         'Modules\ProjectLib.psm1',
         'Modules\SystemLib.psm1',
         'Modules\TextLib.psm1',
-        'Modules\ValidationLib.psm1'
+        'Modules\ValidationLib.psm1',
+        'Modules\YamlDotNetLib.psm1'
     )
 
     # Functions to export from this module
