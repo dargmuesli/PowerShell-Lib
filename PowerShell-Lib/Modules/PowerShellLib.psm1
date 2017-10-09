@@ -2,6 +2,43 @@ Set-StrictMode -Version Latest
 
 <#
     .SYNOPSIS
+    Adds a .NET framework package to the session.
+
+    .DESCRIPTION
+    The "Add-Package" cmdlet searches a package's .dll and imports it.
+
+    .PARAMETER Name
+    The name of the package that is to be added.
+
+    .PARAMETER Destination
+    The path that is to be searched.
+
+    .EXAMPLE
+    Add-Package -Name "YamlDotNet"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Add-Package.md
+#>
+Function Add-Package {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Name,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateScript({Test-PathValid -Path $PSItem})]
+        [String] $Destination
+    )
+
+    If ($Destination) {
+        Add-Type -Path (Get-ChildItem -Path (Get-Item (Get-Package -Name $Name -Destination $Destination).Source).Directory -Filter "$Name.dll" -Recurse -Force)[0].FullName
+    } Else {
+        Add-Type -Path (Get-ChildItem -Path (Get-Item (Get-Package -Name $Name).Source).Directory -Filter "$Name.dll" -Recurse -Force)[0].FullName
+    }
+}
+
+<#
+    .SYNOPSIS
     Converts a PSCustomObject to a hashtable.
 
     .DESCRIPTION
@@ -154,6 +191,94 @@ Function Initialize-TaskPath {
             Remove-Item -Path $TaskPath
         } Else {
             Throw "The path already exists and the parameter `"Overwrite`" is not passed."
+        }
+    }
+}
+
+<#
+    .SYNOPSIS
+    Installs a module only if it is not already installed.
+
+    .DESCRIPTION
+    The "Install-ModuleOnce" cmdlet checks whether a module is already installed and installs it if not.
+
+    .PARAMETER Name
+    The name of the module that is to be installed.
+
+    .PARAMETER Scope
+    The installation scope.
+
+    .EXAMPLE
+    Install-ModuleOnce -Name "Pester"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-ModuleOnce.md
+#>
+Function Install-ModuleOnce {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String[]] $Name,
+
+        [Parameter(Mandatory = $False, Position = 1)]
+        [ValidateSet('CurrentUser', 'AllUsers')]
+        [String] $Scope
+    )
+
+    Write-Verbose "Installing modules..."
+
+    ForEach ($Item In $Name) {
+        If (-Not (Get-Module -Name $Item -ListAvailable)) {
+            If ($Scope) {
+                Install-Module -Name $Item -Scope $Scope -Force
+            } Else {
+                Install-Module -Name $Item -Force
+            }
+        }
+    }
+}
+
+<#
+    .SYNOPSIS
+    Installs a package only if it is not already installed.
+
+    .DESCRIPTION
+    The "Install-PackageOnce" cmdlet checks whether a package is already installed and installs it if not.
+
+    .PARAMETER Name
+    The name of the package that is to be installed.
+
+    .PARAMETER Destination
+    The install destination.
+
+    .EXAMPLE
+    Install-PackageOnce -Name "YamlDotNet"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-PackageOnce.md
+#>
+Function Install-PackageOnce {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String[]] $Name,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateScript({Test-PathValid -Path $PSItem})]
+        [String] $Destination
+    )
+
+    Write-Verbose "Installing packages..."
+
+    ForEach ($Item In $Name) {
+        If ($Destination) {
+            If (-Not (Get-Package -Name $Item -Destination $Destination -ErrorAction SilentlyContinue)) {
+                Install-Package -Name $Item -Destination $Destination -Force
+            }
+        } Else {
+            If (-Not (Get-Package -Name $Item -ErrorAction SilentlyContinue)) {
+                Install-Package -Name $Item -Force
+            }
         }
     }
 }
