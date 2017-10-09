@@ -34,9 +34,12 @@ A library of helpful PowerShell functions.
   - [Test-DockerToolboxInstalled](PowerShell-Lib/Docs/Test-DockerToolboxInstalled.md)
   - [Write-DockerComposeFile](PowerShell-Lib/Docs/Write-DockerComposeFile.md)
 - **PowerShellLib**
+  - [Add-Package](PowerShell-Lib/Docs/Add-Package.md)
   - [Convert-PSCustomObjectToHashtable](PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md)
   - [Get-FileFromWeb](PowerShell-Lib/Docs/Get-FileFromWeb.md)
   - [Initialize-TaskPath](PowerShell-Lib/Docs/Initialize-TaskPath.md)
+  - [Install-ModuleOnce](PowerShell-Lib/Docs/Install-ModuleOnce.md)
+  - [Install-PackageOnce](PowerShell-Lib/Docs/Install-PackageOnce.md)
   - [Invoke-ExpressionSafe](PowerShell-Lib/Docs/Invoke-ExpressionSafe.md)
   - [Invoke-WebRequestWithProgress](PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md)
   - [Merge-Objects](PowerShell-Lib/Docs/Merge-Objects.md)

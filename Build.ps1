@@ -14,38 +14,6 @@ Function Import-RootModule {
     Import-Module -Name "${PSScriptRoot}\PowerShell-Lib\PowerShell-Lib.psd1" -Force
 }
 
-Function Install-Modules {
-    Param (
-        [Switch] $Only
-    )
-
-    Write-Host "Installing modules..." -ForegroundColor "Cyan"
-
-    $Modules = @("platyPS", "Pester")
-
-    ForEach ($Module In $Modules) {
-        If (-Not (Get-Module -Name $Module -ListAvailable)) {
-            Install-Module -Name $Module -Scope "CurrentUser" -Force
-        }
-    }
-}
-
-Function Install-Packages {
-    Param (
-        [Switch] $Only
-    )
-
-    Write-Host "Installing packages..." -ForegroundColor "Cyan"
-
-    $Packages = @("YamlDotNet")
-
-    ForEach ($Package In $Packages) {
-        If (-Not (Get-Package -Name $Package -Destination "Packages" -ErrorAction SilentlyContinue)) {
-            Install-Package -Name $Package -Destination "Packages" -Force
-        }
-    }
-}
-
 Function Install-Dependencies {
     Param (
         [Switch] $Only
@@ -53,8 +21,8 @@ Function Install-Dependencies {
 
     Write-Host "Installing dependencies..." -ForegroundColor "Cyan"
 
-    Install-Modules
-    Install-Packages
+    Install-ModuleOnce -Name @("platyPS", "Pester")
+    Install-PackageOnce -Name @("YamlDotNet")
 }
 
 Function Test-Pester {
@@ -116,6 +84,7 @@ Function New-Readme {
 
 Switch ($Task) {
     "Default" {
+        Import-RootModule -Only
         Install-Dependencies -Only
         Test-Pester -Only
         Import-RootModule -Only
@@ -125,6 +94,7 @@ Switch ($Task) {
         Break
     }
     "CI" {
+        Import-RootModule -Only
         Install-Dependencies -Only
         Import-RootModule -Only
         Clear-BuildFolders -Only
