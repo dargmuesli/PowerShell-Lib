@@ -23,17 +23,19 @@ Function Add-Package {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
-        [String] $Name,
+        [String[]] $Name,
 
         [Parameter(Mandatory = $False)]
         [ValidateScript({Test-PathValid -Path $PSItem})]
         [String] $Destination
     )
 
-    If ($Destination) {
-        Add-Type -Path (Get-ChildItem -Path (Get-Item (Get-Package -Name $Name -Destination $Destination).Source).Directory -Filter "$Name.dll" -Recurse -Force)[0].FullName
-    } Else {
-        Add-Type -Path (Get-ChildItem -Path (Get-Item (Get-Package -Name $Name).Source).Directory -Filter "$Name.dll" -Recurse -Force)[0].FullName
+    ForEach ($Item In $Name) {
+        If ($Destination) {
+            Add-Type -Path (Get-ChildItem -Path (Get-Item (Get-Package -Name $Item -Destination $Destination).Source).Directory -Filter "$Item.dll" -Recurse -Force)[0].FullName
+        } Else {
+            Add-Type -Path (Get-ChildItem -Path (Get-Item (Get-Package -Name $Item).Source).Directory -Filter "$Item.dll" -Recurse -Force)[0].FullName
+        }
     }
 }
 
