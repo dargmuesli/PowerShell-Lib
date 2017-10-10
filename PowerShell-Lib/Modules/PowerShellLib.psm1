@@ -347,8 +347,6 @@ Function Invoke-ExpressionSafe {
 
     Try {
         $Stdout = Invoke-Expression -Command "$Command 2>$TmpFile"
-        # | Tee-Object -Variable Stdout
-        # -OutVariable Stdout
     } Catch {
         $PSItem > $TmpFile
     }

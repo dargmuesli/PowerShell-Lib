@@ -23,7 +23,7 @@ Function Clear-Linebreaks {
         [String] $String
     )
 
-    $String -Replace "`r", "" -Replace "`n", ""
+    $String -Replace "`r|`n", ""
 }
 
 <#
