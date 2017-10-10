@@ -593,7 +593,7 @@ Function Test-DockerInstalled {
     https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerInSwarm.md
 #>
 Function Test-DockerInSwarm {
-    $DockerSwarmInit = Invoke-ExpressionSafe -Command "Invoke-Docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithError
+    $DockerSwarmInit = Invoke-ExpressionSafe -Command "Invoke-Docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithHost
 
     If ($DockerSwarmInit -CMatch "^Swarm initialized*") {
         Invoke-ExpressionSafe -Command "Invoke-Docker swarm leave -f" -Graceful | Out-Null
@@ -739,12 +739,12 @@ Function Test-DockerRegistryRunning {
     https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerRunning.md
 #>
 Function Test-DockerRunning {
-    $DockerProcessesAll = Invoke-ExpressionSafe "Invoke-Docker ps -a" -Graceful -WithError
+    $DockerProcessesAll = Invoke-ExpressionSafe "Invoke-Docker ps -a" -Graceful -WithHost
 
-    If ((-Not $DockerProcessesAll) -Or ($DockerProcessesAll -CMatch "^docker : error*")) {
-        Return $False
-    } Else {
+    If ($DockerProcessesAll) {
         Return $True
+    } Else {
+        Return $False
     }
 }
 
