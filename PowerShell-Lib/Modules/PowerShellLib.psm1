@@ -271,6 +271,9 @@ Function Install-ModuleOnce {
     .PARAMETER Add
     Whether to add the package to the session.
 
+    .PARAMETER Force
+    Whether to force the installation.
+
     .EXAMPLE
     Install-PackageOnce -Name "YamlDotNet"
 
@@ -286,7 +289,9 @@ Function Install-PackageOnce {
         [Parameter(Mandatory = $False)]
         [ValidateScript({Test-PathValid -Path $PSItem})]
         [String] $Destination,
-                
+        
+        [Switch] $Force,
+
         [Switch] $Add
     )
 
@@ -302,7 +307,7 @@ Function Install-PackageOnce {
         $Parameters["Name"] = $Item
 
         If (-Not (Get-Package @Parameters -ErrorAction SilentlyContinue)) {
-            Install-Package @Parameters -Force
+            Install-Package @Parameters -Force:$Force
         }
         
         If ($Add) {
