@@ -13,7 +13,7 @@ Installs a module only if it is not already installed.
 ## SYNTAX
 
 ```
-Install-ModuleOnce [-Name] <String[]> [[-Scope] <String>]
+Install-ModuleOnce [-Name] <String[]> [[-Scope] <String>] [-Force]
 ```
 
 ## DESCRIPTION
@@ -54,6 +54,21 @@ Aliases:
 Required: False
 Position: 2
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Force
+Whether to force the installation.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

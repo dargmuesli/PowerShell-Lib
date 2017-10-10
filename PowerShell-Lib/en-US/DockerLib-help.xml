@@ -272,6 +272,47 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Invoke-Docker</command:name>
+      <command:verb>Invoke</command:verb>
+      <command:noun>Docker</command:noun>
+      <maml:description>
+        <maml:para>Invokes docker commands.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The "Invoke-Docker" cmdlet verifies the existence of the "docker" command and executes it with the given parameters.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Invoke-Docker</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <dev:code>Invoke-Docker start registry</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-Docker.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-Docker.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Invoke-DockerMachine</command:name>
       <command:verb>Invoke</command:verb>
       <command:noun>DockerMachine</command:noun>

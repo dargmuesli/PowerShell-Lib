@@ -13,7 +13,7 @@ Installs a package only if it is not already installed.
 ## SYNTAX
 
 ```
-Install-PackageOnce [-Name] <String[]> [-Destination <String>] [-Add]
+Install-PackageOnce [-Name] <String[]> [-Destination <String>] [-Force] [-Add]
 ```
 
 ## DESCRIPTION
@@ -54,6 +54,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Force
+Whether to force the installation.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: 
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
