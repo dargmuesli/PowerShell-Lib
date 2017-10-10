@@ -92,7 +92,7 @@ Function Convert-PSCustomObjectToHashtable {
                 If ($YamlDotNet_DoubleQuoted) {
                     ForEach ($Item In $ObjectArray) {
                         If ($Item.GetType().Name -Eq "String") {
-                            Set-ArrayItem -Array $ObjectArray -NewItem New-DoubleQuotedString($Item) -OldItem $Item
+                            $ObjectArray = Set-ArrayItem -Array $ObjectArray -NewItem (New-DoubleQuotedString($Item)) -OldItem $Item
                         }
                     }
                 }
