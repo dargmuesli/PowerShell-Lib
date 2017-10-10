@@ -478,12 +478,10 @@ Function Merge-Objects {
 
     $ReturnObject = [PSCustomObject] @{}
 
-    Foreach ($Property In $Object1.PSObject.Properties) {
-        $ReturnObject | Add-Member -Type NoteProperty -Name $Property.Name -Value $Property.Value -Force
-    }
-
-    Foreach ($Property In $Object2.PSObject.Properties) {
-        $ReturnObject | Add-Member -Type NoteProperty -Name $Property.Name -Value $Property.Value -Force
+    Foreach ($Object In @($Object1, $Object2)) {
+        Foreach ($Property In $Object.PSObject.Properties) {
+            $ReturnObject | Add-Member -Type NoteProperty -Name $Property.Name -Value $Property.Value -Force
+        }
     }
 
     Return $ReturnObject
