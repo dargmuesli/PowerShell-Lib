@@ -171,6 +171,10 @@ Function Invoke-Docker {
         Throw "Command `"docker`" not found."
     }
 
+    If (-Not (Test-DockerRunning)) {
+        Throw "Docker is not running."
+    }
+
     docker $Args
 }
 
