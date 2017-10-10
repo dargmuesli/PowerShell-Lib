@@ -241,7 +241,7 @@ Function Install-ModuleOnce {
     Write-Verbose "Installing modules..."
 
     $Parameters = @{}
-    
+
     If ($Scope) {
         $Parameters["Scope"] = $Scope
     }
@@ -268,6 +268,9 @@ Function Install-ModuleOnce {
     .PARAMETER Destination
     The install destination.
 
+    .PARAMETER Scope
+    The installation scope.
+
     .PARAMETER Add
     Whether to add the package to the session.
 
@@ -285,11 +288,15 @@ Function Install-PackageOnce {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         [String[]] $Name,
-        
+
         [Parameter(Mandatory = $False)]
         [ValidateScript({Test-PathValid -Path $PSItem})]
         [String] $Destination,
-        
+
+        [Parameter(Mandatory = $False)]
+        [ValidateSet('CurrentUser', 'AllUsers')]
+        [String] $Scope,
+
         [Switch] $Force,
 
         [Switch] $Add
@@ -298,9 +305,13 @@ Function Install-PackageOnce {
     Write-Verbose "Installing packages..."
 
     $Parameters = @{}
-    
+
     If ($Destination) {
         $Parameters["Destination"] = $Destination
+    }
+
+    If ($Scope) {
+        $Parameters["Scope"] = $Scope
     }
 
     ForEach ($Item In $Name) {
@@ -309,7 +320,7 @@ Function Install-PackageOnce {
         If (-Not (Get-Package @Parameters -ErrorAction SilentlyContinue)) {
             Install-Package @Parameters -Force:$Force
         }
-        
+
         If ($Add) {
             Add-Package $Item
         }
@@ -698,11 +709,11 @@ Function Set-ArrayItem {
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateNotNullOrEmpty()]
         $Array,
-        
+
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
         $NewItem,
-        
+
         [Parameter(Mandatory = $False, Position = 2)]
         [ValidateNotNullOrEmpty()]
         $OldItem
