@@ -31,11 +31,7 @@ Function Add-Package {
     )
 
     ForEach ($Item In $Name) {
-        If ($Destination) {
-            Add-Type -Path (Get-ChildItem -Path (Get-Item (Get-Package -Name $Item -Destination $Destination).Source).Directory -Filter "$Item.dll" -Recurse -Force)[0].FullName
-        } Else {
-            Add-Type -Path (Get-ChildItem -Path (Get-Item (Get-Package -Name $Item).Source).Directory -Filter "$Item.dll" -Recurse -Force)[0].FullName
-        }
+        Add-Type -Path (Get-ChildItem -Path (Get-Item (Get-Package @PsBoundParameters).Source).Directory -Filter "$Item.dll" -Recurse -Force)[0].FullName
     }
 }
 
@@ -220,6 +216,9 @@ Function Initialize-TaskPath {
     .PARAMETER Scope
     The installation scope.
 
+    .PARAMETER Force
+    Whether to force the installation.
+
     .EXAMPLE
     Install-ModuleOnce -Name "Pester"
 
@@ -234,18 +233,24 @@ Function Install-ModuleOnce {
 
         [Parameter(Mandatory = $False, Position = 1)]
         [ValidateSet('CurrentUser', 'AllUsers')]
-        [String] $Scope
+        [String] $Scope,
+
+        [Switch] $Force
     )
 
     Write-Verbose "Installing modules..."
 
+    $Parameters = @{}
+    
+    If ($Scope) {
+        $Parameters["Scope"] = $Scope
+    }
+
     ForEach ($Item In $Name) {
-        If (-Not (Get-Module -Name $Item -ListAvailable)) {
-            If ($Scope) {
-                Install-Module -Name $Item -Scope $Scope -Force
-            } Else {
-                Install-Module -Name $Item -Force
-            }
+        $Parameters["Name"] = $Item
+
+        If (-Not (Get-Module @Parameters -ListAvailable)) {
+            Install-Module @Parameters
         }
     }
 }
@@ -287,15 +292,17 @@ Function Install-PackageOnce {
 
     Write-Verbose "Installing packages..."
 
+    $Parameters = @{}
+    
+    If ($Destination) {
+        $Parameters["Destination"] = $Destination
+    }
+
     ForEach ($Item In $Name) {
-        If ($Destination) {
-            If (-Not (Get-Package -Name $Item -Destination $Destination -ErrorAction SilentlyContinue)) {
-                Install-Package -Name $Item -Destination $Destination -Force
-            }
-        } Else {
-            If (-Not (Get-Package -Name $Item -ErrorAction SilentlyContinue)) {
-                Install-Package -Name $Item -Force
-            }
+        $Parameters["Name"] = $Item
+
+        If (-Not (Get-Package @Parameters -ErrorAction SilentlyContinue)) {
+            Install-Package @Parameters -Force
         }
         
         If ($Add) {

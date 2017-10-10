@@ -21,8 +21,8 @@ Function Install-Dependencies {
 
     Write-Host "Installing dependencies..." -ForegroundColor "Cyan"
 
-    Install-ModuleOnce -Name @("platyPS", "Pester")
-    Install-PackageOnce -Name @("YamlDotNet") -Destination "Packages"
+    Install-ModuleOnce -Name @("platyPS", "Pester") -Force
+    Install-PackageOnce -Name @("YamlDotNet") -Destination "Packages" -Force
 }
 
 Function Test-Pester {
