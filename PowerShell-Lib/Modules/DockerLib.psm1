@@ -155,6 +155,27 @@ Function Install-Docker {
 
 <#
     .SYNOPSIS
+    Invokes docker commands.
+
+    .DESCRIPTION
+    The "Invoke-Docker" cmdlet verifies the existence of the "docker" command and executes it with the given parameters.
+
+    .EXAMPLE
+    Invoke-Docker start registry
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-Docker.md
+#>
+Function Invoke-Docker {
+    If (-Not (Test-DockerCommand)) {
+        Throw "Command `"docker`" not found."
+    }
+
+    docker $Args
+}
+
+<#
+    .SYNOPSIS
     Invokes docker-machine commands.
 
     .DESCRIPTION
@@ -299,20 +320,20 @@ Function Start-Docker {
                 }
 
                 $MountOptions = "defaults,iocharset=utf8"
-                $DockerPasswd = & docker-machine ssh $MachineName "grep '^docker:' /etc/passwd"
+                $DockerPasswd = Invoke-DockerMachine ssh $MachineName "grep '^docker:' /etc/passwd"
 
                 If ($DockerPasswd.StartsWith('docker:')) {
                     $MountOptions = "$MountOptions,$($DockerPasswd -replace '^docker:[^:]*:(\d+):(\d+):.*$', 'uid=$1,gid=$2')"
                 }
 
-                $VirtualBoxMounts = & docker-machine ssh $MachineName mount |
+                $VirtualBoxMounts = Invoke-DockerMachine ssh $MachineName mount |
                     ForEach-Object {
                     If ($PSItem -Match 'on (.*) type vboxsf ') {
                         $Matches[1]
                     }
                 }
 
-                & docker-machine ssh $MachineName "sudo VBoxControl sharedfolder list -automount" |
+                Invoke-DockerMachine ssh $MachineName "sudo VBoxControl sharedfolder list -automount" |
                     ForEach-Object {
                     If ($PSItem -Match '^[0-9]+ - (?<ShareName>((?<DriveLetter>[A-Za-z]):)?(?<FolderName>.*))$') {
                         $MountPoint = "$($Matches['DriveLetter'])$($Matches['FolderName'])"
@@ -324,7 +345,7 @@ Function Start-Docker {
                         If (-Not ($VirtualBoxMounts -CContains $MountPoint)) {
                             Write-Output "Mounting $($Matches['ShareName']) to $MountPoint..."
 
-                            & docker-machine ssh $MachineName "sudo mkdir -p $MountPoint && sudo mount -t vboxsf -o $MountOptions $($Matches['ShareName']) $MountPoint"
+                            Invoke-DockerMachine ssh $MachineName "sudo mkdir -p $MountPoint && sudo mount -t vboxsf -o $MountOptions $($Matches['ShareName']) $MountPoint"
                         }
                     }
                 }
@@ -417,7 +438,7 @@ Function Start-DockerRegistry {
     )
 
     While (-Not (Test-DockerRegistryRunning -Hostname $Hostname -Port $Port)) {
-        $DockerInspectConfigHostname = docker inspect -f "{{.Config.Hostname}}" $RegistryName |
+        $DockerInspectConfigHostname = Invoke-Docker inspect -f "{{.Config.Hostname}}" $RegistryName |
             Out-String |
             ForEach-Object {
             If ($PSItem) {
@@ -426,10 +447,10 @@ Function Start-DockerRegistry {
         }
 
         If ($DockerInspectConfigHostname) {
-            docker start $RegistryName
+            Invoke-Docker start $RegistryName
         } Else {
             If (Read-PromptYesNo -Caption "Docker registry does not exist." -Message "Do you want to initialize it automatically?" -DefaultChoice 0) {
-                docker run -d -h $Hostname -p "${Port}:5000" --name $RegistryName "registry:2"
+                Invoke-Docker run -d -h $Hostname -p "${Port}:5000" --name $RegistryName "registry:2"
 
                 Wait-Test -Test "-Not (Test-DockerRegistryRunning -Hostname $Hostname -Port $Port)" -WithProgressBar -Activity "Waiting for Docker registry to initialize"
             } Else {
@@ -490,7 +511,7 @@ Function Stop-DockerStack {
     )
 
     Write-Debug -Message "Removing Docker stack $StackName..."
-    docker stack rm $StackName
+    Invoke-Docker stack rm $StackName
 
     Wait-Test -Test "Test-DockerStackRunning -StackNamespace $StackName" -WithProgressBar -Activity "Waiting for Docker stack to quit"
 }
@@ -572,10 +593,10 @@ Function Test-DockerInstalled {
     https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerInSwarm.md
 #>
 Function Test-DockerInSwarm {
-    $DockerSwarmInit = Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithError
+    $DockerSwarmInit = Invoke-ExpressionSafe -Command "Invoke-Docker swarm init --advertise-addr `"eth0:2377`"" -Graceful -WithError
 
     If ($DockerSwarmInit -CMatch "^Swarm initialized*") {
-        Invoke-ExpressionSafe -Command "docker swarm leave -f" -Graceful | Out-Null
+        Invoke-ExpressionSafe -Command "Invoke-Docker swarm leave -f" -Graceful | Out-Null
 
         Return $False
     } Else {
@@ -718,7 +739,7 @@ Function Test-DockerRegistryRunning {
     https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerRunning.md
 #>
 Function Test-DockerRunning {
-    $DockerProcessesAll = Invoke-ExpressionSafe "docker ps -a" -Graceful -WithError
+    $DockerProcessesAll = Invoke-ExpressionSafe "Invoke-Docker ps -a" -Graceful -WithError
 
     If ((-Not $DockerProcessesAll) -Or ($DockerProcessesAll -CMatch "^docker : error*")) {
         Return $False
@@ -750,7 +771,7 @@ Function Test-DockerStackRunning {
         [String] $StackNamespace
     )
 
-    $ServiceList = docker ps --filter "label=com.docker.stack.namespace=$StackNamespace" -q | Out-String
+    $ServiceList = Invoke-Docker ps --filter "label=com.docker.stack.namespace=$StackNamespace" -q | Out-String
 
     If ($ServiceList) {
         Return $True
