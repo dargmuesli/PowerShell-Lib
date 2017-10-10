@@ -268,6 +268,9 @@ Function Install-ModuleOnce {
     .PARAMETER Destination
     The install destination.
 
+    .PARAMETER Scope
+    The installation scope.
+
     .PARAMETER Add
     Whether to add the package to the session.
 
@@ -290,6 +293,10 @@ Function Install-PackageOnce {
         [ValidateScript({Test-PathValid -Path $PSItem})]
         [String] $Destination,
         
+        [Parameter(Mandatory = $False)]
+        [ValidateSet('CurrentUser', 'AllUsers')]
+        [String] $Scope,
+
         [Switch] $Force,
 
         [Switch] $Add
@@ -301,6 +308,10 @@ Function Install-PackageOnce {
     
     If ($Destination) {
         $Parameters["Destination"] = $Destination
+    }
+
+    If ($Scope) {
+        $Parameters["Scope"] = $Scope
     }
 
     ForEach ($Item In $Name) {
