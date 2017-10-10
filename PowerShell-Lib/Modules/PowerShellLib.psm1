@@ -92,7 +92,7 @@ Function Convert-PSCustomObjectToHashtable {
                 If ($YamlDotNet_DoubleQuoted) {
                     ForEach ($Item In $ObjectArray) {
                         If ($Item.GetType().Name -Eq "String") {
-                            $ObjectArray[[Array]::IndexOf($ObjectArray, $Item)] = New-DoubleQuotedString($Item)
+                            Set-ArrayItem -Array $ObjectArray -NewItem New-DoubleQuotedString($Item) -OldItem $Item
                         }
                     }
                 }
@@ -666,6 +666,52 @@ Function Read-PromptYesNo {
     } Else {
         Return $False
     }
+}
+
+<#
+    .SYNOPSIS
+    Sets an array item.
+
+    .DESCRIPTION
+    The "Set-ArrayItem" cmdlet either replaces an old item with a new one or simply adds a new one to an existing array.
+
+    .PARAMETER Array
+    The array to perform the operations on.
+
+    .PARAMETER NewItem
+    The item that is to be inserted.
+
+    .PARAMETER OldItem
+    The item that is to be overridden.
+
+    .EXAMPLE
+    Set-ArrayItem -Array @(1, 3) -NewItem 2
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Set-ArrayItem.md
+#>
+Function Set-ArrayItem {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        $Array,
+        
+        [Parameter(Mandatory = $True, Position = 1)]
+        [ValidateNotNullOrEmpty()]
+        $NewItem,
+        
+        [Parameter(Mandatory = $False, Position = 2)]
+        [ValidateNotNullOrEmpty()]
+        $OldItem
+    )
+
+    If ($OldItem) {
+        $Array[[Array]::IndexOf($Array, $OldItem)] = $NewItem
+    } Else {
+        $Array.Add($NewItem)
+    }
+
+    Return $Array
 }
 
 <#
