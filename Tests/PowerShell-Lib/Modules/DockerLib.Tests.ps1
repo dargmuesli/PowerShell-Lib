@@ -283,14 +283,6 @@ Describe "Test-DockerRunning" {
         It "should return false for null" {
             Test-DockerRunning | Should Be $False
         }
-
-        Mock "Invoke-ExpressionSafe" {
-            Return "docker : error"
-        } -ModuleName "DockerLib"
-
-        It "should return false for error" {
-            Test-DockerRunning | Should Be $False
-        }
     }
 }
 
