@@ -2,3 +2,12 @@
 
 # PowerShell-Lib
 A library of helpful PowerShell functions.
+
+## Installation
+This library can be used in other PowerShell modules via [PSDepend](https://github.com/RamblingCookieMonster/PSDepend) and a `Requirements.psd1` file similar to the following:
+
+```PowerShell
+@{
+    'dargmuesli/powershell-lib' = 'latest'
+}
+```
