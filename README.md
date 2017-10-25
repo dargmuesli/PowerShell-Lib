@@ -4,11 +4,18 @@
 A library of helpful PowerShell functions.
 
 ## Installation
-This library can be used in other PowerShell modules via [PSDepend](https://github.com/RamblingCookieMonster/PSDepend) and a `Requirements.psd1` file similar to the following:
+As this module is only available on GitHub, [PSDepend](https://github.com/RamblingCookieMonster/PSDepend) is needed to install it. If not yet done, have a look on [how to install PSDepend](https://github.com/RamblingCookieMonster/PSDepend#installing-psdepend) or just use these commands for PowerShell 5:
+
+```PowerShell
+    Install-Module PSDepend -Scope CurrentUser
+    Invoke-PSDepend @{"dargmuesli/powershell-lib"=""} -Install
+```
+
+PSDepend also allows other modules to depend on this one. Add the following line to your `Requirements.psd1` file:
 
 ```PowerShell
 @{
-    'dargmuesli/powershell-lib' = 'latest'
+    "dargmuesli/powershell-lib" = ""
 }
 ```
 
