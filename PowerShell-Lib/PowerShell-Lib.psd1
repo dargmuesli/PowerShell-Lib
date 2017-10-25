@@ -26,6 +26,7 @@
     NestedModules     = @(
         'Modules\AppLib.psm1',
         'Modules\DockerLib.psm1',
+        'Modules\JavaLib.psm1',
         'Modules\PowerShellLib.psm1',
         'Modules\ProjectLib.psm1',
         'Modules\SystemLib.psm1',

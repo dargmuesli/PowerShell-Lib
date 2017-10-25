@@ -41,6 +41,9 @@ This library can be used in other PowerShell modules via [PSDepend](https://gith
   - [Test-DockerStackRunning](PowerShell-Lib/Docs/Test-DockerStackRunning.md)
   - [Test-DockerToolboxInstalled](PowerShell-Lib/Docs/Test-DockerToolboxInstalled.md)
   - [Write-DockerComposeFile](PowerShell-Lib/Docs/Write-DockerComposeFile.md)
+- **JavaLib**
+  - [Test-JDKInstalled](PowerShell-Lib/Docs/Test-JDKInstalled.md)
+  - [Test-JREInstalled](PowerShell-Lib/Docs/Test-JREInstalled.md)
 - **PowerShellLib**
   - [Add-Package](PowerShell-Lib/Docs/Add-Package.md)
   - [Convert-PSCustomObjectToHashtable](PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md)
