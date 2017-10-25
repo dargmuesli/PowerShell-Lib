@@ -167,7 +167,7 @@ Function Install-Docker {
     https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-Docker.md
 #>
 Function Invoke-Docker {
-    If (-Not (Test-DockerCommand)) {
+    If (-Not (Test-Command -Command "docker")) {
         Throw "Command `"docker`" not found."
     }
 
@@ -192,7 +192,7 @@ Function Invoke-Docker {
     https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-DockerMachine.md
 #>
 Function Invoke-DockerMachine {
-    If (-Not (Test-DockerMachineCommand)) {
+    If (-Not (Test-Command -Command "docker-machine")) {
         Throw "Command `"docker-machine`" not found."
     }
 
@@ -311,7 +311,7 @@ Function Start-Docker {
                 Break
             }
             "Toolbox" {
-                If (-Not (Test-DockerMachineCommand)) {
+                If (-Not (Test-Command -Command "docker-machine")) {
                     Throw "Command `"docker-machine`" not found."
                 }
 
@@ -522,27 +522,6 @@ Function Stop-DockerStack {
 
 <#
     .SYNOPSIS
-    Checks the availability of the "docker" command.
-
-    .DESCRIPTION
-    The "Test-DockerCommand" cmdlet tries to get the "docker" command and returns true on success.
-
-    .EXAMPLE
-    Test-DockerCommand
-
-    .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerCommand.md
-#>
-Function Test-DockerCommand {
-    If (Get-Command -Name "docker" -ErrorAction "SilentlyContinue") {
-        Return $True
-    } Else {
-        Return $False
-    }
-}
-
-<#
-    .SYNOPSIS
     Checks whether Docker for Windows is installed.
 
     .DESCRIPTION
@@ -605,27 +584,6 @@ Function Test-DockerInSwarm {
         Return $False
     } Else {
         Return $True
-    }
-}
-
-<#
-    .SYNOPSIS
-    Checks the availability of the "docker-machine" command.
-
-    .DESCRIPTION
-    The "Test-DockerMachineCommand" cmdlet tries to get the "docker-machine" command and returns true on success.
-
-    .EXAMPLE
-    Test-DockerMachineCommand
-
-    .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerMachineCommand.md
-#>
-Function Test-DockerMachineCommand {
-    If (Get-Command -Name "docker-machine" -ErrorAction "SilentlyContinue") {
-        Return $True
-    } Else {
-        Return $False
     }
 }
 

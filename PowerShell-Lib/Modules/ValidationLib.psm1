@@ -7,6 +7,36 @@ $ValidRegexPort = "^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655
 
 <#
     .SYNOPSIS
+    Tests a command.
+
+    .DESCRIPTION
+    The "Test-Command" cmdlet checks if a command is available and returns true on success.
+
+    .PARAMETER Command
+    The command that is to be checked.
+
+    .EXAMPLE
+    Test-Command -Command "docker"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-Command.md
+#>
+Function Test-Command {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Command
+    )
+
+    If (Get-Command -Name $Command -ErrorAction "SilentlyContinue") {
+        Return $True
+    } Else {
+        Return $False
+    }
+}
+
+<#
+    .SYNOPSIS
     Checks whether the count of a variable's values is in a specified range.
 
     .DESCRIPTION

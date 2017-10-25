@@ -3,6 +3,28 @@ Set-StrictMode -Version Latest
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\PowerShell-Lib.psd1" -Force
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\Modules\ValidationLib.psm1" -Force
 
+Describe "Test-Command" {
+    Context "Command is available" {
+        Mock "Get-Command" {
+            Return $True
+        } -ModuleName "ValidationLib"
+
+        It "should return true" {
+            Test-Command -Command "command" | Should Be $True
+        }
+    }
+
+    Context "Command is unavailable" {
+        Mock "Get-Command" {
+            Return $False
+        } -ModuleName "ValidationLib"
+
+        It "should return false" {
+            Test-Command -Command "command" | Should Be $False
+        }
+    }
+}
+
 Describe "Test-CountValid" {
     It "checks whether the count of a variable's values is in a specified range" {
         Test-CountValid -Variable @(@(1), @(2)) -Min 0 -Max 2 | Should Be $True

@@ -59,36 +59,36 @@ Describe "Get-DockerEditionToUse" {
     }
 }
 
+Describe "Invoke-Docker" {
+    Context "Docker command does not exist" {
+        Mock Test-Command {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        It "should throw an error" {
+            {Invoke-Docker} | Should Throw
+        }
+    }
+
+    Context "Docker is not running" {
+        Mock Test-DockerRunning {
+            Return $False
+        } -ModuleName "DockerLib"
+
+        It "should throw an error" {
+            {Invoke-Docker} | Should Throw
+        }
+    }
+}
+
 Describe "Invoke-DockerMachine" {
     Context "Docker machine command does not exist" {
-        Mock Test-DockerMachineCommand {
+        Mock Test-Command {
             Return $False
         } -ModuleName "DockerLib"
 
         It "should throw an error" {
             {Invoke-DockerMachine} | Should Throw
-        }
-    }
-}
-
-Describe "Test-DockerCommand" {
-    Context "Docker command is available" {
-        Mock "Get-Command" {
-            Return $True
-        } -ModuleName "DockerLib"
-
-        It "should return true" {
-            Test-DockerCommand | Should Be $True
-        }
-    }
-
-    Context "Docker command is unavailable" {
-        Mock "Get-Command" {
-            Return $False
-        } -ModuleName "DockerLib"
-
-        It "should return false" {
-            Test-DockerCommand | Should Be $False
         }
     }
 }
@@ -191,28 +191,6 @@ Describe "Test-DockerInSwarm" {
 
         It "should return false" {
             Test-DockerInSwarm | Should Be $False
-        }
-    }
-}
-
-Describe "Test-DockerMachineCommand" {
-    Context "Docker Machine command is available" {
-        Mock "Get-Command" {
-            Return $True
-        } -ModuleName "DockerLib"
-
-        It "should return true" {
-            Test-DockerMachineCommand | Should Be $True
-        }
-    }
-
-    Context "Docker Machine command is unavailable" {
-        Mock "Get-Command" {
-            Return $False
-        } -ModuleName "DockerLib"
-
-        It "should return false" {
-            Test-DockerMachineCommand | Should Be $False
         }
     }
 }
