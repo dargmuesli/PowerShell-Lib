@@ -13,7 +13,7 @@ Displays an indeterminate progress bar while a test is successful.
 ## SYNTAX
 
 ```
-Wait-Test [-Test] <String> [-Activity <String>] [-Milliseconds <Int32>] [-WithProgressBar]
+Wait-Test [-Test] <String> [-Activity <String>] [-Milliseconds <Int32>] [-Speed <Int32>] [-WithProgressBar]
 ```
 
 ## DESCRIPTION
@@ -69,6 +69,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: 1000
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Speed
+The progress bar's fill speed.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases: 
+
+Required: False
+Position: Named
+Default value: 5
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

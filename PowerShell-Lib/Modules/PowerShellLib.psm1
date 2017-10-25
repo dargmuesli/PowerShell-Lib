@@ -860,6 +860,9 @@ Function Test-PropertyExists {
     .PARAMETER WithProgressBar
     Whether to display a progress bar.
 
+    .PARAMETER Speed
+    The progress bar's fill speed.
+
     .EXAMPLE
     Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar
 
@@ -875,10 +878,14 @@ Function Wait-Test {
         [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
         [String] $Activity = "Processing",
-
+        
         [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
         [Int] $Milliseconds = 1000,
+                
+        [Parameter(Mandatory = $False)]
+        [ValidateNotNullOrEmpty()]
+        [Int] $Speed = 5,
 
         [Switch] $WithProgressBar
     )
@@ -886,9 +893,9 @@ Function Wait-Test {
     $Index = 0
 
     While (Invoke-Expression -Command $Test) {
-        $Index++
+        $Index = $Index + $Speed
 
-        If ($Index -Eq 100) {
+        If ($Index -Ge 100) {
             $Index = 0
         }
 
