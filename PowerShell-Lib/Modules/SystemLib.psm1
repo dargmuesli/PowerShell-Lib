@@ -25,6 +25,22 @@ Function Get-DownloadFolder {
 
 <#
     .SYNOPSIS
+    Returns the OS version.
+
+    .DESCRIPTION
+    The "Get-OsVersion" cmdlet returns the operating system's version.
+
+    .EXAMPLE
+    Get-OsVersion
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-OsVersion.md
+#>
+Function Get-OsVersion {
+    Return [System.Environment]::OSVersion.Version
+}
+<#
+    .SYNOPSIS
     Gets the processor bit architecture.
 
     .DESCRIPTION
