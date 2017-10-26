@@ -75,6 +75,7 @@ PSDepend also allows other modules to depend on this one. Add the following line
   - [New-ModuleMarkdown](PowerShell-Lib/Docs/New-ModuleMarkdown.md)
   - [Read-Settings](PowerShell-Lib/Docs/Read-Settings.md)
 - **SystemLib**
+  - [Get-DownloadFolder](PowerShell-Lib/Docs/Get-DownloadFolder.md)
   - [Get-SystemBit](PowerShell-Lib/Docs/Get-SystemBit.md)
 - **TextLib**
   - [Clear-Linebreaks](PowerShell-Lib/Docs/Clear-Linebreaks.md)
