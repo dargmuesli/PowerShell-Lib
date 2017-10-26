@@ -646,6 +646,7 @@ Function Read-Prompt {
 
     .PARAMETER DefaultChoice
     The choice that is selected by default.
+    Default is "No".
 
     .EXAMPLE
     Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -DefaultChoice 0

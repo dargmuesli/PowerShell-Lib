@@ -60,6 +60,7 @@ Accept wildcard characters: False
 
 ### -DefaultChoice
 The choice that is selected by default.
+Default is "No".
 
 ```yaml
 Type: Int32

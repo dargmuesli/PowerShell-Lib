@@ -1339,7 +1339,7 @@
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>DefaultChoice</maml:name>
           <maml:Description>
-            <maml:para>The choice that is selected by default.</maml:para>
+            <maml:para>The choice that is selected by default. Default is "No".</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
           <dev:type>
@@ -1378,7 +1378,7 @@
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>DefaultChoice</maml:name>
         <maml:Description>
-          <maml:para>The choice that is selected by default.</maml:para>
+          <maml:para>The choice that is selected by default. Default is "No".</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
         <dev:type>
