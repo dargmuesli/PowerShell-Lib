@@ -815,31 +815,62 @@ Function Test-PropertyExists {
 
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
-        [String[]] $PropertyName
+        [String[]] $PropertyName,
+
+        [Switch] $PassThrough
     )
 
-    ForEach ($Item In $PropertyName) {
-        $ItemParts = @()
+    $PropertyValue = $Null
+    $Type = $Object.GetType().Name
 
+    ForEach ($Item In $PropertyName) {
+        $Item = $Item.Trim(".")
         $IndexFirstDot = $Item.IndexOf(".")
 
-        If ($IndexFirstDot -Ne -1) {
-            $ItemParts += $Item.Substring(0, $IndexFirstDot)
-            $ItemParts += $Item.Substring($IndexFirstDot + 1, $Item.Length - ($IndexFirstDot + 1))
+        If ($Type -Eq "Hashtable") {
+            If ($IndexFirstDot -Ne -1) {
+                $CurrentPropertyName = $Item.Substring(0, $IndexFirstDot)
+                $NextPropertyName = $Item.Substring($IndexFirstDot + 1, $Item.Length - ($IndexFirstDot + 1))
 
-            If ($Object.PSObject.Properties.Name -Contains $ItemParts[0]) {
-                Return Test-PropertyExists -Object ($Object | Select-Object -ExpandProperty $ItemParts[0]) -PropertyName $ItemParts[1]
+                If ($Object.Keys -Contains $CurrentPropertyName) {
+                    Return Test-PropertyExists -Object $Object[$CurrentPropertyName] -PropertyName $NextPropertyName
+                } Else {
+                    Return $False
+                }
             } Else {
-                Return $False
+                If ($Object.Keys -NotContains $Item) {
+                    Return $False
+                } Else {
+                    $PropertyValue = $Object[$Item]
+                }
+            }
+        } ElseIf ($Type -Eq "PSCustomObject") {
+            If ($IndexFirstDot -Ne -1) {
+                $CurrentPropertyName = $Item.Substring(0, $IndexFirstDot)
+                $NextPropertyName = $Item.Substring($IndexFirstDot + 1, $Item.Length - ($IndexFirstDot + 1))
+
+                If ($Object.PSObject.Properties.Match($CurrentPropertyName).Count) {
+                    Return Test-PropertyExists -Object ($Object | Select-Object -ExpandProperty $CurrentPropertyName) -PropertyName $NextPropertyName
+                } Else {
+                    Return $False
+                }
+            } Else {
+                If (-Not $Object.PSObject.Properties.Match($Item).Count) {
+                    Return $False
+                } Else {
+                    $PropertyValue = $Object | Select-Object -ExpandProperty $Item
+                }
             }
         } Else {
-            If (-Not (($Object.PSObject.Properties.Name -Contains $Item) -Or ($Object.Keys -Contains $Item))) {
-                Return $False
-            }
+            Return $False
         }
     }
 
-    Return $True
+    If ($PassThrough) {
+        $PropertyValue
+    } Else {
+        Return $True
+    }
 }
 
 <#
@@ -879,11 +910,11 @@ Function Wait-Test {
         [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
         [String] $Activity = "Processing",
-        
+
         [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
         [Int] $Milliseconds = 1000,
-                
+
         [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
         [Int] $Speed = 5,

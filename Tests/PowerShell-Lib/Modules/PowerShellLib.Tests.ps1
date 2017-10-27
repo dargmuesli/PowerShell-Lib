@@ -176,18 +176,49 @@ Describe "Test-PropertyExists" {
         It "returns true for <Object>" -TestCases @(
             @{
                 Object       = [PSCustomObject] @{
-                    PropertyA = 1;
-                    PropertyB = 2;
-                };
-                PropertyName = @("PropertyA", "PropertyB");
+                    "a" = 1
+                    "b" = 2
+                }
+                PropertyName = @("a", "b")
             }
             @{
                 Object       = [PSCustomObject] @{
-                    AnotherProperty = [PSCustomObject] @{
-                        Property = 1
+                    "a" = [PSCustomObject] @{
+                        "b" = 1
                     }
-                };
-                PropertyName = "AnotherProperty.Property";
+                }
+                PropertyName = "a"
+            }
+            @{
+                Object       = [PSCustomObject] @{
+                    "a" = [PSCustomObject] @{
+                        "b" = 1
+                    }
+                }
+                PropertyName = "a.b"
+            }
+            @{
+                Object       = @{
+                    "a" = 1
+                    "b" = 2
+                }
+                PropertyName = @("a", "b")
+            }
+            @{
+                Object       = @{
+                    "a" = @{
+                        "b" = 1
+                    }
+                }
+                PropertyName = "a"
+            }
+            @{
+                Object       = @{
+                    "a" = @{
+                        "b" = 1
+                    }
+                }
+                PropertyName = "a.b"
             }
         ) {
             Param (
@@ -197,24 +228,129 @@ Describe "Test-PropertyExists" {
 
             Test-PropertyExists -Object $Object -PropertyName $PropertyName | Should Be $True
         }
-    }
 
-    Context "Property does not exist" {
-        $PropertyName = "Property"
-
-        It "returns false for <Object>" -TestCases @(
+        It "passes through the property" -TestCases @(
             @{
-                Object = @{}
+                Object       = [PSCustomObject] @{
+                    "a" = 1
+                }
+                PropertyName = "a"
             }
             @{
-                Object = @{AnotherProperty = 1}
+                Object       = @{
+                    "a" = 1
+                }
+                PropertyName = "a"
             }
         ) {
             Param (
-                $Object
+                $Object,
+                $PropertyName
+            )
+
+            Test-PropertyExists -Object $Object -PropertyName $PropertyName -PassThrough | Should Be 1
+        }
+    }
+
+    Context "Property does not exist" {
+        It "returns false for <Object>" -TestCases @(
+            @{
+                Object       = [PSCustomObject] @{
+                    "a" = 1
+                }
+                PropertyName = @("a", "b")
+            }
+            @{
+                Object       = [PSCustomObject] @{
+                    "a" = [PSCustomObject] @{
+                        "b" = 1
+                    }
+                }
+                PropertyName = "b"
+            }
+            @{
+                Object       = [PSCustomObject] @{
+                    "a" = [PSCustomObject] @{
+                        "b" = 1
+                    }
+                }
+                PropertyName = "b"
+            }
+            @{
+                Object       = [PSCustomObject] @{
+                    "a" = [PSCustomObject] @{
+                        "b" = 1
+                    }
+                }
+                PropertyName = "a.c"
+            }
+            @{
+                Object       = [PSCustomObject] @{
+                    "a" = [PSCustomObject] @{
+                        "b" = 1
+                    }
+                }
+                PropertyName = "a.b.c"
+            }
+            @{
+                Object       = @{
+                    "a" = 1
+                }
+                PropertyName = @("a", "b")
+            }
+            @{
+                Object       = @{
+                    "a" = @{
+                        "b" = 1
+                    }
+                }
+                PropertyName = "b"
+            }
+            @{
+                Object       = @{
+                    "a" = @{
+                        "b" = 1
+                    }
+                }
+                PropertyName = "a.c"
+            }
+            @{
+                Object       = @{
+                    "a" = @{
+                        "b" = 1
+                    }
+                }
+                PropertyName = "a.b.c"
+            }
+        ) {
+            Param (
+                $Object,
+                $PropertyName
             )
 
             Test-PropertyExists -Object $Object -PropertyName $PropertyName | Should Be $False
+        }
+
+        It "does not pass through the property" -TestCases @(
+            @{
+                Object       = [PSCustomObject] @{
+                    "a" = 1
+                }
+                PropertyName = "b"
+            }
+            @{
+                Object       = @{
+                    "a" = 1
+                }
+                PropertyName = "b"
+            }
+        ) {
+            Param (
+                $Object,
+                $PropertyName
+            )
+
+            Test-PropertyExists -Object $Object -PropertyName $PropertyName -PassThrough | Should Be $False
         }
     }
 }
