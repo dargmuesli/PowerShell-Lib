@@ -350,7 +350,7 @@ Describe "Test-PropertyExists" {
                 $PropertyName
             )
 
-            Test-PropertyExists -Object $Object -PropertyName $PropertyName -PassThrough | Should Be $False
+            Test-PropertyExists -Object $Object -PropertyName $PropertyName -PassThrough | Should Be $Null
         }
     }
 }

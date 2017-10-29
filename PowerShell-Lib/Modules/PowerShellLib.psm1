@@ -835,11 +835,19 @@ Function Test-PropertyExists {
                 If ($Object.Keys -Contains $CurrentPropertyName) {
                     Return Test-PropertyExists -Object $Object[$CurrentPropertyName] -PropertyName $NextPropertyName
                 } Else {
-                    Return $False
+                    If ($PassThrough) {
+                        Return $Null
+                    } Else {
+                        Return $False
+                    }
                 }
             } Else {
                 If ($Object.Keys -NotContains $Item) {
-                    Return $False
+                    If ($PassThrough) {
+                        Return $Null
+                    } Else {
+                        Return $False
+                    }
                 } Else {
                     $PropertyValue = $Object[$Item]
                 }
@@ -852,17 +860,29 @@ Function Test-PropertyExists {
                 If ($Object.PSObject.Properties.Match($CurrentPropertyName).Count) {
                     Return Test-PropertyExists -Object ($Object | Select-Object -ExpandProperty $CurrentPropertyName) -PropertyName $NextPropertyName
                 } Else {
-                    Return $False
+                    If ($PassThrough) {
+                        Return $Null
+                    } Else {
+                        Return $False
+                    }
                 }
             } Else {
                 If (-Not $Object.PSObject.Properties.Match($Item).Count) {
-                    Return $False
+                    If ($PassThrough) {
+                        Return $Null
+                    } Else {
+                        Return $False
+                    }
                 } Else {
                     $PropertyValue = $Object | Select-Object -ExpandProperty $Item
                 }
             }
         } Else {
-            Return $False
+            If ($PassThrough) {
+                Return $Null
+            } Else {
+                Return $False
+            }
         }
     }
 
