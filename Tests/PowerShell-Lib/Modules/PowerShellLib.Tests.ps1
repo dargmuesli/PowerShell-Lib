@@ -233,14 +233,16 @@ Describe "Test-PropertyExists" {
             @{
                 Object       = [PSCustomObject] @{
                     "a" = 1
+                    "b" = 2
                 }
-                PropertyName = "a"
+                PropertyName = @("a", "b")
             }
             @{
                 Object       = @{
                     "a" = 1
+                    "b" = 2
                 }
-                PropertyName = "a"
+                PropertyName = @("a", "b")
             }
         ) {
             Param (
@@ -248,7 +250,7 @@ Describe "Test-PropertyExists" {
                 $PropertyName
             )
 
-            Test-PropertyExists -Object $Object -PropertyName $PropertyName -PassThrough | Should Be 1
+            Test-PropertyExists -Object $Object -PropertyName $PropertyName -PassThrough | ConvertTo-Json | Should Be ((@(1, 2)) | ConvertTo-Json)
         }
     }
 

@@ -820,7 +820,7 @@ Function Test-PropertyExists {
         [Switch] $PassThrough
     )
 
-    $PropertyValue = $Null
+    $PropertyValue = @()
     $Type = $Object.GetType().Name
 
     ForEach ($Item In $PropertyName) {
@@ -849,7 +849,7 @@ Function Test-PropertyExists {
                         Return $False
                     }
                 } Else {
-                    $PropertyValue = $Object[$Item]
+                    $PropertyValue += $Object[$Item]
                 }
             }
         } ElseIf ($Type -Eq "PSCustomObject") {
@@ -874,7 +874,7 @@ Function Test-PropertyExists {
                         Return $False
                     }
                 } Else {
-                    $PropertyValue = $Object | Select-Object -ExpandProperty $Item
+                    $PropertyValue += $Object | Select-Object -ExpandProperty $Item
                 }
             }
         } Else {
