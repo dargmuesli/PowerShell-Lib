@@ -113,7 +113,7 @@ Function Convert-PSCustomObjectToHashtable {
     .DESCRIPTION
     The "Get-FileFromWeb" cmdlet uses different methods to download a file from a URL and saves it to a desired location.
 
-    .PARAMETER URL
+    .PARAMETER Url
     The URL where the requested resource is located.
 
     .PARAMETER LocalPath
@@ -123,7 +123,7 @@ Function Convert-PSCustomObjectToHashtable {
     The download function that is to be used.
 
     .EXAMPLE
-    Get-FileFromWeb -URL "https://download.docker.com/win/stable/InstallDocker.msi" -LocalPath ".\"
+    Get-FileFromWeb -Url "https://download.docker.com/win/stable/InstallDocker.msi" -LocalPath ".\"
 
     .NOTES
     Download method "BITS" can display its progress, but can also be delayed by other downloads.
@@ -137,7 +137,7 @@ Function Get-FileFromWeb {
     Param (
         [Parameter(Mandatory = $True, Position = 0)]
         [ValidateScript({Test-IRIValid -IRI $PSItem})]
-        [String] $URL,
+        [String] $Url,
 
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateScript({Test-PathValid -Path $PSItem})]

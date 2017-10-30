@@ -13,7 +13,7 @@ Downloads a file from a URL.
 ## SYNTAX
 
 ```
-Get-FileFromWeb [-URL] <String> [-LocalPath] <String> [-DownloadMethod <String>]
+Get-FileFromWeb [-Url] <String> [-LocalPath] <String> [-DownloadMethod <String>]
 ```
 
 ## DESCRIPTION
@@ -23,12 +23,12 @@ The "Get-FileFromWeb" cmdlet uses different methods to download a file from a UR
 
 ### -------------------------- BEISPIEL 1 --------------------------
 ```
-Get-FileFromWeb -URL "https://download.docker.com/win/stable/InstallDocker.msi" -LocalPath ".\"
+Get-FileFromWeb -Url "https://download.docker.com/win/stable/InstallDocker.msi" -LocalPath ".\"
 ```
 
 ## PARAMETERS
 
-### -URL
+### -Url
 The URL where the requested resource is located.
 
 ```yaml

@@ -195,7 +195,7 @@
       <command:syntaxItem>
         <maml:name>Get-FileFromWeb</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-          <maml:name>URL</maml:name>
+          <maml:name>Url</maml:name>
           <maml:Description>
             <maml:para>The URL where the requested resource is located.</maml:para>
           </maml:Description>
@@ -234,7 +234,7 @@
     </command:syntax>
     <command:parameters>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
-        <maml:name>URL</maml:name>
+        <maml:name>Url</maml:name>
         <maml:Description>
           <maml:para>The URL where the requested resource is located.</maml:para>
         </maml:Description>
@@ -280,7 +280,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
-        <dev:code>Get-FileFromWeb -URL "https://download.docker.com/win/stable/InstallDocker.msi" -LocalPath ".\"</dev:code>
+        <dev:code>Get-FileFromWeb -Url "https://download.docker.com/win/stable/InstallDocker.msi" -LocalPath ".\"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
