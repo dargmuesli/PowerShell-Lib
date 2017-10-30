@@ -233,16 +233,20 @@ Describe "Test-PropertyExists" {
             @{
                 Object       = [PSCustomObject] @{
                     "a" = 1
-                    "b" = 2
+                    "b" = [PSCustomObject] @{
+                        "c" = 2
+                    }
                 }
-                PropertyName = @("a", "b")
+                PropertyName = @("a", "b.c")
             }
             @{
                 Object       = @{
                     "a" = 1
-                    "b" = 2
+                    "b" = @{
+                        "c" = 2
+                    }
                 }
-                PropertyName = @("a", "b")
+                PropertyName = @("a", "b.c")
             }
         ) {
             Param (

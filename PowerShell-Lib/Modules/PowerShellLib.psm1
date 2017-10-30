@@ -833,7 +833,13 @@ Function Test-PropertyExists {
                 $NextPropertyName = $Item.Substring($IndexFirstDot + 1, $Item.Length - ($IndexFirstDot + 1))
 
                 If ($Object.Keys -Contains $CurrentPropertyName) {
-                    Return Test-PropertyExists -Object $Object[$CurrentPropertyName] -PropertyName $NextPropertyName
+                    $SubResult = Test-PropertyExists -Object $Object[$CurrentPropertyName] -PropertyName $NextPropertyName -PassThrough:$PassThrough
+
+                    If ($SubResult) {
+                        $PropertyValue += $SubResult
+                    } Else {
+                        Return $False
+                    }
                 } Else {
                     If ($PassThrough) {
                         Return $Null
@@ -858,7 +864,13 @@ Function Test-PropertyExists {
                 $NextPropertyName = $Item.Substring($IndexFirstDot + 1, $Item.Length - ($IndexFirstDot + 1))
 
                 If ($Object.PSObject.Properties.Match($CurrentPropertyName).Count) {
-                    Return Test-PropertyExists -Object ($Object | Select-Object -ExpandProperty $CurrentPropertyName) -PropertyName $NextPropertyName
+                    $SubResult = Test-PropertyExists -Object ($Object | Select-Object -ExpandProperty $CurrentPropertyName) -PropertyName $NextPropertyName -PassThrough:$PassThrough
+
+                    If ($SubResult) {
+                        $PropertyValue += $SubResult
+                    } Else {
+                        Return $False
+                    }
                 } Else {
                     If ($PassThrough) {
                         Return $Null
@@ -887,7 +899,7 @@ Function Test-PropertyExists {
     }
 
     If ($PassThrough) {
-        $PropertyValue
+        Return $PropertyValue
     } Else {
         Return $True
     }
