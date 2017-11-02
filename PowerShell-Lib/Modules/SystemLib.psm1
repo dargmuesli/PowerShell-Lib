@@ -62,4 +62,25 @@ Function Get-SystemBit {
     }
 }
 
+<#
+    .SYNOPSIS
+    Tests if administrator permissions are enabled.
+
+    .DESCRIPTION
+    The "Test-AdminPermissions" cmdlet verifies that administrator permissions are enabled and returns true on success.
+
+    .EXAMPLE
+    Test-AdminPermissions
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-AdminPermissions.md
+#>
+Function Test-AdminPermissions {
+    If (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+        Return $True
+    } Else {
+        Return $False
+    }
+}
+
 Export-ModuleMember -Function *

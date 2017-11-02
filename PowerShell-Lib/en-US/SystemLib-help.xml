@@ -123,4 +123,45 @@
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Test-AdminPermissions</command:name>
+      <command:verb>Test</command:verb>
+      <command:noun>AdminPermissions</command:noun>
+      <maml:description>
+        <maml:para>Tests if administrator permissions are enabled.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The "Test-AdminPermissions" cmdlet verifies that administrator permissions are enabled and returns true on success.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Test-AdminPermissions</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <dev:code>Test-AdminPermissions</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-AdminPermissions.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-AdminPermissions.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
 </helpItems>

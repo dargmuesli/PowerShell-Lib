@@ -78,6 +78,7 @@ PSDepend also allows other modules to depend on this one. Add the following line
   - [Get-DownloadFolder](PowerShell-Lib/Docs/Get-DownloadFolder.md)
   - [Get-OsVersion](PowerShell-Lib/Docs/Get-OsVersion.md)
   - [Get-SystemBit](PowerShell-Lib/Docs/Get-SystemBit.md)
+  - [Test-AdminPermissions](PowerShell-Lib/Docs/Test-AdminPermissions.md)
 - **TextLib**
   - [Clear-Linebreaks](PowerShell-Lib/Docs/Clear-Linebreaks.md)
   - [Join-MultiLineStrings](PowerShell-Lib/Docs/Join-MultiLineStrings.md)
