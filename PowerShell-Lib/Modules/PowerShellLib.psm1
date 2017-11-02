@@ -145,13 +145,17 @@ Function Get-FileFromWeb {
 
         [Parameter(Mandatory = $False)]
         [ValidateSet('BITS', 'WebClient', 'WebRequest')]
-        [String] $DownloadMethod = "BITS"
+        [String] $DownloadMethod = "BITS",
+
+        [Parameter(Mandatory = $False)]
+        [ValidateNotNullOrEmpty()]
+        [PSCredential] $Credential
     )
 
     Switch ($DownloadMethod) {
         "BITS" {
             Import-Module BitsTransfer
-            Start-BitsTransfer -Source $Url -Destination $LocalPath
+            Start-BitsTransfer -Source $Url -Destination $LocalPath -Credential:$Credential
             Break
         }
         "WebClient" {

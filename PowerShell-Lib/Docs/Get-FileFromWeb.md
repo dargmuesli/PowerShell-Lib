@@ -13,7 +13,7 @@ Downloads a file from a URL.
 ## SYNTAX
 
 ```
-Get-FileFromWeb [-Url] <String> [-LocalPath] <String> [-DownloadMethod <String>]
+Get-FileFromWeb [-Url] <String> [-LocalPath] <String> [-DownloadMethod <String>] [-Credential <PSCredential>]
 ```
 
 ## DESCRIPTION
@@ -69,6 +69,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: BITS
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Credential
+{{Fill Credential Description}}
+
+```yaml
+Type: PSCredential
+Parameter Sets: (All)
+Aliases: 
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
