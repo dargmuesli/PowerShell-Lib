@@ -852,14 +852,14 @@ Function Test-PropertyExists {
                     }
                 }
             } Else {
-                If ($Object.Keys -NotContains $Item) {
+                If ($Object.Keys -Contains $Item) {
+                    $PropertyValue += @{$Item = $Object[$Item]}
+                } Else {
                     If ($PassThrough) {
                         Return $Null
                     } Else {
                         Return $False
                     }
-                } Else {
-                    $PropertyValue += $Object[$Item]
                 }
             }
         } ElseIf ($Type -Eq "PSCustomObject") {
@@ -890,7 +890,7 @@ Function Test-PropertyExists {
                         Return $False
                     }
                 } Else {
-                    $PropertyValue += $Object | Select-Object -ExpandProperty $Item
+                    $PropertyValue += $Object | Select-Object -Property $Item
                 }
             }
         } Else {

@@ -254,7 +254,7 @@ Describe "Test-PropertyExists" {
                 $PropertyName
             )
 
-            Test-PropertyExists -Object $Object -PropertyName $PropertyName -PassThrough | ConvertTo-Json | Should Be ((@(1, 2)) | ConvertTo-Json)
+            Test-PropertyExists -Object $Object -PropertyName $PropertyName -PassThrough | ConvertTo-Json | Should Be (@(@{ a = 1}, @{c = 2}) | ConvertTo-Json)
         }
     }
 
