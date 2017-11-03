@@ -62,3 +62,5 @@ Function Test-JREInstalled {
         Return $False
     }
 }
+
+Export-ModuleMember -Function *
