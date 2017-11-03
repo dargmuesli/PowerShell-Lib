@@ -127,6 +127,34 @@ Describe "Read-PromptYesNo" {
     }
 }
 
+Describe "Read-ValidInput" {
+    Context "Input is valid" {
+        Mock "Read-Host" {
+            Return "abc"
+        } -ModuleName "PowerShellLib"
+
+        It "returns true" {
+            Read-ValidInput -Prompt "Enter `"abc`"" -ValidityCheck @(
+                {$args[0] -Match "^abc$"}
+                {$args[0] -Match "^[a-z]{3}$"}
+            ) -ErrorMessage @("Error", "Error") | Should Be $True
+        }
+    }
+
+    Context "Parameter counts differ" {
+        Mock "Read-Host" {
+            Return "abc"
+        } -ModuleName "PowerShellLib"
+
+        It "throws" {
+            { Read-ValidInput -Prompt "Enter `"abc`"" -ValidityCheck @(
+                    {$Answer -Match "^abc$"}
+                    {$Answer -Match "^[a-z]{3}$"}
+                ) -ErrorMessage "Error"} | Should Throw "ValidityCheck and ErrorMessage count do not match!"
+        }
+    }
+}
+
 Describe "Test-EnvVarExists" {
     Context "Environment variable exists" {
         Mock "Get-ChildItem" {

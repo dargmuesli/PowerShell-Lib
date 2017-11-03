@@ -65,6 +65,7 @@ PSDepend also allows other modules to depend on this one. Add the following line
   - [Read-FunctionNames](PowerShell-Lib/Docs/Read-FunctionNames.md)
   - [Read-Prompt](PowerShell-Lib/Docs/Read-Prompt.md)
   - [Read-PromptYesNo](PowerShell-Lib/Docs/Read-PromptYesNo.md)
+  - [Read-ValidInput](PowerShell-Lib/Docs/Read-ValidInput.md)
   - [Set-ArrayItem](PowerShell-Lib/Docs/Set-ArrayItem.md)
   - [Test-EnvVarExists](PowerShell-Lib/Docs/Test-EnvVarExists.md)
   - [Test-ModuleInstalled](PowerShell-Lib/Docs/Test-ModuleInstalled.md)

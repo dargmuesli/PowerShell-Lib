@@ -689,6 +689,78 @@ Function Read-PromptYesNo {
 
 <#
     .SYNOPSIS
+    Reads valid input.
+
+    .DESCRIPTION
+    The "Read-ValidInput" cmdlet checks the input against a script and displays a error message if the check fails.
+    It loops until a valid answer can be returned.
+
+    .PARAMETER Prompt
+    A description of the input that the user is asked for.
+
+    .PARAMETER ValidityCheck
+    A script to validate the user's input.
+
+    .PARAMETER ErrorMessage
+    The error message that is shown when the validation fails.
+
+    .EXAMPLE
+    $InputPath = Read-ValidInput `
+        -Prompt "The input path" `
+        -ValidityCheck @(
+            {Test-Path $Answer}
+        ) `
+        -ErrorMessage @(
+            "Invalid path!"
+        )
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-ValidInput.md
+#>
+Function Read-ValidInput {
+    Param (
+        [Parameter(
+            Mandatory = $True,
+            Position = 0
+        )]
+        [String] $Prompt,
+
+        [Parameter(
+            Mandatory = $True,
+            Position = 1
+        )]
+        [ScriptBlock[]] $ValidityCheck,
+
+        [Parameter(
+            Mandatory = $True,
+            Position = 2
+        )]
+        [String[]] $ErrorMessage
+    )
+
+    If ($ValidityCheck.Count -Ne $ErrorMessage.Count) {
+        Throw "ValidityCheck and ErrorMessage count do not match!"
+    }
+
+    $Answer = $Null
+
+    While (-Not $Answer) {
+        $Answer = Read-Host -Prompt $Prompt
+
+        For ($I = 0; $I -Lt $ValidityCheck.Count; $I++) {
+            If (-Not (Invoke-Command -ScriptBlock $ValidityCheck[$I] -ArgumentList $Answer)) {
+                Write-Warning -Message $ErrorMessage[$I]
+                $Answer = $Null
+                Break
+            }
+        }
+    }
+
+    Return $Answer
+}
+
+<#
+    .SYNOPSIS
     Sets an array item.
 
     .DESCRIPTION
