@@ -2071,6 +2071,237 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Write-MultiColor</command:name>
+      <command:verb>Write</command:verb>
+      <command:noun>MultiColor</command:noun>
+      <maml:description>
+        <maml:para>Write multicolored text.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The "Write-MultiColor" cmdlet writes indented and multicolored text to the console and optionally to a log file.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Write-MultiColor</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>Text</maml:name>
+          <maml:Description>
+            <maml:para>The text that is to be written.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>Color</maml:name>
+          <maml:Description>
+            <maml:para>The color in which the text is to be written.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Black</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">DarkBlue</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">DarkGreen</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">DarkCyan</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">DarkRed</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">DarkMagenta</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">DarkYellow</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Gray</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">DarkGray</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Blue</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Green</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Cyan</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Red</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Magenta</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Yellow</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">White</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">ConsoleColor[]</command:parameterValue>
+          <dev:type>
+            <maml:name>ConsoleColor[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>White</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>StartTab</maml:name>
+          <maml:Description>
+            <maml:para>The number of tabs to indent the text with.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LinesBefore</maml:name>
+          <maml:Description>
+            <maml:para>The number of empty lines before the text.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LinesAfter</maml:name>
+          <maml:Description>
+            <maml:para>The number of empty lines after the text.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LogFile</maml:name>
+          <maml:Description>
+            <maml:para>The path to the log file.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TimeFormat</maml:name>
+          <maml:Description>
+            <maml:para>The time format for logging.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Yyyy-MM-dd HH:mm:ss</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>Text</maml:name>
+        <maml:Description>
+          <maml:para>The text that is to be written.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>Color</maml:name>
+        <maml:Description>
+          <maml:para>The color in which the text is to be written.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">ConsoleColor[]</command:parameterValue>
+        <dev:type>
+          <maml:name>ConsoleColor[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>White</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>StartTab</maml:name>
+        <maml:Description>
+          <maml:para>The number of tabs to indent the text with.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>LinesBefore</maml:name>
+        <maml:Description>
+          <maml:para>The number of empty lines before the text.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>LinesAfter</maml:name>
+        <maml:Description>
+          <maml:para>The number of empty lines after the text.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>LogFile</maml:name>
+        <maml:Description>
+          <maml:para>The path to the log file.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>TimeFormat</maml:name>
+        <maml:Description>
+          <maml:para>The time format for logging.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Yyyy-MM-dd HH:mm:ss</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Source: https://stackoverflow.com/a/36519870/4682621</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <dev:code>Write-MultiColor -Text "Red ", "Green ", "Yellow " -Color Red, Green, Yellow</dev:code>
+        <dev:remarks>
+          <maml:para>Write-MultiColor -Text "This is text in Green ",                 "followed by Red ",                 "and then we have Magenta... ",                 "isn't it fun? ",                 "Here goes DarkCyan" -Color Green,Red,Magenta,White,DarkCyan</maml:para>
+          <maml:para>Write-MultiColor -Text "This is text in Green ",                 "followed by Red ",                 "and then we have Magenta... ",                 "isn't it fun? ",                 "Here goes DarkCyan" -Color Green,Red,Magenta,White,DarkCyan -StartTab 3 -LinesBefore 1 -LinesAfter 1</maml:para>
+          <maml:para>Write-MultiColor "1. ", "Option 1" -Color Yellow, Green Write-MultiColor "2. ", "Option 2" -Color Yellow, Green Write-MultiColor "3. ", "Option 3" -Color Yellow, Green Write-MultiColor "4. ", "Option 4" -Color Yellow, Green Write-MultiColor "9. ", "Press 9 to exit" -Color Yellow, Gray -LinesBefore 1</maml:para>
+          <maml:para>Write-MultiColor -LinesBefore 2 -Text "This little ","message is ", "written to log ", "file as well." -Color Yellow, White, Green, Red, Red -LogFile "C:\testing.txt" -TimeFormat "yyyy-MM-dd HH:mm:ss" Write-MultiColor -Text "This can get ","handy if you ", "want to display things, and log actions to file ", "at the same time." -Color Yellow, White, Green, Red, Red -LogFile "C:\testing.txt"</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Write-ProgressBar</command:name>
       <command:verb>Write</command:verb>
       <command:noun>ProgressBar</command:noun>

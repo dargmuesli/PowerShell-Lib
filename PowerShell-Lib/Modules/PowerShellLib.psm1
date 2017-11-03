@@ -1053,6 +1053,145 @@ Function Wait-Test {
 
 <#
     .SYNOPSIS
+    Write multicolored text.
+
+    .DESCRIPTION
+    The "Write-MultiColor" cmdlet writes indented and multicolored text to the console and optionally to a log file.
+
+    .PARAMETER Text
+    The text that is to be written.
+
+    .PARAMETER Color
+    The color in which the text is to be written.
+
+    .PARAMETER StartTab
+    The number of tabs to indent the text with.
+
+    .PARAMETER LinesBefore
+    The number of empty lines before the text.
+
+    .PARAMETER LinesAfter
+    The number of empty lines after the text.
+
+    .PARAMETER LogFile
+    The path to the log file.
+
+    .PARAMETER TimeFormat
+    The time format for logging.
+
+    .EXAMPLE
+    Write-MultiColor -Text "Red ", "Green ", "Yellow " -Color Red, Green, Yellow
+
+    Write-MultiColor -Text "This is text in Green ",
+                    "followed by Red ",
+                    "and then we have Magenta... ",
+                    "isn't it fun? ",
+                    "Here goes DarkCyan" -Color Green,Red,Magenta,White,DarkCyan
+
+    Write-MultiColor -Text "This is text in Green ",
+                    "followed by Red ",
+                    "and then we have Magenta... ",
+                    "isn't it fun? ",
+                    "Here goes DarkCyan" -Color Green,Red,Magenta,White,DarkCyan -StartTab 3 -LinesBefore 1 -LinesAfter 1
+
+    Write-MultiColor "1. ", "Option 1" -Color Yellow, Green
+    Write-MultiColor "2. ", "Option 2" -Color Yellow, Green
+    Write-MultiColor "3. ", "Option 3" -Color Yellow, Green
+    Write-MultiColor "4. ", "Option 4" -Color Yellow, Green
+    Write-MultiColor "9. ", "Press 9 to exit" -Color Yellow, Gray -LinesBefore 1
+
+    Write-MultiColor -LinesBefore 2 -Text "This little ","message is ", "written to log ", "file as well." -Color Yellow, White, Green, Red, Red -LogFile "C:\testing.txt" -TimeFormat "yyyy-MM-dd HH:mm:ss"
+    Write-MultiColor -Text "This can get ","handy if you ", "want to display things, and log actions to file ", "at the same time." -Color Yellow, White, Green, Red, Red -LogFile "C:\testing.txt"
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md
+
+    .NOTES
+    Source: https://stackoverflow.com/a/36519870/4682621
+#>
+Function Write-MultiColor {
+    Param (
+        [Parameter(
+            Mandatory = $True,
+            Position = 0
+        )]
+        [ValidateNotNullOrEmpty()]
+        [String[]] $Text,
+
+        [Parameter(
+            Mandatory = $True,
+            Position = 0
+        )]
+        [ValidateNotNullOrEmpty()]
+        [ConsoleColor[]] $Color = "White",
+
+        [ValidateNotNull()]
+        [Int] $StartTab = 0,
+
+        [ValidateNotNull()]
+        [Int] $LinesBefore = 0,
+
+        [ValidateNotNull()]
+        [Int] $LinesAfter = 0,
+
+        [ValidateNotNull()]
+        [String] $LogFile = "",
+
+        [ValidateNotNullOrEmpty()]
+        $TimeFormat = "yyyy-MM-dd HH:mm:ss"
+    )
+
+    $DefaultColor = $Color[0]
+
+    # Add empty line before
+    If ($LinesBefore -Ne 0) {
+        For ($I = 0; $I -Lt $LinesBefore; $I++) {
+            Write-Host "`n" -NoNewline
+        }
+    }
+
+    # Add TABS before text
+    If ($StartTab -Ne 0) {
+        For ($I = 0; $I -Lt $StartTab; $I++) {
+            Write-Host "`t" -NoNewLine
+        }
+    }
+
+    If ($Color.Count -Ge $Text.Count) {
+        For ($I = 0; $I -Lt $Text.Length; $I++) {
+            Write-Host $Text[$I] -ForegroundColor $Color[$I] -NoNewLine
+        }
+    } Else {
+        For ($I = 0; $I -Lt $Color.Length ; $I++) {
+            Write-Host $Text[$I] -ForegroundColor $Color[$I] -NoNewLine
+        }
+        For ($I = $Color.Length; $I -Lt $Text.Length; $I++) {
+            Write-Host $Text[$I] -ForegroundColor $DefaultColor -NoNewLine
+        }
+    }
+
+    Write-Host
+
+    # Add empty line after
+    If ($LinesAfter -Ne 0) {
+        For ($I = 0; $I -Lt $LinesAfter; $I++) {
+            Write-Host "`n"
+        }
+    }
+
+    If ($LogFile -Ne "") {
+        $TextToFile = ""
+
+        For ($I = 0; $I -Lt $Text.Length; $I++) {
+            $TextToFile += $Text[$I]
+        }
+
+        Write-Output "[$([datetime]::Now.ToString($TimeFormat))]$TextToFile" | Out-File $LogFile -Encoding "Unicode" -Append
+    }
+}
+
+<#
+    .SYNOPSIS
     Displays a progress bar.
 
     .DESCRIPTION

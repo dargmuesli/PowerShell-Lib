@@ -71,6 +71,7 @@ PSDepend also allows other modules to depend on this one. Add the following line
   - [Test-ModuleInstalled](PowerShell-Lib/Docs/Test-ModuleInstalled.md)
   - [Test-PropertyExists](PowerShell-Lib/Docs/Test-PropertyExists.md)
   - [Wait-Test](PowerShell-Lib/Docs/Wait-Test.md)
+  - [Write-MultiColor](PowerShell-Lib/Docs/Write-MultiColor.md)
   - [Write-ProgressBar](PowerShell-Lib/Docs/Write-ProgressBar.md)
 - **ProjectLib**
   - [New-ModuleMarkdown](PowerShell-Lib/Docs/New-ModuleMarkdown.md)
