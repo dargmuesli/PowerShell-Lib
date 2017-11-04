@@ -155,7 +155,7 @@ Function Get-FileFromWeb {
     Switch ($DownloadMethod) {
         "BITS" {
             Import-Module BitsTransfer
-            Start-BitsTransfer -Source $Url -Destination $LocalPath -Credential:$Credential
+            Start-BitsTransfer -Source $Url -Destination $LocalPath -Credential $Credential -Authentication "Basic"
             Break
         }
         "WebClient" {
