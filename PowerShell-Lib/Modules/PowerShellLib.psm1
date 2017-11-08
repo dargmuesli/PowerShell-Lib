@@ -1115,7 +1115,7 @@ Function Write-MultiColor {
             Mandatory = $True,
             Position = 0
         )]
-        [ValidateNotNullOrEmpty()]
+        [AllowEmptyString()]
         [String[]] $Text,
 
         [Parameter(
