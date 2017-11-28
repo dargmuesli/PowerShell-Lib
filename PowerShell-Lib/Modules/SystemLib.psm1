@@ -2,6 +2,43 @@ Set-StrictMode -Version Latest
 
 <#
     .SYNOPSIS
+    Gets available exceptions.
+
+    .DESCRIPTION
+    The "Get-AvailableExceptions" cmdlet iterates over and filters exceptions so that it returns a list of available excetions.
+
+    .EXAMPLE
+    Get-AvailableException
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-AvailableExceptions.md
+
+    .NOTES
+    Source: https://gist.github.com/wpsmith/7a4d6ab3e85d3720b883
+#>
+Function Get-AvailableExceptions {
+    $Irregulars = 'Dispose|OperationAborted|Unhandled|ThreadAbort|ThreadStart|TypeInitialization'
+
+    Return [AppDomain]::CurrentDomain.GetAssemblies() |
+        Where-Object {
+        -Not $PSItem.IsDynamic
+    } |
+        ForEach-Object {
+        $PSItem.GetExportedTypes() -Match 'Exception' -NotMatch $Irregulars |
+            Where-Object {
+            $PSItem.GetConstructors() -And $(
+                Try {
+                    $Exception = New-Object $PSItem.FullName
+                    New-Object Management.Automation.ErrorRecord $Exception, ErrorID, OpenError, Target
+                } Catch {}
+            )
+        } |
+            Select-Object -ExpandProperty FullName
+    }
+}
+
+<#
+    .SYNOPSIS
     Returns the user's download folder.
 
     .DESCRIPTION
