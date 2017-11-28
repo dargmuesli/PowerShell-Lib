@@ -2071,6 +2071,226 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Write-ErrorRecord</command:name>
+      <command:verb>Write</command:verb>
+      <command:noun>ErrorRecord</command:noun>
+      <maml:description>
+        <maml:para>Writes an error record.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Creates a custom error record and writes a non-terminating error.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Write-ErrorRecord</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>Exception</maml:name>
+          <maml:Description>
+            <maml:para>The exception that will be associated with the error record.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="ID">
+          <maml:name>ErrorId</maml:name>
+          <maml:Description>
+            <maml:para>The error's identifier that must be a non-localized string for a specific error type.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="Category">
+          <maml:name>ErrorCategory</maml:name>
+          <maml:Description>
+            <maml:para>An error category enumeration that defines the category of the error.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">NotSpecified</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OpenError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">CloseError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">DeviceError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">DeadlockDetected</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">InvalidArgument</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">InvalidData</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">InvalidOperation</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">InvalidResult</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">InvalidType</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">MetadataError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">NotImplemented</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">NotInstalled</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ObjectNotFound</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OperationStopped</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OperationTimeout</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SyntaxError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ParserError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">PermissionDenied</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ResourceBusy</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ResourceExists</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ResourceUnavailable</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ReadError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">WriteError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">FromStdErr</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SecurityError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ProtocolError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ConnectionError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">AuthenticationError</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">LimitsExceeded</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">QuotaExceeded</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">NotEnabled</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">ErrorCategory</command:parameterValue>
+          <dev:type>
+            <maml:name>ErrorCategory</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+          <maml:name>TargetObject</maml:name>
+          <maml:Description>
+            <maml:para>The object that was being processed when the error occurred.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Message</maml:name>
+          <maml:Description>
+            <maml:para>The exception's description.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>InnerException</maml:name>
+          <maml:Description>
+            <maml:para>The exception instance that caused the exception association with the error record.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Exception</command:parameterValue>
+          <dev:type>
+            <maml:name>Exception</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>Exception</maml:name>
+        <maml:Description>
+          <maml:para>The exception that will be associated with the error record.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="ID">
+        <maml:name>ErrorId</maml:name>
+        <maml:Description>
+          <maml:para>The error's identifier that must be a non-localized string for a specific error type.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="Category">
+        <maml:name>ErrorCategory</maml:name>
+        <maml:Description>
+          <maml:para>An error category enumeration that defines the category of the error.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">ErrorCategory</command:parameterValue>
+        <dev:type>
+          <maml:name>ErrorCategory</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+        <maml:name>TargetObject</maml:name>
+        <maml:Description>
+          <maml:para>The object that was being processed when the error occurred.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Message</maml:name>
+        <maml:Description>
+          <maml:para>The exception's description.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>InnerException</maml:name>
+        <maml:Description>
+          <maml:para>The exception instance that caused the exception association with the error record.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Exception</command:parameterValue>
+        <dev:type>
+          <maml:name>Exception</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Source: https://gist.github.com/wpsmith/e8a9c54ca1c7c741b5e9</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <dev:code>$Content = Get-Content -LiteralPath $Path -ErrorAction "SilentlyContinue"</dev:code>
+        <dev:remarks>
+          <maml:para>If (-Not $Content) {     New-ErrorRecord -Exception "InvalidOperationException" -ErrorId "FileIsEmpty" -ErrorCategory "InvalidOperation" -TargetObject $Path -Message "File '$Path' is empty." -InnerException $Error[0].Exception }</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Write-MultiColor</command:name>
       <command:verb>Write</command:verb>
       <command:noun>MultiColor</command:noun>

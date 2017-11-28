@@ -388,3 +388,17 @@ Describe "Test-PropertyExists" {
         }
     }
 }
+
+Describe "Write-ErrorRecord" {
+    It "returns an error record " {
+        $ErrorVariable = $Null
+        Write-ErrorRecord -Exception "Exception" -ErrorId "Exception" -ErrorCategory "NotSpecified" -TargetObject "TargetObject" -ErrorAction "SilentlyContinue" -ErrorVariable "ErrorVariable"
+        $ErrorVariable[0].CategoryInfo.Reason | Should Be "Exception"
+    }
+
+    It "throws for unavailable exception" {
+        {
+            Write-ErrorRecord -Exception "ExceptionThatDoesNotExist" -ErrorId "Exception" -ErrorCategory "NotSpecified" -TargetObject "TargetObject" -WarningAction "SilentlyContinue"
+        } | Should Throw "System.InvalidOperationException"
+    }
+}

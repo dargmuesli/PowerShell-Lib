@@ -1053,6 +1053,106 @@ Function Wait-Test {
 
 <#
     .SYNOPSIS
+    Writes an error record.
+
+    .DESCRIPTION
+    Creates a custom error record and writes a non-terminating error.
+
+    .PARAMETER Exception
+    The exception that will be associated with the error record.
+
+    .PARAMETER ErrorId
+    The error's identifier that must be a non-localized string for a specific error type.
+
+    .PARAMETER ErrorCategory
+    An error category enumeration that defines the category of the error.
+
+    .PARAMETER TargetObject
+    The object that was being processed when the error occurred.
+
+    .PARAMETER Message
+    The exception's description.
+
+    .PARAMETER InnerException
+    The exception instance that caused the exception association with the error record.
+
+    .EXAMPLE
+    $Content = Get-Content -LiteralPath $Path -ErrorAction "SilentlyContinue"
+
+    If (-Not $Content) {
+        New-ErrorRecord -Exception "InvalidOperationException" -ErrorId "FileIsEmpty" -ErrorCategory "InvalidOperation" -TargetObject $Path -Message "File '$Path' is empty." -InnerException $Error[0].Exception
+    }
+
+    .LINK
+    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md
+
+    .NOTES
+    Source: https://gist.github.com/wpsmith/e8a9c54ca1c7c741b5e9
+#>
+Function Write-ErrorRecord {
+    Param(
+        [Parameter(Mandatory = $True, Position = 0)]
+        [String] $Exception,
+
+        [Parameter(Mandatory = $True, Position = 1)]
+        [Alias('ID')]
+        [String] $ErrorId,
+
+        [Parameter(Mandatory = $True, Position = 2)]
+        [Alias('Category')]
+        [ValidateSet('NotSpecified', 'OpenError', 'CloseError', 'DeviceError',
+            'DeadlockDetected', 'InvalidArgument', 'InvalidData', 'InvalidOperation',
+            'InvalidResult', 'InvalidType', 'MetadataError', 'NotImplemented',
+            'NotInstalled', 'ObjectNotFound', 'OperationStopped', 'OperationTimeout',
+            'SyntaxError', 'ParserError', 'PermissionDenied', 'ResourceBusy',
+            'ResourceExists', 'ResourceUnavailable', 'ReadError', 'WriteError',
+            'FromStdErr', 'SecurityError')]
+        [System.Management.Automation.ErrorCategory] $ErrorCategory,
+
+        [Parameter(Mandatory = $True, Position = 3)]
+        [Object] $TargetObject,
+
+        [String] $Message,
+
+        [Exception] $InnerException
+    )
+    Begin {
+        $Exceptions = Get-AvailableExceptions
+        $ExceptionList = $Exceptions -Join "`r`n"
+    }
+    Process {
+        Trap [Microsoft.PowerShell.Commands.NewObjectCommand] {
+            $PSCmdlet.ThrowTerminatingError($PSItem)
+        }
+
+        If ($Exceptions -Match "^(System\.)?$Exception$") {
+            If ($Message -And $InnerException) {
+                $Exception = New-Object $Exception $Message, $InnerException
+            } elseif ($Message) {
+                $Exception = New-Object $Exception $Message
+            } else {
+                $Exception = New-Object $Exception
+            }
+
+            $ErrorRecord = New-Object "Management.Automation.ErrorRecord" @($Exception, $ErrorID, $ErrorCategory, $TargetObject)
+            $PSCmdlet.WriteError($ErrorRecord)
+        } Else {
+            Write-Warning "Available exceptions are:`r`n$ExceptionList"
+
+            $Message = "Exception '$Exception' is not available."
+            $Exception = New-Object "System.InvalidOperationException" $Message
+            $ErrorID = 'BadException'
+            $ErrorCategory = 'InvalidOperation'
+            $TargetObject = 'Get-AvailableExceptionsList'
+            $ErrorRecord = New-Object Management.Automation.ErrorRecord $exception, $ErrorID, $ErrorCategory, $targetObject
+
+            $PSCmdlet.ThrowTerminatingError($ErrorRecord)
+        }
+    }
+}
+
+<#
+    .SYNOPSIS
     Write multicolored text.
 
     .DESCRIPTION
