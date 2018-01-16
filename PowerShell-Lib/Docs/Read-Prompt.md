@@ -14,6 +14,7 @@ Asks the user for his/her answer to a question.
 
 ```
 Read-Prompt [-Caption] <String> [-Message] <String> [-Choices] <ChoiceDescription[]> [-DefaultChoice <Int32>]
+ [-NoColors] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -21,7 +22,7 @@ The "Read-Prompt" cmdlet prompts the user for a choice regarding a question with
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 $Choices = [Management.Automation.Host.ChoiceDescription[]] (
 ```
@@ -39,7 +40,7 @@ The caption that is to be displayed.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -54,7 +55,7 @@ The message that is to be displayed.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 2
@@ -69,7 +70,7 @@ A list of "Management.Automation.Host.ChoiceDescription"s the user can choose fr
 ```yaml
 Type: ChoiceDescription[]
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 3
@@ -84,7 +85,7 @@ The choice that is selected by default.
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -92,6 +93,25 @@ Default value: 1
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### -NoColors
+{{Fill NoColors Description}}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

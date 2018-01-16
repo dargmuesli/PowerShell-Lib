@@ -14,7 +14,7 @@ Write multicolored text.
 
 ```
 Write-MultiColor [-Text] <String[]> [-Color] <ConsoleColor[]> [-StartTab <Int32>] [-LinesBefore <Int32>]
- [-LinesAfter <Int32>] [-LogFile <String>] [-TimeFormat <Object>]
+ [-LinesAfter <Int32>] [-LogFile <String>] [-TimeFormat <Object>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -22,7 +22,7 @@ The "Write-MultiColor" cmdlet writes indented and multicolored text to the conso
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Write-MultiColor -Text "Red ", "Green ", "Yellow " -Color Red, Green, Yellow
 ```
@@ -65,7 +65,7 @@ The text that is to be written.
 ```yaml
 Type: String[]
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -80,7 +80,7 @@ The color in which the text is to be written.
 ```yaml
 Type: ConsoleColor[]
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 Accepted values: Black, DarkBlue, DarkGreen, DarkCyan, DarkRed, DarkMagenta, DarkYellow, Gray, DarkGray, Blue, Green, Cyan, Red, Magenta, Yellow, White
 
 Required: True
@@ -96,7 +96,7 @@ The number of tabs to indent the text with.
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -111,7 +111,7 @@ The number of empty lines before the text.
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -126,7 +126,7 @@ The number of empty lines after the text.
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -141,7 +141,7 @@ The path to the log file.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -156,7 +156,7 @@ The time format for logging.
 ```yaml
 Type: Object
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -164,6 +164,10 @@ Default value: Yyyy-MM-dd HH:mm:ss
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

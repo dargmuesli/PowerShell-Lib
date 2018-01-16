@@ -13,7 +13,7 @@ Creates a new Docker Machine.
 ## SYNTAX
 
 ```
-New-DockerMachine [-MachineName] <String>
+New-DockerMachine [-MachineName] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -21,7 +21,7 @@ The "New-DockerMachine" cmdlet removes any existing Docker Machine with the desi
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 New-DockerMachine -MachineName "Docker"
 ```
@@ -34,7 +34,7 @@ The machine name to create a new VirtualBox for.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -42,6 +42,10 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

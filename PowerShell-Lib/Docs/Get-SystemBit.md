@@ -21,7 +21,7 @@ The "Get-SystemBit" cmdlet gets the size of "IntPtr" and return either 32 or 64 
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Get-SystemBit
 ```

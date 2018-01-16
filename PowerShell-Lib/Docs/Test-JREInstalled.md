@@ -21,7 +21,7 @@ The "Test-JREInstalled" cmdlet tests if an app with a name matching a regular ex
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Test-JREInstalled
 ```

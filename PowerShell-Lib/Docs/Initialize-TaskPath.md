@@ -13,7 +13,7 @@ Ensures that a path does not already exist.
 ## SYNTAX
 
 ```
-Initialize-TaskPath [-TaskPath] <String> [-Overwrite]
+Initialize-TaskPath [-TaskPath] <String> [-Overwrite] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -21,7 +21,7 @@ The "Initialize-TaskPath" cmdlet checks whether a path exists and, depending on 
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Initialize-TaskPath -TaskPath "~\Project\Output.txt"
 ```
@@ -34,7 +34,7 @@ The path that is to be checked.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 2
@@ -49,7 +49,7 @@ Whether to remove the given path.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -57,6 +57,10 @@ Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

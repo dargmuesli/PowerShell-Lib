@@ -21,7 +21,7 @@ The "Get-OsVersion" cmdlet returns the operating system's version.
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Get-OsVersion
 ```

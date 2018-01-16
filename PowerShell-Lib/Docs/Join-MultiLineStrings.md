@@ -13,7 +13,7 @@ Joins multi line strings.
 ## SYNTAX
 
 ```
-Join-MultiLineStrings [-MultiLineStrings] <String[]> [-Newline]
+Join-MultiLineStrings [-MultiLineStrings] <String[]> [-Newline] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -21,7 +21,7 @@ The "Join-MultiLineStrings" cmdlet iterates over all multi line strings, adding 
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 $FileA = Get-Content -Path ".\FileA.md" -Raw
 ```
@@ -38,7 +38,7 @@ The multi line strings that are to be joined.
 ```yaml
 Type: String[]
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -53,7 +53,7 @@ Whether to insert a newline between each string.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -61,6 +61,10 @@ Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

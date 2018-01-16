@@ -14,7 +14,7 @@ Writes an error record.
 
 ```
 Write-ErrorRecord [-Exception] <String> [-ErrorId] <String> [-ErrorCategory] <ErrorCategory>
- [-TargetObject] <Object> [-Message <String>] [-InnerException <Exception>]
+ [-TargetObject] <Object> [-Message <String>] [-InnerException <Exception>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -22,7 +22,7 @@ Creates a custom error record and writes a non-terminating error.
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 $Content = Get-Content -LiteralPath $Path -ErrorAction "SilentlyContinue"
 ```
@@ -39,7 +39,7 @@ The exception that will be associated with the error record.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -85,7 +85,7 @@ The object that was being processed when the error occurred.
 ```yaml
 Type: Object
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 4
@@ -100,7 +100,7 @@ The exception's description.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -115,7 +115,7 @@ The exception instance that caused the exception association with the error reco
 ```yaml
 Type: Exception
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -123,6 +123,10 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

@@ -13,7 +13,7 @@ Create a Docker compose file.
 ## SYNTAX
 
 ```
-Write-DockerComposeFile [-ComposeFile] <PSObject> [-Path <String>] [-Force]
+Write-DockerComposeFile [-ComposeFile] <PSObject> [-Path <String>] [-Force] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -21,7 +21,7 @@ The "Write-DockerComposeFile" cmdlet converts the data in a PSCustomObject to th
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Write-DockerComposeFile -ComposeFile "docker-compose.yml" -Path ".\"
 ```
@@ -34,7 +34,7 @@ An object containing the compose file's properties.
 ```yaml
 Type: PSObject
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -49,7 +49,7 @@ Path of the output file.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -64,7 +64,7 @@ Whether to force-write the "OutFile" of "ConvertTo-Yaml".
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -72,6 +72,10 @@ Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

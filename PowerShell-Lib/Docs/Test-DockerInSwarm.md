@@ -21,7 +21,7 @@ The "Test-DockerInSwarm" cmdlet tries to create a swarm and returns false if suc
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Test-DockerInSwarm
 ```

@@ -21,7 +21,7 @@ The "Test-DockerInstalled" cmdlet tries to access the command "docker" and "dock
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Test-DockerInstalled
 ```

@@ -21,7 +21,7 @@ The "Invoke-Docker" cmdlet verifies the existence of the "docker" command and ex
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Invoke-Docker start registry
 ```

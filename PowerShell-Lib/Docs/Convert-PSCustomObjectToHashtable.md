@@ -13,7 +13,7 @@ Converts a PSCustomObject to a hashtable.
 ## SYNTAX
 
 ```
-Convert-PSCustomObjectToHashtable [-InputObject] <PSObject> [-YamlDotNet_DoubleQuoted]
+Convert-PSCustomObjectToHashtable [-InputObject] <PSObject> [-YamlDotNet_DoubleQuoted] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -21,7 +21,7 @@ The "Convert-PSCustomObjectToHashtable" cmdlet iterates over a PSCustomObject's 
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Convert-PSCustomObjectToHashtable -InputObject $InputObject
 ```
@@ -34,7 +34,7 @@ The PSCustomObject that is to be converted.
 ```yaml
 Type: PSObject
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -49,7 +49,7 @@ Toggle strings to have the YamlDotNet ScaralStyle "DoubleQuoted".
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -57,6 +57,10 @@ Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

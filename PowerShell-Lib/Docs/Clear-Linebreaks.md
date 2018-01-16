@@ -13,7 +13,7 @@ Removes newlines from a string.
 ## SYNTAX
 
 ```
-Clear-Linebreaks [-String] <String>
+Clear-Linebreaks [-String] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -21,7 +21,7 @@ The "Clear-Linebreaks" cmdlet replaces every line feed and carriage return chara
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Clear-Linebreaks -String "test`r`n123"
 ```
@@ -34,7 +34,7 @@ The input string containing the unneeded newlines.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -42,6 +42,10 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

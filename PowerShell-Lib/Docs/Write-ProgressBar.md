@@ -13,7 +13,7 @@ Displays a progress bar.
 ## SYNTAX
 
 ```
-Write-ProgressBar [-PercentComplete] <Int32> [-Activity <String>]
+Write-ProgressBar [-PercentComplete] <Int32> [-Activity <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -21,7 +21,7 @@ The "Write-ProgressBar" cmdlet displays a progress bar with a given progress per
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Write-ProgressBar -Activity "Checking ..." -PercentComplete $Index
 ```
@@ -34,7 +34,7 @@ The progress of the progress bar.
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -49,7 +49,7 @@ A description of the activity that is running.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -57,6 +57,10 @@ Default value: Processing
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

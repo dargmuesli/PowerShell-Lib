@@ -21,7 +21,7 @@ The "Test-DockerMachineEnvExists" cmdlet checks if "DOCKER_HOST", "DOCKER_CERT_P
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Test-DockerMachineEnvExists
 ```

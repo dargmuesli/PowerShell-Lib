@@ -21,7 +21,7 @@ The "Test-DockerRunning" cmdlet tries to verify the availability of the "docker 
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Test-DockerRunning
 ```

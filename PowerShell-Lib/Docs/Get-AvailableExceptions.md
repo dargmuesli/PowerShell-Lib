@@ -21,7 +21,7 @@ The "Get-AvailableExceptions" cmdlet iterates over and filters exceptions so tha
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Get-AvailableException
 ```

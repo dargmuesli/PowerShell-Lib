@@ -13,7 +13,7 @@ Starts Docker for Windows.
 ## SYNTAX
 
 ```
-Start-Docker [[-MachineName] <String>] [[-DownloadMethod] <String>]
+Start-Docker [[-MachineName] <String>] [[-DownloadMethod] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -22,7 +22,7 @@ If not, it offers to install and start Docker automatically.
 
 ## EXAMPLES
 
-### -------------------------- BEISPIEL 1 --------------------------
+### BEISPIEL 1
 ```
 Start-Docker -MachineName "Docker"
 ```
@@ -35,7 +35,7 @@ The machine name of the Docker Machine that is to be started.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -50,7 +50,7 @@ The type of download function that is to be used.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -58,6 +58,10 @@ Default value: BITS
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
