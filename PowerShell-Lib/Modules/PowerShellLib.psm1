@@ -629,10 +629,17 @@ Function Read-Prompt {
 
         [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
-        [Int] $DefaultChoice = 1
+        [Int] $DefaultChoice = 1,
+
+        [Switch] $NoColors
     )
 
-    Return $Host.UI.PromptForChoice($Caption, $Message, $Choices, $DefaultChoice)
+    If ($NoColors) {
+        Return $Host.UI.PromptForChoice($Caption, $Message, $Choices, $DefaultChoice)
+    } Else {
+        Write-MultiColor -Text @("$Caption`r`n", $Message) -Color Yellow, $Host.UI.RawUI.ForegroundColor
+        Return $Host.UI.PromptForChoice($Null, $Null, $Choices, $DefaultChoice)
+    }
 }
 
 <#
@@ -670,7 +677,9 @@ Function Read-PromptYesNo {
 
         [Parameter(Mandatory = $False)]
         [ValidateNotNullOrEmpty()]
-        [Int] $DefaultChoice = 1
+        [Int] $DefaultChoice = 1,
+
+        [Switch] $NoColors
     )
 
     $Choices = [Management.Automation.Host.ChoiceDescription[]] (
@@ -678,7 +687,7 @@ Function Read-PromptYesNo {
         (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList '&No')
     )
 
-    $Decision = Read-Prompt -Caption $Caption -Message $Message -Choices $Choices -DefaultChoice $DefaultChoice
+    $Decision = Read-Prompt -Caption $Caption -Message $Message -Choices $Choices -DefaultChoice $DefaultChoice -NoColors:$NoColors
 
     If ($Decision -Eq 0) {
         Return $True
