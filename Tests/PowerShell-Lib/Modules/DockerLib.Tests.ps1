@@ -69,16 +69,6 @@ Describe "Invoke-Docker" {
             {Invoke-Docker} | Should Throw
         }
     }
-
-    Context "Docker is not running" {
-        Mock Test-DockerRunning {
-            Return $False
-        } -ModuleName "DockerLib"
-
-        It "should throw an error" {
-            {Invoke-Docker} | Should Throw
-        }
-    }
 }
 
 Describe "Invoke-DockerMachine" {
