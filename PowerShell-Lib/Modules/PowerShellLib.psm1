@@ -975,7 +975,10 @@ Function Test-PropertyExists {
                 }
             }
         } Else {
-            If ((($Object.GetType().Name -Eq "Hashtable") `
+            If ((($Object.GetType().Name -Ne "Hashtable") `
+                        -And ($Object.GetType().Name -Ne "PSCustomObject")) `
+                    -Or
+                (($Object.GetType().Name -Eq "Hashtable") `
                         -And (-Not ($Object.Keys -Contains $Item))) `
                     -Or `
                 (($Object.GetType().Name -Eq "PSCustomObject") -And `
