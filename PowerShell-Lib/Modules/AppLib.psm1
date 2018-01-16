@@ -51,12 +51,8 @@ Function Get-AppsInstalled {
     }
 
     Get-ItemProperty -Path $RegPath |
-        ForEach-Object {
-        Process {
-            If ($PSItem -And (Test-PropertyExists -Object $PSItem -PropertyName "DisplayName")) {
-                $PSItem
-            }
-        }
+        Where-Object {
+        $PSItem -And (Test-PropertyExists -Object $PSItem -PropertyName "DisplayName")
     } |
         Select-Object -Property $SelectObjectProperty |
         Sort-Object -Property $SortObjectProperty
