@@ -966,10 +966,16 @@ Function Test-PropertyExists {
                 }
             }
         } Else {
-            If ($PassThrough) {
-                Return $Null
-            } Else {
-                Return $False
+            If ((($Object.GetType().Name -Eq "Hashtable") `
+                        -And (-Not ($Object.Keys -Contains $Item))) `
+                    -Or `
+                (($Object.GetType().Name -Eq "PSCustomObject") -And `
+                        -Not ($Object.PSObject.Properties.Name -Contains $Item))) {
+                If ($PassThrough) {
+                    Return $Null
+                } Else {
+                    Return $False
+                }
             }
         }
     }
