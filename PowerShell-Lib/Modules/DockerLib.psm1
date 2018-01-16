@@ -534,7 +534,7 @@ Function Stop-DockerStack {
     https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-DockerForWinInstalled.md
 #>
 Function Test-DockerForWinInstalled {
-    If (Test-AppInstalled -AppName "Docker") {
+    If (Test-AppInstalled -AppName "Docker for Windows") {
         Return $True
     } Else {
         Return $False
