@@ -7,6 +7,7 @@ version: '{build}'
 init:
   - ps: |
       $PSVersionTable
+      git config --global core.autocrlf false
       git config --list --show-origin
 
 install:
