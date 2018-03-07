@@ -33,6 +33,7 @@ test_script:
 on_finish:
   - ps: |
       Add-Type -AssemblyName System.IO.Compression.FileSystem
-      $ZipFile = Join-Path -Path $((Resolve-Path -Path "..").Path) -ChildPath "$($env:APPVEYOR_PROJECT_NAME)_$($env:APPVEYOR_BUILD_VERSION).zip"
-      [System.IO.Compression.ZipFile]::CreateFromDirectory("$PWD\$($env:APPVEYOR_PROJECT_NAME)", $ZipFile, "Optimal", "true")
+      $ZipFolder = Join-Path -Path $PWD -ChildPath $env:APPVEYOR_PROJECT_NAME
+      $ZipFile = Join-Path -Path $PWD -ChildPath "$($env:APPVEYOR_PROJECT_NAME)_$($env:APPVEYOR_BUILD_VERSION).zip"
+      Compress-Archive -Path $ZipFolder -DestinationPath $ZipFile
       Push-AppveyorArtifact -Path $ZipFile
