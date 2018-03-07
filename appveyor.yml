@@ -6,11 +6,12 @@ version: '{build}'
 
 init:
   - ps: |
-      Write-Host "PowerShell Version: $(${PSVersionTable}.PSVersion)"
+      $PSVersionTable
+      git config --list --show-origin
 
 install:
   - ps: |
-      Install-Module -Name "Pester" -Scope "CurrentUser"
+      Install-Module -Name "Pester" -Scope "CurrentUser" -Force
 
 build_script:
   - ps: |
