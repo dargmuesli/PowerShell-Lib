@@ -11,7 +11,7 @@ Set-StrictMode -Version Latest
     Get-AvailableException
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-AvailableExceptions.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-AvailableExceptions.md
 
     .NOTES
     Source: https://gist.github.com/wpsmith/7a4d6ab3e85d3720b883
@@ -48,7 +48,7 @@ Function Get-AvailableExceptions {
     Get-DownloadFolder
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-DownloadFolder.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-DownloadFolder.md
 #>
 Function Get-DownloadFolder {
     $UserShellFoldersPath = "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders"
@@ -57,6 +57,29 @@ Function Get-DownloadFolder {
         Return Get-ItemPropertyValue -Path $UserShellFoldersPath -Name "{374DE290-123F-4565-9164-39C4925E467B}"
     } Else {
         Return Get-ItemPropertyValue -Path $UserShellFoldersPath -Name "{7D83EE9B-2244-4E70-B1F5-5393042AF1E4}"
+    }
+}
+
+<#
+    .SYNOPSIS
+    Returns the current platform's EOL character.
+
+    .DESCRIPTION
+    The "Get-EOLCharacter" cmdlet returns the current platform's end of line character.
+
+    .EXAMPLE
+    Get-EOLCharacter
+
+    .LINK
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-EOLCharacter.md
+#>
+Function Get-EOLCharacter {
+    If (Test-IsWindows) {
+        return "`r`n"
+    } ElseIf (Test-IsLinux) {
+        return "`n"
+    } ElseIf (Test-IsMacOS) {
+        return "`r"
     }
 }
 
@@ -71,7 +94,7 @@ Function Get-DownloadFolder {
     Get-OsVersion
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-OsVersion.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-OsVersion.md
 #>
 Function Get-OsVersion {
     Return [System.Environment]::OSVersion.Version
@@ -87,7 +110,7 @@ Function Get-OsVersion {
     Get-SystemBit
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-SystemBit.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-SystemBit.md
 #>
 Function Get-SystemBit {
     $IntPtrSize = [IntPtr]::Size
@@ -110,7 +133,7 @@ Function Get-SystemBit {
     Test-AdminPermissions
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-AdminPermissions.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-AdminPermissions.md
 #>
 Function Test-AdminPermissions {
     If (([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
@@ -118,6 +141,74 @@ Function Test-AdminPermissions {
     } Else {
         Return $False
     }
+}
+
+<#
+    .SYNOPSIS
+    Tests if PowerShell Core is executed.
+
+    .DESCRIPTION
+    The "Test-IsCoreCLR" cmdlet checks whether the PS version table contains the "PSEdition" key having the value "Core".
+
+    .EXAMPLE
+    Test-IsCoreCLR
+
+    .LINK
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-IsCoreCLR.md
+#>
+Function Test-IsCoreCLR {
+    return $PSVersionTable.ContainsKey("PSEdition") -And $PSVersionTable.PSEdition -eq "Core"
+}
+
+<#
+    .SYNOPSIS
+    Tests if the current platform is Linux.
+
+    .DESCRIPTION
+    The "Test-IsLinux" cmdlet checks whether the "IsLinux" variable is set and returns its value.
+
+    .EXAMPLE
+    Test-IsLinux
+
+    .LINK
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-IsLinux.md
+#>
+Function Test-IsLinux {
+    return (Get-Variable -Name "IsLinux" -ErrorAction "Ignore") -And $IsLinux
+}
+
+<#
+    .SYNOPSIS
+    Tests if the current platform is MacOS.
+
+    .DESCRIPTION
+    The "Test-IsMacOS" cmdlet checks whether the "IsMacOS" variable is set and returns its value.
+
+    .EXAMPLE
+    Test-IsMacOS
+
+    .LINK
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-IsMacOS.md
+#>
+Function Test-IsMacOS {
+    return (Get-Variable -Name "IsMacOS" -ErrorAction "Ignore") -And $IsMacOS
+}
+
+<#
+    .SYNOPSIS
+    Tests if the current platform is Windows.
+
+    .DESCRIPTION
+    The "Test-IsWindows" cmdlet checks whether the "IsWindows" variable is set and returns its value.
+
+    .EXAMPLE
+    Test-IsWindows
+
+    .LINK
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-IsWindows.md
+#>
+Function Test-IsWindows {
+    return (-Not (Get-Variable -Name "IsWindows" -ErrorAction "Ignore")) -Or $IsWindows
 }
 
 Export-ModuleMember -Function *

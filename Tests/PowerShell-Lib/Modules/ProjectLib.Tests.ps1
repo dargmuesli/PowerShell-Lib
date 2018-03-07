@@ -47,10 +47,18 @@ Describe "Read-Settings" {
 "@
 
     It "reads settings from JSON to PSCustomObject" {
-        ConvertTo-Json (Read-Settings -SourcePath @("TestDrive:\settings-a.json", "TestDrive:\settings-b.json")) | Should Be @"
+        If ($PSVersionTable.PSVersion -Ge [System.Version]"6.0") {
+            ConvertTo-Json (Read-Settings -SourcePath @("TestDrive:\settings-a.json", "TestDrive:\settings-b.json")) | Should Be @"
+{
+  "Key": "value-b"
+}
+"@
+        } Else {
+            ConvertTo-Json (Read-Settings -SourcePath @("TestDrive:\settings-a.json", "TestDrive:\settings-b.json")) | Should Be @"
 {
     "Key":  "value-b"
 }
 "@
+        }
     }
 }

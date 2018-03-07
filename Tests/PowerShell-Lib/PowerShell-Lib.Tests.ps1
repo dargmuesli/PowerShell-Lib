@@ -34,7 +34,7 @@ Describe "PowerShell-Lib" {
                         Should Be $True
                 
                     $ModuleFunctionsHelp.relatedLinks.navigationLink.uri |
-                        Should Match "^https:\/\/github\.com\/Dargmuesli\/powershell-lib\/blob\/master\/PowerShell-Lib\/Docs\/$($ModuleFunctionsHelp.Name)\.md$"
+                        Should Match "^https:\/\/github\.com\/Dargmuesli\/PowerShell-Lib\/blob\/master\/PowerShell-Lib\/Docs\/$($ModuleFunctionsHelp.Name)\.md$"
                 }
             }
         }

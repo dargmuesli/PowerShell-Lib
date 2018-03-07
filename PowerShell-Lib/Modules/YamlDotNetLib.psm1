@@ -17,7 +17,7 @@ Set-StrictMode -Version Latest
     Source: https://github.com/aaubry/YamlDotNet/pull/239#issuecomment-335000781
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/New-DoubleQuotedString.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/New-DoubleQuotedString.md
 #>
 Function New-DoubleQuotedString {
     Param (
@@ -46,7 +46,7 @@ Function New-DoubleQuotedString {
     New-Yaml -Value @{"hello"="world"; "quoted"=New-DoubleQuotedString("bar"); "anArray"=@(1,2,3); "nested"=@{"array"=@("this", "is", "an", "array")}}
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/New-Yaml.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/New-Yaml.md
 #>
 Function New-Yaml {
     Param (
@@ -56,7 +56,7 @@ Function New-Yaml {
     )
 
     $Serializer = [YamlDotNet.Serialization.SerializerBuilder]::New().Build()
-    Return $Serializer.Serialize($Value).Trim("`r`n")
+    Return $Serializer.Serialize($Value).Trim((Get-EOLCharacter))
 }
 
 Export-ModuleMember -Function *

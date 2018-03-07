@@ -1,7 +1,7 @@
 ---
 external help file: SystemLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-OsVersion.md
+online version: https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-OsVersion.md
 schema: 2.0.0
 ---
 
@@ -36,5 +36,5 @@ Get-OsVersion
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-OsVersion.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-OsVersion.md)
+[https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-OsVersion.md](https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-OsVersion.md)
 

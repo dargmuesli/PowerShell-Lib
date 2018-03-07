@@ -1,7 +1,7 @@
 ---
 external help file: PowerShellLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md
+online version: https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md
 schema: 2.0.0
 ---
 
@@ -137,5 +137,5 @@ Source: https://gist.github.com/wpsmith/e8a9c54ca1c7c741b5e9
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md)
+[https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md](https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md)
 

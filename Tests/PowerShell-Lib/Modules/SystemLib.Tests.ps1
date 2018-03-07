@@ -32,3 +32,59 @@ Describe "Get-DownloadFolder" {
         }
     }
 }
+
+Describe "Get-EOLCharacter" {
+    Context "Windows" {
+        Mock "Test-IsWindows" {
+            Return $True
+        } -ModuleName "SystemLib"
+
+        Mock "Test-IsLinux" {
+            Return $False
+        } -ModuleName "SystemLib"
+
+        Mock "Test-IsMacOS" {
+            Return $False
+        } -ModuleName "SystemLib"
+
+        It "should return Windows EOL character" {
+            Get-EOLCharacter | Should Be "`r`n"
+        }
+    }
+
+    Context "Linux" {
+        Mock "Test-IsWindows" {
+            Return $False
+        } -ModuleName "SystemLib"
+
+        Mock "Test-IsLinux" {
+            Return $True
+        } -ModuleName "SystemLib"
+
+        Mock "Test-IsMacOS" {
+            Return $False
+        } -ModuleName "SystemLib"
+
+        It "should return Linux EOL character" {
+            Get-EOLCharacter | Should Be "`n"
+        }
+    }
+
+    Context "MacOS" {
+        Mock "Test-IsWindows" {
+            Return $False
+        } -ModuleName "SystemLib"
+
+        Mock "Test-IsLinux" {
+            Return $False
+        } -ModuleName "SystemLib"
+
+        Mock "Test-IsMacOS" {
+            Return $True
+        } -ModuleName "SystemLib"
+
+        It "should return MacOS EOL character" {
+            Get-EOLCharacter | Should Be "`r"
+        }
+    }
+}

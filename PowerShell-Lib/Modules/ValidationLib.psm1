@@ -19,7 +19,7 @@ $ValidRegexPort = "^([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655
     Test-Command -Command "docker"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-Command.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-Command.md
 #>
 Function Test-Command {
     Param (
@@ -55,7 +55,7 @@ Function Test-Command {
     Test-CountValid -Variable @(@(1, 2), @(3, 4)) -Min 0 -Max 2
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-CountValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-CountValid.md
 #>
 Function Test-CountValid {
     Param (
@@ -94,7 +94,7 @@ Function Test-CountValid {
     Test-HostnameValid -Hostname "test-hostname"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-HostnameValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-HostnameValid.md
 #>
 Function Test-HostnameValid {
     Param (
@@ -126,7 +126,7 @@ Function Test-HostnameValid {
     Test-IPAddressValid -IPAddress "127.0.0.1"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-IPAddressValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-IPAddressValid.md
 #>
 Function Test-IPAddressValid {
     Param (
@@ -158,7 +158,7 @@ Function Test-IPAddressValid {
     Test-IRIValid -IRI "google.com"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-IRIValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-IRIValid.md
 #>
 Function Test-IRIValid {
     Param (
@@ -196,7 +196,7 @@ Function Test-IRIValid {
     Test-LengthValid -Variable @("123", "456") -Min 0 -Max 3
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-LengthValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-LengthValid.md
 #>
 Function Test-LengthValid {
     Param (
@@ -238,7 +238,7 @@ Function Test-LengthValid {
     Test-NotNullOrEmptyValid -Variable @(123)
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-NotNullOrEmptyValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-NotNullOrEmptyValid.md
 #>
 Function Test-NotNullOrEmptyValid {
     Param (
@@ -275,7 +275,7 @@ Function Test-NotNullOrEmptyValid {
     Test-NotNullValid -Variable @(123)
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-NotNullValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-NotNullValid.md
 #>
 Function Test-NotNullValid {
     Param (
@@ -311,7 +311,7 @@ Function Test-NotNullValid {
     Test-PathValid -Path ".\"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PathValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-PathValid.md
 #>
 Function Test-PathValid {
     Param (
@@ -346,7 +346,7 @@ Function Test-PathValid {
     Test-PatternValid -Variable "123 ABC" -Pattern "^[0-9]*\s[A-Z]*$"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PatternValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-PatternValid.md
 #>
 Function Test-PatternValid {
     Param (
@@ -382,7 +382,7 @@ Function Test-PatternValid {
     Test-PortValid -Port "8080"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PortValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-PortValid.md
 #>
 Function Test-PortValid {
     Param (
@@ -420,7 +420,7 @@ Function Test-PortValid {
     Test-RangeValid -Variable @(1, 2, 3) -Min 0 -Max 3
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-RangeValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-RangeValid.md
 #>
 Function Test-RangeValid {
     Param (
@@ -463,7 +463,7 @@ Function Test-RangeValid {
     Test-ScriptValid -Variable @(5) -Script "If ($PSItem -Eq 5) { Return $True } Else { Return $False }"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-ScriptValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-ScriptValid.md
 #>
 Function Test-ScriptValid {
     Param (
@@ -502,7 +502,7 @@ Function Test-ScriptValid {
     Test-SetValid -Variable @("test", "123") -Set @("test", "123", "foo", "bar")
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-SetValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-SetValid.md
 #>
 Function Test-SetValid {
     Param (
@@ -541,7 +541,7 @@ Function Test-SetValid {
     Test-TypeValid -Variable @(123) -Type Int
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-TypeValid.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-TypeValid.md
 #>
 Function Test-TypeValid {
     Param (

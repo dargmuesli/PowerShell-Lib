@@ -1,7 +1,7 @@
 ---
 external help file: JavaLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-JDKInstalled.md
+online version: https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-JDKInstalled.md
 schema: 2.0.0
 ---
 
@@ -45,5 +45,5 @@ Matches:
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-JDKInstalled.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-JDKInstalled.md)
+[https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-JDKInstalled.md](https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-JDKInstalled.md)
 

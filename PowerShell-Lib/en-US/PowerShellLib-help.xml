@@ -85,8 +85,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Add-Package.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Add-Package.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Add-Package.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Add-Package.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -174,8 +174,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -312,8 +312,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-FileFromWeb.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-FileFromWeb.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-FileFromWeb.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-FileFromWeb.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -401,8 +401,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Initialize-TaskPath.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Initialize-TaskPath.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Initialize-TaskPath.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Initialize-TaskPath.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -514,8 +514,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-ModuleOnce.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-ModuleOnce.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Install-ModuleOnce.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Install-ModuleOnce.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -674,8 +674,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-PackageOnce.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-PackageOnce.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Install-PackageOnce.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Install-PackageOnce.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -809,8 +809,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-ExpressionSafe.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-ExpressionSafe.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Invoke-ExpressionSafe.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Invoke-ExpressionSafe.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -946,8 +946,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1036,8 +1036,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Merge-Objects.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Merge-Objects.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Merge-Objects.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Merge-Objects.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1102,8 +1102,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Mount-EnvFile.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Mount-EnvFile.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Mount-EnvFile.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Mount-EnvFile.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1178,8 +1178,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-FunctionNames.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-FunctionNames.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-FunctionNames.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-FunctionNames.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1339,8 +1339,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-Prompt.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-Prompt.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-Prompt.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-Prompt.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1476,8 +1476,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-PromptYesNo.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-PromptYesNo.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-PromptYesNo.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-PromptYesNo.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1590,8 +1590,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-ValidInput.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-ValidInput.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-ValidInput.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-ValidInput.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1704,8 +1704,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Set-ArrayItem.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Set-ArrayItem.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Set-ArrayItem.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Set-ArrayItem.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1770,8 +1770,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-EnvVarExists.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-EnvVarExists.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-EnvVarExists.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-EnvVarExists.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1836,8 +1836,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-ModuleInstalled.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-ModuleInstalled.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-ModuleInstalled.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-ModuleInstalled.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1949,8 +1949,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PropertyExists.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PropertyExists.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-PropertyExists.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-PropertyExists.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -2110,8 +2110,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Wait-Test.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Wait-Test.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Wait-Test.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Wait-Test.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -2330,8 +2330,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -2561,8 +2561,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -2651,8 +2651,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ProgressBar.md</maml:linkText>
-        <maml:uri>https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ProgressBar.md</maml:uri>
+        <maml:linkText>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-ProgressBar.md</maml:linkText>
+        <maml:uri>https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-ProgressBar.md</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

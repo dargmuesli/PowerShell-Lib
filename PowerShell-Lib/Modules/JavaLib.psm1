@@ -9,7 +9,7 @@
     Test-JDKInstalled
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-JDKInstalled.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-JDKInstalled.md
 
     .NOTES
     Matches:
@@ -41,7 +41,7 @@ Function Test-JDKInstalled {
     Test-JREInstalled
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-JREInstalled.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-JREInstalled.md
 
     .Notes
     Matches:

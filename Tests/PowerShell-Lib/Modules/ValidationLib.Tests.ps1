@@ -81,9 +81,16 @@ Describe "Test-NotNullValid" {
 }
 
 Describe "Test-PathValid" {
-    It "checks whether a path is valid" {
-        Test-PathValid -Path @("C:\", "C:\ABC") | Should Be $True
-        Test-PathValid -Path @("C:\", "C::\") | Should Be $False
+    If (Test-IsWindows) {
+        It "checks whether a path is valid" {
+            Test-PathValid -Path @("C:\", "C:\ABC") | Should Be $True
+            Test-PathValid -Path @("C:\", "C::\") | Should Be $False
+        }
+    } ElseIf (Test-IsLinux) {
+        It "checks whether a path is valid" {
+            Test-PathValid -Path @("/", "/ABC") | Should Be $True
+            Test-PathValid -Path @("/", "C:") | Should Be $False
+        }
     }
 }
 

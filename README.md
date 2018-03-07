@@ -7,8 +7,8 @@ A library of helpful PowerShell functions.
 As this module is only available on GitHub, [PSDepend](https://github.com/RamblingCookieMonster/PSDepend) is needed to install it. If not yet done, have a look on [how to install PSDepend](https://github.com/RamblingCookieMonster/PSDepend#installing-psdepend) or just use these commands for PowerShell 5:
 
 ```PowerShell
-Install-Module PSDepend -Scope CurrentUser
-Invoke-PSDepend @{"dargmuesli/powershell-lib"=""} -Install
+Install-Module PSDepend -Scope "CurrentUser" -Force
+Invoke-PSDepend @{"dargmuesli/powershell-lib"="latest"} -Install
 ```
 
 PSDepend also allows other modules to depend on this one. Add the following line to your `Requirements.psd1` file:
@@ -80,9 +80,14 @@ PSDepend also allows other modules to depend on this one. Add the following line
 - **SystemLib**
   - [Get-AvailableExceptions](PowerShell-Lib/Docs/Get-AvailableExceptions.md)
   - [Get-DownloadFolder](PowerShell-Lib/Docs/Get-DownloadFolder.md)
+  - [Get-EOLCharacter](PowerShell-Lib/Docs/Get-EOLCharacter.md)
   - [Get-OsVersion](PowerShell-Lib/Docs/Get-OsVersion.md)
   - [Get-SystemBit](PowerShell-Lib/Docs/Get-SystemBit.md)
   - [Test-AdminPermissions](PowerShell-Lib/Docs/Test-AdminPermissions.md)
+  - [Test-IsCoreCLR](PowerShell-Lib/Docs/Test-IsCoreCLR.md)
+  - [Test-IsLinux](PowerShell-Lib/Docs/Test-IsLinux.md)
+  - [Test-IsMacOS](PowerShell-Lib/Docs/Test-IsMacOS.md)
+  - [Test-IsWindows](PowerShell-Lib/Docs/Test-IsWindows.md)
 - **TextLib**
   - [Clear-Linebreaks](PowerShell-Lib/Docs/Clear-Linebreaks.md)
   - [Join-MultiLineStrings](PowerShell-Lib/Docs/Join-MultiLineStrings.md)

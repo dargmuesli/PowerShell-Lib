@@ -1,7 +1,7 @@
 ---
 external help file: PowerShellLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md
+online version: https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md
 schema: 2.0.0
 ---
 
@@ -178,5 +178,5 @@ Source: https://stackoverflow.com/a/36519870/4682621
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md)
+[https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md](https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md)
 

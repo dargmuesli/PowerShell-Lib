@@ -1,7 +1,7 @@
 ---
 external help file: YamlDotNetLib-help.xml
 Module Name: PowerShell-Lib
-online version: https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/New-DoubleQuotedString.md
+online version: https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/New-DoubleQuotedString.md
 schema: 2.0.0
 ---
 
@@ -56,5 +56,5 @@ Source: https://github.com/aaubry/YamlDotNet/pull/239#issuecomment-335000781
 
 ## RELATED LINKS
 
-[https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/New-DoubleQuotedString.md](https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/New-DoubleQuotedString.md)
+[https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/New-DoubleQuotedString.md](https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/New-DoubleQuotedString.md)
 

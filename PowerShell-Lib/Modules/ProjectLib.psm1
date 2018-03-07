@@ -21,7 +21,7 @@ Set-StrictMode -Version Latest
     New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\*") -DocPath "PowerShell-Lib/Docs"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/New-ModuleMarkdown.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/New-ModuleMarkdown.md
 #>
 Function New-ModuleMarkdown {
     Param (
@@ -56,12 +56,13 @@ Function New-ModuleMarkdown {
     }
 
     $MarkdownString = "## Modules"
+    $EOLCharacter = Get-EOLCharacter
 
     Foreach ($SourceDataItem In $SourceData.GetEnumerator()) {
-        $MarkdownString += "`r`n- **$($SourceDataItem.Name)**"
+        $MarkdownString += "$EOLCharacter- **$($SourceDataItem.Name)**"
 
         Foreach ($SourceDataItemValueItem In $SourceDataItem.Value) {
-            $MarkdownString += "`r`n  - [$SourceDataItemValueItem]($DocPath/$SourceDataItemValueItem.md)"
+            $MarkdownString += "$EOLCharacter  - [$SourceDataItemValueItem]($DocPath/$SourceDataItemValueItem.md)"
         }
     }
 
@@ -82,7 +83,7 @@ Function New-ModuleMarkdown {
     Read-Settings -SourcePath @(".\package.json", ".\docker-management.json")
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-Settings.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-Settings.md
 #>
 Function Read-Settings {
     Param (

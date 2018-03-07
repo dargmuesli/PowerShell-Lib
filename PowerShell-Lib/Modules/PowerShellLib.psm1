@@ -17,7 +17,7 @@ Set-StrictMode -Version Latest
     Add-Package -Name "YamlDotNet"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Add-Package.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Add-Package.md
 #>
 Function Add-Package {
     Param (
@@ -52,7 +52,7 @@ Function Add-Package {
     Convert-PSCustomObjectToHashtable -InputObject $InputObject
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Convert-PSCustomObjectToHashtable.md
 #>
 Function Convert-PSCustomObjectToHashtable {
     Param (
@@ -131,7 +131,7 @@ Function Convert-PSCustomObjectToHashtable {
     Download method "WebRequest" can display its progress, but is very slow.
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Get-FileFromWeb.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-FileFromWeb.md
 #>
 Function Get-FileFromWeb {
     Param (
@@ -187,7 +187,7 @@ Function Get-FileFromWeb {
     Initialize-TaskPath -TaskPath "~\Project\Output.txt"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Initialize-TaskPath.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Initialize-TaskPath.md
 #>
 Function Initialize-TaskPath {
     Param (
@@ -227,7 +227,7 @@ Function Initialize-TaskPath {
     Install-ModuleOnce -Name "Pester"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-ModuleOnce.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Install-ModuleOnce.md
 #>
 Function Install-ModuleOnce {
     Param (
@@ -244,17 +244,9 @@ Function Install-ModuleOnce {
 
     Write-Verbose "Installing modules..."
 
-    $Parameters = @{}
-
-    If ($Scope) {
-        $Parameters["Scope"] = $Scope
-    }
-
     ForEach ($Item In $Name) {
-        $Parameters["Name"] = $Item
-
-        If (-Not (Get-Module @Parameters -ListAvailable)) {
-            Install-Module @Parameters
+        If (-Not (Get-Module -Name $Item -ListAvailable)) {
+            Install-Module -Name $Item -Scope:$Scope -Force:$Force
         }
     }
 }
@@ -285,7 +277,7 @@ Function Install-ModuleOnce {
     Install-PackageOnce -Name "YamlDotNet"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Install-PackageOnce.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Install-PackageOnce.md
 #>
 Function Install-PackageOnce {
     Param (
@@ -356,7 +348,7 @@ Function Install-PackageOnce {
     Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-ExpressionSafe.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Invoke-ExpressionSafe.md
 #>
 Function Invoke-ExpressionSafe {
     Param (
@@ -421,7 +413,7 @@ Function Invoke-ExpressionSafe {
     Invoke-WebRequestWithProgress -Uri "https://download.docker.com/win/stable/InstallDocker.msi" -OutFile ".\"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Invoke-WebRequestWithProgress.md
 #>
 Function Invoke-WebRequestWithProgress {
     Param (
@@ -485,7 +477,7 @@ Function Invoke-WebRequestWithProgress {
     Merge-Objects -Object1 @{test='123'} -Object2 @{123='test'}
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Merge-Objects.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Merge-Objects.md
 #>
 Function Merge-Objects {
     Param (
@@ -521,7 +513,7 @@ Function Merge-Objects {
     Mount-EnvFile -EnvFilePath ".\.env"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Mount-EnvFile.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Mount-EnvFile.md
 #>
 Function Mount-EnvFile {
     Param (
@@ -564,7 +556,7 @@ Function Mount-EnvFile {
     Sorted by the functions' order of occurrence.
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-FunctionNames.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-FunctionNames.md
 #>
 Function Read-FunctionNames {
     Param (
@@ -611,7 +603,7 @@ Function Read-FunctionNames {
     Read-Prompt -Caption "Docker for Windows and Docker Toolbox are installed." -Message "Which one do you want to use?" -Choices $Choices -DefaultChoice 0
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-Prompt.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-Prompt.md
 #>
 Function Read-Prompt {
     Param (
@@ -637,7 +629,7 @@ Function Read-Prompt {
     If ($NoColors) {
         Return $Host.UI.PromptForChoice($Caption, $Message, $Choices, $DefaultChoice)
     } Else {
-        Write-MultiColor -Text @("$Caption`r`n", $Message) -Color Yellow, $Host.UI.RawUI.ForegroundColor
+        Write-MultiColor -Text @("$Caption$(Get-EOLCharacter)", $Message) -Color Yellow, $Host.UI.RawUI.ForegroundColor
         Return $Host.UI.PromptForChoice($Null, $Null, $Choices, $DefaultChoice)
     }
 }
@@ -663,7 +655,7 @@ Function Read-Prompt {
     Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -DefaultChoice 0
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-PromptYesNo.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-PromptYesNo.md
 #>
 Function Read-PromptYesNo {
     Param (
@@ -724,7 +716,7 @@ Function Read-PromptYesNo {
         )
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Read-ValidInput.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Read-ValidInput.md
 #>
 Function Read-ValidInput {
     Param (
@@ -788,7 +780,7 @@ Function Read-ValidInput {
     Set-ArrayItem -Array @(1, 3) -NewItem 2
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Set-ArrayItem.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Set-ArrayItem.md
 #>
 Function Set-ArrayItem {
     Param (
@@ -828,7 +820,7 @@ Function Set-ArrayItem {
     Test-EnvVarExists -EnvVarName "OS"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-EnvVarExists.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-EnvVarExists.md
 #>
 Function Test-EnvVarExists {
     Param (
@@ -858,7 +850,7 @@ Function Test-EnvVarExists {
     Test-ModuleInstalled -ModuleName "PowerShell-Lib"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-ModuleInstalled.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-ModuleInstalled.md
 #>
 Function Test-ModuleInstalled {
     Param (
@@ -891,7 +883,7 @@ Function Test-ModuleInstalled {
     Test-PropertyExists -Object {test='123'} -PropertyName "test"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Test-PropertyExists.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-PropertyExists.md
 #>
 Function Test-PropertyExists {
     Param (
@@ -1025,7 +1017,7 @@ Function Test-PropertyExists {
     Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Wait-Test.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Wait-Test.md
 #>
 Function Wait-Test {
     Param (
@@ -1102,7 +1094,7 @@ Function Wait-Test {
     }
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-ErrorRecord.md
 
     .NOTES
     Source: https://gist.github.com/wpsmith/e8a9c54ca1c7c741b5e9
@@ -1136,7 +1128,7 @@ Function Write-ErrorRecord {
     )
     Begin {
         $Exceptions = Get-AvailableExceptions
-        $ExceptionList = $Exceptions -Join "`r`n"
+        $ExceptionList = $Exceptions -Join (Get-EOLCharacter)
     }
     Process {
         Trap [Microsoft.PowerShell.Commands.NewObjectCommand] {
@@ -1155,7 +1147,7 @@ Function Write-ErrorRecord {
             $ErrorRecord = New-Object "Management.Automation.ErrorRecord" @($Exception, $ErrorID, $ErrorCategory, $TargetObject)
             $PSCmdlet.WriteError($ErrorRecord)
         } Else {
-            Write-Warning "Available exceptions are:`r`n$ExceptionList"
+            Write-Warning "Available exceptions are:$(Get-EOLCharacter)$ExceptionList"
 
             $Message = "Exception '$Exception' is not available."
             $Exception = New-Object "System.InvalidOperationException" $Message
@@ -1222,7 +1214,7 @@ Function Write-ErrorRecord {
     Write-MultiColor -Text "This can get ","handy if you ", "want to display things, and log actions to file ", "at the same time." -Color Yellow, White, Green, Red, Red -LogFile "C:\testing.txt"
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-MultiColor.md
 
     .NOTES
     Source: https://stackoverflow.com/a/36519870/4682621
@@ -1264,7 +1256,7 @@ Function Write-MultiColor {
     # Add empty line before
     If ($LinesBefore -Ne 0) {
         For ($I = 0; $I -Lt $LinesBefore; $I++) {
-            Write-Host "`n" -NoNewline
+            Write-Host (Get-EOLCharacter) -NoNewline
         }
     }
 
@@ -1293,7 +1285,7 @@ Function Write-MultiColor {
     # Add empty line after
     If ($LinesAfter -Ne 0) {
         For ($I = 0; $I -Lt $LinesAfter; $I++) {
-            Write-Host "`n"
+            Write-Host (Get-EOLCharacter)
         }
     }
 
@@ -1325,7 +1317,7 @@ Function Write-MultiColor {
     Write-ProgressBar -Activity "Checking ..." -PercentComplete $Index
 
     .LINK
-    https://github.com/Dargmuesli/powershell-lib/blob/master/PowerShell-Lib/Docs/Write-ProgressBar.md
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Write-ProgressBar.md
 #>
 Function Write-ProgressBar {
     Param (
