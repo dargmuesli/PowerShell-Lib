@@ -45,6 +45,7 @@ Accept wildcard characters: False
 
 ### -Scope
 The installation scope.
+Defaults to "AllUsers" when in an elevated session on Windows, to "CurrentUser" otherwise.
 
 ```yaml
 Type: String

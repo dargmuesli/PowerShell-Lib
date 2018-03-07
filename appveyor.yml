@@ -10,7 +10,7 @@ init:
 
 install:
   - ps: |
-      Install-Module -Name "Pester"
+      Install-Module -Name "Pester" -Scope "CurrentUser"
 
 build_script:
   - ps: |
