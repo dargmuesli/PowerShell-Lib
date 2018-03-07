@@ -219,6 +219,7 @@ Function Initialize-TaskPath {
 
     .PARAMETER Scope
     The installation scope.
+    Defaults to "AllUsers" when in an elevated session on Windows, to "CurrentUser" otherwise.
 
     .PARAMETER Force
     Whether to force the installation.
@@ -244,9 +245,17 @@ Function Install-ModuleOnce {
 
     Write-Verbose "Installing modules..."
 
+    If (-Not $Scope) {
+        If (Test-IsWindows -And Test-AdminPermissions) {
+            $Scope = "AllUsers"
+        } Else {
+            $Scope = "CurrentUser"
+        }
+    }
+
     ForEach ($Item In $Name) {
         If (-Not (Get-Module -Name $Item -ListAvailable)) {
-            Install-Module -Name $Item -Scope:$Scope -Force:$Force
+            Install-Module -Name $Item -Scope $Scope -Force:$Force
         }
     }
 }
