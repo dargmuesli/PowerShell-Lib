@@ -3,7 +3,9 @@ Set-StrictMode -Version Latest
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\PowerShell-Lib.psd1" -Force
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\Modules\YamlDotNetLib.psm1" -Force
 
-Add-Type -Path (Get-ChildItem -Path "${PSScriptRoot}\..\..\..\Packages" -Filter "YamlDotNet.dll" -Recurse -Force)[0].FullName
+If (-Not (Test-TypeLoaded -Name "YamlDotNet.RepresentationModel.YamlScalarNode")) {
+    Add-Type -Path (Get-ChildItem -Path "${PSScriptRoot}\..\..\..\Packages" -Filter "YamlDotNet.dll" -Recurse -Force)[0].FullName
+}
 
 Describe "New-DoubleQuotedString" {
     It "returns a double quoted string" {

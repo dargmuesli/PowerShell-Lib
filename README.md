@@ -70,6 +70,7 @@ PSDepend also allows other modules to depend on this one. Add the following line
   - [Test-EnvVarExists](PowerShell-Lib/Docs/Test-EnvVarExists.md)
   - [Test-ModuleInstalled](PowerShell-Lib/Docs/Test-ModuleInstalled.md)
   - [Test-PropertyExists](PowerShell-Lib/Docs/Test-PropertyExists.md)
+  - [Test-TypeLoaded](PowerShell-Lib/Docs/Test-TypeLoaded.md)
   - [Wait-Test](PowerShell-Lib/Docs/Wait-Test.md)
   - [Write-ErrorRecord](PowerShell-Lib/Docs/Write-ErrorRecord.md)
   - [Write-MultiColor](PowerShell-Lib/Docs/Write-MultiColor.md)
