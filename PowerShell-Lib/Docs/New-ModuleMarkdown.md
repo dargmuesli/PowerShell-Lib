@@ -13,12 +13,12 @@ Creates a markdown list for all functions in specified files.
 ## SYNTAX
 
 ```
-New-ModuleMarkdown [-SourcePath] <String[]> [-DocPath] <String> [-Sort] [<CommonParameters>]
+New-ModuleMarkdown [-SourcePath] <String[]> [-DocPath] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 The "New-ModuleMarkdown" cmdlet reads all specified files and searches for function declarations within them.
-Then it can sort the findings alphabetically and finally it returns a markdown list representation of all functions.
+It then returns a markdown list representation of all functions.
 
 ## EXAMPLES
 
@@ -55,21 +55,6 @@ Aliases:
 Required: True
 Position: 2
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Sort
-Whether to sort the findings alphabetically or not.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

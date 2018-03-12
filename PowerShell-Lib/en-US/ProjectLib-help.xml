@@ -10,7 +10,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "New-ModuleMarkdown" cmdlet reads all specified files and searches for function declarations within them. Then it can sort the findings alphabetically and finally it returns a markdown list representation of all functions.</maml:para>
+      <maml:para>The "New-ModuleMarkdown" cmdlet reads all specified files and searches for function declarations within them. It then returns a markdown list representation of all functions.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -39,17 +39,6 @@
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
-          <maml:name>Sort</maml:name>
-          <maml:Description>
-            <maml:para>Whether to sort the findings alphabetically or not.</maml:para>
-          </maml:Description>
-          <dev:type>
-            <maml:name>SwitchParameter</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>False</dev:defaultValue>
-        </command:parameter>
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
@@ -76,18 +65,6 @@
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
-        <maml:name>Sort</maml:name>
-        <maml:Description>
-          <maml:para>Whether to sort the findings alphabetically or not.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
-        <dev:type>
-          <maml:name>SwitchParameter</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>False</dev:defaultValue>
       </command:parameter>
     </command:parameters>
     <command:inputTypes />

@@ -12,18 +12,8 @@ Describe "New-ModuleMarkdown" {
     Function Install-Module {}
 "@ -Force
 
-    It "creates a markdown list for all functions" {
-        New-ModuleMarkdown -SourcePath @("TestDrive:\Modules\") -DocPath "Docs" | Should Be @"
-## Modules
-- **ModuleBLib**
-  - [Install-Module](Docs/Install-Module.md)
-- **ModuleALib**
-  - [Get-Module](Docs/Get-Module.md)
-"@
-    }
-
     It "creates a sorted markdown list for all functions" {
-        New-ModuleMarkdown -SourcePath @("TestDrive:\Modules\") -DocPath "Docs" -Sort | Should Be @"
+        New-ModuleMarkdown -SourcePath @("TestDrive:\Modules\") -DocPath "Docs" | Should Be @"
 ## Modules
 - **ModuleALib**
   - [Get-Module](Docs/Get-Module.md)

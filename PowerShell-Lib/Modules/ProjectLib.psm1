@@ -6,16 +6,13 @@ Set-StrictMode -Version Latest
 
     .DESCRIPTION
     The "New-ModuleMarkdown" cmdlet reads all specified files and searches for function declarations within them.
-    Then it can sort the findings alphabetically and finally it returns a markdown list representation of all functions.
+    It then returns a markdown list representation of all functions.
 
     .PARAMETER SourcePath
     The path to files that are to be examined.
 
     .PARAMETER DocPath
     The path to where a functions markdown documentation can be found.
-
-    .PARAMETER Sort
-    Whether to sort the findings alphabetically or not.
 
     .EXAMPLE
     New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\*") -DocPath "PowerShell-Lib/Docs"
@@ -31,12 +28,10 @@ Function New-ModuleMarkdown {
 
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
-        [String] $DocPath,
-
-        [Switch] $Sort
+        [String] $DocPath
     )
 
-    $SourceData = @{}
+    $SourceData = [Ordered]@{}
 
     Foreach ($SourcePathItem In $SourcePath) {
         $SourcePathItem = Get-ChildItem -Path "$SourcePathItem*"
@@ -49,10 +44,6 @@ Function New-ModuleMarkdown {
                 $SourceData.Add($ModuleName, $FunctionNames)
             }
         }
-    }
-
-    If ($Sort) {
-        $SourceData = $SourceData.GetEnumerator() | Sort-Object -Property Name
     }
 
     $MarkdownString = "## Modules"
