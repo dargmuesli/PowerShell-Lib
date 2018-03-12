@@ -20,7 +20,7 @@ Function Install-Dependencies {
     )
 
     If (-Not (Get-PackageSource -Name "NuGet" -ErrorAction "SilentlyContinue")) {
-        Register-PackageSource -Name "NuGet" -ProviderName "NuGet" -Location "https://api.nuget.org/v3/index.json"
+        Register-PackageSource -Name "NuGet" -ProviderName "NuGet" -Location "https://www.nuget.org/api/v2/"
     }
 
     Write-Host "Installing dependencies..." -ForegroundColor "Cyan"
