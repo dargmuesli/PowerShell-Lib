@@ -21,7 +21,7 @@ The "Merge-Objects" cmdlet adds all properties of the first object and the secon
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Merge-Objects -Object1 @{test='123'} -Object2 @{123='test'}
 ```

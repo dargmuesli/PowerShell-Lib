@@ -21,7 +21,7 @@ The "Test-NotNullOrEmptyValid" cmdlet checks if a variable's values are not null
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-NotNullOrEmptyValid -Variable @(123)
 ```

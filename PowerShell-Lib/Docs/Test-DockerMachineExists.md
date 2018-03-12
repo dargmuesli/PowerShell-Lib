@@ -21,7 +21,7 @@ The "Test-DockerMachineExists" cmdlet tries to show information about the Docker
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-DockerMachineExists -MachineName "Docker"
 ```

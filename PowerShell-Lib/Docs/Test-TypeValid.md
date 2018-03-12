@@ -21,7 +21,7 @@ The "Test-TypeValid" cmdlet checks if a variable's values are of a given type an
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-TypeValid -Variable @(123) -Type Int
 ```

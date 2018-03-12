@@ -27,7 +27,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Get-AvailableException</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -68,7 +68,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Get-DownloadFolder</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -109,7 +109,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Get-EOLCharacter</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -150,7 +150,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Get-OsVersion</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -191,7 +191,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Get-SystemBit</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -232,7 +232,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-AdminPermissions</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -273,7 +273,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-IsCoreCLR</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -314,7 +314,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-IsLinux</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -355,7 +355,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-IsMacOS</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -396,7 +396,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-IsWindows</dev:code>
         <dev:remarks>
           <maml:para></maml:para>

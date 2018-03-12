@@ -21,7 +21,7 @@ The "Write-DockerComposeFile" cmdlet converts the data in a PSCustomObject to th
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Write-DockerComposeFile -ComposeFile "docker-compose.yml" -Path ".\"
 ```

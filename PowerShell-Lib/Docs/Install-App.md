@@ -21,7 +21,7 @@ The "Install-App" cmdlet starts an type-dependent installer and waits for its co
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Install-App -InstallerPath ".\installer.msi"
 ```

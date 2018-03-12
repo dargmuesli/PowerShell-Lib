@@ -21,7 +21,7 @@ The "Test-CountValid" cmdlet checks if the count of a variable's values is in a 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-CountValid -Variable @(@(1, 2), @(3, 4)) -Min 0 -Max 2
 ```

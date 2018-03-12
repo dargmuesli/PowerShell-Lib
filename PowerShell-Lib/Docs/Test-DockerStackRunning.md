@@ -21,7 +21,7 @@ The "Test-DockerStackRunning" cmdlet looks for a running container with a matchi
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-DockerStackRunning -StackNamespace "AppStack"
 ```

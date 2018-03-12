@@ -22,7 +22,7 @@ The "Read-Prompt" cmdlet prompts the user for a choice regarding a question with
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 $Choices = [Management.Automation.Host.ChoiceDescription[]] (
 ```

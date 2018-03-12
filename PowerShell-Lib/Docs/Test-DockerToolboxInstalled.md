@@ -21,7 +21,7 @@ The "Test-DockerToolboxInstalled" cmdlet checks if an app is installed that matc
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-DockerToolboxInstalled
 ```

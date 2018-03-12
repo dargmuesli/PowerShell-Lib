@@ -22,7 +22,7 @@ Then it can sort the findings alphabetically and finally it returns a markdown l
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\*") -DocPath "PowerShell-Lib/Docs"
 ```

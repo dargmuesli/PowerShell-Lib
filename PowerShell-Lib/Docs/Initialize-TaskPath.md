@@ -21,7 +21,7 @@ The "Initialize-TaskPath" cmdlet checks whether a path exists and, depending on 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Initialize-TaskPath -TaskPath "~\Project\Output.txt"
 ```

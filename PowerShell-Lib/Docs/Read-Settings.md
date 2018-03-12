@@ -21,7 +21,7 @@ The "Read-Settings" cmdlet merges each source file's settings into a new object 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Read-Settings -SourcePath @(".\package.json", ".\docker-management.json")
 ```

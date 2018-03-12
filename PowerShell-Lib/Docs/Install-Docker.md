@@ -21,7 +21,7 @@ The "Install-Docker" cmdlet downloads and executes the Docker installer.
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Install-Docker
 ```

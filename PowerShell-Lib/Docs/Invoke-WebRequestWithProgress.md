@@ -23,7 +23,7 @@ Every 10KB a progress bar showing the current download progress is displayed/upd
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Invoke-WebRequestWithProgress -Uri "https://download.docker.com/win/stable/InstallDocker.msi" -OutFile ".\"
 ```

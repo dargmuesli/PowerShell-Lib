@@ -21,7 +21,7 @@ The "Test-Command" cmdlet checks if a command is available and returns true on s
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-Command -Command "docker"
 ```

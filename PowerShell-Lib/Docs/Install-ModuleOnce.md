@@ -21,7 +21,7 @@ The "Install-ModuleOnce" cmdlet checks whether a module is already installed and
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Install-ModuleOnce -Name "Pester"
 ```

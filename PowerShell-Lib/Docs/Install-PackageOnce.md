@@ -22,7 +22,7 @@ The "Install-PackageOnce" cmdlet checks whether a package is already installed a
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Install-PackageOnce -Name "YamlDotNet"
 ```

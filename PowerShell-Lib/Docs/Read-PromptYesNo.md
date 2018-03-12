@@ -22,7 +22,7 @@ The "Read-PromptYesNo" cmdlet displays a yes/no prompt and waits for the user's 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -DefaultChoice 0
 ```

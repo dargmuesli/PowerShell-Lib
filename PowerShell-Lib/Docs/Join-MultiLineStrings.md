@@ -21,7 +21,7 @@ The "Join-MultiLineStrings" cmdlet iterates over all multi line strings, adding 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 $FileA = Get-Content -Path ".\FileA.md" -Raw
 ```

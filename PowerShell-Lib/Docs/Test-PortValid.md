@@ -21,7 +21,7 @@ The "Test-PortValid" cmdlet tries to match a port with a regex pattern for valid
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-PortValid -Port "8080"
 ```

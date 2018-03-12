@@ -21,7 +21,7 @@ The "Get-DockerMachineStatus" cmdlet gets the Docker Machine's status.
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Get-DockerMachineStatus -MachineName "Docker"
 ```

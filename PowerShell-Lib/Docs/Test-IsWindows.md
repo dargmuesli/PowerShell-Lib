@@ -21,7 +21,7 @@ The "Test-IsWindows" cmdlet checks whether the "IsWindows" variable is set and r
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-IsWindows
 ```

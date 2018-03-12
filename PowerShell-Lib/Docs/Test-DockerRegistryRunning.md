@@ -21,7 +21,7 @@ The "Test-DockerRegistryRunning" cmdlet tries to invoke a web request to the reg
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-DockerRegistryRunning -Hostname "localhost" -Port "8080"
 ```

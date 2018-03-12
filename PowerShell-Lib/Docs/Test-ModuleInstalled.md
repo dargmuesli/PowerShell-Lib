@@ -21,7 +21,7 @@ The "Test-ModuleInstalled" cmdlet tries to get the desired module and return tru
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-ModuleInstalled -ModuleName "PowerShell-Lib"
 ```

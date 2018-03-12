@@ -52,7 +52,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-Command -Command "docker"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -166,7 +166,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-CountValid -Variable @(@(1, 2), @(3, 4)) -Min 0 -Max 2</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -232,7 +232,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-HostnameValid -Hostname "test-hostname"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -298,7 +298,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-IPAddressValid -IPAddress "127.0.0.1"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -364,7 +364,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-IRIValid -IRI "google.com"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -478,7 +478,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-LengthValid -Variable @("123", "456") -Min 0 -Max 3</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -544,7 +544,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-NotNullOrEmptyValid -Variable @(123)</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -610,7 +610,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-NotNullValid -Variable @(123)</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -676,7 +676,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-PathValid -Path ".\"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -766,7 +766,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-PatternValid -Variable "123 ABC" -Pattern "^[0-9]*\s[A-Z]*$"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -832,7 +832,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-PortValid -Port "8080"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -946,7 +946,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-RangeValid -Variable @(1, 2, 3) -Min 0 -Max 3</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -1036,7 +1036,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-ScriptValid -Variable @(5) -Script "If ($PSItem -Eq 5) { Return $True } Else { Return $False }"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -1126,7 +1126,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-SetValid -Variable @("test", "123") -Set @("test", "123", "foo", "bar")</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -1216,7 +1216,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-TypeValid -Variable @(123) -Type Int</dev:code>
         <dev:remarks>
           <maml:para></maml:para>

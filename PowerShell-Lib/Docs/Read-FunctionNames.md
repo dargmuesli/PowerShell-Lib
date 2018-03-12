@@ -21,7 +21,7 @@ The "Read-FunctionNames" cmdlet parses the input string and returns all findings
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 $InputString = @"
 ```

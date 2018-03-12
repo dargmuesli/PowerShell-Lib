@@ -76,7 +76,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Get-AppsInstalled -SelectObjectProperty @("DisplayName", "DisplayVersion") -SortObjectProperty @("DisplayName", "DisplayVersion")</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -142,7 +142,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Install-App -InstallerPath ".\installer.msi"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -231,7 +231,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-AppInstalled -AppName "Docker Toolbox version \d+\.\d+\.\d+(-ce)*" -RegexCompare</dev:code>
         <dev:remarks>
           <maml:para></maml:para>

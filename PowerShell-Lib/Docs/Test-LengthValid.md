@@ -21,7 +21,7 @@ The "Test-LengthValid" cmdlet checks if the length of a variable's values is in 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-LengthValid -Variable @("123", "456") -Min 0 -Max 3
 ```

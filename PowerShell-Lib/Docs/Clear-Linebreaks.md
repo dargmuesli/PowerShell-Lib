@@ -21,7 +21,7 @@ The "Clear-Linebreaks" cmdlet replaces every line feed and carriage return chara
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Clear-Linebreaks -String "test`r`n123"
 ```

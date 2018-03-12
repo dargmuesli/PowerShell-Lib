@@ -22,7 +22,7 @@ The "Wait-Test" cmdlet increases the progress bar's value in steps from 0 to 100
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar
 ```

@@ -21,7 +21,7 @@ The "Stop-DockerMachine" cmdlet stops the desired Docker Machine.
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Stop-DockerMachine -MachineName "Docker"
 ```

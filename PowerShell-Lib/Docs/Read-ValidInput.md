@@ -23,7 +23,7 @@ It loops until a valid answer can be returned.
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 $InputPath = Read-ValidInput `
 ```

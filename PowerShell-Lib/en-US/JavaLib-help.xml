@@ -27,7 +27,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-JDKInstalled</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -68,7 +68,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-JREInstalled</dev:code>
         <dev:remarks>
           <maml:para></maml:para>

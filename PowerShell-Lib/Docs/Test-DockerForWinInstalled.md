@@ -21,7 +21,7 @@ The "Test-DockerForWinInstalled" cmdlet tests if an app with the name "Docker" i
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-DockerForWinInstalled
 ```

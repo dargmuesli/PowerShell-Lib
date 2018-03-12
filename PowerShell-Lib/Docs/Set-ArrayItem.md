@@ -21,7 +21,7 @@ The "Set-ArrayItem" cmdlet either replaces an old item with a new one or simply 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Set-ArrayItem -Array @(1, 3) -NewItem 2
 ```

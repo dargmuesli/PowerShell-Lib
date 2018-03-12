@@ -21,7 +21,7 @@ The "Set-DockerMachineEnv" cmdlet sets the Docker Machine environment variables.
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Set-DockerMachineEnv -MachineName "Docker"
 ```

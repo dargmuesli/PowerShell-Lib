@@ -21,7 +21,7 @@ The "Add-Package" cmdlet searches a package's .dll and imports it.
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Add-Package -Name "YamlDotNet"
 ```

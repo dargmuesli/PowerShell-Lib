@@ -21,7 +21,7 @@ Tries to start the Docker registry image and offers to install it in case it is 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Start-DockerRegistry -Name "registry" -Host "localhost" -Port "8080"
 ```

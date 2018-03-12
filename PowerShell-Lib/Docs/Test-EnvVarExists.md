@@ -21,7 +21,7 @@ The "Test-EnvVarExists" cmdlet checks the existence of an environment variable a
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-EnvVarExists -EnvVarName "OS"
 ```

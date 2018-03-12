@@ -21,7 +21,7 @@ The "Test-JDKInstalled" cmdlet tests if an app with a name matching a regular ex
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-JDKInstalled
 ```

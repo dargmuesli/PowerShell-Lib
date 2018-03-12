@@ -21,7 +21,7 @@ The "Test-PathValid" cmdlet checks if a path is valid and returns true on succes
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-PathValid -Path ".\"
 ```

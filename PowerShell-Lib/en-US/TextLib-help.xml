@@ -52,7 +52,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Clear-Linebreaks -String "test`r`n123"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -141,7 +141,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>$FileA = Get-Content -Path ".\FileA.md" -Raw</dev:code>
         <dev:remarks>
           <maml:para>$FileB = Get-Content -Path ".\FileB.md" -Raw</maml:para>

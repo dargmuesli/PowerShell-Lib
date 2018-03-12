@@ -21,7 +21,7 @@ The "New-DockerMachine" cmdlet removes any existing Docker Machine with the desi
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 New-DockerMachine -MachineName "Docker"
 ```

@@ -21,7 +21,7 @@ The "Test-IPAddressValid" cmdlet tries to match an IP address with a regex patte
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-IPAddressValid -IPAddress "127.0.0.1"
 ```

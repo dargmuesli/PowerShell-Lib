@@ -21,7 +21,7 @@ The "Test-AdminPermissions" cmdlet verifies that administrator permissions are e
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-AdminPermissions
 ```

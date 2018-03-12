@@ -21,7 +21,7 @@ The "Test-SetValid" cmdlet checks if a variable's values exist within a set and 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-SetValid -Variable @("test", "123") -Set @("test", "123", "foo", "bar")
 ```

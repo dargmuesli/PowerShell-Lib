@@ -21,7 +21,7 @@ The "New-DoubleQuotedString" cmdlet creates and returns a new YamlScalarNode, do
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 New-DoubleQuotedString -Value "foo"
 ```

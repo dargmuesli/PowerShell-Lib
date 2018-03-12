@@ -52,7 +52,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>New-DoubleQuotedString -Value "foo"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -118,7 +118,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>New-Yaml -Value @{"hello"="world"; "quoted"=New-DoubleQuotedString("bar"); "anArray"=@(1,2,3); "nested"=@{"array"=@("this", "is", "an", "array")}}</dev:code>
         <dev:remarks>
           <maml:para></maml:para>

@@ -22,7 +22,7 @@ Creates a custom error record and writes a non-terminating error.
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 $Content = Get-Content -LiteralPath $Path -ErrorAction "SilentlyContinue"
 ```

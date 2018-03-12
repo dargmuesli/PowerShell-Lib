@@ -21,7 +21,7 @@ The "Test-IRIValid" cmdlet tries to match an IRI with a regex pattern for valid 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-IRIValid -IRI "google.com"
 ```

@@ -21,7 +21,7 @@ The "Invoke-DockerMachine" cmdlet verifies the existence of the "docker-machine"
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Invoke-DockerMachine status MachineName
 ```

@@ -21,7 +21,7 @@ The "Write-ProgressBar" cmdlet displays a progress bar with a given progress per
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Write-ProgressBar -Activity "Checking ..." -PercentComplete $Index
 ```

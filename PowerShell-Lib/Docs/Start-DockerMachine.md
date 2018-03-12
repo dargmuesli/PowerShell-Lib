@@ -21,7 +21,7 @@ The "Start-DockerMachine" cmdlet starts the desired Docker Machine.
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Start-DockerMachine -DockerMachine "Docker"
 ```

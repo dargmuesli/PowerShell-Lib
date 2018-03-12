@@ -21,7 +21,7 @@ The "Test-CountValid" cmdlet checks if a variable's values are in a specified ra
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-RangeValid -Variable @(1, 2, 3) -Min 0 -Max 3
 ```

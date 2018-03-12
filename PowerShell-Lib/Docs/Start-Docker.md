@@ -22,7 +22,7 @@ If not, it offers to install and start Docker automatically.
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Start-Docker -MachineName "Docker"
 ```

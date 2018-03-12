@@ -21,7 +21,7 @@ The "Stop-DockerStack" cmdlet stops a Docker stack and waits for all included co
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Stop-DockerStack -StackName "appstack"
 ```

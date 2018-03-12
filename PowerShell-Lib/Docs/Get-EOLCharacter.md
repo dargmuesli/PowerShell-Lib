@@ -21,7 +21,7 @@ The "Get-EOLCharacter" cmdlet returns the current platform's end of line charact
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Get-EOLCharacter
 ```

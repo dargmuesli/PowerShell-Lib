@@ -21,7 +21,7 @@ The "Test-HostnameValid" cmdlet tries to match a hostname with a regex pattern f
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-HostnameValid -Hostname "test-hostname"
 ```

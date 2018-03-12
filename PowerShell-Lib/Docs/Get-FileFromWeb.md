@@ -22,7 +22,7 @@ The "Get-FileFromWeb" cmdlet uses different methods to download a file from a UR
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Get-FileFromWeb -Url "https://download.docker.com/win/stable/InstallDocker.msi" -LocalPath ".\"
 ```

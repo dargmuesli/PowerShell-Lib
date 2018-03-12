@@ -76,7 +76,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Add-Package -Name "YamlDotNet"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -165,7 +165,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Convert-PSCustomObjectToHashtable -InputObject $InputObject</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -303,7 +303,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Get-FileFromWeb -Url "https://download.docker.com/win/stable/InstallDocker.msi" -LocalPath ".\"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -392,7 +392,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Initialize-TaskPath -TaskPath "~\Project\Output.txt"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -505,7 +505,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Install-ModuleOnce -Name "Pester"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -665,7 +665,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Install-PackageOnce -Name "YamlDotNet"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -800,7 +800,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -937,7 +937,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Invoke-WebRequestWithProgress -Uri "https://download.docker.com/win/stable/InstallDocker.msi" -OutFile ".\"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -1027,7 +1027,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Merge-Objects -Object1 @{test='123'} -Object2 @{123='test'}</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -1093,7 +1093,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Mount-EnvFile -EnvFilePath ".\.env"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -1168,7 +1168,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>$InputString = @"</dev:code>
         <dev:remarks>
           <maml:para>Function X {         $a = 1     }     Function Y {         $b = 2     } "@</maml:para>
@@ -1330,7 +1330,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>$Choices = [Management.Automation.Host.ChoiceDescription[]] (</dev:code>
         <dev:remarks>
           <maml:para>(New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker for Windows'),     (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker Toolbox') ) Read-Prompt -Caption "Docker for Windows and Docker Toolbox are installed." -Message "Which one do you want to use?" -Choices $Choices -DefaultChoice 0</maml:para>
@@ -1467,7 +1467,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Read-PromptYesNo -Message "Docker is not installed." -Question "Do you want to install it automatically?" -DefaultChoice 0</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -1581,7 +1581,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>$InputPath = Read-ValidInput `</dev:code>
         <dev:remarks>
           <maml:para>-Prompt "The input path" `     -ValidityCheck @(         {Test-Path $Answer}     ) `     -ErrorMessage @(         "Invalid path!"     )</maml:para>
@@ -1695,7 +1695,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Set-ArrayItem -Array @(1, 3) -NewItem 2</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -1761,7 +1761,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-EnvVarExists -EnvVarName "OS"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -1827,7 +1827,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-ModuleInstalled -ModuleName "PowerShell-Lib"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -1940,7 +1940,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Test-PropertyExists -Object {test='123'} -PropertyName "test"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -2101,7 +2101,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Wait-Test -Test "-Not (Test-DockerRunning)" -Activity "Waiting for Docker to initialize" -WithProgressBar</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
@@ -2321,7 +2321,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>$Content = Get-Content -LiteralPath $Path -ErrorAction "SilentlyContinue"</dev:code>
         <dev:remarks>
           <maml:para>If (-Not $Content) {     New-ErrorRecord -Exception "InvalidOperationException" -ErrorId "FileIsEmpty" -ErrorCategory "InvalidOperation" -TargetObject $Path -Message "File '$Path' is empty." -InnerException $Error[0].Exception }</maml:para>
@@ -2549,7 +2549,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Write-MultiColor -Text "Red ", "Green ", "Yellow " -Color Red, Green, Yellow</dev:code>
         <dev:remarks>
           <maml:para>Write-MultiColor -Text "This is text in Green ",                 "followed by Red ",                 "and then we have Magenta... ",                 "isn't it fun? ",                 "Here goes DarkCyan" -Color Green,Red,Magenta,White,DarkCyan</maml:para>
@@ -2642,7 +2642,7 @@
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>-------------------------- BEISPIEL 1 --------------------------</maml:title>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
         <dev:code>Write-ProgressBar -Activity "Checking ..." -PercentComplete $Index</dev:code>
         <dev:remarks>
           <maml:para></maml:para>

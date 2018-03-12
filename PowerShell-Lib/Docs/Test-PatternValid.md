@@ -21,7 +21,7 @@ The "Test-PatternValid" cmdlet checks if a pattern is valid and returns true on 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-PatternValid -Variable "123 ABC" -Pattern "^[0-9]*\s[A-Z]*$"
 ```

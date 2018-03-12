@@ -21,7 +21,7 @@ The "Convert-PSCustomObjectToHashtable" cmdlet iterates over a PSCustomObject's 
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Convert-PSCustomObjectToHashtable -InputObject $InputObject
 ```

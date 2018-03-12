@@ -21,7 +21,7 @@ The "Test-PropertyExists" cmdlet checks if an object contains a property name an
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-PropertyExists -Object {test='123'} -PropertyName "test"
 ```

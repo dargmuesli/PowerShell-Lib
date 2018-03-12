@@ -21,7 +21,7 @@ The "Get-DownloadFolder" cmdlet returns the value of a OS version dependent regi
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Get-DownloadFolder
 ```

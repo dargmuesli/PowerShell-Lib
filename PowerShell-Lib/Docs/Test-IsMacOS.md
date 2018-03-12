@@ -21,7 +21,7 @@ The "Test-IsMacOS" cmdlet checks whether the "IsMacOS" variable is set and retur
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-IsMacOS
 ```

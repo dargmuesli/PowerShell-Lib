@@ -23,7 +23,7 @@ If the Graceful parameter is given and an error occurs, no exception is be throw
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Invoke-ExpressionSafe -Command "docker swarm init --advertise-addr 'eth0:2377'" -WithError -Graceful
 ```

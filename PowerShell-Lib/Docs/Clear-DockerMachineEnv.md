@@ -21,7 +21,7 @@ The "Clear-DockerMachineEnv" cmdlet unsets the Docker Machine environment variab
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Clear-DockerMachineEnv
 ```

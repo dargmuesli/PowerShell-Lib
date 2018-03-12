@@ -21,7 +21,7 @@ The "Mount-EnvFile" cmdlet reads and parses each valid line from an .env file an
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Mount-EnvFile -EnvFilePath ".\.env"
 ```

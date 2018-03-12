@@ -22,7 +22,7 @@ The "Write-MultiColor" cmdlet writes indented and multicolored text to the conso
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Write-MultiColor -Text "Red ", "Green ", "Yellow " -Color Red, Green, Yellow
 ```

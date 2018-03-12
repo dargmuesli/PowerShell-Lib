@@ -21,7 +21,7 @@ The "Test-IsLinux" cmdlet checks whether the "IsLinux" variable is set and retur
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-IsLinux
 ```

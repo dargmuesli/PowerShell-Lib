@@ -21,7 +21,7 @@ The "Test-IsCoreCLR" cmdlet checks whether the PS version table contains the "PS
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Test-IsCoreCLR
 ```

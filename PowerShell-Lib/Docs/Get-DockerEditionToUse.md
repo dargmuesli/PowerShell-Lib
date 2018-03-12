@@ -23,7 +23,7 @@ If both are installed, the user is asked which one is the user's preferred choic
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 Get-DockerEditionToUse
 ```

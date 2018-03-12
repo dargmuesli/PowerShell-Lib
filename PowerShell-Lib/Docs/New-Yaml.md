@@ -21,7 +21,7 @@ The "New-Yaml" cmdlet serializes and returns a value by creating a SerializerBui
 
 ## EXAMPLES
 
-### BEISPIEL 1
+### EXAMPLE 1
 ```
 New-Yaml -Value @{"hello"="world"; "quoted"=New-DoubleQuotedString("bar"); "anArray"=@(1,2,3); "nested"=@{"array"=@("this", "is", "an", "array")}}
 ```
