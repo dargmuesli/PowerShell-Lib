@@ -1002,6 +1002,36 @@ Function Test-PropertyExists {
 
 <#
     .SYNOPSIS
+    Checks whether a type is loaded.
+
+    .DESCRIPTION
+    The "Test-TypeLoaded" cmdlet .
+
+    .PARAMETER Name
+    The type's name that is to be checked.
+
+    .EXAMPLE
+    Test-TypeLoaded -Name "YamlDotNet"
+
+    .LINK
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-TypeLoaded.md
+#>
+Function Test-TypeLoaded {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Name
+    )
+
+    If (([System.Management.Automation.PSTypeName]$Name).Type) {
+        Return $True
+    } Else {
+        Return $False
+    }
+}
+
+<#
+    .SYNOPSIS
     Displays an indeterminate progress bar while a test is successful.
 
     .DESCRIPTION
