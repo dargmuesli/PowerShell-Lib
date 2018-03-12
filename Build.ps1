@@ -19,6 +19,10 @@ Function Install-Dependencies {
         [Switch] $Only
     )
 
+    If (-Not (Get-PackageSource -Name "NuGet" -ErrorAction "SilentlyContinue")) {
+        Register-PackageSource -Name "NuGet" -ProviderName "NuGet" -Location "https://api.nuget.org/v3/index.json"
+    }
+
     Write-Host "Installing dependencies..." -ForegroundColor "Cyan"
 
     Install-ModuleOnce -Name @("platyPS", "Pester") -Force
