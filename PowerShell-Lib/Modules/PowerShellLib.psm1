@@ -246,7 +246,7 @@ Function Install-ModuleOnce {
     Write-Verbose "Installing modules..."
 
     If (-Not $Scope) {
-        If (Test-IsWindows -And Test-AdminPermissions) {
+        If ((Test-IsWindows) -And (Test-AdminPermissions)) {
             $Scope = "AllUsers"
         } Else {
             $Scope = "CurrentUser"
