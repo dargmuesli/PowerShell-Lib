@@ -4,57 +4,63 @@ Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\PowerShell-Lib.psd1
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\Modules\DockerLib.psm1" -Force
 
 Describe "Get-DockerEditionToUse" {
-    Context "only Docker for Windows is installed" {
-        Mock Test-DockerForWinInstalled {
+    Context "Windows" {
+        Mock Test-IsWindows {
             Return $True
         } -ModuleName "DockerLib"
 
-        Mock Test-DockerToolboxInstalled {
-            Return $False
-        } -ModuleName "DockerLib"
-
-        It "should return `"ForWin`"" {
-            Get-DockerEditionToUse | Should Be "ForWin"
-        }
-    }
-
-    Context "only Docker Toolbox is installed" {
-        Mock Test-DockerForWinInstalled {
-            Return $False
-        } -ModuleName "DockerLib"
-
-        Mock Test-DockerToolboxInstalled {
-            Return $True
-        } -ModuleName "DockerLib"
-
-        It "should return `"Toolbox`"" {
-            Get-DockerEditionToUse | Should Be "Toolbox"
-        }
-    }
-
-    Context "Docker for Windows and Docker Toolbox are installed" {
-        Mock Test-DockerForWinInstalled {
-            Return $True
-        } -ModuleName "DockerLib"
-
-        Mock Test-DockerToolboxInstalled {
-            Return $True
-        } -ModuleName "DockerLib"
-
-        It "should return `"ForWin`" as first choice" {
-            Mock Read-Prompt {
-                Return "0"
+        Context "only Docker for Windows is installed" {
+            Mock Test-DockerForWinInstalled {
+                Return $True
             } -ModuleName "DockerLib"
 
-            Get-DockerEditionToUse | Should Be "ForWin"
-        }
-
-        It "should return `"Toolbox`" as second choice" {
-            Mock Read-Prompt {
-                Return "1"
+            Mock Test-DockerToolboxInstalled {
+                Return $False
             } -ModuleName "DockerLib"
 
-            Get-DockerEditionToUse | Should Be "Toolbox"
+            It "should return `"ForWin`"" {
+                Get-DockerEditionToUse | Should Be "ForWin"
+            }
+        }
+
+        Context "only Docker Toolbox is installed" {
+            Mock Test-DockerForWinInstalled {
+                Return $False
+            } -ModuleName "DockerLib"
+
+            Mock Test-DockerToolboxInstalled {
+                Return $True
+            } -ModuleName "DockerLib"
+
+            It "should return `"Toolbox`"" {
+                Get-DockerEditionToUse | Should Be "Toolbox"
+            }
+        }
+
+        Context "Docker for Windows and Docker Toolbox are installed" {
+            Mock Test-DockerForWinInstalled {
+                Return $True
+            } -ModuleName "DockerLib"
+
+            Mock Test-DockerToolboxInstalled {
+                Return $True
+            } -ModuleName "DockerLib"
+
+            It "should return `"ForWin`" as first choice" {
+                Mock Read-Prompt {
+                    Return "0"
+                } -ModuleName "DockerLib"
+
+                Get-DockerEditionToUse | Should Be "ForWin"
+            }
+
+            It "should return `"Toolbox`" as second choice" {
+                Mock Read-Prompt {
+                    Return "1"
+                } -ModuleName "DockerLib"
+
+                Get-DockerEditionToUse | Should Be "Toolbox"
+            }
         }
     }
 }

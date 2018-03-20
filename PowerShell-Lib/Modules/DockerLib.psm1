@@ -37,31 +37,37 @@ Function Clear-DockerMachineEnv {
     https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-DockerEditionToUse.md
 #>
 Function Get-DockerEditionToUse {
-    $DockerForWinInstalled = Test-DockerForWinInstalled
-    $DockerToolboxInstalled = Test-DockerToolboxInstalled
+    If (Test-IsWindows) {
+        $DockerForWinInstalled = Test-DockerForWinInstalled
+        $DockerToolboxInstalled = Test-DockerToolboxInstalled
 
-    If ($DockerForWinInstalled -And $DockerToolboxInstalled) {
-        $Choices = [Management.Automation.Host.ChoiceDescription[]] (
-            (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker for Windows'),
-            (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker Toolbox')
-        )
+        If ($DockerForWinInstalled -And $DockerToolboxInstalled) {
+            $Choices = [Management.Automation.Host.ChoiceDescription[]] (
+                (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker for Windows'),
+                (New-Object Management.Automation.Host.ChoiceDescription -ArgumentList 'Docker Toolbox')
+            )
 
-        $Decision = Read-Prompt -Caption "Docker for Windows and Docker Toolbox are installed." -Message "Which one do you want to use?" -Choices $Choices -DefaultChoice 0
+            $Decision = Read-Prompt -Caption "Docker for Windows and Docker Toolbox are installed." -Message "Which one do you want to use?" -Choices $Choices -DefaultChoice 0
 
-        Switch ($Decision) {
-            0 {
-                Return "ForWin"
-                Break
+            Switch ($Decision) {
+                0 {
+                    Return "ForWin"
+                    Break
+                }
+                1 {
+                    Return "Toolbox"
+                    Break
+                }
             }
-            1 {
-                Return "Toolbox"
-                Break
-            }
+        } ElseIf ($DockerForWinInstalled) {
+            Return "ForWin"
+        } ElseIf ($DockerToolboxInstalled) {
+            Return "Toolbox"
         }
-    } ElseIf ($DockerForWinInstalled) {
-        Return "ForWin"
-    } ElseIf ($DockerToolboxInstalled) {
-        Return "Toolbox"
+    } ElseIf (Test-IsLinux) {
+        Write-Warning -Message "This cmdlet is not yet fully PowerShell Core compatible."
+    } Else {
+        Write-Warning -Message "This cmdlet is not yet fully PowerShell Core compatible."
     }
 }
 
