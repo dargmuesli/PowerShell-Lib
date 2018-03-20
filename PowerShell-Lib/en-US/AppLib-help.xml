@@ -10,12 +10,12 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Get-AppsInstalled" cmdlet gets the registry's uninstall keys depending on the system's architecture. Then it filters all subkeys by the existence of a "DisplayName" and properties given in the "SelectObjectProperty" parameter. Finally it sorts all found apps by their "DisplayName" and returns them.</maml:para>
+      <maml:para>The "Get-AppsInstalled" cmdlet - on Windows - gets the registry's uninstall keys depending on the system's architecture. Then it filters all subkeys by the existence of a "DisplayName" and properties given in the "SelectObjectProperty" parameter. Finally it sorts all found apps by their "DisplayName" and returns them. On Linux a simple package list is returned with a format dedending on each package manager.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>Get-AppsInstalled</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>SelectObjectProperty</maml:name>
           <maml:Description>
             <maml:para>The properties to select.</maml:para>
@@ -27,7 +27,7 @@
           </dev:type>
           <dev:defaultValue>@("DisplayName")</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>SortObjectProperty</maml:name>
           <maml:Description>
             <maml:para>The properties to sort by.</maml:para>
@@ -40,9 +40,24 @@
           <dev:defaultValue>@("DisplayName")</dev:defaultValue>
         </command:parameter>
       </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-AppsInstalled</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PackageManager</maml:name>
+          <maml:Description>
+            <maml:para>The package manager to use. Defaults to automatic detection. Currently only Pacman is supported.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Get-DefaultPackageManager)</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>SelectObjectProperty</maml:name>
         <maml:Description>
           <maml:para>The properties to select.</maml:para>
@@ -54,7 +69,7 @@
         </dev:type>
         <dev:defaultValue>@("DisplayName")</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>SortObjectProperty</maml:name>
         <maml:Description>
           <maml:para>The properties to sort by.</maml:para>
@@ -65,6 +80,18 @@
           <maml:uri />
         </dev:type>
         <dev:defaultValue>@("DisplayName")</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PackageManager</maml:name>
+        <maml:Description>
+          <maml:para>The package manager to use. Defaults to automatic detection. Currently only Pacman is supported.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Get-DefaultPackageManager)</dev:defaultValue>
       </command:parameter>
     </command:parameters>
     <command:inputTypes />
@@ -166,7 +193,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Test-AppInstalled" cmdlet gets a list of all installed apps and checks if the value of parameter "AppName" occurs within the list. If that is the case, "True" is returned.</maml:para>
+      <maml:para>The "Test-AppInstalled" cmdlet - on Windows - gets a list of all installed apps and checks if the value of parameter "AppName" occurs within the list. If that is the case, "True" is returned. On Linux a package manager dependent parsing is applied and searched for the desired package.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -182,6 +209,18 @@
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PackageManager</maml:name>
+          <maml:Description>
+            <maml:para>The package manager to use. Defaults to automatic detection. Currently only Pacman is supported.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>(Get-DefaultPackageManager)</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RegexCompare</maml:name>
@@ -208,6 +247,18 @@
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PackageManager</maml:name>
+        <maml:Description>
+          <maml:para>The package manager to use. Defaults to automatic detection. Currently only Pacman is supported.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>(Get-DefaultPackageManager)</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>RegexCompare</maml:name>

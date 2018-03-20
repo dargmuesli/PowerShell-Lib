@@ -12,13 +12,20 @@ Checks whether an app in installed on the current computer.
 
 ## SYNTAX
 
+### Linux
+```
+Test-AppInstalled [-AppName] <String> -PackageManager <String> [-RegexCompare] [<CommonParameters>]
+```
+
+### Default
 ```
 Test-AppInstalled [-AppName] <String> [-RegexCompare] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The "Test-AppInstalled" cmdlet gets a list of all installed apps and checks if the value of parameter "AppName" occurs within the list.
+The "Test-AppInstalled" cmdlet - on Windows - gets a list of all installed apps and checks if the value of parameter "AppName" occurs within the list.
 If that is the case, "True" is returned.
+On Linux a package manager dependent parsing is applied and searched for the desired package.
 
 ## EXAMPLES
 
@@ -40,6 +47,23 @@ Aliases:
 Required: True
 Position: 1
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PackageManager
+The package manager to use.
+Defaults to automatic detection.
+Currently only Pacman is supported.
+
+```yaml
+Type: String
+Parameter Sets: Linux
+Aliases:
+
+Required: True
+Position: Named
+Default value: (Get-DefaultPackageManager)
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
