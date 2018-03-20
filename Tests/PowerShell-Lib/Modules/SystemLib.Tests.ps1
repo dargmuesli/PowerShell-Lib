@@ -3,6 +3,22 @@ Set-StrictMode -Version Latest
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\PowerShell-Lib.psd1" -Force
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\Modules\SystemLib.psm1" -Force
 
+Describe "Get-DefaultPackageManager" {
+    Context "Linux" {
+        Mock "Test-IsLinux" {
+            Return $True
+        } -ModuleName "SystemLib"
+
+        Context "Arch Linux" {
+            Mock "Get-LinuxOsId" {
+                Return "arch"
+            } -ModuleName "SystemLib"
+
+            Get-DefaultPackageManager | Should Be "Pacman"
+        }
+    }
+}
+
 Describe "Get-DownloadFolder" {
     Context "Windows 10 and above" {
         Mock "Get-OsVersion" {

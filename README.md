@@ -80,6 +80,7 @@ PSDepend also allows other modules to depend on this one. Add the following line
   - [Read-Settings](PowerShell-Lib/Docs/Read-Settings.md)
 - **SystemLib**
   - [Get-AvailableExceptions](PowerShell-Lib/Docs/Get-AvailableExceptions.md)
+  - [Get-DefaultPackageManager](PowerShell-Lib/Docs/Get-DefaultPackageManager.md)
   - [Get-DownloadFolder](PowerShell-Lib/Docs/Get-DownloadFolder.md)
   - [Get-EOLCharacter](PowerShell-Lib/Docs/Get-EOLCharacter.md)
   - [Get-OsVersion](PowerShell-Lib/Docs/Get-OsVersion.md)

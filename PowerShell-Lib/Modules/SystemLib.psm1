@@ -39,6 +39,32 @@ Function Get-AvailableExceptions {
 
 <#
     .SYNOPSIS
+    Returns the default package manager.
+
+    .DESCRIPTION
+    The "Get-DefaultPackageManager" cmdlet returns a package manager name depending on the OS and its version.
+
+    .EXAMPLE
+    Get-DefaultPackageManager
+
+    .NOTES
+    The list is far from complete and awaits open source contributions!
+
+    .LINK
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-DefaultPackageManager.md
+#>
+Function Get-DefaultPackageManager {
+    If (Test-IsLinux) {
+        Switch (Get-LinuxOsId) {
+            "arch" {
+                Return "Pacman"
+            }
+        }
+    }
+}
+
+<#
+    .SYNOPSIS
     Returns the user's download folder.
 
     .DESCRIPTION
