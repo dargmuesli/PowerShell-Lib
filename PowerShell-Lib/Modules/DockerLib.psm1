@@ -555,10 +555,18 @@ Function Test-DockerForWinInstalled {
     https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-DockerInstalled.md
 #>
 Function Test-DockerInstalled {
-    If ((Test-DockerForWinInstalled) -Or (Test-DockerToolboxInstalled)) {
-        Return $True
-    } Else {
-        Return $False
+    If (Test-IsWindows) {
+        If ((Test-DockerForWinInstalled) -Or (Test-DockerToolboxInstalled)) {
+            Return $True
+        } Else {
+            Return $False
+        }
+    } ElseIf (Test-IsLinux) {
+        If (Test-AppInstalled -AppName "docker") {
+            Return $True
+        } Else {
+            Return $False
+        }
     }
 }
 

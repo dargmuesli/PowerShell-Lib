@@ -112,59 +112,95 @@ Describe "Test-DockerForWinInstalled" {
 }
 
 Describe "Test-DockerInstalled" {
-    Context "Neither Docker for Windows nor Docker Machine are installed" {
-        Mock "Test-DockerForWinInstalled" {
-            Return $False
+    Context "Windows" {
+        Mock Test-IsWindows {
+            Return $True
         } -ModuleName "DockerLib"
 
-        Mock "Test-DockerToolboxInstalled" {
-            Return $False
-        } -ModuleName "DockerLib"
+        Context "Neither Docker for Windows nor Docker Machine are installed" {
+            Mock "Test-DockerForWinInstalled" {
+                Return $False
+            } -ModuleName "DockerLib"
 
-        It "should return false" {
-            Test-DockerInstalled | Should Be $False
+            Mock "Test-DockerToolboxInstalled" {
+                Return $False
+            } -ModuleName "DockerLib"
+
+            It "should return false" {
+                Test-DockerInstalled | Should Be $False
+            }
+        }
+
+        Context "Only Docker for Windows is installed" {
+            Mock "Test-DockerForWinInstalled" {
+                Return $True
+            } -ModuleName "DockerLib"
+
+            Mock "Test-DockerToolboxInstalled" {
+                Return $False
+            } -ModuleName "DockerLib"
+
+            It "should return true" {
+                Test-DockerInstalled | Should Be $True
+            }
+        }
+
+        Context "Only Docker Machine is installed" {
+            Mock "Test-DockerForWinInstalled" {
+                Return $False
+            } -ModuleName "DockerLib"
+
+            Mock "Test-DockerToolboxInstalled" {
+                Return $True
+            } -ModuleName "DockerLib"
+
+            It "should return true" {
+                Test-DockerInstalled | Should Be $True
+            }
+        }
+
+        Context "Docker for Windows and Docker Machine are installed" {
+            Mock "Test-DockerForWinInstalled" {
+                Return $True
+            } -ModuleName "DockerLib"
+
+            Mock "Test-DockerToolboxInstalled" {
+                Return $True
+            } -ModuleName "DockerLib"
+
+            It "should return true" {
+                Test-DockerInstalled | Should Be $True
+            }
         }
     }
 
-    Context "Only Docker for Windows is installed" {
-        Mock "Test-DockerForWinInstalled" {
-            Return $True
-        } -ModuleName "DockerLib"
-
-        Mock "Test-DockerToolboxInstalled" {
+    Context "Linux" {
+        Mock Test-IsWindows {
             Return $False
         } -ModuleName "DockerLib"
 
-        It "should return true" {
-            Test-DockerInstalled | Should Be $True
+        Mock Test-IsLinux {
+            Return $True
+        } -ModuleName "DockerLib"
+
+        Context "Docker is installed" {
+            Mock "Test-AppInstalled" {
+                Return $True
+            } -ModuleName "DockerLib"
+
+            It "should return true" {
+                Test-DockerInstalled | Should Be $True
+            }
         }
-    }
 
-    Context "Only Docker Machine is installed" {
-        Mock "Test-DockerForWinInstalled" {
-            Return $False
-        } -ModuleName "DockerLib"
+        Context "Docker is not installed" {
+            Mock "Test-AppInstalled" {
+                Return $False
+            } -ModuleName "DockerLib"
 
-        Mock "Test-DockerToolboxInstalled" {
-            Return $True
-        } -ModuleName "DockerLib"
-
-        It "should return true" {
-            Test-DockerInstalled | Should Be $True
-        }
-    }
-
-    Context "Docker for Windows and Docker Machine are installed" {
-        Mock "Test-DockerForWinInstalled" {
-            Return $True
-        } -ModuleName "DockerLib"
-
-        Mock "Test-DockerToolboxInstalled" {
-            Return $True
-        } -ModuleName "DockerLib"
-
-        It "should return true" {
-            Test-DockerInstalled | Should Be $True
+            It "should return false" {
+                Test-DockerInstalled | Should Be $False
+            }
         }
     }
 }
