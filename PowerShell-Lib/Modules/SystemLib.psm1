@@ -111,6 +111,30 @@ Function Get-EOLCharacter {
 
 <#
     .SYNOPSIS
+    Returns the Linux OS ID.
+
+    .DESCRIPTION
+    The "Get-LinuxOsId" cmdlet mounts the "/etc/os-release" file and returns the operating system's ID.
+
+    .EXAMPLE
+    Get-LinuxOsId
+
+    .LINK
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Get-LinuxOsId.md
+#>
+Function Get-LinuxOsId {
+    If (Test-IsLinux) {
+        If (Test-Path -Path "/etc/os-release") {
+            Mount-EnvFile -EnvFilePath "/etc/os-release"
+            Return $env:ID
+        } Else {
+            Write-Warning -Message "File `"/etc/os-release`" not found."
+        }
+    }
+}
+
+<#
+    .SYNOPSIS
     Returns the OS version.
 
     .DESCRIPTION
@@ -125,6 +149,7 @@ Function Get-EOLCharacter {
 Function Get-OsVersion {
     Return [System.Environment]::OSVersion.Version
 }
+
 <#
     .SYNOPSIS
     Gets the processor bit architecture.
