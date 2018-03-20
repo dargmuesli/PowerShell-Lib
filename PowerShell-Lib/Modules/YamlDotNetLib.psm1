@@ -56,7 +56,7 @@ Function New-Yaml {
     )
 
     $Serializer = [YamlDotNet.Serialization.SerializerBuilder]::New().Build()
-    Return $Serializer.Serialize($Value).Trim((Get-EOLCharacter))
+    Return $Serializer.Serialize($Value).Trim()
 }
 
 Export-ModuleMember -Function *

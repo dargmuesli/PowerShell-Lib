@@ -36,6 +36,11 @@ Function Clear-Linebreaks {
     .PARAMETER MultiLineStrings
     The multi line strings that are to be joined.
 
+    .PARAMETER EOLCharacter
+    End of line character.
+    Either "`r", "`n" or `r`n".
+    Default is "`n".
+
     .PARAMETER Newline
     Whether to insert a newline between each string.
 
@@ -54,6 +59,10 @@ Function Join-MultiLineStrings {
         [ValidateNotNullOrEmpty()]
         [String[]] $MultiLineStrings,
 
+        [Parameter(Mandatory = $False)]
+        [ValidateSet('`r', '`n', '`r`n')]
+        [String] $EOLCharacter = "`n",
+
         [Switch] $Newline
     )
 
@@ -65,7 +74,7 @@ Function Join-MultiLineStrings {
         $OutputString += $MultiLineString
 
         If (($Newline) -And ($I -Ne $MultiLineStrings.Count)) {
-            $OutputString += (Get-EOLCharacter)
+            $OutputString += $EOLCharacter
         }
     }
 

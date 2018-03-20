@@ -14,6 +14,11 @@ Set-StrictMode -Version Latest
     .PARAMETER DocPath
     The path to where a functions markdown documentation can be found.
 
+    .PARAMETER EOLCharacter
+    End of line character.
+    Either "`r", "`n" or `r`n".
+    Default is "`n".
+
     .EXAMPLE
     New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\*") -DocPath "PowerShell-Lib/Docs"
 
@@ -28,7 +33,11 @@ Function New-ModuleMarkdown {
 
         [Parameter(Mandatory = $True, Position = 1)]
         [ValidateNotNullOrEmpty()]
-        [String] $DocPath
+        [String] $DocPath,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateSet('`r', '`n', '`r`n')]
+        [String] $EOLCharacter = "`n"
     )
 
     $SourceData = [Ordered]@{}
@@ -47,7 +56,6 @@ Function New-ModuleMarkdown {
     }
 
     $MarkdownString = "## Modules"
-    $EOLCharacter = Get-EOLCharacter
 
     Foreach ($SourceDataItem In $SourceData.GetEnumerator()) {
         $MarkdownString += "$EOLCharacter- **$($SourceDataItem.Name)**"

@@ -13,7 +13,7 @@ Creates a markdown list for all functions in specified files.
 ## SYNTAX
 
 ```
-New-ModuleMarkdown [-SourcePath] <String[]> [-DocPath] <String> [<CommonParameters>]
+New-ModuleMarkdown [-SourcePath] <String[]> [-DocPath] <String> [-EOLCharacter <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -54,6 +54,23 @@ Aliases:
 
 Required: True
 Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EOLCharacter
+End of line character.
+Either "\`r", "\`n" or \`r\`n".
+Default is "\`n".
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

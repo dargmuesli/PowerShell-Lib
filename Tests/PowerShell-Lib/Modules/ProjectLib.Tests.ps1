@@ -3,6 +3,8 @@ Set-StrictMode -Version Latest
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\PowerShell-Lib.psd1" -Force
 Import-Module -Name "${PSScriptRoot}\..\..\..\PowerShell-Lib\Modules\ProjectLib.psm1" -Force
 
+$EOLCharacter = (Get-EOLCharacter)
+
 Describe "New-ModuleMarkdown" {
     New-Item -Path "TestDrive:\Modules\" -Name "ModuleALib.ps1" -ItemType "File" -Value @"
     Function Get-Module {}
@@ -38,17 +40,9 @@ Describe "Read-Settings" {
 
     It "reads settings from JSON to PSCustomObject" {
         If ($PSVersionTable.PSVersion -Ge [System.Version]"6.0") {
-            ConvertTo-Json (Read-Settings -SourcePath @("TestDrive:\settings-a.json", "TestDrive:\settings-b.json")) | Should Be @"
-{
-  "Key": "value-b"
-}
-"@
+            ConvertTo-Json (Read-Settings -SourcePath @("TestDrive:\settings-a.json", "TestDrive:\settings-b.json")) | Should Be "{$EOLCharacter  `"Key`": `"value-b`"$EOLCharacter}"
         } Else {
-            ConvertTo-Json (Read-Settings -SourcePath @("TestDrive:\settings-a.json", "TestDrive:\settings-b.json")) | Should Be @"
-{
-    "Key":  "value-b"
-}
-"@
+            ConvertTo-Json (Read-Settings -SourcePath @("TestDrive:\settings-a.json", "TestDrive:\settings-b.json")) | Should Be "{$EOLCharacter    `"Key`":  `"value-b`"$EOLCharacter}"
         }
     }
 }
