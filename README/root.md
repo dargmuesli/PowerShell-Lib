@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/1h40wstbd2gssy57/branch/master?svg=true)](https://ci.appveyor.com/project/Dargmuesli/powershell-lib/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/1h40wstbd2gssy57/branch/master?svg=true)](https://ci.appveyor.com/project/Dargmuesli/PowerShell-Lib/branch/master)
 
 # PowerShell-Lib
 A library of helpful PowerShell functions.
@@ -8,13 +8,13 @@ As this module is only available on GitHub, [PSDepend](https://github.com/Rambli
 
 ```PowerShell
 Install-Module PSDepend -Scope "CurrentUser" -Force
-Invoke-PSDepend @{"dargmuesli/powershell-lib"="latest"} -Install
+Invoke-PSDepend @{"dargmuesli/PowerShell-Lib"="latest"} -Install
 ```
 
 PSDepend also allows other modules to depend on this one. Add the following line to your `Requirements.psd1` file:
 
 ```PowerShell
 @{
-    "dargmuesli/powershell-lib" = ""
+    "dargmuesli/PowerShell-Lib" = ""
 }
 ```
