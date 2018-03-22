@@ -7,11 +7,11 @@ Param (
 Set-StrictMode -Version Latest
 
 $PackagePath = Join-Path -Path $PSScriptRoot -ChildPath "Packages"
-$ManifestPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" "PowerShell-Lib.psd1"
-$DocsPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" "Docs"
-$ExternalHelpPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" "en-US"
-$ModuleMarkdownPath = (Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" "Modules")
-$ReadmeRootPath = (Join-Path -Path $PSScriptRoot -ChildPath "README" "root.md")
+$ManifestPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" | Join-Path -ChildPath "PowerShell-Lib.psd1"
+$DocsPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" | Join-Path -ChildPath "Docs"
+$ExternalHelpPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" | Join-Path -ChildPath "en-US"
+$ModuleMarkdownPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" | Join-Path -ChildPath "Modules"
+$ReadmeRootPath = Join-Path -Path $PSScriptRoot -ChildPath "README" | Join-Path -ChildPath "root.md"
 $ReadmeOutputPath = Join-Path -Path $PSScriptRoot -ChildPath "README.md"
 
 Function Import-RootModule {
