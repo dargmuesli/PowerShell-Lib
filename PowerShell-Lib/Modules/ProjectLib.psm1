@@ -43,7 +43,7 @@ Function New-ModuleMarkdown {
     $SourceData = [Ordered]@{}
 
     Foreach ($SourcePathItem In $SourcePath) {
-        $SourcePathItem = Get-ChildItem -Path "$SourcePathItem*"
+        $SourcePathItem = Get-ChildItem -Path (Join-Path -Path $SourcePathItem -ChildPath "*")
 
         Foreach ($SourcePathItemItem In $SourcePathItem) {
             $ModuleName = [System.IO.Path]::GetFileNameWithoutExtension($SourcePathItemItem)
