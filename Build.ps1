@@ -6,12 +6,20 @@ Param (
 
 Set-StrictMode -Version Latest
 
+$PackagePath = Join-Path -Path $PSScriptRoot -ChildPath "Packages"
+$ManifestPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" "PowerShell-Lib.psd1"
+$DocsPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" "Docs"
+$ExternalHelpPath = Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" "en-US"
+$ModuleMarkdownPath = (Join-Path -Path $PSScriptRoot -ChildPath "PowerShell-Lib" "Modules")
+$ReadmeRootPath = (Join-Path -Path $PSScriptRoot -ChildPath "README" "root.md")
+$ReadmeOutputPath = Join-Path -Path $PSScriptRoot -ChildPath "README.md"
+
 Function Import-RootModule {
     Param (
         [Switch] $Only
     )
 
-    Import-Module -Name "${PSScriptRoot}\PowerShell-Lib\PowerShell-Lib.psd1" -Force
+    Import-Module -Name $ManifestPath -Force
 }
 
 Function Install-Dependencies {
@@ -26,7 +34,7 @@ Function Install-Dependencies {
     Write-Host "Installing dependencies..." -ForegroundColor "Cyan"
 
     Install-ModuleOnce -Name @("platyPS", "Pester") -Force
-    Install-PackageOnce -Name @("YamlDotNet") -Destination "Packages" -Force
+    Install-PackageOnce -Name @("YamlDotNet") -Destination $PackagePath -Force
 }
 
 Function Test-Pester {
@@ -48,7 +56,7 @@ Function Clear-BuildFolders {
     )
 
     Write-Host "Clearing build folders..." -ForegroundColor "Cyan"
-    $BuildFolders = @("PowerShell-Lib\Docs", "PowerShell-Lib\en-US")
+    $BuildFolders = @($DocsPath, $ExternalHelpPath)
 
     ForEach ($BuildFolder In $BuildFolders) {
         Get-ChildItem -Path "$BuildFolder\*" | ForEach-Object {
@@ -69,9 +77,10 @@ Function New-Help {
     }
 
     Write-Host "Generating markdown help..." -ForegroundColor "Cyan"
-    New-MarkdownHelp -Module "PowerShell-Lib" -OutputFolder ".\PowerShell-Lib\Docs" -Locale "en-US"
+    New-MarkdownHelp -Module "PowerShell-Lib" -OutputFolder $DocsPath -Locale "en-US"
+
     Write-Host "Generating external help..." -ForegroundColor "Cyan"
-    New-ExternalHelp -Path ".\PowerShell-Lib\Docs" -OutputPath ".\PowerShell-Lib\en-US"
+    New-ExternalHelp -Path $DocsPath -OutputPath $ExternalHelpPath
 }
 
 Function New-Readme {
@@ -80,10 +89,11 @@ Function New-Readme {
     )
 
     Write-Host "Generating README..." -ForegroundColor "Cyan"
-    $ReadmeRoot = Get-Content -Path ".\README\root.md" -Raw
-    $ReadmeModules = New-ModuleMarkdown -SourcePath @(".\PowerShell-Lib\Modules\") -DocPath "PowerShell-Lib/Docs"
+    $ReadmeRoot = Get-Content -Path $ReadmeRootPath -Raw
+    $ReadmeModules = New-ModuleMarkdown -SourcePath $ModuleMarkdownPath -DocPath "PowerShell-Lib/Docs"
     $Readme = Join-MultiLineStrings -MultiLineStrings @($ReadmeRoot, $ReadmeModules) -Newline
-    [System.IO.File]::WriteAllLines("${PSScriptRoot}\README.md", $Readme)
+
+    [System.IO.File]::WriteAllLines($ReadmeOutputPath, $Readme)
 }
 
 Switch ($Task) {
