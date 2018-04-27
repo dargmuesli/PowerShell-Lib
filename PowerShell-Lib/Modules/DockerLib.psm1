@@ -723,7 +723,7 @@ Function Test-DockerRunning {
     Checks whether a Docker stack is running.
 
     .DESCRIPTION
-    The "Test-DockerStackRunning" cmdlet looks for a running container with a matching "stack.namespace" property.
+    The "Test-DockerStackRunning" cmdlet looks for a running network with a matching name.
 
     .PARAMETER StackNamespace
     The stack's name that is to be checked.
@@ -741,9 +741,9 @@ Function Test-DockerStackRunning {
         [String] $StackNamespace
     )
 
-    $ServiceList = Invoke-Docker ps --filter "label=com.docker.stack.namespace=$StackNamespace" -q | Out-String
+    $NetworkList = Invoke-Docker network ls --filter name=${StackNamespace}_default -q | Out-String
 
-    If ($ServiceList) {
+    If ($NetworkList) {
         Return $True
     } Else {
         Return $False
