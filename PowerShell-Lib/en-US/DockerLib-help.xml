@@ -1257,7 +1257,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The "Test-DockerStackRunning" cmdlet looks for a running container with a matching "stack.namespace" property.</maml:para>
+      <maml:para>The "Test-DockerStackRunning" cmdlet looks for a running network with a matching name.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>

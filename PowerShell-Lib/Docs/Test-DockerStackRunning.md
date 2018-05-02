@@ -17,7 +17,7 @@ Test-DockerStackRunning [-StackNamespace] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The "Test-DockerStackRunning" cmdlet looks for a running container with a matching "stack.namespace" property.
+The "Test-DockerStackRunning" cmdlet looks for a running network with a matching name.
 
 ## EXAMPLES
 
