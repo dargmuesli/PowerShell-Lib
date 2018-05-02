@@ -638,7 +638,16 @@ Function Read-Prompt {
     If ($NoColors) {
         Return $Host.UI.PromptForChoice($Caption, $Message, $Choices, $DefaultChoice)
     } Else {
-        Write-MultiColor -Text @("$Caption$(Get-EOLCharacter)", $Message) -Color Yellow, $Host.UI.RawUI.ForegroundColor
+        $ForegroundColor = $Null
+
+        If ($Host.UI.RawUI.ForegroundColor) {
+            $ForegroundColor = $Host.UI.RawUI.ForegroundColor
+        } Else {
+            $ForegroundColor = "White"
+        }
+
+        Write-MultiColor -Text @("$Caption$(Get-EOLCharacter)", $Message) -Color @("Yellow", $ForegroundColor)
+
         Return $Host.UI.PromptForChoice($Null, $Null, $Choices, $DefaultChoice)
     }
 }
@@ -1311,7 +1320,7 @@ Function Write-MultiColor {
             Write-Host $Text[$I] -ForegroundColor $Color[$I] -NoNewLine
         }
     } Else {
-        For ($I = 0; $I -Lt $Color.Length ; $I++) {
+        For ($I = 0; $I -Lt $Color.Length; $I++) {
             Write-Host $Text[$I] -ForegroundColor $Color[$I] -NoNewLine
         }
         For ($I = $Color.Length; $I -Lt $Text.Length; $I++) {
