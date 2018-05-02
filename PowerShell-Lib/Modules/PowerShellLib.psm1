@@ -74,10 +74,6 @@ Function Convert-PSCustomObjectToHashtable {
                 $Hashtable[$InputProperty.Name] = Convert-PSCustomObjectToHashtable -InputObject ([PSCustomObject] $InputProperty.Value) -YamlDotNet_DoubleQuoted:$YamlDotNet_DoubleQuoted
                 Break
             }
-            {@("Int32", "Boolean") -Contains $PSItem} {
-                $Hashtable[$InputProperty.Name] = $InputProperty.Value
-                Break
-            }
             "String" {
                 If ($YamlDotNet_DoubleQuoted) {
                     $InputProperty.Value = New-DoubleQuotedString($InputProperty.Value)
@@ -98,6 +94,10 @@ Function Convert-PSCustomObjectToHashtable {
                 }
 
                 $Hashtable[$InputProperty.Name] = [Object[]] $ObjectArray
+                Break
+            }
+            Default {
+                $Hashtable[$InputProperty.Name] = $InputProperty.Value
                 Break
             }
         }
