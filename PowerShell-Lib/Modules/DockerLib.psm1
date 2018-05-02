@@ -442,15 +442,7 @@ Function Start-DockerRegistry {
     )
 
     While (-Not (Test-DockerRegistryRunning -Hostname $Hostname -Port $Port)) {
-        $DockerInspectConfigHostname = Invoke-Docker inspect -f "{{.Config.Hostname}}" $RegistryName |
-            Out-String |
-            ForEach-Object {
-            If ($PSItem) {
-                Clear-Linebreaks -String $PSItem
-            }
-        }
-
-        If ($DockerInspectConfigHostname) {
+        If (Test-DockerContainerExists -Name $RegistryName) {
             Invoke-Docker start $RegistryName
         } Else {
             If (Read-PromptYesNo -Caption "Docker registry does not exist." -Message "Do you want to initialize it automatically?" -DefaultChoice 0) {
@@ -518,6 +510,66 @@ Function Stop-DockerStack {
     Invoke-Docker stack rm $StackName
 
     Wait-Test -Test "Test-DockerStackRunning -StackNamespace $StackName" -WithProgressBar -Activity "Waiting for Docker stack to quit"
+}
+
+<#
+    .SYNOPSIS
+    Checks whether a Docker container exists.
+
+    .DESCRIPTION
+    The "Test-DockerContainerExists" cmdlet queries all containers, filtering them by the given name, and returns true if there is a query result.
+
+    .PARAMETER Name
+    The name of the container that is to be checked.
+
+    .EXAMPLE
+    Test-DockerContainerExists -Name "registry"
+
+    .LINK
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-DockerContainerExists.md
+#>
+Function Test-DockerContainerExists {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Name
+    )
+
+    If (Invoke-Docker ps -aq --filter "name=$Name") {
+        Return $True
+    } Else {
+        Return $False
+    }
+}
+
+<#
+    .SYNOPSIS
+    Checks whether a Docker container is running.
+
+    .DESCRIPTION
+    The "Test-DockerContainerRunning" cmdlet queries the running containers, filtering them by the given name, and returns true if there is a query result.
+
+    .PARAMETER Name
+    The name of the container that is to be checked.
+
+    .EXAMPLE
+    Test-DockerContainerRunning -Name "registry"
+
+    .LINK
+    https://github.com/Dargmuesli/PowerShell-Lib/blob/master/PowerShell-Lib/Docs/Test-DockerContainerRunning.md
+#>
+Function Test-DockerContainerRunning {
+    Param (
+        [Parameter(Mandatory = $True, Position = 0)]
+        [ValidateNotNullOrEmpty()]
+        [String] $Name
+    )
+
+    If (Invoke-Docker ps -q --filter "name=$Name") {
+        Return $True
+    } Else {
+        Return $False
+    }
 }
 
 <#

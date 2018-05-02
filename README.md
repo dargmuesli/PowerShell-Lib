@@ -38,6 +38,8 @@ PSDepend also allows other modules to depend on this one. Add the following line
   - [Start-DockerRegistry](PowerShell-Lib/Docs/Start-DockerRegistry.md)
   - [Stop-DockerMachine](PowerShell-Lib/Docs/Stop-DockerMachine.md)
   - [Stop-DockerStack](PowerShell-Lib/Docs/Stop-DockerStack.md)
+  - [Test-DockerContainerExists](PowerShell-Lib/Docs/Test-DockerContainerExists.md)
+  - [Test-DockerContainerRunning](PowerShell-Lib/Docs/Test-DockerContainerRunning.md)
   - [Test-DockerForWinInstalled](PowerShell-Lib/Docs/Test-DockerForWinInstalled.md)
   - [Test-DockerInstalled](PowerShell-Lib/Docs/Test-DockerInstalled.md)
   - [Test-DockerInSwarm](PowerShell-Lib/Docs/Test-DockerInSwarm.md)
