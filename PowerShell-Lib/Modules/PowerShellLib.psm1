@@ -640,7 +640,7 @@ Function Read-Prompt {
     } Else {
         $ForegroundColor = $Null
 
-        If ($Host.UI.RawUI.ForegroundColor) {
+        If ($Host.UI.RawUI.ForegroundColor -Ne -1) {
             $ForegroundColor = $Host.UI.RawUI.ForegroundColor
         } Else {
             $ForegroundColor = "White"
