@@ -85,10 +85,17 @@ Function Convert-PSCustomObjectToHashtable {
             "Object[]" {
                 $ObjectArray = $InputProperty.Value
 
-                If ($YamlDotNet_DoubleQuoted) {
-                    ForEach ($Item In $ObjectArray) {
-                        If ($Item.GetType().Name -Eq "String") {
-                            $ObjectArray = Set-ArrayItem -Array $ObjectArray -NewItem (New-DoubleQuotedString($Item)) -OldItem $Item
+                ForEach ($Item In $ObjectArray) {
+                    Switch ($Item.GetType().Name) {
+                        {@("Hashtable", "PSCustomObject") -Contains $PSItem} {
+                            $ObjectArray = Set-ArrayItem -Array $ObjectArray -NewItem (Convert-PSCustomObjectToHashtable -InputObject $Item -YamlDotNet_DoubleQuoted:$YamlDotNet_DoubleQuoted) -OldItem $Item
+                        }
+                        "String" {
+                            If ($YamlDotNet_DoubleQuoted) {
+                                $ObjectArray = Set-ArrayItem -Array $ObjectArray -NewItem (New-DoubleQuotedString($Item)) -OldItem $Item
+                            }
+
+                            Break
                         }
                     }
                 }
