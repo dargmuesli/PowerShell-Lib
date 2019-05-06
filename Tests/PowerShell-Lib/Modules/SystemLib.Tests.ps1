@@ -20,31 +20,61 @@ Describe "Get-DefaultPackageManager" {
 }
 
 Describe "Get-DownloadFolder" {
-    Context "Windows 10 and above" {
-        Mock "Get-OsVersion" {
-            Return New-Object "System.Version" "8.0.0.0"
+    Context "Windows" {
+        Mock "Test-IsLinux" {
+            Return $False
         } -ModuleName "SystemLib"
 
-        Mock "Get-ItemPropertyValue" {
-            Return "C:\Downloads"
+        Mock "Test-IsWindows" {
+            Return $True
         } -ModuleName "SystemLib"
 
-        It "should return download folder" {
-            Get-DownloadFolder | Should Be "C:\Downloads"
+        Context "10 and above" {
+            Mock "Get-OsVersion" {
+                Return New-Object "System.Version" "10.0.0.0"
+            } -ModuleName "SystemLib"
+
+            Mock "Get-ItemPropertyValue" {
+                Return "C:\Downloads"
+            } -ModuleName "SystemLib"
+
+            It "should return download folder" {
+                Get-DownloadFolder | Should Be "C:\Downloads"
+            }
+        }
+
+        Context "Below 10" {
+            Mock "Get-OsVersion" {
+                Return New-Object "System.Version" "8.0.0.0"
+            } -ModuleName "SystemLib"
+
+            Mock "Get-ItemPropertyValue" {
+                Return "C:\Downloads"
+            } -ModuleName "SystemLib"
+
+            It "should return download folder" {
+                Get-DownloadFolder | Should Be "C:\Downloads"
+            }
         }
     }
 
-    Context "Below Windows 10" {
-        Mock "Get-OsVersion" {
-            Return New-Object "System.Version" "10.0.0.0"
+    Context "Linux" {
+        Mock "Test-IsLinux" {
+            Return $True
         } -ModuleName "SystemLib"
 
-        Mock "Get-ItemPropertyValue" {
-            Return "C:\Downloads"
+        Mock "Test-IsWindows" {
+            Return $False
         } -ModuleName "SystemLib"
 
-        It "should return false" {
-            Get-DownloadFolder | Should Be "C:\Downloads"
+        Context "Below Windows 10" {
+            Mock "Invoke-Expression" {
+                Return "/home/user/Downloads"
+            } -ModuleName "SystemLib"
+
+            It "should return download folder" {
+                Get-DownloadFolder | Should Be "/home/user/Downloads"
+            }
         }
     }
 }
