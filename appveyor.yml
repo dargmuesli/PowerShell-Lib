@@ -1,45 +1,28 @@
 environment:
   LANG: en_US.utf-8
   matrix:
-  - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
-    clone_folder: /home/appveyor/projects/PowerShell-Lib
-  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-    clone_folder: c:\projects\PowerShell-Lib
+  - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu1804
+    CLONE_FOLDER: /home/appveyor/projects/PowerShell-Lib
+    PS_BIN: pwsh
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+    CLONE_FOLDER: c:\projects\PowerShell-Lib
+    PS_BIN: powershell
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+    CLONE_FOLDER: c:\projects\PowerShell-Lib
+    PS_BIN: pwsh
 
 version: '{build}'
 
-clone_folder: $(clone_folder)
-
-init:
-  - ps: |
-      $PSVersionTable
-      git config --global core.autocrlf input
-      git config --list --show-origin
+clone_folder: $(CLONE_FOLDER)
 
 install:
-  - ps: |
-      Install-Module -Name "Pester" -Scope "CurrentUser" -Force
+  - ps: .$env:PS_BIN -File (Join-Path -Path $env:CLONE_FOLDER -ChildPath "appveyor" | Join-Path -ChildPath "install.ps1")
 
 build_script:
-  - ps: |
-      $ErrorActionPreference = "Stop"
-      .\Build.ps1 -Task "CI"
+  - ps: .$env:PS_BIN -File (Join-Path -Path $env:CLONE_FOLDER -ChildPath "appveyor" | Join-Path -ChildPath "build_script.ps1")
 
 test_script:
-  - ps: |
-      $PesterTestResultsFile = ".\TestsResults.xml"
-      $Pester = Invoke-Pester -OutputFormat NUnitXml -OutputFile $PesterTestResultsFile -PassThru
-      $WebClient = New-Object "System.Net.WebClient"
-      $PesterTestResultsFilePath = Resolve-Path -Path $PesterTestResultsFile
-      $WebClient.UploadFile("https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)", $PesterTestResultsFilePath)
-      If ($Pester.FailedCount -Gt 0) {
-          Throw "$(${Pester}.FailedCount) tests failed."
-      }
+  - ps: .$env:PS_BIN -File (Join-Path -Path $env:CLONE_FOLDER -ChildPath "appveyor" | Join-Path -ChildPath "test_script.ps1")
 
 on_finish:
-  - ps: |
-      Add-Type -AssemblyName System.IO.Compression.FileSystem
-      $ZipFolder = Join-Path -Path $PWD -ChildPath $env:APPVEYOR_PROJECT_NAME
-      $ZipFile = Join-Path -Path $PWD -ChildPath "$($env:APPVEYOR_PROJECT_NAME)_$($env:APPVEYOR_BUILD_VERSION).zip"
-      Compress-Archive -Path $ZipFolder -DestinationPath $ZipFile
-      Push-AppveyorArtifact -Path $ZipFile
+  - ps: .$env:PS_BIN -File (Join-Path -Path $env:CLONE_FOLDER -ChildPath "appveyor" | Join-Path -ChildPath "on_finish.ps1")
