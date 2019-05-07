@@ -1,4 +1,5 @@
 environment:
+  LANG: en_US.utf-8
   matrix:
   - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
     clone_folder: /home/appveyor/projects/PowerShell-Lib
