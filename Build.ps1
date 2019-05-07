@@ -27,9 +27,15 @@ Function Install-Dependencies {
         [Switch] $Only
     )
 
-    If (-Not (Get-PackageSource -Name "nuget.org" -ErrorAction "SilentlyContinue")) {
-        Register-PackageSource -Name "nuget.org" -ProviderName "NuGet" -Location "https://www.nuget.org/api/v2/"
+    If (Get-PackageSource | Where-Object { $PSItem.Location -Eq "https://api.nuget.org/v3/index.json" }) {
+        Unregister-PackageSource -Location "https://api.nuget.org/v3/index.json"
     }
+
+    If (-Not (Get-PackageSource | Where-Object { $PSItem.Location -Eq "https://www.nuget.org/api/v2/" })) {
+        Register-PackageSource -Name "nuget.org v2" -ProviderName "NuGet" -Location "https://www.nuget.org/api/v2/"
+    }
+
+    Get-PackageSource
 
     Write-Host "Installing dependencies..." -ForegroundColor "Cyan"
 
